@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.book.web.BookInfoControl;
+import co.yedam.book.web.BookMainControl;
+
 public class FrontController extends HttpServlet {
 
 	// init > service
@@ -17,7 +20,12 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-	
+		//강현진
+		map.put("/main.do", new MainPageControl()); //메인 페이지
+		map.put("/bookmain.do", new BookMainControl()); //
+		map.put("/bookInfo.do", new BookInfoControl()); //상세 페이지
+		
+		
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행
