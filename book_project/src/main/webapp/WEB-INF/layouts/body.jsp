@@ -68,7 +68,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="AA.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="AA.jpg"> <!-- 이거 확인 잘하고 -->
                     <div class="pt-3 flex items-center justify-between">
                         <p class="">Product Name</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
