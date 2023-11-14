@@ -35,7 +35,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/도파민 (세 개의 단어, 그리고 십분2).jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/도파민 (세 개의 단어, 그리고 십분2).jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">도파민</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/꿈에서 본 것 같아.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/꿈에서 본 것 같아.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">꿈에서 본 것 같아</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
 
                     <img class="hover:grow hover:shadow-lg" src=""> <!-- 이거 확인 잘하고 -->
 
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/내 하루는 네 시간.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/내 하루는 네 시간.jpg">
 
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">내 하루는 네 시간</p>
@@ -78,7 +78,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/벚꽃이 피는데 헤어지자 말한다.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/벚꽃이 피는데 헤어지자 말한다.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">벚꽃이 피는데 헤어지자 말한다</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="bookInfo.do">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/슬로우 칸쿤.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/슬로우 칸쿤.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">슬로우 칸쿤</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/시 탐정 사무소.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/시 탐정 사무소.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">시 탐정 사무소</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/양천구와 성북구의 평행이론.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/양천구와 성북구의 평행이론.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">양천구와 성북구의 평행이론</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="resources/images/오늘, 엽서를.jpg">
+                    <img class="hover:grow hover:shadow-lg" src="resources/image/오늘, 엽서를.jpg">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="book_title">오늘, 엽서를</p>
                         <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
