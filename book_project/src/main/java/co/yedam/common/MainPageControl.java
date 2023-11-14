@@ -8,7 +8,12 @@ public class MainPageControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		
+		try {
+			resp.sendRedirect("bookmain.do");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

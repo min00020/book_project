@@ -15,6 +15,7 @@ import co.yedam.book.web.BookMainControl;
 
 public class FrontController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 	// init > service
 	Map<String, Command> map = new HashMap<>();
 
