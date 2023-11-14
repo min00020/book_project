@@ -16,6 +16,12 @@ import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
 
+import co.yedam.user.web.JoinControl;
+import co.yedam.user.web.JoinFormControl;
+import co.yedam.user.web.LoginControl;
+import co.yedam.user.web.LoginFormControl;
+import co.yedam.user.web.LogoutControl;
+
 public class FrontController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -24,6 +30,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+
 	// 장바구니 
 	map.put("/cartListInfo.do", new cartControl());
 	// 주문
@@ -37,8 +44,11 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/bookshop.do", new BookShopControl());
 		
-		
-		
+		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
+		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
+		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
+		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
+		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행
