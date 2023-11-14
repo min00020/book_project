@@ -12,19 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.cart.web.cartControl;
 import co.yedam.order.web.orderControl;
+import co.yedam.book.web.BookInfoControl;
+import co.yedam.book.web.BookMainPageControl;
+import co.yedam.book.web.BookShopControl;
 
 public class FrontController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 	// init > service
 	Map<String, Command> map = new HashMap<>();
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-	
 	// 장바구니 
 	map.put("/cartListInfo.do", new cartControl());
 	// 주문
 	map.put("/orderListInfo.do", new orderControl());
+		//강현진
+		map.put("/main.do", new MainPageControl());
+		
+		map.put("/bookmainpage.do", new BookMainPageControl());
+		
+		map.put("/bookInfo.do", new BookInfoControl());
+		
+		map.put("/bookshop.do", new BookShopControl());
+		
+		
+		
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행

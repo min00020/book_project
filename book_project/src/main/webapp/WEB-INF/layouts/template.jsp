@@ -31,6 +31,7 @@
 <body
 	class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
+<<<<<<< HEAD
 	<!-- Header-->
 	<tiles:insertAttribute name="header"></tiles:insertAttribute>
 	<!-- banner -->
@@ -39,6 +40,16 @@
 	<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	<!-- Footer-->
 	<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+=======
+ 		<!-- Header-->
+        <tiles:insertAttribute name="header"></tiles:insertAttribute>
+        <!-- banner -->
+        <tiles:insertAttribute name="banner"></tiles:insertAttribute>
+        <!-- Section-->
+        <tiles:insertAttribute name="body"></tiles:insertAttribute>
+        <!-- Footer-->
+        <tiles:insertAttribute name="footer"></tiles:insertAttribute>
+>>>>>>> refs/heads/develop
 
 </body>
 

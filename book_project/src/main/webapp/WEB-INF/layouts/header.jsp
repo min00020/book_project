@@ -17,6 +17,7 @@
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">BOOKSHOP</a></li>
+                        
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Q&A</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">REVIEW</a></li>
@@ -29,7 +30,7 @@
             </div>
 
             <div class="order-2 md:order-3 flex items-center" id="nav-content">
-                <a class="headerProductSearchContent" data-type="english">Search</a>
+                <a class="headerProductSearchContent" data-type="english"></a>
                 <a class="inline-block no-underline hover:text-black" href="#">
                     <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <circle fill="none" cx="12" cy="7" r="3" />
