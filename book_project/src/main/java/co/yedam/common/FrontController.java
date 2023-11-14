@@ -42,11 +42,11 @@ public class FrontController extends HttpServlet {
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());
-		
+		//메인 페이지
 		map.put("/bookmainpage.do", new BookMainPageControl());
-		
+		//책 상세 페이지
 		map.put("/bookInfo.do", new BookInfoControl());
-		
+		//북 샵
 		map.put("/bookshop.do", new BookShopControl());
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */

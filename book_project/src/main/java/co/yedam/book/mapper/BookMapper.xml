@@ -13,4 +13,8 @@
 	<select id="getBkInfo" resultType="co.yedam.book.service.BookVO">
 		SELECT * FROM BOOK ORDER BY BOOK_NO DESC
 	</select>
+	
+	<select id="bkshop" resultType="co.yedam.book.service.BookVO">
+		SELECT * FROM BOOK
+	</select>
 </mapper>
