@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CartService {
 
-	public List<CartVO> cartList();
+	public List<CartVO> cartList(); // 전체
 }

@@ -13,24 +13,23 @@
 <div
 	class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 	<h1>장바구니목록</h1>
+	${cartList }
 	<table class="table">
 	<thead>
 		<tr>
-			<th>아이디</th>
-			<th>이름</th>
+			<th>장바구니 번호</th>
+			<th>책 번호</th>
 			<th>연락처</th>
 		</tr>
 	</thead>
 	<tbody>
-	
 	<c:forEach items="${cartList }" var="list">
 		<tr>
-			<td>${list.cart_code }</td>
-			<td>${list.book_no }</td>
-			<td>${list.user_id }</td>
-			<td>${list.cart_amount }</td>
+			<td>${list.cartcode }</td>
+			<td>${list.bookno }</td>
+			<td>${list.userid }</td>
+			<td>${list.cartamount }</td>
 		</tr>
-		
 	</c:forEach>
 	</tbody>
 </table>
