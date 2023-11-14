@@ -1,16 +1,18 @@
-package co.yedam.cart.web;
+package co.yedam.user.web;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Command;
 
-public class cartControl implements Command {
+public class JoinFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		String path = "/WEB-INF/cart/cart.jsp";
+		String path = "WEB-INF/main/joinForm.jsp";
 		
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);

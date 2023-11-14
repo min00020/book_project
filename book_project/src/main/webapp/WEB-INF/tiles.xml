@@ -15,20 +15,4 @@
 		<put-attribute name="body" value="/WEB-INF/book/{1}.jsp" />
 	</definition>
 
-
-	<definition name="cart-page" template="/WEB-INF/layouts/carttemplate.jsp">
-		<put-attribute name="title" value="상품 목록 템플릿" />
-		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp" />
-		<put-attribute name="banner" value="/WEB-INF/layouts/banner.jsp" />
-		<put-attribute name="body" value="/WEB-INF/layouts/body.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
-	</definition>
-	<definition name="WILDCARD:*/*" extends="bookpage">
-		<put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp" /> <!-- 상세 -->
-	</definition>
-	
-	<definition name="WILDCARD:cart/*" extends="cart-page">
-		<put-attribute name="body" value="/WEB-INF/cart/{1}.jsp" />
-	</definition>
-	
 </tiles-definitions>
