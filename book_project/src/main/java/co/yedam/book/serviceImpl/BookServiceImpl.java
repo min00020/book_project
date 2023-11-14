@@ -9,26 +9,25 @@ import co.yedam.book.service.BookService;
 import co.yedam.book.service.BookVO;
 import co.yedam.common.DataSourceMybatis;
 
-public class BookServiceImpl implements BookService{
-	
+public class BookServiceImpl implements BookService {
 	private SqlSession sql = DataSourceMybatis.getInstance().openSession(true);
 	private BookMapper mapper = sql.getMapper(BookMapper.class);
 	
 	@Override
 	public List<BookVO> bookList() {
-	
 		return mapper.bkList();
 	}
 
 	@Override
 	public BookVO getBook(String bookvo) {
-	
 		return mapper.getBk(bookvo);
 	}
 
+	
+
 	@Override
-	public List<BookVO> getBookInfo() { //상세
-		return mapper.bkList();
+	public List<BookVO> selectBook() {
+		return mapper.getBkInfo();
 	}
 
 }

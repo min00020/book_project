@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.book.web.BookInfoControl;
-import co.yedam.book.web.BookMainControl;
+import co.yedam.book.web.BookMainPageControl;
+import co.yedam.book.web.BookShopControl;
+
 
 public class FrontController extends HttpServlet {
 
@@ -22,9 +24,14 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		//강현진
-		map.put("/main.do", new MainPageControl()); //메인 페이지
-		map.put("/bookmain.do", new BookMainControl()); //
-		map.put("/bookInfo.do", new BookInfoControl()); //상세 페이지
+		map.put("/main.do", new MainPageControl());
+		
+		map.put("/bookmainpage.do", new BookMainPageControl());
+		
+		map.put("/bookInfo.do", new BookInfoControl());
+		
+		map.put("/bookshop.do", new BookShopControl());
+		
 		
 		
 	}

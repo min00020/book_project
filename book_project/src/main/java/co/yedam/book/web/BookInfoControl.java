@@ -16,16 +16,18 @@ public class BookInfoControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		// TODO Auto-generated method stub
 		String path = "book/bookInfo.tiles";
 		
 		String bno = req.getParameter("bno");
 		
 		BookService svc = new BookServiceImpl();
-		BookVO vo = svc.getBook(bno);  // 북을 가져오는 것
+		
+		BookVO vo = svc.getBook(bno);
 		
 		req.setAttribute("bno", vo);
 		
-		List<BookVO> list = svc.bookList();  // 리스트
+		List<BookVO> list = svc.selectBook();
 		
 		req.setAttribute("list", list);
 		
@@ -34,9 +36,6 @@ public class BookInfoControl implements Command {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-
 	}
 
 }
