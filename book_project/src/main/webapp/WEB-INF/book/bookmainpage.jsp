@@ -4,7 +4,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
-	  <section class="bg-white py-8">
+<div id="item25167470" class="item-wrapper text-title" data-type="item"
+	data-itemtype="text-title" data-orderno="1" data-sectionno="8560024"
+	data-itemno="25167470" cid="item25167470" style="">
+	<div id="itemElement25167470" class="item-element" style="">
+		<p class="" style="text-align: center; font-size: 22px;">
+			<span text-style-option="color" style="color: rgb(0, 0, 0);">Reading books changes my life</span>
+		</p>
+	</div>
+</div>
+
+
+<section class="bg-white py-8">
 
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
@@ -139,12 +150,12 @@
                     </div>
                     <p class="pt-1 text-gray-900">£9.99</p>
                 </a>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Add to cart</a></div>
+            </div>
             </div>
 
             </div>
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="productInfo.do?pno=${product.prodCode }">Add to cart</a></div>
-                            </div>
              
 
     </section>

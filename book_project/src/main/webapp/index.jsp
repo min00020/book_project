@@ -11,6 +11,4 @@
 	<h3>index.jsp</h3>
 </body>
 </html>
-=======
 <jsp:forward page="main.do"></jsp:forward>
->>>>>>> refs/heads/develop
