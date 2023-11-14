@@ -10,7 +10,7 @@ public class cartControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		String path = "cart/cart.tiles";
+		String path = "/WEB-INF/cart/cart.jsp";
 		
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
