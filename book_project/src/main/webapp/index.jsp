@@ -8,9 +8,5 @@
 </head>
 <body>
 	<h3>index.jsp</h3>
-	<a href="productpage.tiles">tiles페이지</a>
-	
-	<a href="orderListInfo.do">주문페이지</a>
-	<a href="cartListInfo.do">장바구니페이지</a>
 </body>
 </html>
