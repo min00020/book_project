@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.cart.web.cartControl;
+import co.yedam.order.web.orderControl;
+
 public class FrontController extends HttpServlet {
 
 	// init > service
@@ -18,6 +21,10 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	
+	// 장바구니 
+	map.put("/cartListInfo.do", new cartControl());
+	// 주문
+	map.put("/orderListInfo.do", new orderControl());
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행

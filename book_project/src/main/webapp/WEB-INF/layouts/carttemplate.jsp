@@ -33,8 +33,6 @@
 
 	<!-- Header-->
 	<tiles:insertAttribute name="header"></tiles:insertAttribute>
-	<!-- banner -->
-	<tiles:insertAttribute name="banner"></tiles:insertAttribute>
 	<!-- Section-->
 	<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	<!-- Footer-->
