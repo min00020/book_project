@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.DeleteCartControl;
-import co.yedam.cart.web.cartListControl;
-import co.yedam.order.web.orderControl;
+import co.yedam.cart.web.CartListControl;
+import co.yedam.order.web.OrderListControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
@@ -32,17 +32,13 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// 장바구니 
-		map.put("/cartListInfo.do", new cartControl());
 		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+		map.put("/orderListInfo.do", new OrderListControl());
 
 		// 장바구니 
-		map.put("/cartListInfo.do", new cartListControl());
-		map.put("addCart.do", new AddCartControl());
+		map.put("/cartListInfo.do", new CartListControl());
+		map.put("/addCart.do", new AddCartControl());
 		map.put("/deleteCart.do", new DeleteCartControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Command;
 
-public class orderControl implements Command {
+public class OrderListControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
