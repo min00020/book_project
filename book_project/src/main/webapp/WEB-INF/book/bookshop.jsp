@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-
 <style>
 .product{
   padding:10px;
@@ -39,9 +37,12 @@
 </style>
 
 
-<input type="text" id="search-input">
-<button id="search-btn">검색</button>
-<ul id="search-results"></ul>
+
+
+<form action="searchResult.jsp" method="get">
+    <input type="text" name="query" placeholder="검색어 입력">
+    <input type="submit" value="검색">
+</form>
 
 
 
@@ -98,20 +99,20 @@
 	
 	<div class="line" style="list-style-type: none;">
 	
-		<div class="product">별책부록</div>
-		<div class="product">매거진</div>
-		<div class="product">시, 소설, 에세이</div>
-		<div class="product">일러스트, 회화, 만화</div>
-		<div class="product">영화</div>
-		<div class="product">디자인, 창작, 실용</div>
-		<div class="product">사진</div>
-		<div class="product">음악, 공연, 예술</div>
-		<div class="product">건축, 공간, 로컬</div>
-		<div class="product">철학, 인문, 교양</div>
-		<div class="product">여행</div>
-		<div class="product">생활, 요리, 취미</div>
-		<div class="product">해외도서</div>
-		<div class="product">스티커</div>
+		<div type="button" class="product" href="">별책부록</div>
+		<div type="button" class="product">매거진</div>
+		<div type="button" class="product">시, 소설, 에세이</div>
+		<div type="button" class="product">일러스트, 회화, 만화</div>
+		<div type="button" class="product">영화</div>
+		<div type="button" class="product">디자인, 창작, 실용</div>
+		<div type="button" class="product">사진</div>
+		<div type="button" class="product">음악, 공연, 예술</div>
+		<div type="button" class="product">건축, 공간, 로컬</div>
+		<div type="button" class="product">철학, 인문, 교양</div>
+		<div type="button" class="product">여행</div>
+		<div type="button" class="product">생활, 요리, 취미</div>
+		<div type="button" class="product">해외도서</div>
+		<div type="button" class="product">스티커</div>
 	</div>
 	
 	</div>
