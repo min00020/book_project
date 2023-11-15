@@ -21,7 +21,7 @@
 		<put-attribute name="body" value="/WEB-INF/admin/layouts/body.jsp" />
 	</definition>
 	
-	<definition name="WILDCARD:admin/*" extends="bookpage">
+	<definition name="WILDCARD:admin/*" extends="adminpage">
 		<put-attribute name="body" value="/WEB-INF/admin/{1}.jsp" />
 	</definition>
 	

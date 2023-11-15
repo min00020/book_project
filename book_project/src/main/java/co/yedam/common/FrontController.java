@@ -57,7 +57,6 @@ public class FrontController extends HttpServlet {
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
 		
-		
 		//관리자
 		map.put("/admin.do", new AdminControl());
 		//인스타
@@ -72,10 +71,10 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getServletContext().getContextPath(); 
 		String page = uri.substring(context.length()); 
-		System.out.println(page); 
+		System.out.println("프론트: "+page); 
 		
 		Command controller = map.get(page);
-		System.out.println(page);
+		System.out.println("프론트: "+page);
 		controller.execute(req, resp);
 
 	}
