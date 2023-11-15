@@ -10,5 +10,5 @@ public interface UserMapper {
 	public boolean delete(UserVO vo);
 	
 	public UserVO getUser(@Param("id")String id, @Param("pw") String pw);
-	public String idcheck(String user_id);
+	public int idcheck(UserVO vo);
 }

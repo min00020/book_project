@@ -6,6 +6,7 @@ import co.yedam.common.DataSourceMybatis;
 import co.yedam.user.mapper.UserMapper;
 import co.yedam.user.service.UserService;
 import co.yedam.user.service.UserVO;
+import lombok.Setter;
 
 public class UserServiceImpl implements UserService {
 
@@ -33,8 +34,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String IdCheck(String user_id) {
-		return mapper.idcheck(user_id);
+	public int IdCheck(UserVO vo) {
+		return mapper.idcheck(vo);
 	}
+
 
 }
