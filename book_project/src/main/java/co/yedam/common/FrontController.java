@@ -33,7 +33,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 장바구니 
-		map.put("/cartListInfo.do", new cartControl());
+		map.put("/cartListInfo.do", new cartListControl());
 		// 주문
 		map.put("/orderListInfo.do", new orderControl());
 
