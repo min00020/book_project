@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +10,4 @@
 	<h3>index.jsp</h3>
 </body>
 </html>
-=======
 <jsp:forward page="main.do"></jsp:forward>
->>>>>>> refs/heads/develop

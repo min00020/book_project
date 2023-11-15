@@ -8,7 +8,7 @@
 		<div class="row gx-4 gx-lg-5 align-items-center">
 			<div class="col-md-6">
 				<img class="card-img-top mb-5 mb-md-0"
-					src="resources/images/${vo.bookImage }" alt="..." />
+					src="resources/image/${vo.bookImage }" alt="..." />
 			</div>
 			<div class="col-md-6">
 				<div class="small mb-1">${vo.bookNo }</div>
@@ -31,34 +31,24 @@
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
-		<h2 class="fw-bolder mb-4">Related products</h2>
+		<h2 class="fw-bolder mb-4">Another book</h2>
 		<div
 			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-			<c:forEach items="${list }" var="product" end="3">
+			<c:forEach items="${list }" var="vo" end="3">
 				<!-- 상품목록 -->
 				<div class="col mb-5">
 					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute"
-							style="top: 0.5rem; right: 0.5rem">Sale</div>
 						<!-- Product image-->
 						<img class="card-img-top"
-							src="resources/images/${product.prodImage }" alt="..." />
+							src="resources/image/${vo.bookImage }" alt="..." />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">${product.prodName }</h5>
+								<h5 class="fw-bolder">${vo.bookTitle }</h5>
 								<!-- Product reviews-->
-								<div
-									class="d-flex justify-content-center small text-warning mb-2">
-									<c:forEach var="i" begin="1" end="${product.likeIt }">
-										<div class="bi-star-fill"></div>
-									</c:forEach>
-								</div>
 								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">${product.price }</span>
-								${product.offPrice }
+								<span class="">${vo.bookPrice }</span>
 							</div>
 						</div>
 						<!-- Product actions-->
