@@ -41,6 +41,7 @@
 	<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	<!-- Footer-->
 	<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+	<!-- bookMenu -->
 
 </body>
 

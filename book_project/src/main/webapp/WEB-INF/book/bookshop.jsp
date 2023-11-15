@@ -2,17 +2,25 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
+
 <style>
+.product{
+  padding:10px;
+}
 .line ul li {
 	list-style-type: none;
 }
-.fw-bolder{
-	text-center;
+.line {
+	padding:40px;
 	
 }
+.fw-bolder{
+
+}
 .card-img-top {
-	width: 200px;
 	float: rigtht;
+
 }
 
 .content {
@@ -37,37 +45,19 @@
 
 
 
-<a
-	class="list-group-item list-group-item-action list-group-item-light p-3"
-	href="main.do">메인 페이지</a>
+		<a class="list-group-item list-group-item-action list-group-item-light p-3" href="main.do">메인 페이지</a>
 
-
-<div class="line">
-	<hr>
-	<ul>
-
-		<li><a
-			class="list-group-item list-group-item-action list-group-item-light p-3"
-			href="bookshop.do">전체</a></li>
-		<li><a
-			class="list-group-item list-group-item-action list-group-item-light p-3"
-			href="bookshop.do">시/소설</a></li>
-		<li><a
-			class="list-group-item list-group-item-action list-group-item-light p-3"
-			href="bookshop.do">철학</a></li>
-		<li><a
-			class="list-group-item list-group-item-action list-group-item-light p-3"
-			href="bookshop.do">사진</a></li>
-
-	</ul>
-
-</div>
-
+<div style="float: left">
+	
+	<div class="row">
+	<div class="col-9">
+	
 <div class="container px-4 px-lg-5 mt-5">
 	<div
 		class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 		<!-- 상품목록 -->
-		<c:forEach items="${list}" var="vo">
+		
+		<c:forEach items="${list}" var="vo" end="5">
 
 
 			<div class="col mb-5">
@@ -75,7 +65,7 @@
 
 					<!-- Sale badge-->
 					<!-- Product image-->
-					<img class="card-img-top" src="resources/image/${vo.bookImage }"
+					<img class="card-img-top" style="float: right" src="resources/image/${vo.bookImage }"
 						alt="..." />
 					<!-- Product details-->
 					<div class="card-body p-4">
@@ -103,6 +93,34 @@
 		<!-- 상품목록 -->
 	</div>
 </div>
+</div>
+	<div class="col-3" style="de right">
+	
+	<div class="line" style="list-style-type: none;">
+	
+		<div class="product">별책부록</div>
+		<div class="product">매거진</div>
+		<div class="product">시, 소설, 에세이</div>
+		<div class="product">일러스트, 회화, 만화</div>
+		<div class="product">영화</div>
+		<div class="product">디자인, 창작, 실용</div>
+		<div class="product">사진</div>
+		<div class="product">음악, 공연, 예술</div>
+		<div class="product">건축, 공간, 로컬</div>
+		<div class="product">철학, 인문, 교양</div>
+		<div class="product">여행</div>
+		<div class="product">생활, 요리, 취미</div>
+		<div class="product">해외도서</div>
+		<div class="product">스티커</div>
+	</div>
+	
+	</div>
+	</div>
+	
+
+</div>
+
+
 
 <script>
 const searchBtn = document.getElementById('search-btn');
@@ -118,15 +136,4 @@ searchBtn.addEventListener('click', function() {
 });
 
 
-window.addEventListener('DOMContentLoaded', function() {
-	  const searchHistory = localStorage.getItem('searchHistory');
-	  
-	  if (searchHistory !== null) {
-	    const searchResults = document.getElementById('search-results');
-	    // 이력을 보여줄 요소 생성
-	    const listItem = document.createElement('li');
-	    listItem.textContent = searchHistory;
-	    searchResults.appendChild(listItem);
-	  }
-});
 </script>
