@@ -25,6 +25,7 @@
                    
                     <div class="col mb-5">
                         <div class="card h-100">
+                        
                             <!-- Sale badge-->
                             <!-- Product image-->
                             <img class="card-img-top" src="resources/image/${vo.bookImage }" alt="..." />
