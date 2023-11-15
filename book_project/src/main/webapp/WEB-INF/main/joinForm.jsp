@@ -1,12 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet"
+	href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+<link
+	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
+	rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet" />
+<jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
 .info #joinid {
 	position: relative;
 }
 </style>
 <form action="join.do" method="post">
+<form action="join.do" method="get" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
@@ -30,6 +39,9 @@
 		<input type="text" placeholder="이메일 입력" />
 		<input class="box"disabled id="domain_text" />
 			<select id="domain_list">
+		<input type="text" placeholder="이메일 입력" name="email"/>@
+		<input class="box"disabled id="domain_text" />
+			<select id="domain_list" name="emaildomain">
 			<option disabled value="type" selected>선택하세요.</option>
 			<option value="naver.com">naver.com</option>
 			<option value="daum.net">daum.net</option>
@@ -38,6 +50,10 @@
 			<option value="nate.com">nate.com</option>
 			<option value="type">직접 입력</option>
 		</select>
+	</div>
+	<div>
+		<h5>전화번호</h5>
+		<input type="text" name="pnum">
 	</div>
 	<div>
 		<h5>주소지 입력</h5>
@@ -59,8 +75,8 @@
 	</div>
 	<div id="joingender">
 		<h5>성별</h5>
-		<label><input name="gender" type="radio" checked value="male">남</label>
-		<input id="female" name="gender" type="radio" value="female"><label
+		<label><input name="gender" type="radio" checked value="남">남</label>
+		<input id="female" name="gender" type="radio" value="여"><label
 			for="female">여</label>
 	</div>
 	<hr>
@@ -126,4 +142,4 @@
 	});
 	
 </script>
-
+<jsp:include page="../layouts/footer.jsp"></jsp:include>
