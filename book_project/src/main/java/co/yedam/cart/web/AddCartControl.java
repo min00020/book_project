@@ -24,7 +24,6 @@ public class AddCartControl implements Command {
 		String uid = req.getParameter("uid");
 		
 		String amount = req.getParameter("amount");
-		uid = "user001";
 		CartVO vo = new CartVO();
 		vo.setBookNo(Integer.parseInt(bno));
 		vo.setUserId(uid);
