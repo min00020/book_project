@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="book_project">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/book_project/src/main/java"/>
+        <property name="context-root" value="book_project"/>
+        <property name="java-output-path" value="/book_project/bin"/>
+    </wb-module>
+</project-modules>

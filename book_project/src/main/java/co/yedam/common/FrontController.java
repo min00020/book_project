@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.cart.web.cartControl;
+import co.yedam.order.web.orderControl;
+import co.yedam.book.web.BookInfoControl;
+import co.yedam.book.web.BookMainPageControl;
+import co.yedam.book.web.BookShopControl;
+
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
@@ -18,11 +24,30 @@ import co.yedam.user.web.LogoutControl;
 
 public class FrontController extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
 	// init > service
 	Map<String, Command> map = new HashMap<>();
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		// 장바구니 
+		map.put("/cartListInfo.do", new cartControl());
+		// 주문
+		map.put("/orderListInfo.do", new orderControl());
+
+		// 장바구니 
+		map.put("/cartListInfo.do", new cartControl());
+		// 주문
+		map.put("/orderListInfo.do", new orderControl());
+		
+		//강현진
+		map.put("/main.do", new MainPageControl());
+		//메인 페이지
+		map.put("/bookmainpage.do", new BookMainPageControl());
+		//책 상세 페이지
+		map.put("/bookInfo.do", new BookInfoControl());
+		//북 샵
+		map.put("/bookshop.do", new BookShopControl());
 		
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */

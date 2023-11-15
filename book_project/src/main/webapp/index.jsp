@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h3>index.jsp</h3>
-	<a href="productpage.tiles">tiles페이지</a>
 </body>
 </html>
+<jsp:forward page="main.do"></jsp:forward>
