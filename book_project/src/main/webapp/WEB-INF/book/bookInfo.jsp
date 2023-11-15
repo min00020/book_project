@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+
+
+
+
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="row gx-4 gx-lg-5 align-items-center">
@@ -31,16 +35,22 @@
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
-		<h2 class="fw-bolder mb-4">Related products</h2>
+		<h2 class="fw-bolder mb-4">Another book</h2>
 		<div
 			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-			<c:forEach items="${list }" var="vo" end="4">
+
+			
+
+			<c:forEach items="${list }" var="vo" end="3">
+
 				<!-- 상품목록 -->
 				<div class="col mb-5">
 					<div class="card h-100">
+
 						<!-- Sale badge-->
 						<div class="badge bg-dark text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem"></div>
+
 						<!-- Product image-->
 						<img class="card-img-top"
 							src="resources/image/${vo.bookImage }" alt="..." />
@@ -48,9 +58,12 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">${vo.bookTitle }</h5>
+
+								<!-- Product reviews-->
+
 								<!-- Product price-->
 								<span class="">${vo.bookPrice }</span>
+
 								
 							</div>
 						</div>

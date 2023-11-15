@@ -1,5 +1,36 @@
 package co.yedam.cart.serviceImpl;
 
-public class CartServiceImpl {
+import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
+import co.yedam.cart.mapper.CartMapper;
+import co.yedam.cart.service.CartService;
+import co.yedam.cart.service.CartVO;
+import co.yedam.common.DataSourceMybatis;
+
+public class CartServiceImpl implements CartService {
+
+	SqlSession sqlSession = DataSourceMybatis.getInstance().openSession(true); //자동 커밋
+	CartMapper mapper = sqlSession.getMapper(CartMapper.class);
+	
+	@Override
+	public List<CartVO> cartList() {
+		// TODO Auto-generated method stub
+		return mapper.cartList();
+	}
+
+	@Override
+	public boolean addCart(CartVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.addCart(vo) > 0;
+	}
+
+	@Override
+	public boolean deleteCart(int cartCode) {
+		// TODO Auto-generated method stub
+		return mapper.deleteCart(cartCode) > 0;
+	}
+
+	
 }

@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주문하기</title>
+<title>별책부록 주문페이지</title>
 </head>
 <body>
-	<h1>주문</h1>
+	<div>
+		<h1>별책부록</h1>
+		<hr>
+		<table class="" style=width:100%; text-align:center;">
+			<tr>
+				<th> style="width:5%; text-align:center; height:50px;"></th>
+		</table>
+	</div>
 </body>
 </html>

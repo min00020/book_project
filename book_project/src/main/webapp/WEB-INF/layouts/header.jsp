@@ -16,7 +16,7 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">BOOKSHOP</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>
                         
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Q&A</a></li>
