@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.admin.mapper.AdminMainMapper">
+	<select id="bkList" resultType="co.yedam.book.service.BookVO">
+		SELECT * FROM BOOK ORDER BY
+		BOOK_NO
+	</select>
+
+	<select id="totalPriceAvg" resultType="int">
+		SELECT AVG(ODR_TOTAL_PRICE) FROM ORDER_TBL
+	</select>
+
+	<select id="monthTotalPrice" resultType="map">
+		SELECT SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '01', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '02', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '03', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '04', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '05', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '06', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '07', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '08', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '09', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '10', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '11', ODR_TOTAL_PRICE))
+		, SUM(DECODE(TO_CHAR(ODR_DATE, 'MM'), '12', ODR_TOTAL_PRICE))
+		FROM ORDER_TBL
+		WHERE ODR_DATE BETWEEN TO_DATE('2023-01-01', 'YYYY-MM-DD')
+		AND TO_DATE('2023-12-31', 'YYYY-MM-DD')
+	</select>
+	
+	<select id="orderCnt" resultType="int">
+		SELECT COUNT(*) FROM ORDER_TBL WHERE ODR_STATUS!='주문취소'
+	</select>
+
+
+</mapper>
