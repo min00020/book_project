@@ -23,12 +23,12 @@
 	</div>
 	<div id="joinname">
 		<h5>이름</h5>
-		<input type="text" />
+		<input type="text" id="name" name="name" />
 	</div>
-	<div id="joinemail">
+	<div id="joinemail" >
 		<h5>이메일</h5>
-		<input type="text" placeholder="이메일 입력" />
-		<input class="box"disabled id="domain_text" />
+		<input type="text" placeholder="이메일 입력" name="email"/>@
+		<input class="box"disabled id="domain_text" name="email"/>
 			<select id="domain_list">
 			<option disabled value="type" selected>선택하세요.</option>
 			<option value="naver.com">naver.com</option>
@@ -40,26 +40,32 @@
 		</select>
 	</div>
 	<div>
+		<h5>전화번호</h5>
+		<input type="text" name="pnum">-
+		<input type="text" name="pnum">-
+		<input type="text" name="pnum">
+	</div>
+	<div>
 		<h5>주소지 입력</h5>
-		<input type="text" id="sample6_postcode" placeholder="우편번호">
+		<input type="text" id="postcode" name="postcode" placeholder="우편번호">
 		<input type="button" id="addrnum" value="우편번호 찾기"><br>
-		<input type="text" id="sample6_address" placeholder="주소"><br>
-		<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+		<input type="text" id="sample6_address" name="addr" placeholder="주소"><br>
+		<input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소">
 		<input type="text" id="sample6_extraAddress" placeholder="참고항목">
 	</div>
 	<div class="info" id="info_bir">
 		<h5>생년월일</h5>
-		<select class="box" id="bir_year">
+		<select class="box" id="bir_year" name="bir">
 			<option disabled selected>출생 연도</option>
 		</select> 
-		<select class="box" id="bir_month">
+		<select class="box" id="bir_month" name="bir">
 			<option disabled selected>월</option>
 		</select> 
-		<select class="box" id="bir_day">
+		<select class="box" id="bir_day" name="bir">
 			<option disabled selected>일</option>
 		</select>
 	</div>
-	<div id="joingender">
+	<div id="joingender" >
 		<h5>성별</h5>
 		<label><input name="gender" type="radio" checked value="male">남</label>
 		<input id="female" name="gender" type="radio" value="female"><label
@@ -120,7 +126,7 @@
                     document.getElementById("sample6_extraAddress").value = '';
                 }
 
-                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById('postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
                 document.getElementById("sample6_detailAddress").focus();
             }
@@ -191,10 +197,10 @@
 	function pwcheck() {
 		if (document.getElementById('pw2').value != null) {
 			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
-				document.getElementById('check').innerHTML("비밀번호가 일치합니다.");
+				document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
 			} else {
 				alert("비밀번호가 일치하지 않습니다.")
-				document.getElementById('check').innerHTML("비밀번호가 일치하지 않습니다.");
+				document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
 			}
 		}
 	}

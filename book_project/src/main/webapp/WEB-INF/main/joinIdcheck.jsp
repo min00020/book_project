@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%-- 
 	<h2>아이디중복체크</h2>
 	<%
 	//1. 한글처리 & 받아온 파라미터 변수화
@@ -59,7 +59,7 @@
 
 			//6-2. 창닫기
 			window.close();
-		}
+		} --%>
 	</script>
 
 
