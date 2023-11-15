@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
-  <div class="container flex px-3 py-8 ">
+   <footer class="container mx-auto bg-white py-8 border-t border-gray-400" >
+  <div class="container flex px-3 py-8 ">  <!-- 여기도 백그라운드 넣을 자리 보고 넣기 -->
     <div class="w-full mx-auto flex flex-wrap">
       <div class="flex w-full lg:w-1/2 ">
         <div class="px-3 md:px-0">
           <h3 class="font-bold text-gray-900">About</h3>
           <p class="py-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse consectetur dapibus velit ut lacinia.
+           예담서점 (since 2023)
+           대구광역시 중구 중앙대로에 위치한 서점입니다. 소규모 책을 판매합니다 북토크, 취미/코딩 등 다양한 프로그램을 진행하고 있습니다. 취향을 찾고 영감을 얻는 시간이 되기를 바랍니다.
+           
           </p>
         </div>
       </div>

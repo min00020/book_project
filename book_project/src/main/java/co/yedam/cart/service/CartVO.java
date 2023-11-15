@@ -1,5 +1,13 @@
 package co.yedam.cart.service;
 
-public class CartVO {
+import lombok.Data;
 
+@Data
+public class CartVO {
+	
+		private int cartcode;
+		private int bookno;
+		private String userid;
+		private int cartamount;
+		
 }
