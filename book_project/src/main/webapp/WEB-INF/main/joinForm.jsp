@@ -6,20 +6,20 @@
 	position: relative;
 }
 </style>
-<form action="join.do" method="post">
+<form action="join.do" method="post" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
-		<input type="text" placeholder="아이디 입력(6~20자)" />
+		<input type="text" name="id" placeholder="아이디 입력(6~20자)" />
 		<button id="idcheck">중복 확인</button>
 	</div>
-	<div id="joinpw">
+	<div>
 		<h5>비밀번호</h5>
-		<input type="password" placeholder="6자리 이상 입력해주세요." />
+		<input type="password" id="pw1" name="pw1" placeholder="6자리 이상 입력해주세요." />
 	</div>
-	<div id="checkpw">
+	<div >
 		<h5>비밀번호 확인</h5>
-		<input type="password" />
+		<input type="password" id="pw2" onchange="pwcheck()"/><span id="check"></span>
 	</div>
 	<div id="joinname">
 		<h5>이름</h5>
@@ -49,11 +49,13 @@
 	</div>
 	<div class="info" id="info_bir">
 		<h5>생년월일</h5>
-		<select class="box" id="bir-year">
+		<select class="box" id="bir_year">
 			<option disabled selected>출생 연도</option>
-		</select> <select class="box" id="bir-month">
+		</select> 
+		<select class="box" id="bir_month">
 			<option disabled selected>월</option>
-		</select> <select class="box" id="bir-day">
+		</select> 
+		<select class="box" id="bir_day">
 			<option disabled selected>일</option>
 		</select>
 	</div>
@@ -71,10 +73,10 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	/* 아이디 중복 확인 */
-	const doublecheck = document.querySelector('#idcheck');
+	/* const doublecheck = document.querySelector('#idcheck');
 	doublecheck.addEventListener('click', function(e) {
 		
-	})
+	}) */
 	
 	/* 이메일 도메인 */
 	const domainlist = document.querySelector('#domain_list');
@@ -125,5 +127,89 @@
         }).open();
 	});
 	
+	/* 생년월일 */
+	const birYear = document.querySelector('#bir_year');
+	isYearOptionExisted = false;
+	birYear.addEventListener('focus', function(e) {
+		if (!isYearOptionExisted) {
+			isYearOptionExisted = true;
+			for(var i = 1930; i <= 2023; i++) {
+				const YearOption = document.createElement('option')
+				YearOption.setAttribute('value', i)
+				YearOption.innerText = i
+				this.appendChild(YearOption);
+			}
+		}
+	});
+/* 	const selectYear = document.querySelector('#print-date'); // print-date id 줘야함
+	birYear.addEventListener('change', function(e) {
+		selectYear.textContent = 'Year of birth: ${event.target.value}'
+	});
+	/* 월 */
+ 	const birMonth = document.querySelector('#bir_month');
+	isMonthOptionExisted = false;
+	birMonth.addEventListener('focus', function(e) {
+		if (!isMonthOptionExisted) {
+			isMonthOptionExisted = true;
+			for(var i = 1; i <= 12; i++) {
+				const MonthOption = document.createElement('option');
+				MonthOption.setAttribute('value', i);
+				MonthOption.innerText = i;
+				this.appendChild(MonthOption);
+			}
+		}
+	}); 
+	/* 일 */
+ 	const birDay = document.querySelector('#bir_day');
+	isDayOptionExisted = false;
+	birDay.addEventListener('focus', function(e) {
+		if (!isDayOptionExisted) {
+			isDayOptionExisted = true;
+				for(var i = 1; i <= 31; i++) {
+					const DayOption = document.createElement('option');
+					DayOption.setAttribute('value', i);
+					DayOption.innerText = i;
+					this.appendChild(DayOption);
+				}
+				
+			} 
+	});  
+	/* 비밀번호 유효성 검사 */
+/* 	const userpw = joinForm.userpw;
+	const userpw_re = joinForm.userpw_re;
+	if (userpw.value == "") {
+		alert("비밀번호를 입력하세요.");
+		userpw.focus();
+		return false;
+	}
+	if (userpw.value.length < 6) {
+		alert("비밀번호는 6자 이상으로 작성해주세요.")
+		userpw.focus();
+		return false;
+	} */
+	/* 비밀번호 확인 */
+	function pwcheck() {
+		if (document.getElementById('pw2').value != null) {
+			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
+				document.getElementById('check').innerHTML("비밀번호가 일치합니다.");
+			} else {
+				alert("비밀번호가 일치하지 않습니다.")
+				document.getElementById('check').innerHTML("비밀번호가 일치하지 않습니다.");
+			}
+		}
+	}
+	/* 회원가입 유효성 */
+	function joinCheck(obj) {
+		if (!obj.id.value || obj.id.value.trim().length == 0){
+			alert("아이디가 입력되지 않았습니다.");
+			return false;
+		}
+		if (!obj.pw1.value || obj.pw1.value.trim().length == 0){
+			alert(" 비밀번호가 입력되지 않았습니다.");
+			return false;
+		}
+	}
+	
+	 
 </script>
 
