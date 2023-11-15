@@ -39,12 +39,12 @@
 		<input class="box"disabled id="domain_text" />
 			<select id="domain_list" name="emaildomain">
 			<option disabled value="type" selected>선택하세요.</option>
-			<option value="naver.com">naver.com</option>
-			<option value="daum.net">daum.net</option>
-			<option value="hanmail.net">hanmail.net</option>
-			<option value="google.com">google.com</option>
-			<option value="nate.com">nate.com</option>
-			<option value="type">직접 입력</option>
+			<option value="@naver.com">naver.com</option>
+			<option value="@daum.net">daum.net</option>
+			<option value="@hanmail.net">hanmail.net</option>
+			<option value="@google.com">google.com</option>
+			<option value="@nate.com">nate.com</option>
+			<option value="@type">직접 입력</option>
 		</select>
 	</div>
 	<div>
@@ -61,13 +61,13 @@
 	</div>
 	<div class="info" id="info_bir">
 		<h5>생년월일</h5>
-		<select class="box" id="bir_year" name="bir">
+		<select class="box" id="bir_year" name="bir1">
 			<option disabled selected>출생 연도</option>
 		</select> 
-		<select class="box" id="bir_month" name="bir">
+		<select class="box" id="bir_month" name="bir2">
 			<option disabled selected>월</option>
 		</select> 
-		<select class="box" id="bir_day" name="bir">
+		<select class="box" id="bir_day" name="bir3">
 			<option disabled selected>일</option>
 		</select>
 	</div>
