@@ -30,4 +30,9 @@ public class BookServiceImpl implements BookService {
 		return mapper.getBkInfo();
 	}
 
+	@Override
+	public List<BookVO> bookshop() {
+		return mapper.bkshop();
+	}
+
 }
