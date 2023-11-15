@@ -43,6 +43,7 @@
 
 		<tr>
 			<th>내용</th>
+			<th>내용</th>
 			<td><input type="text" id="content"></td>
 		</tr>
 	</table>
