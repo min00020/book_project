@@ -2,10 +2,14 @@
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.cart.mapper.CartMapper">
 	<select id="cartList" resultType="co.yedam.cart.service.CartVO">
-		SELECT * FROM CART_TBL ORDER BY
-		CART_CODE
-	</select>
-
+    
+        select cart_code, b.book_no, c.user_id, user_name, book_title, cart_amount, book_price
+        
+        from user_tbl u, cart_tbl c, book b
+        
+        where u.user_id=c.user_id and c.book_no=b.book_no and c.user_id=#{userId} order by cart_code
+                    
+    </select>
 	<insert id="addCart"
 		parameterType="co.yedam.cart.service.CartVO">
 		<selectKey keyProperty="cartCode" resultType="int"
@@ -20,4 +24,5 @@
 	<delete id="deleteCart" parameterType="int">
 		delete from cart_tbl where cart_code = #{cartCode}
 	</delete>
+	
 </mapper>
