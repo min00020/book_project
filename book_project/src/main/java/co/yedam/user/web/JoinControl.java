@@ -21,6 +21,8 @@ public class JoinControl implements Command {
 		String pw = req.getParameter("pw1");
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
+		String email2 = req.getParameter("emaildomain");
+		
 		String phone = req.getParameter("pnum");
 		String addrnum = req.getParameter("postcode");
 		String addr = req.getParameter("addr");
@@ -29,13 +31,15 @@ public class JoinControl implements Command {
 		
 		System.out.println(id+pw+name+email+phone+addrnum+addr+bir+gender);
 		System.out.println(name);
+		System.out.println(email);
+		String domain = (email.concat(email2));
 		
 		UserVO vo = new UserVO();
 		
 		vo.setUserId(id);
 		vo.setUserPass(pw);
 		vo.setUserName(name);
-		vo.setUserEmail(email);
+		vo.setUserEmail(domain);
 		vo.setUserPhone(phone);
 		vo.setUserAddrnum(addrnum);
 		vo.setUserAddr(addr);
@@ -45,11 +49,10 @@ public class JoinControl implements Command {
 		UserService svc = new UserServiceImpl();
 		
 		if (svc.addUser(vo)) {
-			try {
-				resp.sendRedirect("main.do");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			/*
+			 * try { // resp.sendRedirect("main.do"); } catch (IOException e) {
+			 * e.printStackTrace(); }
+			 */
 		} else {
 			try {
 				resp.sendRedirect("joinForm.do");
