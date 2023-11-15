@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.DeleteCartControl;
-import co.yedam.cart.web.cartListControl;
-import co.yedam.order.web.orderControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.InstaControl;
+import co.yedam.cart.web.CartListControl;
+import co.yedam.order.web.OrderListControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
@@ -25,6 +25,7 @@ import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
+import co.yedam.user.web.ModifyUserControl;
 
 public class FrontController extends HttpServlet {
 
@@ -36,11 +37,9 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		// 장바구니 
-		map.put("/cartListInfo.do", new cartListControl());
-		map.put("addCart.do", new AddCartControl());
-		map.put("/deleteCart.do", new DeleteCartControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
+		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
+		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());
@@ -62,6 +61,7 @@ public class FrontController extends HttpServlet {
 		//인스타
 		map.put("/insta.do", new InstaControl());
 		
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행

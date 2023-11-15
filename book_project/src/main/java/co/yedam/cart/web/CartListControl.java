@@ -11,8 +11,7 @@ import co.yedam.cart.serviceImpl.CartServiceImpl;
 import co.yedam.common.Command;
 
 
-
-public class cartListControl implements Command {
+public class CartListControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {

@@ -28,13 +28,13 @@ public class LoginControl implements Command {
 			session.setAttribute("resposbility", vo.getResponsbility());
 			
 			try {
-				resp.sendRedirect("productpage.tiles");
+				resp.sendRedirect("main.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.sendRedirect("loginForm.do");
+				resp.sendRedirect("main.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

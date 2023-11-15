@@ -1,22 +1,23 @@
-package co.yedam.order.web;
+package co.yedam.user.web;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Command;
 
-public class orderControl implements Command {
+public class ModifyUserControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		
-		
 		try {
-			req.getRequestDispatcher("WEB-INF/order/order.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/main/modifyForm.jsp").forward(req, resp);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
+
 	}
+
 }
