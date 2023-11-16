@@ -6,10 +6,8 @@ import java.util.Map;
 import co.yedam.book.service.BookVO;
 
 public interface AdminMainMapper {
-	
 	//첫페이지
 	//이번달판매금액, 올해판매금액, 판매 취소비율, 월별통계그래프, 총주문건수, 구매자성별비율
-	
 	public int sysmonthPrice(); //이번달판매금액
 	public int totalPriceSum(); //올해판매금액
 	public int orderPercent(); //판매 취소비율

@@ -5,7 +5,6 @@
 
 <!-- ${sysmonthPrice } ${orderMonth } ${orderCnt} ${reqDelivery }-->
 <!-- Content Wrapper -->
-
 <div id="content-wrapper" class="d-flex flex-column">
 
 	<!-- Main Content -->

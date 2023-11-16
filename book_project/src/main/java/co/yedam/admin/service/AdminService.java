@@ -3,7 +3,6 @@ package co.yedam.admin.service;
 import java.util.List;
 import java.util.Map;
 
-
 public interface AdminService {
 		public int sysmonthPrice(); //이번달판매금액
 		public int totalPriceSum(); //올해판매금액
