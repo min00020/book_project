@@ -15,6 +15,7 @@ import co.yedam.admin.web.ChartMonthPriceCont;
 import co.yedam.admin.web.InstaControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
+import co.yedam.book.web.BookSearchControl;
 import co.yedam.book.web.BookShopControl;
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
@@ -46,20 +47,22 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
 		
 		//강현진
-		map.put("/main.do", new MainPageControl());
-		//메인 페이지
-		map.put("/bookmainpage.do", new BookMainPageControl());
-		//책 상세 페이지
-		map.put("/bookInfo.do", new BookInfoControl());
-		//북 샵
-		map.put("/bookshop.do", new BookShopControl());
+		map.put("/main.do", new MainPageControl());        //메인 페이지로 가기
+		map.put("/bookmainpage.do", new BookMainPageControl()); //메인 페이지
+		map.put("/bookInfo.do", new BookInfoControl());   //책 상세 페이지
+		map.put("/bookshop.do", new BookShopControl());   //북 샵
+		map.put("/booksearch.do", new BookSearchControl()); //검색 기능
+		
+//		map.put("/addBoard.do", new AddBoardControl());
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
 
+		
 		//관리자
 		map.put("/admin.do", new AdminControl());
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); /*월별 판매금액 차트*/
@@ -67,7 +70,7 @@ public class FrontController extends HttpServlet {
 		//인스타
 		map.put("/insta.do", new InstaControl());
 		
-		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
+
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행
