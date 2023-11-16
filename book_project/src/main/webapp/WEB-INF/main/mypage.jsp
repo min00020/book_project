@@ -8,13 +8,15 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
+<%-- <jsp:include page="../mypage/layouts/mybody.jsp"></jsp:include> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>  
+<section style="float: left;">    
 <form action="modifyUser.do" method="get"
 		onsubmit="return joinCheck(this)">
 		<h3>회원 정보 수정</h3>
@@ -82,6 +84,7 @@
 				<button type="reset">초기화</button>
 			</div>
 	</form>
+</section>
 </body>
 </html>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>
