@@ -4,7 +4,6 @@
 <link rel="stylesheet"
 	href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
 
-<form action="login.do" method="post">
 <link
 	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 	rel="stylesheet">
@@ -19,18 +18,17 @@
 		<h4 align="center">로그인</h4>
 		<tr>
 			<th>아이디</th>
-			<td><input type="text" class="form-control" name="id"></td>
+			<td><input type="text" class="form-control" id="id" name="id"></td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><input type="password" class="form-control" name="pass"></td>
+			<td><input type="password" class="form-control" id="pass" name="pass"></td>
 		</tr>
 		<tr>
 			<td colspan="1"><input type="submit" value="로그인"></td>
 			<td colspan="1"><input type="submit" onclick="this.form.action='joinForm.do';" value="회원가입"></td>
 		</tr>
 	</table>
-</form>
 </form>
 <script>
 /* 로그인 유효성 */
