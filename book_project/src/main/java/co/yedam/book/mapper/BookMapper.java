@@ -11,6 +11,8 @@ public interface BookMapper {
 	public List<BookVO> bkshop(); // 북샵
 	public List <BookVO> bkserch(String bookTitle); // 검색기능
 	
+	
+	public List<BookVO> invenbook(String type); // 책 분류
 //	public String getkeyword();
 //	public void setKeyword(String keyword);
 }

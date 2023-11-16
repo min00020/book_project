@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-
 <style>
 .product{
   padding:10px;
@@ -30,6 +28,11 @@
 </style>
 
 
+
+
+
+
+
 <input type="text"  name="keyword" id="searchBar">
 
 <a class="btn btn-outline-dark mt-auto" id="searchBtn">검색</a>
@@ -37,6 +40,7 @@
 <input type="submit" value="" />
 
 <form>  
+
 
 
 </form>  
@@ -93,11 +97,13 @@
 	
 	<div class="line" style="list-style-type: none;">
 	
+
 		
 		<div class="productListFilter-navi" productlistfilter="180143">전체</div>
 		<div class="productListFilter-navi" productlistfilter="180143">테스트</div>
 		<div class="productListFilter-navi" productlistfilter="180143">테스트1</div>
 		
+
 	</div>
 	
 	</div>

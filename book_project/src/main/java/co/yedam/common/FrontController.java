@@ -14,6 +14,7 @@ import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
 import co.yedam.admin.web.InstaControl;
 import co.yedam.book.web.BookInfoControl;
+import co.yedam.book.web.BookInventoryControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookSearchControl;
 import co.yedam.book.web.BookShopControl;
@@ -50,6 +51,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bookInfo.do", new BookInfoControl());   //책 상세 페이지
 		map.put("/bookshop.do", new BookShopControl());   //북 샵
 		map.put("/booksearch.do", new BookSearchControl()); //검색 기능
+		map.put("/bookInventory", new BookInventoryControl()); // 목록 불러오기 기능
 		
 //		map.put("/addBoard.do", new AddBoardControl());
 		

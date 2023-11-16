@@ -11,6 +11,7 @@ public interface BookService {
 	
 	public List <BookVO> bookserch(String bookTitle); // 검색기능
 	
+	public List<BookVO> invenbook(String type); // 책 분류
 	
 	
 }
