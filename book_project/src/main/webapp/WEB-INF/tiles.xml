@@ -25,12 +25,12 @@
 		<put-attribute name="body" value="/WEB-INF/admin/{1}.jsp" />
 	</definition>
 	
-<!-- 	<definition name="mypage" template="/WEB-INF/mypage/layouts/mytemplate.jsp">
+ 	<definition name="mypage" template="/WEB-INF/mypage/layouts/mytemplate.jsp">
 		<put-attribute name="mybody" value="/WEB-INF/mypage/lyaouts/mybody.jsp" />
 	</definition>
 	
 	<definition name="WILDCARD:mypage/*" extends="adminpage">
-		<put-attribute name="body" value="/WEB-INF/mypage/{1}.jsp" />
-	</definition> -->
+		<put-attribute name="mybody" value="/WEB-INF/mypage/{1}.jsp" />
+	</definition>
 	
 </tiles-definitions>
