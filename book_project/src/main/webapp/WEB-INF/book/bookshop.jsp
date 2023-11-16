@@ -28,14 +28,14 @@
 </style>
 
 
-<<<<<<< HEAD
+
 
 
 <form action="searchResult.jsp" method="get">
     <input type="text" name="query" placeholder="검색어 입력">
     <input type="submit" value="검색">
 </form>
-=======
+
 <input type="text"  name="keyword" id="searchBar">
 
 <a class="btn btn-outline-dark mt-auto" id="searchBtn">검색</a>
@@ -43,7 +43,7 @@
 <input type="submit" value="" />
 
 <form>  
->>>>>>> branch 'kang' of https://github.com/min00020/book_project.git
+
 
 
 </form>  
