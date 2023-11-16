@@ -14,10 +14,6 @@
         </header>
 
 		<div class="text-center"><span style="font-size:2.5em;">11월을 위한 추천 도서</span></div>
-
-
-
-
  <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <!-- 상품목록 -->
@@ -42,9 +38,10 @@
                                     <span class="">${vo.bookPrice }</span>
                                 </div>
                             </div>
+
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Cart</a></div>
                             </div>
                         </div>
                     </div>

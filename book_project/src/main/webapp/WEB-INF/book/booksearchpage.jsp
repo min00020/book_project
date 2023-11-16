@@ -112,7 +112,7 @@
 let queryContent="";
 let queryURL ="booksearch.do?sno=";
 
-const searchInput = document.getElementById('searchBtn');
+const searchInput = document.getElementById('searchBar');
 searchInput.addEventListener("keyup", (e) => {
 	if(e.keyCode == 13){
 		const queryString = String(e.target.value);
