@@ -3,29 +3,29 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-
-
-
-
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="row gx-4 gx-lg-5 align-items-center">
 			<div class="col-md-6">
 				<img class="card-img-top mb-5 mb-md-0"
-					src="resources/image/${vo.bookImage }" alt="..." />
+					src="resources/image/${bno.bookImage }" alt="..." />
 			</div>
 			<div class="col-md-6">
-				<div class="small mb-1">${vo.bookNo }</div>
-				<h1 class="display-5 fw-bolder">${vo.bookTitle }</h1>
+				<div class="small mb-1">${bno.bookNo }</div>
+				<h1 class="display-5 fw-bolder">${bno.bookTitle }</h1>
 				<div class="fs-5 mb-5">
-					<span class="text-decoration-line-through">${vo.bookPrice }</span>
+					<span class="text-decoration-line-through">${bno.bookPrice }</span>
 				</div>
-				<p class="lead">${vo.bookContent }</p>
+				<p class="lead">${bno.bookContent }</p>
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity"
-						type="num" value="1" style="max-width: 3rem" />
+						type="text" style="max-width: 3rem" />
 					<button class="btn btn-outline-dark flex-shrink-0" type="button">
-						<i class="bi-cart-fill me-1"></i> Add to cart
+						<i class="bi-cart-fill me-1"></i><a href="orderListInfo.do">
+							구매하기</a>
+					</button>
+					<button class="btn btn-outline-dark flex-shrink-0" type="submit">
+						<i class="bi-cart-fill me-1"></i><a id="addCart" onclick="addCart()"> 장바구니 담기</a>
 					</button>
 				</div>
 			</div>
@@ -52,8 +52,8 @@
 							style="top: 0.5rem; right: 0.5rem"></div>
 
 						<!-- Product image-->
-						<img class="card-img-top"
-							src="resources/image/${vo.bookImage }" alt="..." />
+						<img class="card-img-top" src="resources/image/${vo.bookImage }"
+							alt="..." />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -79,3 +79,33 @@
 		</div>
 	</div>
 </section>
+<script>
+let bno = "${bno.bookNo}";
+let uid = "uid";
+let amount = document.querySelector('#inputQuantity').value;
+
+// 장바구니 담기
+function addCart() {
+
+	amount = document.querySelector('#inputQuantity').value;
+	
+	document.querySelector('#addCart').addEventListener('click', function(e){
+	fetch('addCart.do', {
+		method: 'post',
+		headers: {'Content-type': 'application/x-www-form-urlencoded'},
+		body: 'bno=' + bno + '&uid=' + uid + '&amount=' + amount
+	})
+	.then(resolve => resolve.json())
+	.then(result =>{
+		if(result.retCode == 'OK'){
+			result.vo;
+			alert('장바구니 담기 성공');
+		} else{
+			alert('장바구니 담기 실패')
+		}
+		
+	})
+	});
+}
+
+</script>

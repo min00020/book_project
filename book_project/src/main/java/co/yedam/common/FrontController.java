@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.DeleteCartControl;
-import co.yedam.cart.web.cartListControl;
-import co.yedam.order.web.orderControl;
+import co.yedam.admin.web.AdminControl;
+import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InstaControl;
+import co.yedam.cart.web.CartListControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
@@ -33,17 +35,12 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// 장바구니 
-		map.put("/cartListInfo.do", new cartListControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+
 
 		// 장바구니 
-		map.put("/cartListInfo.do", new cartListControl());
-		map.put("addCart.do", new AddCartControl());
-		map.put("/deleteCart.do", new DeleteCartControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
+		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
+		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());
@@ -54,12 +51,19 @@ public class FrontController extends HttpServlet {
 		//북 샵
 		map.put("/bookshop.do", new BookShopControl());
 		
-		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
+
+		//관리자
+		map.put("/admin.do", new AdminControl());
+		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); /*월별 판매금액 차트*/
+		
+		//인스타
+		map.put("/insta.do", new InstaControl());
+		
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
 	}
 
@@ -70,10 +74,10 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getServletContext().getContextPath(); 
 		String page = uri.substring(context.length()); 
-		System.out.println(page); 
+		System.out.println("프론트: "+page); 
 		
 		Command controller = map.get(page);
-		System.out.println(page);
+		System.out.println("프론트: "+page);
 		controller.execute(req, resp);
 
 	}

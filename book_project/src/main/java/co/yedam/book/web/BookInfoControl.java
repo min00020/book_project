@@ -27,6 +27,7 @@ public class BookInfoControl implements Command {
 		
 		req.setAttribute("bno", vo);
 		
+		
 		List<BookVO> list = svc.selectBook();
 		
 		req.setAttribute("list", list);
