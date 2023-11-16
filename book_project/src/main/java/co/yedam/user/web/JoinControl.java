@@ -30,14 +30,12 @@ public class JoinControl implements Command {
 		String gender = req.getParameter("gender");
 
 		
-		System.out.println(id+pw+name+email+phone+addrnum+addr+bir+gender);
 		System.out.println(name);
 		System.out.println(email);
 		String domain = (email.concat(email2));
 
 
 
-		String domain = (email.concat(email2));
 		String bir = (bir1.concat(bir2).concat(bir3));
 
 		
