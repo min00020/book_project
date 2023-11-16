@@ -2,18 +2,20 @@
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.user.mapper.UserMapper">
 	<insert id="insert" parameterType="co.yedam.user.service.UserVO">
-		INSERT INTO USER_TBL(USER_ID, USER_PASS, USER_NAME, USER_EMAIL, USER_PHONE, USER_ADDRNUM, USER_ADDR, USER_BIR, USER_GENDER)
-		VALUES (#{userId}, #{userPass}, #{userName}, #{userEmail}, #{userPhone}, #{userAddrnum}, #{userAddr}, #{userBir}, #{userGender})
+		INSERT INTO USER_TBL(USER_ID, USER_PASS, USER_NAME, USER_EMAIL, USER_PHONE, USER_ADDRNUM, USER_ADDR
+							USER_BIR, USER_GENDER)
+		VALUES (#{userId}, #{userPass}, #{userName}, #{userEmail}, #{userPhone},
+				#{userAddrnum}, #{userAddr}, #{userBir}, #{userGender})
 	</insert>
 	<update id="update" parameterType="co.yedam.user.service.UserVO">
-		UPDATE USER_TBL SET USER_PASS=#{userPass}, USER_EMAIL=#{userPhone}, USER_PHONE=#{userPhone},
-							USER_ADDRNUM=#{userAddrnum}, USER_ADDR=#{userAddr}, USER_BIR=#{userBir}, USER_GENDER=#{userGender}
+		UPDATE USER_TBL SET USER_PASS=#{userPass}, user_email=#{userEmail}, user_phone=#{userPhone},
+							USER_ADDRNUM=#{userAddrnum}, user_addr=#{userAddr}, user_bir=#{userBir}, user_gender=#{userGender}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE USER_TBL WHERE USER_ID=#{userId} AND USER_PASS=#{userPass}
 	</delete>
 	<select id="getUser" resultType="co.yedam.user.service.UserVO">
-		SELECT * FROM USER_TBL WHERE USER_ID=#{userId} AND USER_PASS=#{userPass}
+		SELECT * FROM USER_TBL WHERE USER_ID=#{id} AND USER_PASS=#{pw}
 	</select>
 	<select id="idcheck" resultType="String">
 		SELECT USER_ID FROM USER_TBL WHERE USER_ID=#{userId}

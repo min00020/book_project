@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.cart.web.cartControl;
-import co.yedam.order.web.orderControl;
+import co.yedam.cart.web.AddCartControl;
+import co.yedam.cart.web.DeleteCartControl;
+import co.yedam.admin.web.AdminControl;
+import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InstaControl;
+import co.yedam.cart.web.CartListControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
@@ -33,15 +37,12 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// 장바구니 
-		map.put("/cartListInfo.do", new cartControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+
 
 		// 장바구니 
-		map.put("/cartListInfo.do", new cartControl());
-		// 주문
-		map.put("/orderListInfo.do", new orderControl());
+		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
+		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
+		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());
@@ -52,7 +53,6 @@ public class FrontController extends HttpServlet {
 		//북 샵
 		map.put("/bookshop.do", new BookShopControl());
 		
-		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
@@ -62,6 +62,13 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		
+		//관리자
+		map.put("/admin.do", new AdminControl());
+		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); /*월별 판매금액 차트*/
+		
+		//인스타
+		map.put("/insta.do", new InstaControl());
+
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행
@@ -71,10 +78,10 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getServletContext().getContextPath(); 
 		String page = uri.substring(context.length()); 
-		System.out.println(page); 
+		System.out.println("프론트: "+page); 
 		
 		Command controller = map.get(page);
-		System.out.println(page);
+		System.out.println("프론트: "+page);
 		controller.execute(req, resp);
 
 	}

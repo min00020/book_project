@@ -9,11 +9,26 @@
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">BOOKSHOP</h1>
                     <p class="lead fw-normal text-white-80 mb-0">A book changes my life</p>
+
                 </div>
             </div>
         </header>
 
+
+	 
+
 		<div class="text-center"><span style="font-size:2.5em;">11월을 위한 추천 도서</span></div>
+
+
+
+         <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <!-- 상품목록 -->
+                    <c:forEach items="${list}" var="vo">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>
 
 
 
@@ -26,6 +41,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
+
                             <!-- Product image-->
                             <img class="card-img-top" src="resources/image/${vo.bookImage }" alt="..." />
                             <!-- Product details-->
@@ -40,6 +56,23 @@
                                     <span class="">${vo.bookPrice }</span>
                                 </div>
                             </div>
+
+                            
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">BUY</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+                <!-- 상품목록 -->
+                
+                
+                </div>
+            </div>
+            
+            
+
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Add to cart</a></div>
@@ -51,3 +84,4 @@
                 </div>
             </div>
 		
+

@@ -15,4 +15,14 @@
 		<put-attribute name="body" value="/WEB-INF/book/{1}.jsp" />
 	</definition>
 	
+	<definition name="adminpage" template="/WEB-INF/admin/layouts/template.jsp">
+		<put-attribute name="title" value="상품 목록 템플릿" />
+		<put-attribute name="sidebar" value="/WEB-INF/admin/layouts/sidebar.jsp" />
+		<put-attribute name="body" value="/WEB-INF/admin/layouts/body.jsp" />
+	</definition>
+	
+	<definition name="WILDCARD:admin/*" extends="adminpage">
+		<put-attribute name="body" value="/WEB-INF/admin/{1}.jsp" />
+	</definition>
+
 </tiles-definitions>

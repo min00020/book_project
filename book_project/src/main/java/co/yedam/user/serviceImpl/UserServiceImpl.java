@@ -1,7 +1,5 @@
 package co.yedam.user.serviceImpl;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSourceMybatis;
@@ -39,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	public String IdCheck(String id) {
 		return mapper.idcheck(id);
 	}
-
+	
 	@Override
 	public UserVO getUser(String userId) {
 		return mapper.select(userId);

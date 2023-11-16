@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.admin.mapper.AdminMainMapper">
+	<select id="bkList" resultType="co.yedam.book.service.BookVO">
+		SELECT * FROM BOOK ORDER BY
+		BOOK_NO
+	</select>
+
+	<select id="totalPriceSum" resultType="int">
+		SELECT
+		sum(ODR_TOTAL_PRICE) FROM ORDER_TBL
+	</select>
+
+	<select id="orderCnt" resultType="int">
+		SELECT COUNT(*) FROM ORDER_TBL
+		WHERE ODR_STATUS!='주문취소'
+	</select>
+
+	<select id="monthPrice" resultType="map">
+		SELECT A.MOTH "MONTH", A.PRICE "PRICE"
+		FROM (
+		SELECT TO_CHAR(ODR_DATE,'MM') MOTH, SUM(ODR_TOTAL_PRICE) PRICE
+		FROM ORDER_TBL
+		GROUP BY TO_CHAR(ODR_DATE,'MM')
+		) A
+		ORDER BY A.MOTH
+	</select>
+
+</mapper>

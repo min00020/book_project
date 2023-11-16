@@ -2,7 +2,6 @@ package co.yedam.user.web;
 
 import java.io.IOException;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,9 +10,8 @@ import co.yedam.user.service.UserService;
 import co.yedam.user.service.UserVO;
 import co.yedam.user.serviceImpl.UserServiceImpl;
 
-
 public class JoinControl implements Command {
-	
+
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 				
@@ -30,7 +28,8 @@ public class JoinControl implements Command {
 		String bir2 = req.getParameter("bir2");
 		String bir3 = req.getParameter("bir3");
 		String gender = req.getParameter("gender");
-		
+
+
 		String domain = (email.concat(email2));
 		String bir = (bir1.concat(bir2).concat(bir3));
 		
@@ -61,4 +60,5 @@ public class JoinControl implements Command {
 			}
 		}
 	}
+
 }

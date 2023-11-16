@@ -18,17 +18,18 @@
 		<h4 align="center">로그인</h4>
 		<tr>
 			<th>아이디</th>
-			<td><input type="text" class="form-control" id="id" name="id"></td>
+			<td><input type="text" class="form-control" name="id"></td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
-			<td><input type="password" class="form-control" id="pass" name="pass"></td>
+			<td><input type="password" class="form-control" name="pass"></td>
 		</tr>
 		<tr>
 			<td colspan="1"><input type="submit" value="로그인"></td>
 			<td colspan="1"><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
 		</tr>
 	</table>
+</form>
 </form>
 <script>
 /* 로그인 유효성 */

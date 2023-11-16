@@ -1,9 +1,5 @@
 package co.yedam.user.service;
 
-import java.util.List;
-
-import co.yedam.user.mapper.UserMapper;
-
 public interface UserService {
 	public boolean addUser(UserVO vo);
 	public boolean editUser(UserVO vo);
@@ -11,7 +7,5 @@ public interface UserService {
 	
 	public UserVO loginCheck(String id, String pw);
 	public String IdCheck(String id);
-	public UserVO getUser(String userId);
-
-	
+	public UserVO getUser(String userId);	
 }
