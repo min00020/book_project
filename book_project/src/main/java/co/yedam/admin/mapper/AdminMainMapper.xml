@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.admin.mapper.AdminMainMapper">
+
+	<select id="sysmonthPrice" resultType="int">
+		SELECT
+		SUM(DECODE(TO_CHAR(odr_date, 'MM'), TO_CHAR(SYSDATE,'MM'),
+		odr_total_price))
+		FROM order_tbl
+		WHERE odr_date
+		BETWEEN
+		TO_DATE('2023-01-01', 'YYYY-MM-DD')
+		AND TO_DATE('2023-12-31',
+		'YYYY-MM-DD')
+	</select>
+
+	<select id="totalPriceSum" resultType="int">
+		SELECT
+		sum(ODR_TOTAL_PRICE) FROM ORDER_TBL
+	</select>
+
+	<select id="orderPercent" resultType="int">
+		SELECT
+		CEIL(COUNT(*)/(SELECT COUNT(*) FROM ORDER_TBL) *100)
+		FROM ORDER_TBL
+		WHERE ODR_STATUS='주문취소'
+		GROUP BY ODR_STATUS
+	</select>
+
+	<select id="reqDelivery" resultType="int">
+		SELECT COUNT(*) FROM ORDER_TBL
+		WHERE ODR_STATUS='주문완료'
+	</select>
+	<select id="orderCnt" resultType="int">
+		SELECT COUNT(*) FROM ORDER_TBL
+		WHERE ODR_STATUS!='주문취소'
+	</select>
+
+	<select id="monthPrice" resultType="map">
+		SELECT A.MOTH "MONTH",
+		A.PRICE "PRICE"
+		FROM (
+		SELECT TO_CHAR(ODR_DATE,'MM') MOTH,
+		SUM(ODR_TOTAL_PRICE) PRICE
+		FROM ORDER_TBL
+		GROUP BY
+		TO_CHAR(ODR_DATE,'MM')
+		) A
+		ORDER BY A.MOTH
+	</select>
+
+</mapper>
