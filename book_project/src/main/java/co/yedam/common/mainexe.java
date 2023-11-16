@@ -22,10 +22,18 @@ public class mainexe {
 //		mapper.addCart(vo);
 
 		AdminMainMapper mapper = session.getMapper(AdminMainMapper.class);
-		
+		int sysmonthPrice = mapper.sysmonthPrice();
+		int totalPriceSum = mapper.totalPriceSum();
+		int orderPercent = mapper.orderPercent();
 		List<Map<String, Object>> totlalist = mapper.monthPrice();
+		int orderCnt = mapper.orderCnt();
+		
+		System.out.println("main.exe조회:" + sysmonthPrice);
+		System.out.println("main.exe조회:" + totalPriceSum);
+		System.out.println("main.exe조회:" + orderPercent);
 		System.out.println("main.exe조회:" + totlalist);
-		 
+		System.out.println("main.exe조회:" + orderCnt);
+		
 		
 	}
 
