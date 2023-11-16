@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
-
 <style>
 .product{
   padding:10px;
@@ -26,20 +23,16 @@
 .content {
 	float: right;
 }
-
 </style>
-
-
 <input type="text"  name="keyword" id="searchBar">
 
-<a class="btn btn-outline-dark mt-auto" id="searchBtn">검색</a>
+<a class="btn btn-outline-dark mt-auto" id="searchBtn" >검색</a>
 
-<input type="submit" value="" />
-
+<input type="submit" value=""/>
 <form>  
 
-
 </form>  
+<!-- href="booksearch.do?sno=" -->
 
 
 <div style="float: left">
@@ -52,7 +45,7 @@
 		class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 		<!-- 상품목록 -->
 		
-		<c:forEach items="${list}" var="vo" end="5">
+		<c:forEach items="${list}" var="vo">
 
 
 			<div class="col mb-5">
@@ -77,8 +70,8 @@
 					</div>
 					<!-- Product actions-->
 					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Cart</a></div>	
 						<div class="text-center">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Cart</a></div>
 							
 						</div>
 					</div>
@@ -93,11 +86,16 @@
 	
 	<div class="line" style="list-style-type: none;">
 	
-		
-		<div class="productListFilter-navi" productlistfilter="180143">전체</div>
-		<div class="productListFilter-navi" productlistfilter="180143">테스트</div>
-		<div class="productListFilter-navi" productlistfilter="180143">테스트1</div>
-		
+		<div class="product" type="button" src="bookmianpage.tiles">전체</div>
+		<div class="product">시, 소설, 에세이</div>
+		<div class="product">일러스트, 회화, 만화</div>
+		<div class="product">영화</div>
+		<div class="product">디자인, 창작, 실용</div>
+		<div class="product">사진</div>
+		<div class="product">여행</div>
+		<div class="product">생활, 요리, 취미</div>
+		<div class="product">해외도서</div>
+		<div class="product">스티커</div>
 	</div>
 	
 	</div>
@@ -107,10 +105,14 @@
 </div>
 
 <script>
+//도서 분리 기능 넣어야함
+
+
+// 검색 기능
 let queryContent="";
 let queryURL ="booksearch.do?sno=";
 
-const searchInput = document.getElementById('searchBar');
+const searchInput = document.getElementById('searchBtn');
 searchInput.addEventListener("keyup", (e) => {
 	if(e.keyCode == 13){
 		const queryString = String(e.target.value);
@@ -131,10 +133,10 @@ searchBtn.addEventListener("click", (e) => {
    queryURL += queryContent;
    window.location.href = queryURL;
    
-   queryContent = "";
+   queryContent = ""; // 리셋
    queryURL = "booksearch.do?sno=";
 });
 
+
 </script>
-
-
+		

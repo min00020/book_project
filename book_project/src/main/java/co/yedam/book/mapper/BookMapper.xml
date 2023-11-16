@@ -7,14 +7,15 @@
 	</select>
 	
 	<select id="getBk" resultType="co.yedam.book.service.BookVO">
-		SELECT * FROM BOOK WHERE BOOK_NO= ${bookNo}
+		SELECT * FROM BOOK WHERE BOOK_NO= #{bookNo}
 	</select>
 	
 	<select id="getBkInfo" resultType="co.yedam.book.service.BookVO">
 		SELECT * FROM BOOK ORDER BY BOOK_NO DESC
 	</select>
 	
-	<select id="bkshop" resultType="co.yedam.book.service.BookVO">
-		SELECT * FROM BOOK
+	<select id="bkserch" resultType="co.yedam.book.service.BookVO">
+		SELECT * FROM BOOK WHERE BOOK_TITLE LIKE '%' || #{bookTitle} || '%'
 	</select>
+	
 </mapper>

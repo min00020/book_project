@@ -23,8 +23,6 @@ public class BookServiceImpl implements BookService {
 		return mapper.getBk(bookvo);
 	}
 
-	
-
 	@Override
 	public List<BookVO> selectBook() {
 		return mapper.getBkInfo();
@@ -33,6 +31,11 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<BookVO> bookshop() {
 		return mapper.bkshop();
+	}
+
+	@Override
+	public List<BookVO> bookserch(String bookTitle) {
+		return mapper.bkserch(bookTitle);
 	}
 
 }

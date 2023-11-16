@@ -15,6 +15,8 @@
 }
 </style>
 
+
+
 <form action="join.do" method="get" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">

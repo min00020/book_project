@@ -16,8 +16,7 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>
-                        
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>            
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Q&A</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">REVIEW</a></li>
@@ -26,7 +25,9 @@
             </div>
 
             <div class="order-1 md:order-2">
-                <img class="site-logo" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="main.do">
+                <img class="site-logo" width="200" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+            </a>
             </div>
 
             <div class="order-2 md:order-3 flex items-center" id="nav-content">
