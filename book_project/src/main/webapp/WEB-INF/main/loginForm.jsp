@@ -30,6 +30,7 @@
 		</tr>
 	</table>
 </form>
+
 <script>
 /* 로그인 유효성 */
 function loginCheck(obj) {

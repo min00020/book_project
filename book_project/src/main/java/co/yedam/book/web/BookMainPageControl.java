@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.yedam.book.service.BookService;
 import co.yedam.book.service.BookVO;
@@ -16,7 +17,6 @@ public class BookMainPageControl implements Command {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		String path = "book/bookmainpage.tiles";
-
 		BookService svc = new BookServiceImpl();
 
 		List<BookVO> list = svc.bookList();
