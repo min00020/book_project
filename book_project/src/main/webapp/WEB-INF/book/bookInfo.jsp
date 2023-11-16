@@ -4,9 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
-
-
-
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="row gx-4 gx-lg-5 align-items-center">
@@ -25,7 +22,7 @@
 				<p class="lead">책 소개: ${bno.bookContent }</p>
 
 			</div>
-			
+
 
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity"
@@ -44,7 +41,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	
 	<div class="container px-4 px-lg-5 mt-5">
 		<div class="wrap_review">
@@ -155,7 +151,7 @@
 </section>
 <script>
 let bno = "${bno.bookNo}";
-let uid = "${id }";
+let uid = "${id}";
 let amount = document.querySelector('#inputQuantity').value;
 
 // 장바구니 담기
