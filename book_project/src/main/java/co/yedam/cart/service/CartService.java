@@ -4,8 +4,10 @@ import java.util.List;
 
 public interface CartService {
 
-	public List<CartVO> cartList();
+	public List<CartJoinVO> cartList(String id);
 	
 	public boolean addCart(CartVO vo);
 	public boolean deleteCart(int cartCode);
+
+
 }

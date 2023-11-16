@@ -80,7 +80,7 @@
 </section>
 <script>
 let bno = "${bno.bookNo}";
-let uid = "uid";
+let uid = "${id}";
 let amount = document.querySelector('#inputQuantity').value;
 
 // 장바구니 담기
