@@ -11,7 +11,7 @@
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
-table {
+form {
 	border-collapse: collapse;
 	width: 100%;
 	margin: 1rem auto;
@@ -40,7 +40,7 @@ tbody tr:hover {
 
 /* 테이블 비율 */
 th:nth-child(1), td:nth-child(1) {
-	width: 5%;
+	width: 7%;
 }
 
 th:nth-child(2), td:nth-child(2) {
@@ -48,10 +48,10 @@ th:nth-child(2), td:nth-child(2) {
 }
 
 th:nth-child(3), td:nth-child(3) {
-	width: 30%;
+	width: 25%;
 }
 th:nth-child(3), td:nth-child(4) {
-	width: 5%;
+	width: 3%;
 }
 
 tr:nth-child(even) {
@@ -66,17 +66,12 @@ img {
 
 <div
 	class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
-	<h1>장바구니목록</h1>
-	${id}
+	<form action="orderListInfo.do">
+	<h1>	${id} 님의 장바구니목록</h1>
 	<table id="table">
 		<thead>
 			<tr>
-				<th>선택</th>
-				<th>상품 사진</th>
-				<th>책 제목</th>
-				<th>수량</th>
-				<th>가격</th>
-				<th>옵션</th>
+				<th>상품정보</th>
 			</tr>
 		</thead>
 		<tbody id=listbody>
@@ -91,6 +86,7 @@ img {
 							<td>${list.bookTitle }</td>
 							<td>${list.cartAmount }개</td>
 							<td>${list.bookPrice}원</td>
+							<td>${list.cartAmount * list.bookPrice}원</td>
 							<td><a href="deleteCart.do?cno=${list.cartCode}">삭제하기</a> 
 						</tr>
 					</c:when>
@@ -100,9 +96,9 @@ img {
 			</c:forEach>
 		</tbody>
 	</table>
-							<a>삭제하기</a> 
 							<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
-	<a href="orderListInfo.do">결제하기</a>
+	<input type="submit" value="결제하기">
+	</form>
 	<p></p>
 </div>
 <script>
