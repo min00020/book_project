@@ -11,11 +11,15 @@
 					src="resources/image/${bno.bookImage }" alt="..." />
 			</div>
 			<div class="col-md-6">
-				<div class="small mb-1">${bno.bookNo }</div>
 				<h1 class="display-5 fw-bolder">${bno.bookTitle }</h1>
 				<div class="fs-5 mb-5">
-					<span class="text-decoration-line-through">${bno.bookPrice }</span>
+					<span>가격: ${bno.bookPrice }원</span>
+					<p></p>
+					<a style="font-size: 15px;">지은이: ${bno.bookWriter }</a><br>
+					<a style="font-size: 15px;">출판사: ${bno.bookPublisher }</a><br>
+					<a style="font-size: 15px;">분야: ${bno.bookSort }</a>
 				</div>
+				<h3>설명</h3>
 				<p class="lead">${bno.bookContent }</p>
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity"

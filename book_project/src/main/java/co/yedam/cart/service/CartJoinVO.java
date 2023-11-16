@@ -14,6 +14,4 @@ public class CartJoinVO {
 	private String bookTitle;
 	private int bookPrice;
 	
-	private int totalPrice = bookPrice * cartAmount;
-	
 }
