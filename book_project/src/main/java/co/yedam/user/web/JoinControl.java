@@ -30,7 +30,6 @@ public class JoinControl implements Command {
 		String bir2 = req.getParameter("bir2");
 		String bir3 = req.getParameter("bir3");
 		String gender = req.getParameter("gender");
-		
 		String domain = (email.concat(email2));
 		String bir = (bir1.concat(bir2).concat(bir3));
 		

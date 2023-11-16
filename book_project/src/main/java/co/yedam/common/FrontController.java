@@ -10,14 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.cart.web.AddCartControl;
-import co.yedam.cart.web.DeleteCartControl;
-import co.yedam.cart.web.CartListControl;
-import co.yedam.order.web.OrderListControl;
+import co.yedam.admin.web.AdminControl;
+import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InstaControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
 import co.yedam.book.web.BookShopControl;
-
+import co.yedam.cart.web.AddCartControl;
+import co.yedam.cart.web.CartListControl;
+import co.yedam.cart.web.DeleteCartControl;
+import co.yedam.order.web.OrderListControl;
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
@@ -57,6 +59,14 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
+
+		//관리자
+		map.put("/admin.do", new AdminControl());
+		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); /*월별 판매금액 차트*/
+		
+		//인스타
+		map.put("/insta.do", new InstaControl());
+		
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
 	}
 
@@ -67,10 +77,10 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getServletContext().getContextPath(); 
 		String page = uri.substring(context.length()); 
-		System.out.println(page); 
+		System.out.println("프론트: "+page); 
 		
 		Command controller = map.get(page);
-		System.out.println(page);
+		System.out.println("프론트: "+page);
 		controller.execute(req, resp);
 
 	}
