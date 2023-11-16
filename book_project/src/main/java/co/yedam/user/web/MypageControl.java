@@ -9,7 +9,7 @@ public class MypageControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String path = "WEB-INF/main/mypage.do";
+		String path = "WEB-INF/main/mypage.jsp";
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
