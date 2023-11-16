@@ -137,7 +137,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Cart</a>
 							</div>
 						</div>
 					</div>
@@ -177,5 +177,6 @@ function addCart() {
 	})
 	});
 }
+
 
 </script>
