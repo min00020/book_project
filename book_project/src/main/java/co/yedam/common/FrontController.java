@@ -36,6 +36,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 
+
 		// 장바구니 
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
@@ -56,7 +57,6 @@ public class FrontController extends HttpServlet {
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
-		
 		
 		//관리자
 		map.put("/admin.do", new AdminControl());
