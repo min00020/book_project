@@ -31,10 +31,7 @@
 
 
 
-<form action="searchResult.jsp" method="get">
-    <input type="text" name="query" placeholder="검색어 입력">
-    <input type="submit" value="검색">
-</form>
+
 
 <input type="text"  name="keyword" id="searchBar">
 
