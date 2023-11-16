@@ -34,7 +34,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public BookVO bkserch(String bookTitle) {
+	public List<BookVO> bookserch(String bookTitle) {
 		return mapper.bkserch(bookTitle);
 	}
 

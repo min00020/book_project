@@ -16,6 +16,7 @@ import co.yedam.cart.web.cartListControl;
 import co.yedam.order.web.orderControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookMainPageControl;
+import co.yedam.book.web.BookSearchControl;
 import co.yedam.book.web.BookShopControl;
 
 import co.yedam.user.web.JoinControl;
@@ -50,6 +51,9 @@ public class FrontController extends HttpServlet {
 		map.put("/bookmainpage.do", new BookMainPageControl()); //메인 페이지
 		map.put("/bookInfo.do", new BookInfoControl());   //책 상세 페이지
 		map.put("/bookshop.do", new BookShopControl());   //북 샵
+		map.put("/booksearch.do", new BookSearchControl()); //검색 기능
+		
+//		map.put("/addBoard.do", new AddBoardControl());
 		
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */

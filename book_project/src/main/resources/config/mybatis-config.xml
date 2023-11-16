@@ -22,5 +22,6 @@
 		<mapper resource="co/yedam/book/mapper/BookMapper.xml" />
 		<mapper resource="co/yedam/user/mapper/UserMapper.xml" />
 		<mapper resource="co/yedam/cart/mapper/CartMapper.xml" />
+		<mapper resource="co/yedam/book/mapper/BookMapper.xml" />
 	</mappers>
 </configuration>

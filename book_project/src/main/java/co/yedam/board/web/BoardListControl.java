@@ -21,12 +21,10 @@ public class BoardListControl implements Command {
 		
 		req.setAttribute("list", list);
 		
-		// 페이지요청(boardList.do) -> 요청재짖정(board/boardList.jsp)
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/board/boardList.jsp");//
+		RequestDispatcher rd = req.getRequestDispatcher("board/boardList.tiles");//
 		try {
 			rd.forward(req, resp);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

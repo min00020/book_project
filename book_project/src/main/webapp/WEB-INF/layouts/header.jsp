@@ -25,7 +25,9 @@
             </div>
 
             <div class="order-1 md:order-2">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="main.do">
                 <img class="site-logo" width="200" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+            </a>
             </div>
 
             <div class="order-2 md:order-3 flex items-center" id="nav-content">

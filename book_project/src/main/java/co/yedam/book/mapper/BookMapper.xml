@@ -15,6 +15,7 @@
 	</select>
 	
 	<select id="bkserch" resultType="co.yedam.book.service.BookVO">
-		SELECT * FROM BOOK WHERE BOOK_TITLE LIKE = %${bookTitle}%
+		SELECT * FROM BOOK WHERE BOOK_TITLE LIKE '%' || #{bookTitle} || '%'
 	</select>
+	
 </mapper>

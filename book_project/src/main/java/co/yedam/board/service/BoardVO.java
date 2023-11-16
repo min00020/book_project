@@ -16,5 +16,5 @@ public class BoardVO {
 	private String boardSort;
 	private int BoardCnt;
 	private String userId;
-	
+
 }

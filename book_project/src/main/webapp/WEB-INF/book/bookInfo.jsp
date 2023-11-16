@@ -4,11 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
-
-
-
-
-
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
 		<div class="row gx-4 gx-lg-5 align-items-center">
@@ -34,6 +29,63 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="container px-4 px-lg-5 mt-5">
+		<div class="wrap_review">
+			<h2>리뷰 작성</h2>
+			<form name="reviewform" class="reviewform" method="post" action="/addReview.do">
+				<input type="hidden" name="rate" id="rate" value="0" />
+				<p class="title_star">리뷰를 남겨주세요.</p>
+				<div class="review_rating">
+					<div class="warning_msg">별점을 선택해 주세요.</div>
+					<div class="rating">
+						<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="">
+						<label for="rating1"></label>
+						<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="">
+						<label for="rating2"></label>
+						<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="">
+						<label for="rating3"></label>
+						<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="">
+						<label for="rating4"></label>
+						<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="">
+						<label for="rating5"></label>
+					</div>
+				</div>
+				<div class="review_contents">
+					<div class="warning_msg">5자 이상으로 작성해 주세요.</div>
+					<textarea rows="10" class="review_textarea"></textarea>
+				</div>
+				<div class="cmd">
+					<input type="button" name="save" class="btn02" id="save" value="등록">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container px-4 px-lg-5 mt-5">
+		<h2>리뷰 목록</h2>
+		<table>
+			<thead>
+				<tr class="table_head">
+					<td>리뷰번호</td>
+					<td>작성자</td>
+					<td class="review_content">리뷰</td>
+					<td>작성일자</td>
+					<td>별점</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>test</td>
+					<td class="review_content">너무</td>
+					<td>2023-11-15</td>
+					<td>3</td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
+	
 </section>
 <!-- Related items section-->
 <section class="py-5 bg-light">
@@ -65,7 +117,7 @@
 								<!-- Product reviews-->
 
 								<!-- Product price-->
-								<span class="">${vo.bookPrice }</span>
+								<span class="">${vo.bookPrice }원</span>
 
 								
 							</div>
@@ -81,4 +133,7 @@
 			</c:forEach>
 		</div>
 	</div>
+	
+	
+	
 </section>
