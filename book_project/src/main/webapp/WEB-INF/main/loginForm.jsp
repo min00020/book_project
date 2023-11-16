@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td colspan="1"><input type="submit" value="로그인"></td>
-			<td colspan="1"><input type="submit" onclick="this.form.action='joinForm.do';" value="회원가입"></td>
+			<td colspan="1"><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
 		</tr>
 	</table>
 </form>
