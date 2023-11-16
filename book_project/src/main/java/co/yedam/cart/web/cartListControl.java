@@ -12,7 +12,7 @@ import co.yedam.common.Command;
 
 
 
-public class cartControl implements Command {
+public class cartListControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
