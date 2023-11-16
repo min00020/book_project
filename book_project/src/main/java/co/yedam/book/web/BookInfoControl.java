@@ -29,7 +29,7 @@ public class BookInfoControl implements Command {
 		
 		
 		List<BookVO> list = svc.selectBook();
-		
+		System.out.println(list);
 		req.setAttribute("list", list);
 		
 		try {

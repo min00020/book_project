@@ -9,11 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.admin.mapper.AdminMainMapper;
 import co.yedam.admin.service.AdminService;
 import co.yedam.admin.serviceImpl.AdminServiceImpl;
-import co.yedam.book.service.BookService;
-import co.yedam.book.service.BookVO;
-import co.yedam.book.serviceImpl.BookServiceImpl;
 import co.yedam.common.Command;
-import co.yedam.order.service.OrderVO;
 
 public class AdminControl implements Command {
 
@@ -21,23 +17,28 @@ public class AdminControl implements Command {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String path = "admin/adminpage.tiles";
 
-		BookService svc = new BookServiceImpl();
-		List<BookVO> list = svc.bookList();
-		System.out.println("책목록:" + list);
-		req.setAttribute("booklist", list);
-
 		AdminService adsvc = new AdminServiceImpl();
-		int cnt = adsvc.totalPriceSum();
-		System.out.println(cnt);
-
-		List<Map<String, Object>> orderMonth = adsvc.monthPrice();
-
-		System.out.println("admincontroll주문건수:" + orderMonth);
-		req.setAttribute("orderMonth", orderMonth);
+		
+		int sysmonthPrice = adsvc.sysmonthPrice();
+		req.setAttribute("sysmonthPrice", sysmonthPrice);
+		
+		int totalPriceSum = adsvc.totalPriceSum();
+		req.setAttribute("totalPriceSum", totalPriceSum);
+		
+		int orderPercent = adsvc.orderPercent();
+		req.setAttribute("orderPercent", orderPercent);
+		
+//		List<Map<String, Object>> orderMonth = adsvc.monthPrice();
+//		req.setAttribute("orderMonth", orderMonth);
 
 		int orderCnt = adsvc.orderCnt();
-		System.out.println("조회:" + orderCnt);
 		req.setAttribute("orderCnt", orderCnt);
+		
+		int reqDelivery = adsvc.reqDelivery();
+		req.setAttribute("reqDelivery", reqDelivery);
+
+		System.out.println("admincontrol조회:" + orderCnt);
+		System.out.println(totalPriceSum);
 
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
