@@ -11,6 +11,7 @@ public interface UserService {
 	
 	public UserVO loginCheck(String id, String pw);
 	public String IdCheck(String id);
+	public UserVO getUser(String userId);
 
 	
 }

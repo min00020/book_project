@@ -18,4 +18,7 @@
 	<select id="idcheck" resultType="String">
 		SELECT USER_ID FROM USER_TBL WHERE USER_ID=#{userId}
 	</select>
+	<select id="select" resultType="co.yedam.user.service.UserVO">
+		SELECT * FROM USER_TBL WHERE USER_ID=#{userId} 
+	</select>
 </mapper>

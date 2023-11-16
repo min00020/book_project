@@ -21,7 +21,9 @@ import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
+import co.yedam.user.web.ModifyFormControl;
 import co.yedam.user.web.ModifyUserControl;
+import co.yedam.user.web.MypageControl;
 
 public class FrontController extends HttpServlet {
 
@@ -56,7 +58,10 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
-		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
+		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
+		
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행

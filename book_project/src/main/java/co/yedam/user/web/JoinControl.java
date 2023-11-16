@@ -49,7 +49,7 @@ public class JoinControl implements Command {
 		UserService svc = new UserServiceImpl();
 		
 		if (svc.addUser(vo)) {
-			try { resp.sendRedirect("main.do"); 
+			try { resp.sendRedirect("loginForm.do"); 
 			} catch (IOException e) {
 			 e.printStackTrace(); 
 			 }

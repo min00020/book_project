@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet"
+    pageEncoding="UTF-8"%>
+    <link rel="stylesheet"
 	href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
 
 <link
@@ -16,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="modifyUser.do" method="get"
+<form action="modifyUser.do" method="get"
 		onsubmit="return joinCheck(this)">
 		<h3>회원 정보 수정</h3>
 		<div id="id">

@@ -13,4 +13,5 @@ public interface UserMapper {
 	
 	public UserVO getUser(@Param("userId")String id, @Param("userPass") String pw);
 	public String idcheck(String id);
+	public UserVO select(String userId);
 }

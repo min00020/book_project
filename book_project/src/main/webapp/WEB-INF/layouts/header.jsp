@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!--Nav-->
     <nav id="header" class="w-full z30 top-0 py-1">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
@@ -28,15 +28,36 @@
             <div class="order-1 md:order-2">
                 <img class="site-logo" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
             </div>
-
+            <c:choose>
+            	<c:when test="${empty id }">
+            		<div>(Guest)입니다.</div>
+            	</c:when>
+            	<c:otherwise>
+					<div>(${id })님 환영합니다!</div>
+            	</c:otherwise>
+            </c:choose>
             <div class="order-2 md:order-3 flex items-center" id="nav-content">
                 <a class="headerProductSearchContent" data-type="english"></a>
-                <a class="inline-block no-underline hover:text-black" href="loginForm.do">
-                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <circle fill="none" cx="12" cy="7" r="3" />
-                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
-                    </svg>
-                </a>
+                
+                <c:choose>
+                	<c:when test="${empty id }">
+                		<a class="inline-block no-underline hover:text-black" href="loginForm.do">
+	                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	                        <circle fill="none" cx="12" cy="7" r="3" />
+	                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+	                    </svg>
+	                	</a>
+                	</c:when>
+                	
+                	<c:otherwise>
+                		<a class="inline-block no-underline hover:text-black" href="mypage.do">
+	                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+	                        <circle fill="none" cx="12" cy="7" r="3" />
+	                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+	                    </svg>
+                		</a>
+                	</c:otherwise>
+                </c:choose>
 
                 <a class="pl-3 inline-block no-underline hover:text-black" href="cartListInfo.do">
                     <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -45,6 +66,13 @@
                         <circle cx="17.5" cy="18.5" r="1.5" />
                     </svg>
                 </a>
+                <c:choose>
+					<c:when test="${!empty id }">
+						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
+                		<img src="resources/image/logout.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
+                		</a>
+					</c:when>                
+                </c:choose>
 
             </div>
         </div>
