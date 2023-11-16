@@ -55,6 +55,8 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
+		
 		
 		//관리자
 		map.put("/admin.do", new AdminControl());
@@ -63,7 +65,6 @@ public class FrontController extends HttpServlet {
 		//인스타
 		map.put("/insta.do", new InstaControl());
 		
-		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
 	}
 
 	@Override //호출할 때마다 실행하는건 서비스, init은 처음에만 실행
