@@ -14,4 +14,9 @@ public class UserVO {
 	private String userBir;
 	private String userGender;
 	private String responsbility;
+	
+	public void userEmail(String email, String email2) {
+	 
+	  }
+	 
 }
