@@ -27,7 +27,6 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
-
 async function drawChart() {
   var priceAry = [];
 
