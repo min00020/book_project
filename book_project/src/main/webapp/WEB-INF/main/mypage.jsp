@@ -8,7 +8,7 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<%-- <jsp:include page="../mypage/layouts/mybody.jsp"></jsp:include> --%>
+<jsp:include page="../mypage/layouts/mybody.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>

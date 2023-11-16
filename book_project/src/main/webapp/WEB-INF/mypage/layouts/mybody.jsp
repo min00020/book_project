@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <div class="row">
-
 	<div class="col-lg-6">
-
 		<!-- Overflow Hidden -->
 		<div class="card mb-4">
 			<div class="card-header py-3">
@@ -19,7 +18,7 @@
 		<!-- Progress Small -->
 		<div class="card mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">게시글</h6>
+				<h6 class="m-0 font-weight-bold text-primary">내가 쓴 글</h6>
 			</div>
 			<div class="card-body">
 				<div class="mb-1 small">Normal Progress Bar</div>
@@ -38,31 +37,6 @@
 				<code>.progress</code>
 			</div>
 		</div>
-
-<!-- 		<!-- Dropdown No Arrow -->
-		<div class="card mb-4">
-			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">Dropdown - No
-					Arrow</h6>
-			</div>
-			<div class="card-body">
-				<div class="dropdown no-arrow mb-4">
-					<button class="btn btn-secondary dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Dropdown (no
-						arrow)</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</div>
-				Add the
-				<code>.no-arrow</code>
-				class alongside the
-				<code>.dropdown</code>
-			</div>
-		</div> -->
 	</div>
 
 	<div class="col-lg-6">

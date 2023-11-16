@@ -15,8 +15,8 @@ public class LoginControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String id = req.getParameter("userId");
-		String pw = req.getParameter("userPass");
+		String id = req.getParameter("id");
+		String pw = req.getParameter("pass");
 		
 		UserService svc = new UserServiceImpl();
 		UserVO vo;
@@ -24,7 +24,7 @@ public class LoginControl implements Command {
 		
 		if (vo != null) {
 			HttpSession session = req.getSession();
-			session.setAttribute("userId", id);
+			session.setAttribute("id", id);
 			session.setAttribute("resposbility", vo.getResponsbility());
 			
 			try {
@@ -34,7 +34,7 @@ public class LoginControl implements Command {
 			}
 		} else {
 			try {
-				resp.sendRedirect("main.do");
+				resp.sendRedirect("loginForm.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

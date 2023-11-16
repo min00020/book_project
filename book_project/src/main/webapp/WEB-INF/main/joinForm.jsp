@@ -76,8 +76,7 @@
 	<div id="joingender">
 		<h5>성별</h5>
 		<label><input name="gender" type="radio" checked value="남">남</label>
-		<input id="female" name="gender" type="radio" value="여"><label
-			for="female">여</label>
+		<input id="female" name="gender" type="radio" value="여"><label for="female">여</label>
 	</div>
 	<hr>
 	<div id="join">
