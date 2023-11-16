@@ -3,10 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!-- ${booklist} -->
+<!-- ${orderMonth } -->
+<!-- ${orderCnt} -->
 <!-- Content Wrapper -->
 
-${totalList}
 <div id="content-wrapper" class="d-flex flex-column">
 
 	<!-- Main Content -->
@@ -298,7 +298,7 @@ ${totalList}
 									<div
 										class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 										총 주문건수</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${orderCnt }</div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -575,5 +575,5 @@ ${totalList}
 
 </div>
 <!-- End of Content Wrapper -->
-
-
+<script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
+<script src="resources/admin/js/chart_month.js"></script>

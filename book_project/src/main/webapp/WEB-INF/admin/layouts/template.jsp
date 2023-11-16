@@ -74,7 +74,7 @@
     <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="resources/admin/js/demo/chart-area-demo.js"></script>
+    <script src="resources/admin/js/chart_month.js"></script>
     <script src="resources/admin/js/demo/chart-pie-demo.js"></script>
 
 </body>
