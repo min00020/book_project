@@ -14,7 +14,10 @@
 	position: relative;
 }
 </style>
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'develop' of https://github.com/min00020/book_project.git
 <form action="join.do" method="get" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">
