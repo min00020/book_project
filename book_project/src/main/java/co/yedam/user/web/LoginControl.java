@@ -34,7 +34,7 @@ public class LoginControl implements Command {
 			}
 		} else {
 			try {
-				resp.sendRedirect("main.do");
+				resp.sendRedirect("loginForm.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
