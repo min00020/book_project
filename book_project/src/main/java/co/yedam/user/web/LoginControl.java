@@ -27,7 +27,7 @@ public class LoginControl implements Command {
 			HttpSession session = req.getSession();
 			session.setAttribute("id", id);
 			session.setAttribute("pass", pw);
-			session.setAttribute("resposbility", vo.getResponsbility());
+			session.setAttribute("responsibility", vo.getResponsibility());
 			
 			
 			try {
