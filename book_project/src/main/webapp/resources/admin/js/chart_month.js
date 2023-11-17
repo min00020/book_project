@@ -27,7 +27,6 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
-
 async function drawChart() {
   var priceAry = [];
 
@@ -35,7 +34,6 @@ async function drawChart() {
   let json = await promise.json();
   json.forEach(data => {
     priceAry.push(data.PRICE);
-    console.log(data);
   })
 
   console.log(priceAry)

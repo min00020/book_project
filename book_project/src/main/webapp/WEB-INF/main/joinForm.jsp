@@ -14,6 +14,7 @@
 	position: relative;
 }
 </style>
+
 <form action="join.do" method="post" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">
@@ -23,11 +24,13 @@
 	</div>
 	<div>
 		<h5>비밀번호</h5>
+
 		<input type="password" id="pw1" name="pw1" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
 	</div>
 	<div>
 		<h5>비밀번호 확인</h5>
 		<input type="password" id="pw2" name="pw2" onchange="pwcheck()" /><span id="check"></span>
+
 	</div>
 	<!-- <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div> -->
 	
@@ -35,7 +38,7 @@
 		<h5>이름</h5>
 		<input type="text" id="name" name="name" />
 	</div>
-	<div id="joinemail">
+	<div id="joinemail" >
 		<h5>이메일</h5>
 		<input type="text" placeholder="이메일 입력" name="email" /> <input
 			class="box" disabled id="domain_text" /> 
@@ -71,7 +74,7 @@
 			<option disabled selected>일</option>
 		</select>
 	</div>
-	<div id="joingender">
+	<div id="joingender" >
 		<h5>성별</h5>
 		<label><input name="gender" type="radio" checked value="male">남</label>
 		<input id="female" name="gender" type="radio" value="female"><label
@@ -228,7 +231,5 @@
 		}
 	}
 
-	
-	 
 </script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

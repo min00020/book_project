@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!--Nav-->
     <nav id="header" class="w-full z30 top-0 py-1">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
@@ -16,8 +17,7 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>
-                        
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>            
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Q&A</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">REVIEW</a></li>
@@ -26,7 +26,11 @@
             </div>
 
             <div class="order-1 md:order-2">
+
+                <a href="main.do">
                 <img class="site-logo" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+                </a>
+
             </div>
             <c:choose>
             	<c:when test="${empty id }">
@@ -36,8 +40,9 @@
 					<div>(${id })님 환영합니다!</div>
             	</c:otherwise>
             </c:choose>
-            <div class="order-2 md:order-3 flex items-center" id="nav-content">
-                <a class="headerProductSearchContent" data-type="english"></a>
+          
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">  			
+            <a class="headerProductSearchContent" data-type="english"></a>
                 
                 <c:choose>
                 	<c:when test="${empty id }">
@@ -66,13 +71,13 @@
                         <circle cx="17.5" cy="18.5" r="1.5" />
                     </svg>
                 </a>
-                <c:choose>
+          <c:choose>
 					<c:when test="${!empty id }">
 						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
                 		<img src="resources/image/logout.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
                 		</a>
 					</c:when>                
-                </c:choose>
+          </c:choose>
 
             </div>
         </div>

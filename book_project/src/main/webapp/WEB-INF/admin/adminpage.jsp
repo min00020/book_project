@@ -3,10 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!-- ${orderMonth } -->
-<!-- ${orderCnt} -->
+<!-- ${sysmonthPrice } ${orderMonth } ${orderCnt} ${reqDelivery }-->
 <!-- Content Wrapper -->
-
 <div id="content-wrapper" class="d-flex flex-column">
 
 	<!-- Main Content -->
@@ -212,7 +210,7 @@
 			<!-- Page Heading -->
 			<div
 				class="d-sm-flex align-items-center justify-content-between mb-4">
-				<h1 class="h3 mb-0 text-gray-800">WEB-INF/admin/adminpage.jsp</h1>
+				<h1 class="h3 mb-0 text-gray-800">제품 판매 현황</h1>
 				<a href="#"
 					class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 					class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -230,7 +228,7 @@
 									<div
 										class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 										이번달 판매금액 (Monthly)</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${sysmonthPrice }원</div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -249,7 +247,7 @@
 									<div
 										class="text-xs font-weight-bold text-success text-uppercase mb-1">
 										올해 판매금액(Annual)</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">215,000</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${totalPriceSum}원</div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -266,11 +264,11 @@
 							<div class="row no-gutters align-items-center">
 								<div class="col mr-2">
 									<div
-										class="text-xs font-weight-bold text-info text-uppercase mb-1">판매율
+										class="text-xs font-weight-bold text-info text-uppercase mb-1">주문취소율
 									</div>
 									<div class="row no-gutters align-items-center">
 										<div class="col-auto">
-											<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+											<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${orderPercent}%</div>
 										</div>
 										<div class="col">
 											<div class="progress progress-sm mr-2">
@@ -297,8 +295,8 @@
 								<div class="col mr-2">
 									<div
 										class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-										총 주문건수</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">${orderCnt }</div>
+										배송요청 건수</div>
+									<div class="h5 mb-0 font-weight-bold text-gray-800">${reqDelivery } / ${orderCnt }건</div>
 								</div>
 								<div class="col-auto">
 									<i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -319,7 +317,7 @@
 						<!-- Card Header - Dropdown -->
 						<div
 							class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">판매 건수 그래프</h6>
+							<h6 class="m-0 font-weight-bold text-primary">월별 판매 금액</h6>
 							<div class="dropdown no-arrow">
 								<a class="dropdown-toggle" href="#" role="button"
 									id="dropdownMenuLink" data-toggle="dropdown"

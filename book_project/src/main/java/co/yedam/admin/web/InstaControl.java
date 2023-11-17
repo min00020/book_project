@@ -13,6 +13,7 @@ public class InstaControl implements Command {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String path = "WEB-INF/insta/insta.jsp";
 		
+		
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {

@@ -1,5 +1,6 @@
 package co.yedam.user.web;
 
+import java.io.Console;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,16 +26,21 @@ public class LoginControl implements Command {
 		if (vo != null) {
 			HttpSession session = req.getSession();
 			session.setAttribute("id", id);
+			session.setAttribute("pass", pw);
 			session.setAttribute("resposbility", vo.getResponsbility());
 			
 			try {
 				resp.sendRedirect("main.do");
+				System.out.println("성공");
+				System.out.println("아이디: " + id + "비밀번호: " +  pw);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
 				resp.sendRedirect("loginForm.do");
+				System.out.println("실패");
+				System.out.println("아이디: " + id + "비밀번호: " +  pw);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
