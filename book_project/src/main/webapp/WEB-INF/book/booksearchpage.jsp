@@ -86,32 +86,13 @@
 	</div>
 </div>
 </div>
-	<div class="col-3" style="right">
 	
-	<div class="line" style="list-style-type: none;">
-	
-		<a class="product" type="button" src="bookmianpage.tiles">전체</a><br>
-		<a class="product" href="#">시, 소설, 에세이</a><br>
-		<a class="product" href="#">일러스트, 회화, 만화</a><br>
-		<a class="product" href="#">영화</a><br>
-		<a class="product" href="#">디자인, 창작, 실용</a><br>
-		<a class="product" href="#">사진</a><br>
-		<a class="product" href="#">여행</a><br>
-		<a class="product" href="#">생활, 요리, 취미</a><br>
-		<a class="product" href="#">해외도서</a><br>
-		<a class="product" href="#">스티커</a><br>
-	</div>
-	
-	</div>
 	</div>
 	
 
 
 
 <script>
-//도서 분리 기능 넣어야함
-
-
 // 검색 기능
 let queryContent="";
 let queryURL ="booksearch.do?sno=";
