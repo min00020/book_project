@@ -27,7 +27,9 @@ import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
+import co.yedam.user.web.ModifyFormControl;
 import co.yedam.user.web.ModifyUserControl;
+import co.yedam.user.web.MypageControl;
 
 public class FrontController extends HttpServlet {
 
@@ -60,7 +62,10 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
-		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
+
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
+		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 
 		
 		//관리자
@@ -69,7 +74,6 @@ public class FrontController extends HttpServlet {
 		
 		//인스타
 		map.put("/insta.do", new InstaControl());
-		
 
 	}
 

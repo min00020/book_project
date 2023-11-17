@@ -51,13 +51,8 @@ public class JoinControl implements Command {
 		UserService svc = new UserServiceImpl();
 		
 		if (svc.addUser(vo)) {
+			try { resp.sendRedirect("loginForm.do"); 
 
-			/*
-			 * try { // resp.sendRedirect("main.do"); } catch (IOException e) {
-			 * e.printStackTrace(); }
-			 */
-
-			try { resp.sendRedirect("main.do"); 
 			} catch (IOException e) {
 			 e.printStackTrace(); 
 			 }
