@@ -20,12 +20,12 @@
 	<div id="joinid">
 		<h5>아이디</h5>
 		<input type="text" name="id" placeholder="아이디 입력(6~20자)" />
-		<button id="idcheck">중복 확인</button>
+		<button id="idcheck" onchange="idcheck()">중복 확인</button>
 	</div>
 	<div>
 		<h5>비밀번호</h5>
 
-		<input type="password" id="pw1" name="pw1" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
+		<input type="password" id="pw1" name="pw1" onchange="pw()" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
 	</div>
 	<div>
 		<h5>비밀번호 확인</h5>
@@ -76,8 +76,8 @@
 	</div>
 	<div id="joingender" >
 		<h5>성별</h5>
-		<label><input name="gender" type="radio" checked value="male">남</label>
-		<input id="female" name="gender" type="radio" value="female"><label
+		<label><input name="gender" type="radio" checked value="남">남</label>
+		<input id="female" name="gender" type="radio" value="여"><label
 			for="female">여</label>
 	</div>
 	<hr>
@@ -90,7 +90,7 @@
 	/* 아이디 중복 확인 */
 	/* const doublecheck = document.querySelector('#idcheck');
 	doublecheck.addEventListener('click', function(e) {
-		
+		.fetch 
 	}) */
 	
 	/* 이메일 도메인 */
@@ -200,6 +200,22 @@
 		userpw.focus();
 		return false;
 	} */
+	/* 비밀번호 */
+	let passcheck = document.querySelector('#pw1');
+	let reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+	function pw() {
+		if (passcheck.value != null) {
+			if (passcheck.value.length < 7) {
+			alert("비밀번호는 8자 이상으로 입력해주세요.")
+			passcheck.focus();
+			}
+			if(!reg.test(passcheck.value)) {
+				alert("비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 포함되어야합니다.");
+				passcheck.focus();
+			}
+		}
+		
+	}
 	/* 비밀번호 확인 */
 	function pwcheck() {
 		if (document.getElementById('pw2').value != null) {
@@ -211,6 +227,7 @@
 			}
 		}
 	}
+	
 	/* 회원가입 유효성 */
 	function joinCheck(obj) {
 		if (!obj.id.value || obj.id.value.trim().length == 0){

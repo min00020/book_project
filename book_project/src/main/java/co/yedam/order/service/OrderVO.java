@@ -15,5 +15,5 @@ public class OrderVO {
 	private int odrTotalPrice;
 	private String odrStatus;
 	private String paymentStatus;
-	private Date odrData;
+	private Date odrDate;
 }
