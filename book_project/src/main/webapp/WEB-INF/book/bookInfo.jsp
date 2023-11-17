@@ -51,20 +51,20 @@
 				<div class="review_rating">
 					<div class="warning_msg">별점을 선택해 주세요.</div>
 					<div class="rating">
-						<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="">
+						<input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1">
 						<label for="rating1"></label>
-						<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="">
+						<input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2">
 						<label for="rating2"></label>
-						<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="">
+						<input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3">
 						<label for="rating3"></label>
-						<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="">
+						<input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4">
 						<label for="rating4"></label>
-						<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="">
+						<input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5">
 						<label for="rating5"></label>
 					</div>
 				</div>
 				<div class="review_contents">
-					<div class="warning_msg">5자 이상으로 작성해 주세요.</div>
+					<div class="warning_msg">작성해 주세요.</div>
 					<textarea rows="10" class="review_textarea"></textarea>
 				</div>
 				<div class="cmd">

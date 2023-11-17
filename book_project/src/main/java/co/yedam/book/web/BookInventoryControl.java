@@ -1,9 +1,7 @@
 package co.yedam.book.web;
 
-import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,13 +17,18 @@ public class BookInventoryControl implements Command {
 		// TODO Auto-generated method stub
 		String path = "book/bookshop.tiles";
 		
-		String bno = req.getParameter("bno");
+		String cate = req.getParameter("cate"); // 책 카테고리 분류
 		
-		req.setAttribute("bno", bno);
 		
 		BookService svc =new BookServiceImpl();
-		
-		List<BookVO> list = svc.invenbook(bno);
+		List<BookVO> list = null;
+		if(cate == null) {
+			//전체검색
+			list = svc.bookList();
+		}
+		else {
+			list = svc.invenbook(Integer.parseInt(cate));
+		}
 		
 		req.setAttribute("list", list);
 		

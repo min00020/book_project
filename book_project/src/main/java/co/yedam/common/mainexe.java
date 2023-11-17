@@ -6,14 +6,17 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.admin.mapper.AdminMainMapper;
-import co.yedam.cart.mapper.CartMapper;
-import co.yedam.cart.service.CartVO;
+import co.yedam.book.service.BookService;
+import co.yedam.book.service.BookVO;
+import co.yedam.book.serviceImpl.BookServiceImpl;
 
 
 public class mainexe {
 
 	public static void main(String[] args) {
 		SqlSession session = DataSourceMybatis.getInstance().openSession(true);
+		
+		
 
 		//CartMapper mapper = session.getMapper(CartMapper.class);
 

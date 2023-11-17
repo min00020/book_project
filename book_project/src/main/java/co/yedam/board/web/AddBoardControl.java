@@ -25,9 +25,7 @@ public class AddBoardControl implements Command {
 			String writer = req.getParameter("writer");
 			String content = req.getParameter("content");
 
-//			vo.setTitle(title);
-//			vo.setWriter(writer);
-//			vo.setContent(content);
+			
 
 		} else if (req.getMethod().equals("POST")) {
 			String saveDir = req.getServletContext().getRealPath("images");
@@ -47,10 +45,7 @@ public class AddBoardControl implements Command {
 				String content = mr.getParameter("content");
 				String img = mr.getFilesystemName("img");
 
-//				vo.setTitle(title);
-//				vo.setWriter(writer);
-//				vo.setImage(img);
-//				vo.setContent(content);
+
 				
 				
 			} catch (IOException e) {

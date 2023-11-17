@@ -39,7 +39,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<BookVO> invenbook(String type) {
+	public List<BookVO> invenbook(int type) {
 		return mapper.invenbook(type);
 	}
 
