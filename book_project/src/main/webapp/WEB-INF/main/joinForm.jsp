@@ -15,29 +15,33 @@
 }
 </style>
 
-<form action="join.do" method="get" onsubmit="return joinCheck(this)">
+<form action="join.do" method="post" onsubmit="return joinCheck(this)">
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
 		<input type="text" name="id" placeholder="아이디 입력(6~20자)" />
-		<button id="idcheck">중복 확인</button>
+		<button id="idcheck" onchange="idcheck()">중복 확인</button>
 	</div>
 	<div>
 		<h5>비밀번호</h5>
-		<input type="password" id="pw1" name="pw1" placeholder="6자리 이상 입력해주세요." />
+
+		<input type="password" id="pw1" name="pw1" onchange="pw()" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
 	</div>
-	<div >
+	<div>
 		<h5>비밀번호 확인</h5>
-		<input type="password" id="pw2" onchange="pwcheck()"/><span id="check"></span>
+		<input type="password" id="pw2" name="pw2" onchange="pwcheck()" /><span id="check"></span>
+
 	</div>
+	<!-- <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div> -->
+	
 	<div id="joinname">
 		<h5>이름</h5>
 		<input type="text" id="name" name="name" />
 	</div>
 	<div id="joinemail" >
 		<h5>이메일</h5>
-		<input type="text" placeholder="이메일 입력" name="email"/>@
-		<input class="box"disabled id="domain_text" />
+		<input type="text" placeholder="이메일 입력" name="email" /> <input
+			class="box" disabled id="domain_text" /> 
 			<select id="domain_list" name="emaildomain">
 			<option disabled value="type" selected>선택하세요.</option>
 			<option value="@naver.com">naver.com</option>
@@ -55,20 +59,18 @@
 	<div>
 		<h5>주소지 입력</h5>
 		<input type="text" id="postcode" name="postcode" placeholder="우편번호">
-		<input type="button" id="addrnum" value="우편번호 찾기"><br>
+		<input type="button" id="addrnum" value="우편번호 찾기" ><br> 
 		<input type="text" id="sample6_address" name="addr" placeholder="주소"><br>
-		<input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소">
+		<input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
 		<input type="text" id="sample6_extraAddress" placeholder="참고항목">
 	</div>
 	<div class="info" id="info_bir">
 		<h5>생년월일</h5>
 		<select class="box" id="bir_year" name="bir1">
 			<option disabled selected>출생 연도</option>
-		</select> 
-		<select class="box" id="bir_month" name="bir2">
+		</select> <select class="box" id="bir_month" name="bir2">
 			<option disabled selected>월</option>
-		</select> 
-		<select class="box" id="bir_day" name="bir3">
+		</select> <select class="box" id="bir_day" name="bir3">
 			<option disabled selected>일</option>
 		</select>
 	</div>
@@ -88,7 +90,7 @@
 	/* 아이디 중복 확인 */
 	/* const doublecheck = document.querySelector('#idcheck');
 	doublecheck.addEventListener('click', function(e) {
-		
+		.fetch 
 	}) */
 	
 	/* 이메일 도메인 */
@@ -111,7 +113,6 @@
            
                 var addr = ''; 
                 var extraAddr = ''; 
-
                 if (data.userSelectedType === 'R') { 
                     addr = data.roadAddress;
                 } else { 
@@ -132,7 +133,6 @@
                 } else {
                     document.getElementById("sample6_extraAddress").value = '';
                 }
-
                 document.getElementById('postcode').value = data.zonecode;
                 document.getElementById("sample6_address").value = addr;
                 document.getElementById("sample6_detailAddress").focus();
@@ -200,6 +200,22 @@
 		userpw.focus();
 		return false;
 	} */
+	/* 비밀번호 */
+	let passcheck = document.querySelector('#pw1');
+	let reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+	function pw() {
+		if (passcheck.value != null) {
+			if (passcheck.value.length < 7) {
+			alert("비밀번호는 8자 이상으로 입력해주세요.")
+			passcheck.focus();
+			}
+			if(!reg.test(passcheck.value)) {
+				alert("비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 포함되어야합니다.");
+				passcheck.focus();
+			}
+		}
+		
+	}
 	/* 비밀번호 확인 */
 	function pwcheck() {
 		if (document.getElementById('pw2').value != null) {
@@ -211,6 +227,7 @@
 			}
 		}
 	}
+	
 	/* 회원가입 유효성 */
 	function joinCheck(obj) {
 		if (!obj.id.value || obj.id.value.trim().length == 0){
@@ -221,9 +238,15 @@
 			alert(" 비밀번호가 입력되지 않았습니다.");
 			return false;
 		}
+		if (document.getElementById('pw2').value != null) {
+			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
+				document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
+			} else {
+				alert("비밀번호가 일치하지 않습니다.")
+				document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
+			}
+		}
 	}
-	
-	 
-	
+
 </script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

@@ -15,9 +15,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="admin.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Admin Main</span></a>
             </li>
 
             <!-- Divider -->
@@ -103,9 +103,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>주문관리</span></a>
             </li>
 
+			<li class="nav-item">
+                <a class="nav-link" href="adminBook.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>상품목록</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="insertBook.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>상품등록</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>회원관리</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

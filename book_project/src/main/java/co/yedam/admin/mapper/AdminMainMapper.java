@@ -16,7 +16,4 @@ public interface AdminMainMapper {
 	public int reqDelivery(); //배송요청건수(주문완료상태)
 	public int userGender();
 	
-	public List<BookVO> bkList(); //책 목록 가져오기
-	
-	
 }

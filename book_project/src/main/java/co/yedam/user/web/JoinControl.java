@@ -33,7 +33,11 @@ public class JoinControl implements Command {
 
 
 		String domain = (email.concat(email2));
-		String bir = (bir1.concat(bir2).concat(bir3));
+		bir2 =  String.format("%02d", Integer.parseInt(bir2));
+		bir3 =  String.format("%02d", Integer.parseInt(bir3));
+		String bir = (bir1.concat('-' + bir2).concat('-' + bir3));
+		
+		System.out.println(bir);
 
 		
 		UserVO vo = new UserVO();
@@ -51,13 +55,8 @@ public class JoinControl implements Command {
 		UserService svc = new UserServiceImpl();
 		
 		if (svc.addUser(vo)) {
+			try { resp.sendRedirect("loginForm.do"); 
 
-			/*
-			 * try { // resp.sendRedirect("main.do"); } catch (IOException e) {
-			 * e.printStackTrace(); }
-			 */
-
-			try { resp.sendRedirect("main.do"); 
 			} catch (IOException e) {
 			 e.printStackTrace(); 
 			 }

@@ -10,7 +10,7 @@
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
-	
+	#login 
 </style>
 <form action="login.do" method="post" onsubmit="return loginCheck(this)" >
 <hr>
@@ -25,8 +25,8 @@
 			<td><input type="password" class="form-control" id="pass" name="pass"></td>
 		</tr>
 		<tr>
-			<td colspan="1"><input type="submit" value="로그인"></td>
-			<td colspan="1"><input type="submit" onclick="this.form.action='joinForm.do';" value="회원가입"></td>
+			<td colspan="1"><input type="submit" id="login" value="로그인"></td>
+			<td colspan="1"><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
 		</tr>
 	</table>
 </form>

@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.admin.web.AdminBookControl;
 import co.yedam.admin.web.AdminControl;
+import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
 import co.yedam.admin.web.InstaControl;
 import co.yedam.board.web.AddBoardControl;
@@ -29,15 +31,21 @@ import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
 import co.yedam.order.web.OrderListControl;
+
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
+
+import co.yedam.user.web.IdCheckControl;
+
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
+import co.yedam.user.web.ModifyFormControl;
 import co.yedam.user.web.ModifyUserControl;
+import co.yedam.user.web.MypageControl;
 
 public class FrontController extends HttpServlet {
 
@@ -88,16 +96,22 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
-		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 */
+		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
 
+		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
+		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		
 		//관리자
-		map.put("/admin.do", new AdminControl());
-		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); /*월별 판매금액 차트*/
+		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
+		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
+		
+		map.put("/adminBook.do", new AdminBookControl()); //상품목록 페이지
+		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인,주문상태변경
+		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
 		
 		//인스타
 		map.put("/insta.do", new InstaControl());
-		
 
 	}
 
@@ -108,11 +122,11 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getServletContext().getContextPath(); 
 		String page = uri.substring(context.length()); 
-		System.out.println("프론트: "+page); 
+		System.out.println("프론트: "+page);
 		
 		Command controller = map.get(page);
 		System.out.println("프론트: "+page);
 		controller.execute(req, resp);
-
+		
 	}
 }
