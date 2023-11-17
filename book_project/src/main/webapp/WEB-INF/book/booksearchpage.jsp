@@ -4,6 +4,7 @@
 <style>
 .product{
   padding:10px;
+  float:right;
 }
 .line ul li {
 	list-style-type: none;
@@ -24,14 +25,17 @@
 	float: right;
 }
 </style>
+
+
 <input type="text"  name="keyword" id="searchBar">
 
 <a class="btn btn-outline-dark mt-auto" id="searchBtn" >검색</a>
 
 <input type="submit" value=""/>
-<form>  
 
-</form>  
+
+
+
 <!-- href="booksearch.do?sno=" -->
 
 
@@ -82,32 +86,13 @@
 	</div>
 </div>
 </div>
-	<div class="col-3" style="de right">
 	
-	<div class="line" style="list-style-type: none;">
-	
-		<div class="product" type="button" src="bookmianpage.tiles">전체</div>
-		<div class="product">시, 소설, 에세이</div>
-		<div class="product">일러스트, 회화, 만화</div>
-		<div class="product">영화</div>
-		<div class="product">디자인, 창작, 실용</div>
-		<div class="product">사진</div>
-		<div class="product">여행</div>
-		<div class="product">생활, 요리, 취미</div>
-		<div class="product">해외도서</div>
-		<div class="product">스티커</div>
-	</div>
-	
-	</div>
 	</div>
 	
 
-</div>
+
 
 <script>
-//도서 분리 기능 넣어야함
-
-
 // 검색 기능
 let queryContent="";
 let queryURL ="booksearch.do?sno=";
@@ -136,6 +121,7 @@ searchBtn.addEventListener("click", (e) => {
    queryContent = ""; // 리셋
    queryURL = "booksearch.do?sno=";
 });
+
 
 
 </script>

@@ -75,7 +75,7 @@
 
     <!-- Page level custom scripts -->
     <script src="resources/admin/js/chart_month.js"></script>
-    <script src="resources/admin/js/demo/chart-pie-demo.js"></script>
+    <script src="resources/admin/js/chart_gender.js"></script>
 
 </body>
 

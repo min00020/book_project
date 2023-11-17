@@ -2,13 +2,8 @@
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.user.mapper.UserMapper">
 	<insert id="insert" parameterType="co.yedam.user.service.UserVO">
-		INSERT INTO USER_TBL(USER_ID,
-		USER_PASS, USER_NAME, USER_EMAIL, USER_PHONE, USER_ADDRNUM, USER_ADDR,
-		USER_BIR, USER_GENDER)
-		VALUES (#{userId}, #{userPass}, #{userName},
-		#{userEmail}, #{userPhone},
-		#{userAddrnum}, #{userAddr}, #{userBir},
-		#{userGender})
+		INSERT INTO USER_TBL(USER_ID, USER_PASS, USER_NAME, USER_EMAIL, USER_PHONE, USER_ADDRNUM, USER_ADDR, USER_BIR, USER_GENDER)
+		VALUES (#{userId}, #{userPass}, #{userName}, #{userEmail}, #{userPhone}, #{userAddrnum}, #{userAddr}, #{userBir}, #{userGender})
 	</insert>
 	<update id="update" parameterType="co.yedam.user.service.UserVO">
 		UPDATE USER_TBL SET
@@ -28,5 +23,8 @@
 	<select id="idcheck" resultType="String">
 		SELECT USER_ID FROM USER_TBL
 		WHERE USER_ID=#{userId}
+	</select>
+	<select id="select" resultType="co.yedam.user.service.UserVO">
+		SELECT * FROM USER_TBL WHERE USER_ID=#{userId} 
 	</select>
 </mapper>

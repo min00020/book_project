@@ -10,6 +10,8 @@ public interface UserMapper {
 	public boolean update(UserVO vo);
 	public boolean delete(UserVO vo);
 	
+
 	public UserVO getUser(@Param("id")String id, @Param("pw") String pw);
-	public int idcheck(UserVO vo);
+	public String idcheck(String id);
+	public UserVO select(String userId);
 }

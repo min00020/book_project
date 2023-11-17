@@ -1,4 +1,4 @@
-package co.yedam.user.service;
+package co.yedam.board.service;
 
 import lombok.Data;
 
@@ -13,6 +13,10 @@ public class UserVO {
 	private String userAddr;
 	private String userBir;
 	private String userGender;
-	private String responsibility;
-
+	private String responsbility;
+	
+	public void userEmail(String email, String email2) {
+	 
+	  }
+	 
 }

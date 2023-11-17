@@ -16,13 +16,14 @@
 			<div class="col-md-6">
 				<h1 class="display-5 fw-bolder">${bno.bookTitle }</h1>
 				<div class="fs-5 mb-5">
-				<div class="small mb-1">저자: ${bno.bookWriter }</div>
-					<span class="">가격: ${bno.bookPrice }원</span>
+					<span>가격: ${bno.bookPrice }원</span>
+					<p></p>
+					<a style="font-size: 15px;">지은이: ${bno.bookWriter }</a><br>
+					<a style="font-size: 15px;">출판사: ${bno.bookPublisher }</a><br>
+					<a style="font-size: 15px;">분야: ${bno.bookSort }</a>
 				</div>
-				<p class="lead">책 소개: ${bno.bookContent }</p>
-
-			</div>
-
+				<h3>설명</h3>
+				<p class="lead">${bno.bookContent }</p>
 
 				<div class="d-flex">
 					<input class="form-control text-center me-3" id="inputQuantity"
@@ -137,7 +138,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="bookInfo.do?bno=${vo.bookNo }">Cart</a>
 							</div>
 						</div>
 					</div>
@@ -168,14 +169,15 @@ function addCart() {
 	.then(resolve => resolve.json())
 	.then(result =>{
 		if(result.retCode == 'OK'){
-			result.vo;
 			alert('장바구니 담기 성공');
+			result.vo;
 		} else{
-			alert('장바구니 담기 실패')
+			
 		}
 		
 	})
 	});
 }
+
 
 </script>

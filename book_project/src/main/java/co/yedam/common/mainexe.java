@@ -15,8 +15,6 @@ public class mainexe {
 	public static void main(String[] args) {
 		SqlSession session = DataSourceMybatis.getInstance().openSession(true);
 
-		//CartMapper mapper = session.getMapper(CartMapper.class);
-
 //		
 //		CartVO vo = new CartVO();
 //		vo.setBookNo(005);
