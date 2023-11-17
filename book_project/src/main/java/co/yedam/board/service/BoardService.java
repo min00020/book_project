@@ -11,6 +11,8 @@ public interface BoardService {
 		public boolean editBoard(BoardVO vo);  // 수정
 		public boolean removeBoard(int boardNo); // 삭제
 
+		// qna 게시판
+		public List<BoardVO> selectQnaList();
 		//로그인
 //		public UserVO loginCheck(String id, String pw);
 //		public List<UserVO> memberList();	
