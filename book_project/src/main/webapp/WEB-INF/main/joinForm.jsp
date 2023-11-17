@@ -25,13 +25,11 @@
 		<h5>비밀번호</h5>
 		<input type="password" id="pw1" name="pw1" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
 	</div>
-	 <div class="strongPassword-message hide">8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요.</div>
 	<div>
 		<h5>비밀번호 확인</h5>
-		<input type="password" id="pw2" onchange="pwcheck()" /><span
-			id="check"></span>
+		<input type="password" id="pw2" name="pw2" onchange="pwcheck()" /><span id="check"></span>
 	</div>
-	<div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div>
+	<!-- <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div> -->
 	
 	<div id="joinname">
 		<h5>이름</h5>
@@ -220,47 +218,16 @@
 			alert(" 비밀번호가 입력되지 않았습니다.");
 			return false;
 		}
+		if (document.getElementById('pw2').value != null) {
+			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
+				document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
+			} else {
+				alert("비밀번호가 일치하지 않습니다.")
+				document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
+			}
+		}
 	}
-	function strongPassword (str) {
-		  return /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(str);
-	}
-	elInputpw1.onkeyup = function () {
 
-		  // console.log(elInputPassword.value);
-		  // 값을 입력한 경우
-		  if (elInputpw1.value.length !== 0) {
-		    if(elInputpw1(elInputpw1.value)) {
-		      elStrongPasswordMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-		    }
-		    else {
-		      elStrongPasswordMessage.classList.remove('hide'); // 실패 메시지가 보여야 함
-		    }
-		  }
-		  // 값을 입력하지 않은 경우 (지웠을 때)
-		  // 모든 메시지를 가린다.
-		  else {
-		    elStrongPasswordMessage.classList.add('hide');
-		  }
-		};
-		elInputpw2.onkeyup = function () {
-
-			  // console.log(elInputPasswordRetype.value);
-			  if (elInputpw2.value.length !== 0) {
-			    if(isMatch(elInputPassword.value, elInputpw2.value)) {
-			      elMismatchMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-			    }
-			    else {
-			      elMismatchMessage.classList.remove('hide'); // 실패 메시지가 보여야 함
-			    }
-			  }
-			  else {
-			    elMismatchMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-			  }
-			};
-	
-	function isMatch (pw1, pw2) {
-		  return pw1 === pw2;
-	}
 	
 	 
 </script>
