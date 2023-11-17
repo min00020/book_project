@@ -17,7 +17,7 @@ public class BookShopControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		String path = "/WEB-INF/book/bookshop.jsp";
+		String path = "book/bookshop.tiles";
 		
 		String bno = req.getParameter("bno");
 		

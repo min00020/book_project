@@ -13,5 +13,6 @@ public class UserVO {
 	private String userAddr;
 	private String userBir;
 	private String userGender;
-	private String responsbility;
+	private String responsibility;
+	 
 }

@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.cart.mapper.CartMapper">
-	<select id="cartList" resultType="co.yedam.cart.service.CartVO">
-		SELECT * FROM CART_TBL ORDER BY CART_CODE
+	<select id="cartList"
+		resultType="co.yedam.cart.service.CartJoinVO" parameterType="String">
+
+		select
+		c.cart_code as cart_code, b.book_no as book_no, c.user_id as user_id,
+		u.user_name as user_name, b.book_title as book_title, c.cart_amount as
+		cart_amount, b.book_price as book_price, b.book_image as book_image
+		from user_tbl u, cart_tbl c, book b
+		where u.user_id=c.user_id and c.book_no=b.book_no and c.user_id=#{id } order
+		by cart_code
+
 	</select>
+	<insert id="addCart"
+		parameterType="co.yedam.cart.service.CartVO">
+		<selectKey keyProperty="cartCode" resultType="int"
+			order="BEFORE">
+			select seq_cart_code.nextval from dual
+		</selectKey>
+
+		insert into cart_tbl (cart_code, book_no, user_id, cart_amount)
+		values(#{cartCode }, #{bookNo }, #{userId }, #{cartAmount})
+	</insert>
+
+	<delete id="deleteCart" parameterType="int">
+		delete from cart_tbl where
+		cart_code = #{cartCode}
+	</delete>
+
 </mapper>
