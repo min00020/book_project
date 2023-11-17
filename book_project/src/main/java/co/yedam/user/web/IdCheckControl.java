@@ -8,22 +8,20 @@ import co.yedam.user.service.UserService;
 import co.yedam.user.service.UserVO;
 import co.yedam.user.serviceImpl.UserServiceImpl;
 
-public class MypageControl implements Command {
+public class IdCheckControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
 		UserService svc = new UserServiceImpl();
-		UserVO vo = svc.getUser(id);
-		req.setAttribute("vo", vo);
+		UserVO vo = svc.IdCheck(id);
 		
-		String path = "WEB-INF/main/mypage.jsp";
-		
-		try {
-			req.getRequestDispatcher(path).forward(req, resp);
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (vo == null) {
+			System.out.println("retcode:OK");
+		} else {
+			System.out.println("retcode:NG");
 		}
+
 	}
 
 }
