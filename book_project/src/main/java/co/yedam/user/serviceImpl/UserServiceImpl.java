@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String IdCheck(String id) {
+	public UserVO IdCheck(String id) {
 		return mapper.idcheck(id);
 	}
 	

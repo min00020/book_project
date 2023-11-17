@@ -29,7 +29,6 @@
 	
 	<definition name="WILDCARD:*/*" extends="bookpage">
 		<put-attribute name="bookmenu" value="WEB-INF/{1}/{2}.jsp" />
-
 	</definition>
 	
 </tiles-definitions>

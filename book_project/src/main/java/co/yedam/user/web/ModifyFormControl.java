@@ -16,14 +16,16 @@ public class ModifyFormControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
+		System.out.println(id);
 		UserService svc = new UserServiceImpl();
 		UserVO vo = svc.getUser(id);
 		
 		System.out.print("ModifyFormControl.java id= " + id);
 		req.setAttribute("vo", vo);
+		System.out.println(vo);
 		
 		try {
-			req.getRequestDispatcher("WEB-INF/main/mypage.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/main/modifyForm.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -25,6 +25,7 @@ import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
 import co.yedam.order.web.OrderListControl;
+import co.yedam.user.web.IdCheckControl;
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
@@ -65,6 +66,7 @@ public class FrontController extends HttpServlet {
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
+		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
 
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
 		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/

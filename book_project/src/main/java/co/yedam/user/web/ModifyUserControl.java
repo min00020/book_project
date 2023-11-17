@@ -16,13 +16,15 @@ public class ModifyUserControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		String phone = req.getParameter("phone");
-		String addrnum = req.getParameter("addrnum");
+		String pw = req.getParameter("pw1");
+		String email = req.getParameter("email");
+		String phone = req.getParameter("pnum");
+		String addrnum = req.getParameter("postcode");
 		String addr = req.getParameter("addr");
 		
 		vo.setUserId(id);
 		vo.setUserPass(pw);
+		vo.setUserEmail(email);
 		vo.setUserPhone(phone);
 		vo.setUserAddrnum(addrnum);
 		vo.setUserAddr(addr);
@@ -30,21 +32,17 @@ public class ModifyUserControl implements Command {
 		UserService svc = new UserServiceImpl();
 		
 //		HttpSession session = req.getSession();
+	
 		
-		if (svc.editUser(vo)) {
-			try {
-				resp.sendRedirect("modifyForm.do");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-		} else {
-			try {
-				resp.sendRedirect("modifyForm.do");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		 if (svc.editUser(vo)) { try { resp.sendRedirect("mypage.do"); } catch
+		 (IOException e) { e.printStackTrace(); }
+		 
+		 } else { 
+			 try { resp.sendRedirect("modifyForm.do"); 
+			 } catch (IOException e) {
+				 e.printStackTrace(); } 
+			 }
+		 
 	}
 }
 
