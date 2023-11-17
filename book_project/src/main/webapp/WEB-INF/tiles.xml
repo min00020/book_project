@@ -33,7 +33,8 @@
 	
 	<definition name="WILDCARD:mypage/*" extends="adminpage">
 		<put-attribute name="mybody" value="/WEB-INF/mypage/{1}.jsp" />
-
+	</definition>
+	
 	
 	<definition name="WILDCARD:*/*" extends="bookpage">
 		<put-attribute name="bookmenu" value="WEB-INF/{1}/{2}.jsp" />
