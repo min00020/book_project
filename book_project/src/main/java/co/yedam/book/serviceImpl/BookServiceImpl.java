@@ -38,4 +38,9 @@ public class BookServiceImpl implements BookService {
 		return mapper.bkserch(bookTitle);
 	}
 
+	@Override
+	public List<BookVO> invenbook(String type) {
+		return mapper.invenbook(type);
+	}
+
 }

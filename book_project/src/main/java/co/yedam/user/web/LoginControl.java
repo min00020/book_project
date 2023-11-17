@@ -29,7 +29,6 @@ public class LoginControl implements Command {
 			session.setAttribute("pass", pw);
 			session.setAttribute("resposbility", vo.getResponsbility());
 			
-			
 			try {
 				resp.sendRedirect("main.do");
 				System.out.println("성공");

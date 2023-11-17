@@ -2,11 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-
 <style>
 .product{
   padding:10px;
+  float:left
 }
 .line ul li {
 	list-style-type: none;
@@ -26,8 +25,16 @@
 .content {
 	float: right;
 }
+.btn btn-outline-dark mt-auto{
+	float: right;
+}
 
 </style>
+
+
+
+
+
 
 
 <input type="text"  name="keyword" id="searchBar">
@@ -36,15 +43,16 @@
 
 <input type="submit" value="" />
 
-<form>  
-
-
-</form>  
+ 
 
 
 <div style="float: left">
 	
 	<div class="row">
+	<div class="col-2">
+	
+	</div>
+	
 	<div class="col-9">
 	
 <div class="container px-4 px-lg-5 mt-5">
@@ -89,15 +97,21 @@
 	</div>
 </div>
 </div>
-	<div class="col-3" style="de right">
+	<div class="col-1" style="de right">
 	
 	<div class="line" style="list-style-type: none;">
 	
+
+		<a class="product" id="listClick">전체</a>
+		<a class="product" id="listClick">소설</a>
 		
-		<div class="productListFilter-navi" productlistfilter="180143">전체</div>
-		<div class="productListFilter-navi" productlistfilter="180143">테스트</div>
-		<div class="productListFilter-navi" productlistfilter="180143">테스트1</div>
 		
+				
+<!-- 		<div class="product" productlistfilter="180143">전체</div>
+		<div class="product" productlistfilter="180143">테스트</div>
+		<div class="product" productlistfilter="180143">테스트1</div> -->
+		
+
 	</div>
 	
 	</div>
@@ -107,6 +121,20 @@
 </div>
 
 <script>
+//도서 분리 기능 넣어야함
+let queryList="";
+let queryURL="";
+
+const listInput = document.getElementById('listClick');
+listInput.addEventListener("click", (e) => {
+	if(bookType <= 0 ){
+		return;
+	}
+})
+
+
+
+//검색기능
 let queryContent="";
 let queryURL ="booksearch.do?sno=";
 
