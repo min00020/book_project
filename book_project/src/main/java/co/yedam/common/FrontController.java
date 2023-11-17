@@ -14,6 +14,7 @@ import co.yedam.admin.web.AdminBookControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookInventoryControl;
