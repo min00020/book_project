@@ -53,7 +53,7 @@
 	
 	</div>
 	
-	<div class="col-9">
+	<div class="col-8">
 	
 <div class="container px-4 px-lg-5 mt-5">
 	<div
@@ -97,42 +97,37 @@
 	</div>
 </div>
 </div>
-	<div class="col-1" style="de right">
+	<div class="col-2" style="de right">
 	
 	<div class="line" style="list-style-type: none;">
 	
 
-		<a class="product" id="listClick">전체</a>
-		<a class="product" id="listClick">소설</a>
+	
+		<a class="product" href="bookInventory.do">전체</a>
+		<a class="product" href="bookInventory.do?cate=1">시, 소설</a>
+		<a class="product" href="bookInventory.do?cate=2">만화</a>
+		<a class="product" href="bookInventory.do?cate=3">사진</a>
 		
 		
-				
-<!-- 		<div class="product" productlistfilter="180143">전체</div>
-		<div class="product" productlistfilter="180143">테스트</div>
-		<div class="product" productlistfilter="180143">테스트1</div> -->
-		
+<!-- 		<a class="product" href="bookInventory.do?cate=1">여행</a>
+		<a class="product" href="bookInventory.do?cate=1">요리</a>
+		<a class="product" href="bookInventory.do?cate=1">해외도서</a> -->
 
+		
 	</div>
 	
 	</div>
 	</div>
+		
+
+	</div>
+	
+	
 	
 
-</div>
+
 
 <script>
-//도서 분리 기능 넣어야함
-let queryList="";
-let queryURL="";
-
-const listInput = document.getElementById('listClick');
-listInput.addEventListener("click", (e) => {
-	if(bookType <= 0 ){
-		return;
-	}
-})
-
-
 
 //검색기능
 let queryContent="";

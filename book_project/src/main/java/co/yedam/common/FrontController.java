@@ -16,6 +16,13 @@ import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
 import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
+import co.yedam.board.web.AddBoardControl;
+import co.yedam.board.web.BoardFormControl;
+import co.yedam.board.web.BoardListControl;
+import co.yedam.board.web.GetBoardControl;
+import co.yedam.board.web.ModifyBoardControl;
+import co.yedam.board.web.ModifyFormControl;
+import co.yedam.board.web.QnaBoardControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookInventoryControl;
 import co.yedam.book.web.BookMainPageControl;
@@ -25,13 +32,18 @@ import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
 import co.yedam.order.web.OrderListControl;
+
+import co.yedam.reply.web.AddReplyControl;
+import co.yedam.reply.web.DelReplyControl;
+import co.yedam.reply.web.ReplyListControl;
+
 import co.yedam.user.web.IdCheckControl;
+
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
-import co.yedam.user.web.ModifyFormControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.MypageControl;
 
@@ -57,7 +69,25 @@ public class FrontController extends HttpServlet {
 		map.put("/bookInfo.do", new BookInfoControl());   //책 상세 페이지
 		map.put("/bookshop.do", new BookShopControl());   //북 샵
 		map.put("/booksearch.do", new BookSearchControl()); //검색 기능
-		map.put("/bookInventory", new BookInventoryControl()); // 목록 불러오기 기능
+		map.put("/bookInventory.do", new BookInventoryControl()); // 목록 불러오기 기능
+		
+		map.put("/qnaBoard.do", new QnaBoardControl()); // qna 게시판
+		
+		// 목록 화면
+		map.put("/boardList.do", new BoardListControl());
+		map.put("/getBoard.do", new GetBoardControl());
+		//리뷰 등록화면
+		map.put("/boardForm.do", new BoardFormControl()); // 등록 화면
+		map.put("/addBoard.do", new AddBoardControl());   // 등록 처리
+		//리뷰 수정 화면
+		map.put("/modifyForm.do", new ModifyFormControl());  //
+		map.put("/modifyBoard.do", new ModifyBoardControl());
+		
+		//댓글목록.
+		map.put("/replyList.do", new ReplyListControl());
+		map.put("/addReply.do", new AddReplyControl());
+		map.put("/delReply.do", new DelReplyControl());
+		
 		
 //		map.put("/addBoard.do", new AddBoardControl());
 		
@@ -69,7 +99,7 @@ public class FrontController extends HttpServlet {
 		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
 
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
-		map.put("/modifyForm.do", new ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/modifyForm.do", new co.yedam.user.web.ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		
 		//관리자

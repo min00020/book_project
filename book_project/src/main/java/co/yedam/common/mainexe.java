@@ -4,7 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+
+import co.yedam.admin.mapper.AdminMainMapper;
+
 import co.yedam.book.mapper.BookMapper;
+
 import co.yedam.book.service.BookService;
 import co.yedam.book.service.BookVO;
 import co.yedam.book.serviceImpl.BookServiceImpl;
@@ -14,6 +18,8 @@ public class mainexe {
 
 	public static void main(String[] args) {
 		SqlSession session = DataSourceMybatis.getInstance().openSession(true);
+		
+		
 
 //		
 //		CartVO vo = new CartVO();

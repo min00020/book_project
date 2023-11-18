@@ -33,6 +33,10 @@ public class BoardServiceImpl implements BoardService {
 	public boolean removeBoard(int boardNo) {
 		return mapper.delete(boardNo) > 0;
 	}
+	@Override
+	public List<BoardVO> selectQnaList() {
+		return mapper.selectQnaList();
+	}
 	
 	
 }
