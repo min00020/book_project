@@ -236,17 +236,7 @@
                                             <td>도서번호</td>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                           	<th>도서번호</th>
-                                            <th>카테고리</th>
-                                            <th>도서제목</th>
-                                            <th>작가</th>
-                                            <th>출판사</th>
-                                            <th>가격</th>
-                                            <th>수량</th>
-                                        </tr>
-                                    </tfoot>
+                                
                                     <tbody>
                                     <c:forEach items="${list}" var="vo">
                                         <tr>
