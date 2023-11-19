@@ -43,7 +43,6 @@ import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
-import co.yedam.user.web.ModifyFormControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.MypageControl;
 
