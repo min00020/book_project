@@ -19,9 +19,9 @@
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>            
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookReview.do">BOOK REVIEW</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="qnaBoard.do">QnA</a></li>
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">REVIEW</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookNotice.do">공지사항</a></li>
                     </ul>
                 </nav>
             </div>

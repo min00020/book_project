@@ -20,7 +20,7 @@ public class ModifyFormControl implements Command {
 //		System.out.println(vo);
 		
 		try {
-			req.getRequestDispatcher("WEB-INF/board/modifyForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/board/bookModifyForm.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -2,8 +2,6 @@ package co.yedam.board.service;
 
 import java.util.Date;
 
-import javax.servlet.annotation.WebServlet;
-
 import lombok.Data;
 
 @Data
@@ -19,7 +17,7 @@ public class BoardVO {
 	private int likeCnt;         //별점
 	
 	
-//  private String img; // 이미지도 가져와야함
+	private String boardImage; //   이미지도 가져와야함
 	
 
 }
