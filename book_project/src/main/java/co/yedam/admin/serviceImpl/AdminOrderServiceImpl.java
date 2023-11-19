@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.admin.mapper.AdminEtcMapper;
 import co.yedam.admin.service.AdminOrderService;
+import co.yedam.book.service.BookVO;
 import co.yedam.common.DataSourceMybatis;
 import co.yedam.order.service.OrderVO;
 
@@ -20,8 +21,25 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 	}
 
 	@Override
-	public boolean orderStatus(OrderVO vo) {
-		return mapper.orderStatus(vo) == 1;
+	public boolean addBook(BookVO vo) {
+		return mapper.insertBook(vo) == 1;
+	}
+
+	@Override
+	public boolean orderComplete(OrderVO vo) {
+		return mapper.orderComplete(vo)==1;
+	}
+
+
+	@Override
+	public boolean orderCancle(OrderVO vo) {
+		return mapper.orderCancle(vo)==1;
+	}
+
+
+	@Override
+	public boolean orderDelivery(OrderVO vo) {
+		return mapper.orderDelivery(vo)==1;
 	}
 
 }

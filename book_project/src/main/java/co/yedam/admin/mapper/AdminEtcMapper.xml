@@ -8,9 +8,20 @@
 	</select>
 	
 	<!-- 주문상태 변경 -->
-	<update id="orderStatus" parameterType="int">
+	<update id="orderComplete" parameterType="co.yedam.order.service.OrderVO">
+		UPDATE ORDER_TBL SET ODR_STATUS = '주문완료' WHERE ODR_CODE =#{odrCode}
+	</update>
+	<update id="orderCancle" parameterType="co.yedam.order.service.OrderVO">
+		UPDATE ORDER_TBL SET ODR_STATUS = '주문취소' WHERE ODR_CODE =#{odrCode}
+	</update>
+	<update id="orderDelivery" parameterType="co.yedam.order.service.OrderVO">
 		UPDATE ORDER_TBL SET ODR_STATUS = '배송완료' WHERE ODR_CODE =#{odrCode}
 	</update>
 
+	<!-- 도서 등록 도서추가 -->
+	<insert id="insertBook" parameterType="co.yedam.book.service.BookVO">
+		INSERT INTO BOOK 
+		VALUES ((SELECT NVL(Max(#{bookNo}),0) +1 FROM BOOK), #{bookTitle}, #{bookWriter}, #{bookPublisher}, #{bookPrice}, #{bookCnt}, #{bookImage}, #{bookSort}, #{bookContent}, #{bookType});
+	</insert>
 
 </mapper>

@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>관리자 페이지</title>
 
     <!-- Custom fonts for this template-->
     <link href="resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -70,13 +70,7 @@
     <!-- Custom scripts for all pages-->
     <script src="resources/admin/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="resources/admin/js/chart_month.js"></script>
-    <script src="resources/admin/js/chart_gender.js"></script>
-
+   
 </body>
 
 </html>

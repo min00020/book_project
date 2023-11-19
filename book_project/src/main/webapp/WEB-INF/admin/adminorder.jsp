@@ -220,12 +220,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">배송상태 변경</h1>
-                    <p class="mb-4">...</p>
+                    <h1 class="h3 mb-2 text-gray-800">주문관리</h1>
+                    <p class="mb-4">주문내역 조회</p>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">도서 목록</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">주문 목록</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -259,23 +259,29 @@
                                     </tbody>
                                 </table>
                                 <div style=" text-align: center;">
+                                        	<input type="submit" class="btn btn-primary btn-icon-split" value="저장">
+											<input type="reset" class="btn btn-secondary btn-icon-split" value="초기화">
+                                 </div>
+                                 <hr>
+                                
+                                <div style=" text-align: center;">
                                 	<a href="#" class="btn btn-secondary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
-                                        <span class="text">주문완료</span>
+                                        <span class="text" id="orderComplete">주문완료</span>
                                     </a>
                                      <a href="#" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-check"></i>
                                         </span>
-                                        <span class="text">배송완료</span>
+                                        <span class="text" id="deliveryComplete">배송완료</span>
                                       </a>
                                      <a href="#" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
-                                        <span class="text">주문취소</span>
+                                        <span class="text" id = "orderCancle">주문취소</span>
                                      </a>
                                 </div>
                                         
@@ -309,3 +315,23 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    
+    
+    <script>
+    	//주문완료
+    	document.querySelector('#orderComplete').addEventListener('click', function (e){
+    		let ono = "${vo.odrCode }";
+    		
+    		
+    	})
+    	//배송완료
+    	document.querySelector('#deliveryComplete').addEventListener('click', function (e){
+    		
+    		
+    	})
+    	//주문취소
+    	document.querySelector('#orderCancle').addEventListener('click', function (e){
+    		
+    		
+    	})
+    </script>
