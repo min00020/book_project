@@ -57,13 +57,13 @@ public class ModifyBoardControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		if (svc.editBoard(vo)) {
 			try {
-				resp.sendRedirect("boardList.do");
+				resp.sendRedirect("bookBoardList.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.sendRedirect("modifyForm.do");
+				resp.sendRedirect("bookModifyForm.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

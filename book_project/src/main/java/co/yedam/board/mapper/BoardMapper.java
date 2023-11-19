@@ -15,7 +15,9 @@ public interface BoardMapper {
 	
 	public List<BoardVO> selectQnaList();
 	
-	//로그인관련
-//	public UserVO getUser(@Param("id")String id,@Param("pass") String pw);
-//	public List<UserVO> memberList();
+	public List<BoardVO> selectBookReviewList();
+	
+	public List<BoardVO> selectBookNoticeList();
+	
+
 }

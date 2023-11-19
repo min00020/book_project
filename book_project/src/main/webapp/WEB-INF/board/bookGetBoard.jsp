@@ -33,29 +33,29 @@
 }
 </style>
 <h3>상세화면(조회화면)</h3>
-<form action="modifyForm.do" name="myfrm">
+<form action="bookModifyForm.do" name="myfrm">
 	<input type="hidden" name="bno" value="${bno.boardNo }">
 	<table class="table">
 		<tr>
 			<th>글번호</th>
 			<td class="boardNo">${bno.boardNo }</td>
 			<th>작성일시</th>
-			<td><fmt:formatDate value="${bno.writerDate }"
+			<td><fmt:formatDate value="${bno.boardDate }"
 					pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
 		</tr>
 		<tr>
 			<th>글제목</th>
-			<td colspan="3">${bno.title }</td>
+			<td colspan="3">${bno.boardTitle }</td>
 		</tr>
 		<tr>
-			<td colspan="4"><textarea rows="5" cols="40">${bno.content }</textarea></td>
+			<td colspan="4"><textarea rows="5" cols="40">${bno.boardContent }</textarea></td>
 		</tr>
 		<tr>
 			<th>이미지</th>
 			<c:choose>
-				<c:when test="${!empty bno.image }">
+				<c:when test="${!empty bno.boardImage }">
 					<td colspan="3"><img style="align: center;" width="100px"
-						src="images/${bno.image }"></td>
+						src="resources/image/${bno.boardImage }"></td>
 				</c:when>
 				<c:otherwise>
 					<td colspan="3"></td>
@@ -67,13 +67,13 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${bno.writer }</td>
+			<td>${bno.userId }</td>
 			<th>조회수</th>
-			<td>${bno.viewCnt }</td>
+			<td>${bno.boardCnt }</td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center"><c:choose>
-					<c:when test="${!empty logId && logId == bno.writer }">
+					<c:when test="${!empty logId && Id == bno.bookNo }">
 						<input type="submit" class="btn btn-primary" value="수정">
 						<input type="button" class="btn btn-warning" value="삭제">
 					</c:when>
@@ -270,6 +270,6 @@ showList();
 	
 	</script>
 <p>
-	<a href="boardList.do">목록으로</a>
+	<a href="bookBoardList.do">목록으로</a>
 </p>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

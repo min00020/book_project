@@ -11,7 +11,7 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class BoardListControl implements Command {
+public class BookBoardListControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -21,7 +21,7 @@ public class BoardListControl implements Command {
 		
 		req.setAttribute("list", list);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("board/boardList.tiles");//
+		RequestDispatcher rd = req.getRequestDispatcher("board/bookBoardList.tiles");//
 		try {
 			rd.forward(req, resp);
 		} catch (Exception e) {

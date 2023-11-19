@@ -19,19 +19,19 @@
 		<table class="table">
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" value="${vo.title }"></td>
+				<td><input type="text" name="title" value="${vo.boardTitle }"></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" value="${vo.writer }"></td>
+				<td><input type="text" name="writer" value="${vo.userId }"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea name="content"${vo.content }></textarea>
+				<td colspan="2"><textarea name="content"${vo.boardContent }></textarea>
 				</td>
 			</tr>
 			<tr>
 				<th>파일명</th>
-				<td><img src="images/${vo.image }" width="80px" ></td>
+				<td><img src="image/${vo.boardimage }" width="80px" ></td>
 			</tr>
 			<tr>
 			<td colspan="2" align="center">
