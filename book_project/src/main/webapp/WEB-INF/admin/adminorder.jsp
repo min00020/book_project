@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<!-- ${list } -->
    <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -219,8 +220,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">상품 등록</h1>
-                    <p class="mb-4">판매할 도서를 등록할 수 있습니다</p>
+                    <h1 class="h3 mb-2 text-gray-800">배송상태 변경</h1>
+                    <p class="mb-4">...</p>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -231,26 +232,53 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>상품등록</th>
-                                            <td>도서번호</td>
-                                            <td>도서번호</td>
+                                        	<th><input type="checkbox" name="check" checked> </th>
+                                            <th>주문번호</th>
+                                            <td>아이디</td>
+                                            <td>전화번호</td>
+                                            <td>주문금액</td>
+                                            <td>주문상태</td>
+                                            <td>결제수단</td>
+                                            <td>주문일자</td>
                                         </tr>
                                     </thead>
                                 
                                     <tbody>
                                     <c:forEach items="${list}" var="vo">
                                         <tr>
-                                            <td>${vo.bookNo }</td>
-                                            <td>${vo.bookSort }</td>
-                                            <td>${vo.bookTitle }</td>
-                                            <td>${vo.bookWriter }</td>
-                                            <td>${vo.bookPublisher }</td>
-                                            <td>${vo.bookPrice }</td>
-                                            <td>${vo.bookCnt }</td>
+                                        	<td><input type="checkbox" name="check"></td>
+                                            <td>${vo.odrCode }</td>
+                                            <td>${vo.userId }</td>
+                                            <td>${vo.odrPhone }</td>
+                                            <td>${vo.odrTotalPrice }</td>
+                                            <td>${vo.odrStatus }</td>
+                                            <td>${vo.paymentStatus }</td>
+                                            <td>${vo.odrDate }</td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
+                                <div style=" text-align: center;">
+                                	<a href="#" class="btn btn-secondary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">주문완료</span>
+                                    </a>
+                                     <a href="#" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        <span class="text">배송완료</span>
+                                      </a>
+                                     <a href="#" class="btn btn-danger btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        <span class="text">주문취소</span>
+                                     </a>
+                                </div>
+                                        
                             </div>
                         </div>
                     </div>

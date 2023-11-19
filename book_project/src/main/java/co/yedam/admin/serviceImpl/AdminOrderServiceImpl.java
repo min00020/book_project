@@ -13,6 +13,7 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 	SqlSession sqlSession = DataSourceMybatis.getInstance().openSession(true); //true=자동커밋
 	
 	AdminEtcMapper mapper = sqlSession.getMapper(AdminEtcMapper.class);
+	
 	@Override
 	public List<OrderVO> selectOrderList() {
 		return mapper.selectOrderList();

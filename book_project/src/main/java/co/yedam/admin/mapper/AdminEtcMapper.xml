@@ -3,7 +3,7 @@
 <mapper namespace="co.yedam.admin.mapper.AdminEtcMapper">
 
 	<!-- 주문 목록 -->
-	<select id="selectOrderList" resultType="co.yedam.board.service.OrderVO">
+	<select id="selectOrderList" resultType="co.yedam.order.service.OrderVO">
 		SELECT * FROM ORDER_TBL ORDER BY ODR_CODE
 	</select>
 	
