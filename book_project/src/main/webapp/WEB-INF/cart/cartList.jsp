@@ -50,6 +50,7 @@ th:nth-child(2), td:nth-child(2) {
 th:nth-child(3), td:nth-child(3) {
 	width: 25%;
 }
+
 th:nth-child(3), td:nth-child(4) {
 	width: 3%;
 }
@@ -67,40 +68,62 @@ img {
 <div
 	class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 	<form action="orderListInfo.do">
-	<h1>	${id} 님의 장바구니목록</h1>
-	<table id="table">
-		<thead>
-			<tr>
-				<th>상품정보</th>
-			</tr>
-		</thead>
-		<tbody id=listbody>
-			<c:forEach items="${cartList }" var="list">
-				<c:choose>
-					<c:when test="${empty id == list.userId}">
-						<tr>
-							<td><input name="chkbox" type="checkbox" onClick="itemSum(this.form);"> </td>
-							<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
-									src="resources/image/${list.bookImage}">
-							</a></td>
-							<td>${list.bookTitle }</td>
-							<td>${list.cartAmount }개</td>
-							<td>${list.bookPrice}원</td>
-							<td>${list.cartAmount * list.bookPrice}원</td>
-							<td><a href="deleteCart.do?cno=${list.cartCode}">삭제하기</a> 
-						</tr>
-					</c:when>
-					<c:otherwise>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		</tbody>
-	</table>
-							<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
-	<input type="submit" value="결제하기">
+		<h1>${id}님의장바구니목록</h1>
+		<table id="table">
+			<thead>
+				<tr>
+					<th>상품정보</th>
+				</tr>
+			</thead>
+			<tbody id=listbody>
+				<c:forEach items="${cartList }" var="list">
+					<c:choose>
+						<c:when test="${empty id == list.userId}">
+							<tr>
+								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
+										src="resources/image/${list.bookImage}">
+								</a></td>
+								<td>${list.cartCode }</td>
+								<td>${list.bookTitle }</td>
+								<td><input type='button' onclick='count("plus")' value='+' />
+									<input type='button' onclick='count("minus")' value='-' />
+									<div id='result'>${list.cartAmount }개</div>
+									<td><a href="updateCart.do?amount=${list.cartAmount }">변경하기</a>
+								</td>
+								<td>${list.bookPrice}원</td>
+								<td>${list.cartAmount * list.bookPrice}원</td>
+								<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
+								<td><a href="deleteCart.do?cno=${list.cartCode}">삭제하기</a>
+							</tr>
+						</c:when>
+						<c:otherwise>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</tbody>
+		</table>
+							<a></a>
+							<input type="submit" value="결제하기">
 	</form>
 	<p></p>
 </div>
 <script>
+function count(type)  {
+	  // 결과를 표시할 element
+	  const resultElement = document.getElementById('result');
+	  
+	  // 현재 화면에 표시된 값
+	  let number = resultElement.innerText;
+	  
+	  // 더하기/빼기
+	  if(type === 'plus') {
+	    number = parseInt(number) + 1;
+	  }else if(type === 'minus')  {
+	    number = parseInt(number) - 1;
+	  }
+	  
+	  // 결과 출력
+	  resultElement.innerText = number + '개';
+}
 </script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

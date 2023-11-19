@@ -13,4 +13,7 @@ public interface CartMapper {
 
 	public int deleteCart(int cartCode); // 장바구니 삭제
 
+	public int updateCart(int cartAmount); // 장바구니 수정
+
+
 }
