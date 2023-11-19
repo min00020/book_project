@@ -27,10 +27,43 @@
 		<tr>
 			<td colspan="1"><input type="submit" id="login" value="로그인"></td>
 			<td colspan="1"><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
+			<a href="javascript:kakaoLogin()"><img src="resource/image/kakao_login.png" style="width: 200px"></a>
 		</tr>
 	</table>
 </form>
 
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+    Kakao.init('baebadb607ea7b6110c9beeffb0e3719');
+    function kakaoLogin() {
+        Kakao.Auth.login({
+            success: function (response) {
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function (response) {
+                    	const kakaoId = response.id;
+                    	const kakaopw = "kakao" + response.id;
+                    	scope: 'account_email'
+                    		fetch('idCheck.do?id='+id)
+                			.then(resolve = > resolve.json())
+                			.then(result => {
+                				if (result.retCode == 'OK') {
+                					location.href = "login.do?kakaoid="+kakaoId+"$kakaopw"+kakaopw;
+                				} else {
+                					alert("로그인 실패");
+                					location.href = "login.do";
+                				}
+                			})
+                    }
+                })
+                const token = authObj.access_token;
+            },
+            fail: function (error) {
+                alert(JSON.stringify(error))
+            },
+        })
+    }
+</script>
 <script>
 /* 로그인 유효성 */
 function loginCheck(obj) {

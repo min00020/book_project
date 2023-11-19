@@ -25,7 +25,7 @@ public class ModifyUserFormControl implements Command {
 		System.out.println(vo);
 		
 		try {
-			req.getRequestDispatcher("WEB-INF/main/modifyForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/main/modifyuserForm.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

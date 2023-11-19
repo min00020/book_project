@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean removeUser(UserVO vo) {
-		return mapper.delete(vo);
+	public boolean removeUser(String id, String pw) {
+		return mapper.delete(id, pw);
 	}
 
 	@Override
