@@ -19,7 +19,7 @@
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
-		<input type="text" name="id" placeholder="아이디 입력(6~20자)" />
+		<input type="text" id="id" name="id" placeholder="아이디 입력(6~20자)" />
 		<button id="idcheck" onchange="idcheck()">중복 확인</button>
 	</div>
 	<div>
@@ -88,10 +88,20 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	/* 아이디 중복 확인 */
-	/* const doublecheck = document.querySelector('#idcheck');
+	const doublecheck = document.querySelector('#idcheck');
 	doublecheck.addEventListener('click', function(e) {
-		.fetch 
-	}) */
+		fetch('idCheck.do?id='+id)
+			.then(resolve = > resolve.json())
+			.then(result => {
+				if (result.retCode == 'NG') {
+					alert(id+"는 사용 가능한 아이디입니다.");
+				} else {
+					alert(id+"는 사용할 수 없는 아이디입니다.");
+					document.getElementById('id').value = null;
+				}
+			})
+		
+	}) 
 	
 	/* 이메일 도메인 */
 	const domainlist = document.querySelector('#domain_list');

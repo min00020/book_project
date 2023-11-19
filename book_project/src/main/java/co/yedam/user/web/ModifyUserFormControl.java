@@ -11,7 +11,7 @@ import co.yedam.user.service.UserService;
 import co.yedam.user.service.UserVO;
 import co.yedam.user.serviceImpl.UserServiceImpl;
 
-public class ModifyFormControl implements Command {
+public class ModifyUserFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {

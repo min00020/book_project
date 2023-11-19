@@ -1,5 +1,7 @@
 package co.yedam.user.web;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,12 +16,19 @@ public class IdCheckControl implements Command {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
 		UserService svc = new UserServiceImpl();
-		UserVO vo = svc.IdCheck(id);
 		
-		if (vo == null) {
-			System.out.println("retcode:OK");
+		String result = "";
+		
+		if (svc.IdCheck(id) == null) {
+			result = "{\"retCode\":\"OK\"}";
 		} else {
-			System.out.println("retcode:NG");
+			result = "{\"retCode\":\"NG\"}";
+		}
+		
+		try {
+			resp.getWriter().print(result);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
