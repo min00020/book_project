@@ -240,9 +240,9 @@
                                             <th>분류</th>
                                             <td>
 	                                            <select class="form-control form-control-user" name="type">
-												    <option value="novel">시,소설</option>
-												    <option value="animation">만화</option>
-												    <option value="photo">사진</option>
+												    <option value="소설">소설</option>
+												    <option value="만화">만화</option>
+												    <option value="사진">사진</option>
 												</select>
 											</td>
                                 		</tr>
@@ -273,22 +273,17 @@
                                         </tr>
                                 </table>
                                  <div style=" text-align: center;">
-                                        	<input type="submit" class="btn btn-primary btn-icon-split" value="저장">
-											<input type="reset" class="btn btn-secondary btn-icon-split" value="초기화">
-                                 </div>
-                                 <hr>
-                                 <div style=" text-align: center;">
 			                                     <a href="#" class="btn btn-primary btn-icon-split" value="저장">
 			                                        <span class="icon text-white-50">
 			                                            <i class="fas fa-check"></i>
 			                                        </span>
-			                                        <span class="text" id="deliveryComplete">등  록</span>
+			                                        <span class="text" id="insertBook">등 록</span>
 			                                      </a>
 			                                	<a href="#" class="btn btn-secondary btn-icon-split" value="">
 			                                        <span class="icon text-white-50">
 			                                            <i class="fas fa-trash"></i>
 			                                        </span>
-			                                        <span class="text" id="orderComplete">초기화</span>
+			                                        <span class="text" id="reset">초기화</span>
 			                                    </a>
 		                                </div>
                              </form>
