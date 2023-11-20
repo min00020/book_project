@@ -74,7 +74,8 @@
 			</div>
 			</form>
 				<div class="card-body text-center">
-				<input type="button" onclick="location.href='modifyForm.do?id=${id }'" value="회원 정보 수정">
+				<input type="button" onclick="location.href='modifyuserForm.do?id=${id }'" value="회원 정보 수정">
+				<input type="button" onclick="location.href='deleteuserForm.do?id=${id }'" value="회원 탈퇴">
 				</div>
 			</div>
 		</div>

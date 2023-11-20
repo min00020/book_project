@@ -15,8 +15,7 @@
 	</select>
 
 	<select id="totalPriceSum" resultType="int">
-		SELECT
-		sum(ODR_TOTAL_PRICE) FROM ORDER_TBL
+		SELECT SUM(ODR_TOTAL_PRICE) FROM ORDER_TBL
 	</select>
 
 	<select id="orderPercent" resultType="int">
@@ -31,6 +30,7 @@
 		SELECT COUNT(*) FROM ORDER_TBL
 		WHERE ODR_STATUS='주문완료'
 	</select>
+	
 	<select id="orderCnt" resultType="int">
 		SELECT COUNT(*) FROM ORDER_TBL
 		WHERE ODR_STATUS!='주문취소'
@@ -47,6 +47,10 @@
 		TO_CHAR(ODR_DATE,'MM')
 		) A
 		ORDER BY A.MOTH
+	</select>
+	
+	<select id="userGender" resultType="map">
+		SELECT USER_GENDER, COUNT(*) as "SUM" FROM USER_TBL GROUP BY USER_GENDER
 	</select>
 
 

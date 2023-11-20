@@ -22,7 +22,7 @@
 						style="font-size: 15px;">출판사: ${bno.bookPublisher }</a><br> <a
 						style="font-size: 15px;">분야: ${bno.bookSort }</a>
 				</div>
-				<h3>설명</h3>
+				<h3>책소개</h3>
 				<p class="lead">${bno.bookContent }</p>
 
 				<div class="d-flex">
@@ -45,7 +45,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="wrap_review">
 				<h2>리뷰 작성</h2>
@@ -151,9 +150,56 @@
 			</c:forEach>
 		</div>
 	</div>
+ 	<div class="container px-4 px-lg-5 mt-5">
+		<div class="wrap_review">
+			<h2>리뷰 작성</h2>
+			<form name="reviewform" class="reviewform">
+				<label>작성자 <input name="userId" value="${userId }" readonly></label>
+				<div class="review">
+					<label>서비스
+						<select name="starservice" id="starservice">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</label>
+				</div>
+				<div class="review_contents">
+					<textarea rows="10" name="writecontent" class="review_textarea"></textarea>
+				</div>
+				<div class="cmd">
+					<input type="button" id="addreview" onclick="addReview()" value="리뷰작성">
+				</div>
+			</form>
+		</div>
+	</div>
 
-
-
+	<div class="container px-4 px-lg-5 mt-5">
+		<h2>리뷰 목록</h2>
+		<table>
+			<thead>
+				<tr class="table_head">
+					<td>작성자</td>
+					<td>리뷰 내용</td>
+					<td>작성일자</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody id="reviewList">
+				<tr id="template" style="display: none;">
+					<td>작성자</td>
+					<td class="review_content">리뷰 내용</td>
+					<td>작성일자</td>
+					<td class="like">좋아요수</td>
+					<td><input type="button" id="likereview" value="좋아요"></td>
+					<td><button id="delreview">삭제</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </section>
 <script>
 let bno = "${bno.bookNo}";
@@ -182,6 +228,11 @@ function addCart() {
 	})
 	});
 }
+function addReview(){
+	
+	
+}
+
 
 
 </script>
