@@ -15,18 +15,20 @@
 	</select>
 	<insert id="addCart"
 		parameterType="co.yedam.cart.service.CartVO">
-		<selectKey keyProperty="cartCode" resultType="int"
-			order="BEFORE">
-			select seq_cart_code.nextval from dual
-		</selectKey>
 
 		insert into cart_tbl (cart_code, book_no, user_id, cart_amount)
-		values(#{cartCode }, #{bookNo }, #{userId }, #{cartAmount})
+		values(seq_cart_code.nextval, #{bookNo }, #{userId }, #{cartAmount})
 	</insert>
 
 	<delete id="deleteCart" parameterType="int">
 		delete from cart_tbl where
 		cart_code = #{cartCode}
 	</delete>
-
+	<!-- 카트 수량 수정 -->
+	<update id="modifyCart">
+	
+		update cart_tbl set cart_amount=#{cartAmount} where cart_Code = #{cartCode}
+	
+	</update>
+	
 </mapper>

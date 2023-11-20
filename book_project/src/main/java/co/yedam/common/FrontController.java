@@ -10,18 +10,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.admin.web.AddBookControl;
 import co.yedam.admin.web.AdminBookControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
+import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
-import co.yedam.board.web.AddBoardControl;
-import co.yedam.board.web.BoardFormControl;
-import co.yedam.board.web.BoardListControl;
-import co.yedam.board.web.GetBoardControl;
-import co.yedam.board.web.ModifyBoardControl;
-import co.yedam.board.web.ModifyFormControl;
+import co.yedam.board.web.BookAddBoardControl;
+import co.yedam.board.web.BookBoardFormControl;
+import co.yedam.board.web.BookBoardListControl;
+import co.yedam.board.web.BookGetBoardControl;
+import co.yedam.board.web.BookNoticeControl;
+import co.yedam.board.web.BookReviewControl;
+import co.yedam.board.web.ReviewModifyBoardControl;
+import co.yedam.board.web.ReviewModifyFormControl;
 import co.yedam.board.web.QnaBoardControl;
+import co.yedam.board.web.ReviewRemoveBoardControl;
+import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookInventoryControl;
 import co.yedam.book.web.BookMainPageControl;
@@ -30,21 +37,23 @@ import co.yedam.book.web.BookShopControl;
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
+import co.yedam.cart.web.ModyfiCartControl;
 import co.yedam.order.web.OrderListControl;
-
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
-
+import co.yedam.user.web.DeleteUserControl;
+import co.yedam.user.web.DeleteUserFormControl;
 import co.yedam.user.web.IdCheckControl;
-
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
+import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
+import co.yedam.user.web.SnsLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -61,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
 		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
+		map.put("/modifyCart.do", new ModyfiCartControl()); // 장바구니 수량수정
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());        //메인 페이지로 가기
@@ -71,24 +81,25 @@ public class FrontController extends HttpServlet {
 		map.put("/bookInventory.do", new BookInventoryControl()); // 목록 불러오기 기능
 		
 		map.put("/qnaBoard.do", new QnaBoardControl()); // qna 게시판
+		map.put("/bookReview.do", new BookReviewControl()); // 책 리뷰 게시판
+		map.put("/bookNotice.do", new BookNoticeControl()); // 공지사항
 		
 		// 목록 화면
-		map.put("/boardList.do", new BoardListControl());
-		map.put("/getBoard.do", new GetBoardControl());
+		map.put("/bookBoardList.do", new BookBoardListControl()); // 댓글 목록
+		map.put("/bookGetBoard.do", new BookGetBoardControl());   // 상세 목록
 		//리뷰 등록화면
-		map.put("/boardForm.do", new BoardFormControl()); // 등록 화면
-		map.put("/addBoard.do", new AddBoardControl());   // 등록 처리
+		map.put("/bookBoardForm.do", new BookBoardFormControl()); // 게시글 등록 화면
+		map.put("/bookAddBoard.do", new BookAddBoardControl());   // 댓글 등록 데이터 처리
 		//리뷰 수정 화면
-		map.put("/modifyForm.do", new ModifyFormControl());  //
-		map.put("/modifyBoard.do", new ModifyBoardControl());
-		
+		map.put("/reviewModifyForm.do", new ReviewModifyFormControl());  //  게시글 수정
+		map.put("/reviewModifyBoard.do", new ReviewModifyBoardControl());  // 게시글 수정 데이터 처리
+		//리뷰 삭제
+		map.put("/reviewRemoveForm.do", new ReviewRemoveFormControl());		  // 게시글 삭제
+		map.put("/reviewRemoveBoard.do", new ReviewRemoveBoardControl());     // 게시글 삭제
 		//댓글목록.
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
 		map.put("/delReply.do", new DelReplyControl());
-		
-		
-//		map.put("/addBoard.do", new AddBoardControl());
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
@@ -98,17 +109,23 @@ public class FrontController extends HttpServlet {
 		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
 
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
-		map.put("/modifyForm.do", new co.yedam.user.web.ModifyFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/modifyuserForm.do", new ModifyUserFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
+		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
+		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
+		
+		map.put("/snslogin.do", new SnsLoginControl()); /* 카카오 로그인 처리*/
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
 		
-		map.put("/adminBook.do", new AdminBookControl()); //상품목록 페이지
-		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인,주문상태변경
+		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
+		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인
+		map.put("/adminOrderUpdate.do", new AdminOrderUpdate()); //주문상태 변경
+		//도서추가
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
-		
+		map.put("/addBook.do", new AddBookControl()); //도서 추가
 		//인스타
 		map.put("/insta.do", new InstaControl());
 

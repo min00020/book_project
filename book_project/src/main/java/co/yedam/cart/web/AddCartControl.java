@@ -25,17 +25,18 @@ public class AddCartControl implements Command {
 		
 		String amount = req.getParameter("amount");
 		CartVO vo = new CartVO();
-		vo.setBookNo(Integer.parseInt(bno));
 		vo.setUserId(uid);
+		vo.setBookNo(Integer.parseInt(bno));
 		vo.setCartAmount(Integer.parseInt(amount));
 		
 		Gson gson = new GsonBuilder()
 				.setDateFormat("yyyy-MM-dd")
 				.create();
-		
 		Map<String, Object> map = new HashMap<>();
 		
 		CartService svc = new CartServiceImpl();
+		//장바구니에 기존 상품이 있는지 검사
+		
 		if(svc.addCart(vo)) {
 			map.put("vo", vo);
 			map.put("retCode", "OK");

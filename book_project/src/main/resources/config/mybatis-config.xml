@@ -23,9 +23,11 @@
 		<mapper resource="co/yedam/user/mapper/UserMapper.xml" />
 		<mapper resource="co/yedam/cart/mapper/CartMapper.xml" />
 		<mapper resource="co/yedam/board/mapper/BoardMapper.xml" />
+		<mapper resource="co/yedam/reply/mapper/ReplyMapper.xml" />
 		
 
 		<mapper resource="co/yedam/admin/mapper/AdminMainMapper.xml" />
+		<mapper resource="co/yedam/admin/mapper/AdminEtcMapper.xml" />
 
 	</mappers>
 </configuration>

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import co.yedam.common.Command;
 
-public class BoardFormControl implements Command {
+public class BookBoardFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -16,7 +16,7 @@ public class BoardFormControl implements Command {
 		
 		//로그인 정보를 뒤져보고 로그인이 없으면 로그인 창으로 있으면 등록화면으로...
 		HttpSession session = req.getSession();
-		if (session.getAttribute("logId") == null) {
+		if (session.getAttribute("id") == null) {
 			try {
 				resp.sendRedirect("loginForm.do");
 			} catch (IOException e) {
@@ -24,7 +24,7 @@ public class BoardFormControl implements Command {
 			}
 		} else {
 			try {
-				req.getRequestDispatcher("WEB-INF/board/boardForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("board/bookBoardForm.tiles").forward(req, resp);
 
 			} catch (Exception e) {
 				e.printStackTrace();
