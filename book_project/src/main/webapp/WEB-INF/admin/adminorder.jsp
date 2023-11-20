@@ -363,8 +363,6 @@
         </div>
     </div>
     
- 
-    
      <script>
     	//주문완료
     	console.log('adminorder.jsp');
