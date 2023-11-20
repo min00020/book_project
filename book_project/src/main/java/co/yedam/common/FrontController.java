@@ -24,9 +24,11 @@ import co.yedam.board.web.BookBoardListControl;
 import co.yedam.board.web.BookGetBoardControl;
 import co.yedam.board.web.BookNoticeControl;
 import co.yedam.board.web.BookReviewControl;
-import co.yedam.board.web.ModifyBoardControl;
-import co.yedam.board.web.ModifyFormControl;
+import co.yedam.board.web.ReviewModifyBoardControl;
+import co.yedam.board.web.ReviewModifyFormControl;
 import co.yedam.board.web.QnaBoardControl;
+import co.yedam.board.web.ReviewRemoveBoardControl;
+import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
 import co.yedam.book.web.BookInventoryControl;
 import co.yedam.book.web.BookMainPageControl;
@@ -87,8 +89,11 @@ public class FrontController extends HttpServlet {
 		map.put("/bookBoardForm.do", new BookBoardFormControl()); // 게시글 등록 화면
 		map.put("/bookAddBoard.do", new BookAddBoardControl());   // 댓글 등록 데이터 처리
 		//리뷰 수정 화면
-		map.put("/bookModifyForm.do", new ModifyFormControl());  //  게시글 수정
-		map.put("/bookModifyBoard.do", new ModifyBoardControl());  // 게시글 수정 데이터 처리
+		map.put("/reviewModifyForm.do", new ReviewModifyFormControl());  //  게시글 수정
+		map.put("/reviewModifyBoard.do", new ReviewModifyBoardControl());  // 게시글 수정 데이터 처리
+		//리뷰 삭제
+		map.put("/reviewRemoveForm.do", new ReviewRemoveFormControl());		  // 게시글 삭제
+		map.put("/reviewRemoveBoard.do", new ReviewRemoveBoardControl());     // 게시글 삭제
 		//댓글목록.
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());

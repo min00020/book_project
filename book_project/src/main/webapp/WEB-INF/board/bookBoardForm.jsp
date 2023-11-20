@@ -28,8 +28,8 @@ padding:10px;
 			<td>
 			<select name="boardSort" id="sort">
 					<option value="QnA게시판">QnA게시판</option>
-					<option value="QnA게시판">공지사항</option>
-					<option value="QnA게시판">BOOK REVIEW</option>
+					<option value="공지사항">공지사항</option>
+					<option value="리뷰게시판">리뷰게시판</option>
 			</select>
 			</td>
 		</tr>

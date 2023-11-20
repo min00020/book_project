@@ -15,7 +15,7 @@
 		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'
 	</select>
 	
-	<select id="bookNoticeList" resultType="co.yedam.board.service.BoardVO">
+	<select id="selectBookNoticeList" resultType="co.yedam.board.service.BoardVO">
 		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'
 	</select>
 
@@ -23,18 +23,23 @@
 		parameterType="int">
 		select * from board where board_no=#{boardNo}  
 	</select>
-	<update id="updateCnt" parameterType="int">
-		UPDATE BOARD SET view_cnt = view_cnt+1
+	<update id="boardCnt" parameterType="int">
+		UPDATE BOARD SET BOARD_CNT = BOARD_CNT+1
 		where board_no = #{boardNo}
 	</update>
 
 	<insert id="insert"
 		parameterType="co.yedam.board.service.BoardVO">
-		INSERT INTO BOARD VALUES(seq_board.nextval,#{boardNo},#{boardNo},#{likeCnt},#{boardTitle},#{boardContent},SYSDATE,#{boardDate},#{boardSort},#{boardCnt},#{userId},#{boardImage})
+		INSERT INTO BOARD VALUES
+		(seq_board.nextval,#{bookNo},#{reviewStar},#{boardTitle},
+					#{boardContent},SYSDATE,#{boardSort},#{boardCnt},#{userId},#{boardImage})
 	</insert>
 
 	<update id="update" parameterType="co.yedam.board.service.BoardVO">
-		UPDATE BOARD SET TITLE=#{title}, CONTENT=#{content}, WRITER =#{writer}, IMAGE=NVL(#{image}, image), LAST_UPDATE=SYSDATE WHERE BOARD_NO=#{boardNo}
+		UPDATE BOARD SET
+		BOARD_TITLE=#{boardTitle},
+		BOARD_CONTENT=#{boardContent},
+		BOARD_IMAGE=NVL(#{boardImage}, BOARD_IMAGE) WHERE BOARD_NO=#{boardNo}
 	</update>
 
 	<delete id="delete" parameterType="int">

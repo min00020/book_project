@@ -18,7 +18,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public BoardVO getBoard(int boardNo) {
-		
+		mapper.boardCnt(boardNo);
 		return mapper.select(boardNo);
 	}
 	@Override

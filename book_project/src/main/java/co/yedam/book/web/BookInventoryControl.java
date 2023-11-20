@@ -26,9 +26,22 @@ public class BookInventoryControl implements Command {
 			//전체검색
 			list = svc.bookList();
 		}
-		else {
-			list = svc.invenbook(Integer.parseInt(cate));
+		else if (cate.equals("소설")){
+			list = svc.invenbook("소설");
+			System.out.println(list);
 		}
+		else if (cate.equals("만화")) {
+			list = svc.invenbook("만화");
+			System.out.println(list);
+		}
+		else if (cate.equals("사진")) {
+			list = svc.invenbook("사진");
+			System.out.println(list);
+		}
+		else {
+			
+		}
+		
 		
 		req.setAttribute("list", list);
 		

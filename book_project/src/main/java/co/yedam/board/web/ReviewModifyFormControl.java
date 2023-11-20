@@ -8,7 +8,7 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class ModifyFormControl implements Command {
+public class ReviewModifyFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -20,7 +20,7 @@ public class ModifyFormControl implements Command {
 //		System.out.println(vo);
 		
 		try {
-			req.getRequestDispatcher("WEB-INF/board/bookModifyForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/reviewModifyForm.tiles").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -104,9 +104,9 @@
 
 	
 		<a class="product" href="bookInventory.do">전체</a>
-		<a class="product" href="bookInventory.do?cate=1">시, 소설</a>
-		<a class="product" href="bookInventory.do?cate=2">만화</a>
-		<a class="product" href="bookInventory.do?cate=3">사진</a>
+		<a class="product" href="bookInventory.do?cate=소설">소설</a>
+		<a class="product" href="bookInventory.do?cate=만화">만화</a>
+		<a class="product" href="bookInventory.do?cate=사진">사진</a>
 		
 		
 <!-- 		<a class="product" href="bookInventory.do?cate=1">여행</a>
