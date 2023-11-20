@@ -3,8 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!-- ${list } -->
-   <!-- Content Wrapper -->
+<!-- Custom fonts for this template -->
+<link href="resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="resources/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -219,7 +237,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
+                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">주문관리</h1>
                     <p class="mb-4">주문내역 조회</p>
                     <!-- DataTales Example -->
@@ -242,10 +260,22 @@
                                             <td>주문일자</td>
                                         </tr>
                                     </thead>
+                                    <tfoot>
+                                        <tr>
+                                        	<th><input type="checkbox" name="check" checked> </th>
+                                            <th>주문번호</th>
+                                            <td>아이디</td>
+                                            <td>전화번호</td>
+                                            <td>주문금액</td>
+                                            <td>주문상태</td>
+                                            <td>결제수단</td>
+                                            <td>주문일자</td>
+                                        </tr>
+                                    </tfoot>
                                 
                                     <tbody>
                                     <c:forEach items="${list}" var="vo">
-                                        <tr>
+                                        <tr id=${vo.odrCode }>
                                         	<td><input type="checkbox" name="check"></td>
                                             <td>${vo.odrCode }</td>
                                             <td>${vo.userId }</td>
@@ -258,30 +288,19 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                                <div style=" text-align: center;">
-                                        	<input type="submit" class="btn btn-primary btn-icon-split" value="저장">
-											<input type="reset" class="btn btn-secondary btn-icon-split" value="초기화">
-                                 </div>
-                                 <hr>
                                 
-                                <div style=" text-align: center;">
-                                	<a href="#" class="btn btn-secondary btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </span>
-                                        <span class="text" id="orderComplete">주문완료</span>
-                                    </a>
+                                <div style=" text-align: center;" id = "orderStatus">
                                      <a href="#" class="btn btn-primary btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-check"></i>
                                         </span>
-                                        <span class="text" id="deliveryComplete">배송완료</span>
+                                        <span class="text">배송완료</span>
                                       </a>
                                      <a href="#" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
-                                        <span class="text" id = "orderCancle">주문취소</span>
+                                        <span class="text">주문취소</span>
                                      </a>
                                 </div>
                                         
@@ -315,23 +334,32 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     
     
-    <script>
-    	//주문완료
-    	document.querySelector('#orderComplete').addEventListener('click', function (e){
-    		let ono = "${vo.odrCode }";
-    		
-    		
-    	})
-    	//배송완료
-    	document.querySelector('#deliveryComplete').addEventListener('click', function (e){
-    		
-    		
-    	})
-    	//주문취소
-    	document.querySelector('#orderCancle').addEventListener('click', function (e){
-    		
-    		
-    	})
-    </script>
+    <!-- Page level plugins -->
+    <script src="resources/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="resources/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="resources/admin/js/demo/datatables-demo.js"></script>
+    

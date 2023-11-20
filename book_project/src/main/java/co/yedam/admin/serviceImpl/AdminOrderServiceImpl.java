@@ -25,21 +25,10 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 		return mapper.insertBook(vo) == 1;
 	}
 
-	@Override
-	public boolean orderComplete(OrderVO vo) {
-		return mapper.orderComplete(vo)==1;
-	}
-
 
 	@Override
-	public boolean orderCancle(OrderVO vo) {
-		return mapper.orderCancle(vo)==1;
-	}
-
-
-	@Override
-	public boolean orderDelivery(OrderVO vo) {
-		return mapper.orderDelivery(vo)==1;
+	public boolean orderStatus(OrderVO vo) {
+		return mapper.orderStatus(vo)==1;
 	}
 
 }

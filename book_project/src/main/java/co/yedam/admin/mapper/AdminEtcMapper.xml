@@ -8,14 +8,8 @@
 	</select>
 	
 	<!-- 주문상태 변경 -->
-	<update id="orderComplete" parameterType="co.yedam.order.service.OrderVO">
-		UPDATE ORDER_TBL SET ODR_STATUS = '주문완료' WHERE ODR_CODE =#{odrCode}
-	</update>
-	<update id="orderCancle" parameterType="co.yedam.order.service.OrderVO">
-		UPDATE ORDER_TBL SET ODR_STATUS = '주문취소' WHERE ODR_CODE =#{odrCode}
-	</update>
-	<update id="orderDelivery" parameterType="co.yedam.order.service.OrderVO">
-		UPDATE ORDER_TBL SET ODR_STATUS = '배송완료' WHERE ODR_CODE =#{odrCode}
+	<update id="orderStatus" parameterType="co.yedam.order.service.OrderVO">
+		UPDATE ORDER_TBL SET ODR_STATUS = #{odrStatus} WHERE ODR_CODE =#{odrCode}
 	</update>
 
 	<!-- 도서 등록 도서추가 -->
