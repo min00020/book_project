@@ -14,6 +14,6 @@ public class BookVO {
 	private String bookSort;        // 종류
 	private String bookContent;     // 책 소개
 	
-	private String bookType;        // 책 분류
+//	private String bookType;        // 책 분류
 
 }

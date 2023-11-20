@@ -3,27 +3,26 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- <jsp:include page="../layout/menu.jsp"></jsp:include> --%>
-<jsp:include page="../layouts/header.jsp"></jsp:include>
 
 	<h3>게시글 수정화면</h3>
-	<form action="bookModifyBoard.do" method="post" enctype="multipart/form-data">
+	<form action="reviewModifyBoard.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="bno" value="${vo.boardNo }">
 		<table class="table">
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" class="form-control" value="${vo.title }"></td>
+				<td><input type="text" name="boardTitle" class="form-control" value="${vo.boardTitle }"></td>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" class="form-control" value="${vo.writer }"></td>
+				<td><input type="text" name="userId" class="form-control" value="${vo.userId }"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea class="form-control" name="content"${vo.content }></textarea>
+				<td colspan="2"><textarea class="form-control" name="boardContent"${vo.boardContent }></textarea>
 				</td>
 			</tr>
 			<tr>
 				<th>파일명</th>
-				<td><img src="images/${vo.image }" width="80px" ></td>
+				<td><img src="image/${vo.boardImage }" width="80px" ></td>
 			</tr>
 			<tr>
 			<td colspan="2" align="center">
@@ -33,5 +32,3 @@
 			</tr>
 		</table>
 	</form>
-
-<jsp:include page="../layouts/footer.jsp"></jsp:include>

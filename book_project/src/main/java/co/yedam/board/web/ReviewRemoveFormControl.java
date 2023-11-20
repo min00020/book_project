@@ -8,26 +8,23 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class BookGetBoardControl implements Command {
+public class ReviewRemoveFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// boardNo : 1 => DB  search => jsp.
-		String path = "board/bookGetBoard.tiles";
-		
+		// TODO Auto-generated method stub
 		String bno = req.getParameter("bno");
+		
 		BoardService svc = new BoardServiceImpl();
 		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
+		req.setAttribute("vo", vo); //요청정보 vo 를 담는곳
+//		System.out.println(vo);
 		
-		
-		req.setAttribute("bno", vo);
-		// 요청재지정.
 		try {
-			req.getRequestDispatcher(path).forward(req, resp);
+			req.getRequestDispatcher("board/reviewRemove.tiles").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

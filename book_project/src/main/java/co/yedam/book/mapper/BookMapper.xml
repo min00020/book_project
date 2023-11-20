@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="invenbook" resultType="co.yedam.book.service.BookVO">
-		SELECT * FROM BOOK WHERE BOOK_TYPE = #{bookType}
+		SELECT * FROM BOOK WHERE BOOK_SORT = #{bookSort}
 	</select>
 	
 </mapper>

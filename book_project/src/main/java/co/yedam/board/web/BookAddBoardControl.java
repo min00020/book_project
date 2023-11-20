@@ -35,23 +35,25 @@ public class BookAddBoardControl implements Command {
 								"UTF-8", // encoding
 								new DefaultFileRenamePolicy()// 리네임 정책
 						);
-	
+				
+				
 				String boardTitle = mr.getParameter("boardTitle");
 				String boardContent = mr.getParameter("boardContent");
 				String boardSort = mr.getParameter("boardSort");
 				String userId = mr.getParameter("userId");
-				String boardImage = mr.getParameter("boardImage");
+				String boardImage = mr.getFilesystemName("image");
 				
-				
+
 				vo.setBoardTitle(boardTitle);
 				vo.setBoardContent(boardContent);
 				vo.setBoardSort(boardSort);
 				vo.setUserId(userId);
 				vo.setBoardImage(boardImage);
+				vo.setReviewStar(0); // 별점
+				vo.setBoardCnt(0);  //조회수
 				
 				System.out.println("title:" + boardTitle + "content:" +boardContent+ "sort:"+boardSort+"id:"+userId+"image:"+boardImage);
 				
-
 				
 				
 			} catch (IOException e) {

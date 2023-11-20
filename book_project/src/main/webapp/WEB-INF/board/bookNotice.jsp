@@ -6,7 +6,7 @@
 
 <h3>공지사항</h3>
 
-<table class="table" border="1" style="width:800px;">
+<table class="table" border="1">
 	<thead>
 		<tr>
 			<th>글번호</th>
@@ -17,10 +17,10 @@
 			<th>조회수</th>
 		</tr>
 	<tbody>
-		<c:forEach items="${noticeList }" var="vo">
+		<c:forEach items="${NoticeList }" var="vo">
 				<tr>
 					<td>${vo.boardNo }</td>
-					<td><a href="GetBoard.do?bno${vo.boardNo }">${vo.boardTitle }</a>
+					<td><a href="bookGetBoard.do?bno=${vo.boardNo }">${vo.boardTitle }</a>
 					<td>${vo.userId }</td>
 					<td><fmt:formatDate value="${vo.boardDate }"
 							 pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
