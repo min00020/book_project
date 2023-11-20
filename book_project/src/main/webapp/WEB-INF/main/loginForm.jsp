@@ -39,20 +39,34 @@
 	</table>
 </form>
 
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"
-  integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js" integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
 <script>
   Kakao.init('baebadb607ea7b6110c9beeffb0e3719'); // 사용하려는 앱의 JavaScript 키 입력
   console.log("init: ", Kakao.isInitialized());
   </script>
-
+  
 <script>
   function loginWithKakao() {
     Kakao.Auth.authorize({
       redirectUri: 'http://localhost:8080/book_project/bookmainpage.do',
-      scope: 'account_email'
+      state: 'userme',
+      scope: 'account_email',
     });
-  } // end loginWithKakao()
+  }
+
+  function requestUserInfo() {
+    Kakao.API.request({
+      url: '/v2/user/me',
+    })
+      .then(function(res) {
+        alert(JSON.stringify(res));
+      })
+      .catch(function(err) {
+        alert(
+          'failed to request user information: ' + JSON.stringify(err)
+        );
+      });
+  }
 
   // 아래는 데모를 위한 UI 코드입니다.
   displayToken()
@@ -61,27 +75,17 @@
 
     if(token) {
       Kakao.Auth.setAccessToken(token);
-      Kakao.Auth.getStatusInfo()
-        .then(function(res) {
-          if (res.status === 'connected') {
-            document.getElementById('token-result').innerText
-              = 'login success, token: ' + Kakao.Auth.getAccessToken();
-            console.log(token);
-          }
-        })
-        .catch(function(err) {
-          Kakao.Auth.setAccessToken(null);
-        });
+      document.querySelector('#token-result').innerText = 'login success, ready to request API';
+      document.querySelector('button.api-btn').style.visibility = 'visible';
     }
   }
-  
-  
 
   function getCookie(name) {
     var parts = document.cookie.split(name + '=');
     if (parts.length === 2) { return parts[1].split(';')[0]; }
   }
 </script>
+
 <script>
 /* 로그인 유효성 */
 function loginCheck(obj) {
