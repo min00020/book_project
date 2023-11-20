@@ -75,10 +75,11 @@
                 <c:choose>
 					<c:when test="${!empty id }">
 						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
-                		<img src="resources/image/logout.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
+                		<img src="resources/image/logoutblue.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
                 		</a>
 					</c:when>                
           		</c:choose>
+          		
         	  <c:if test="${!empty responsibility && responsibility == 'Admin'}">
 	  				<a class="pl-3 inline-block no-underline hover:text-black" href="admin.do">
 	                	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">
