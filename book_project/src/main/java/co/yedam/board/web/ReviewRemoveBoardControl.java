@@ -7,7 +7,7 @@ import co.yedam.board.service.BoardService;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class RemoveBoardControl implements Command {
+public class ReviewRemoveBoardControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -17,7 +17,7 @@ public class RemoveBoardControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		if( svc.removeBoard(Integer.parseInt(bno))) {
 			try {
-				resp.sendRedirect("boardList.do");
+				resp.sendRedirect("qnaBoard.do"); //removeform.jsp
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

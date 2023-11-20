@@ -20,6 +20,7 @@ public class AdminBookControl implements Command {
 		List<BookVO> list = svc.bookList();
 		System.out.println("adminBookcont:"+list);
 		req.setAttribute("list", list);
+		System.out.println("테스트");
 		
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);

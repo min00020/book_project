@@ -34,9 +34,11 @@ public class ModifyUserControl implements Command {
 //		HttpSession session = req.getSession();
 	
 		
-		 if (svc.editUser(vo)) { try { resp.sendRedirect("mypage.do"); } catch
-		 (IOException e) { e.printStackTrace(); }
-		 
+		 if (svc.editUser(vo)) { 
+			 try { resp.sendRedirect("mypage.do"); 
+			 } catch (IOException e) {
+				 e.printStackTrace(); 
+			 }
 		 } else { 
 			 try { resp.sendRedirect("modifyForm.do"); 
 			 } catch (IOException e) {

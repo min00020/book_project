@@ -13,18 +13,13 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class ModifyBoardControl implements Command {
+public class ReviewModifyBoardControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// 파라메타활용 -> 데이터수정 -> 목록이동.
 		BoardVO vo = new BoardVO();
 		if (req.getMethod().equals("get")) {
-
-			String title = req.getParameter("title");
-			String writer = req.getParameter("writer");
-			String content = req.getParameter("content");
-
 
 
 		} else if (req.getMethod().equals("POST")) {
@@ -39,14 +34,16 @@ public class ModifyBoardControl implements Command {
 								"UTF-8", // encoding
 								new DefaultFileRenamePolicy()// 리네임 정책
 						);
+				
 				String bno = mr.getParameter("bno");	
-				String title = mr.getParameter("title");
-				String writer = mr.getParameter("writer");
-				String content = mr.getParameter("content");
-				String img = mr.getFilesystemName("img");
-
+				String boardTitle = mr.getParameter("boardTitle");
+				String boardContent = mr.getParameter("boardContent");
+				String boardImage = mr.getFilesystemName("boardImage");
 
 				vo.setBoardNo(Integer.parseInt(bno));
+				vo.setBoardTitle(boardTitle);
+				vo.setBoardContent(boardContent);
+				vo.setBoardImage(boardImage);
 
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -57,13 +54,13 @@ public class ModifyBoardControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		if (svc.editBoard(vo)) {
 			try {
-				resp.sendRedirect("boardList.do");
+				resp.sendRedirect("qnaBoard.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.sendRedirect("modifyForm.do");
+				resp.sendRedirect("reviewModifyForm.do");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

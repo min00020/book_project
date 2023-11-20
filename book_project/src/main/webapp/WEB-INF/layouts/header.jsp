@@ -19,9 +19,9 @@
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookshop.do">BOOKSHOP</a></li>            
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">NEWS</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookReview.do">BOOK REVIEW</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="qnaBoard.do">QnA</a></li>
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">REVIEW</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="bookNotice.do">공지사항</a></li>
                     </ul>
                 </nav>
             </div>
@@ -75,10 +75,11 @@
                 <c:choose>
 					<c:when test="${!empty id }">
 						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
-                		<img src="resources/image/logout.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
+                		<img src="resources/image/logoutblue.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
                 		</a>
 					</c:when>                
           		</c:choose>
+          		
         	  <c:if test="${!empty responsibility && responsibility == 'Admin'}">
 	  				<a class="pl-3 inline-block no-underline hover:text-black" href="admin.do">
 	                	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">

@@ -4,8 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%-- <jsp:include page="../layouts/menu.jsp"></jsp:include> --%>
-<jsp:include page="../layouts/header.jsp"></jsp:include>
 
 <style>
 #list span {
@@ -32,30 +30,31 @@
 	background-color: #ddd;
 }
 </style>
-<h3>상세화면(조회화면)</h3>
-<form action="modifyForm.do" name="myfrm">
+<h3>상세화면</h3>
+<form action="reviewModifyForm.do" name="myfrm">
 	<input type="hidden" name="bno" value="${bno.boardNo }">
 	<table class="table">
 		<tr>
 			<th>글번호</th>
 			<td class="boardNo">${bno.boardNo }</td>
 			<th>작성일시</th>
-			<td><fmt:formatDate value="${bno.writerDate }"
+			<td><fmt:formatDate value="${bno.boardDate }"
 					pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
 		</tr>
 		<tr>
+		
 			<th>글제목</th>
-			<td colspan="3">${bno.title }</td>
+			<td colspan="3">${bno.boardTitle }</td>
 		</tr>
 		<tr>
-			<td colspan="4"><textarea rows="5" cols="40">${bno.content }</textarea></td>
+			<td colspan="4"><textarea rows="5" cols="40">${bno.boardContent }</textarea></td>
 		</tr>
 		<tr>
 			<th>이미지</th>
 			<c:choose>
-				<c:when test="${!empty bno.image }">
+				<c:when test="${!empty bno.boardImage }">
 					<td colspan="3"><img style="align: center;" width="100px"
-						src="images/${bno.image }"></td>
+						src="resources/image/${bno.boardImage }"></td>
 				</c:when>
 				<c:otherwise>
 					<td colspan="3"></td>
@@ -67,13 +66,13 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${bno.writer }</td>
+			<td>${bno.userId }</td>
 			<th>조회수</th>
-			<td>${bno.viewCnt }</td>
+			<td>${bno.boardCnt }</td>
 		</tr>
 		<tr>
 			<td colspan="4" align="center"><c:choose>
-					<c:when test="${!empty logId && logId == bno.writer }">
+					<c:when test="${!empty id && id == bno.userId }">
 						<input type="submit" class="btn btn-primary" value="수정">
 						<input type="button" class="btn btn-warning" value="삭제">
 					</c:when>
@@ -85,6 +84,8 @@
 		</tr>
 	</table>
 </form>
+
+
 
 <h3>댓글등록</h3>
 <table class="table">
@@ -106,13 +107,13 @@
 <script>
 	document.querySelector("input[type=button]").addEventListener('click',
 			function(e) {
-				document.forms.myfrm.action = 'removeForm.do';
+				document.forms.myfrm.action = 'reviewRemoveForm.do';
 				document.forms.myfrm.submit();
 			});
 	
 	//댓글 목록.
 	let bno = "${bno.boardNo}";
-	let writer = "${logId}";
+	let writer = "${id}";
 	bno = document.querySelector('.boardNo').innerHTML;
 	let page = 1;
 	
@@ -188,8 +189,8 @@ showList();
 	// 등록버튼.
 	document.querySelector('#addReply').addEventListener('click', function(e){
 		let reply = document.querySelector('#content').value;
-		if(!bno || writer=='null' || !reply){
-			alert('값 확인해라.');
+		if(!bno || writer == 'null' || !reply){
+			alert('값을 확인해주세요.');
 			return;
 		}
 		
@@ -213,21 +214,6 @@ showList();
 	
 	
 	function makeRow(reply){
-		
-/* 		function deleteCallback(e){
-			// 교수님 삭제
-			fetch('removeReply.do?rno=' + reply.replyNo)
-			.then(resolve => resolve.json())
-			.then(reulst => {
-				if(result.retCode == 'OK'){
-					alert('Success!!')
-					e.target.parentElement.remove();
- 				} else {
- 					alert('Error!!')
- 				}
-			})
-			.catch(err => console.log(err))
-		} */
 		
 		
 		let temp = document.querySelector('#template').cloneNode(true);
@@ -269,7 +255,3 @@ showList();
 	
 	
 	</script>
-<p>
-	<a href="boardList.do">목록으로</a>
-</p>
-<jsp:include page="../layouts/footer.jsp"></jsp:include>
