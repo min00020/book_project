@@ -75,7 +75,7 @@
                 <c:choose>
 					<c:when test="${!empty id }">
 						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
-                		<img src="resources/image/logout.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
+                		<img src="resources/image/logoutblue.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
                 		</a>
 					</c:when>                
           		</c:choose>

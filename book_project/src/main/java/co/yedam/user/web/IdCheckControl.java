@@ -15,16 +15,22 @@ public class IdCheckControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
+
 		UserService svc = new UserServiceImpl();
+		UserVO vo;
+		vo = svc.IdCheck(id);
+		
+		System.out.println("id: " + id);
 		
 		String result = "";
 		
-		if (svc.IdCheck(id) == null) {
+		if (vo == null) {
 			result = "{\"retCode\":\"OK\"}";
 		} else {
 			result = "{\"retCode\":\"NG\"}";
 		}
 		
+		System.out.println(result);
 		try {
 			resp.getWriter().print(result);
 		} catch (IOException e) {

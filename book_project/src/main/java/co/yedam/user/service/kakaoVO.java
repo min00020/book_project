@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class kakaoVO {
-	String kakaoId;
-	String kakadPw;
+	private String asseccToken;
+	private String snsNickname;
+	private String snsEmail;
 	
 }

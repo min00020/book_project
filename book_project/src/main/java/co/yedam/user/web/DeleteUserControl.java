@@ -1,11 +1,13 @@
 package co.yedam.user.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Command;
+import co.yedam.user.service.UserVO;
 import co.yedam.user.serviceImpl.UserServiceImpl;
 
 public class DeleteUserControl implements Command {
@@ -13,10 +15,14 @@ public class DeleteUserControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		String id = req.getParameter("id");
-		String pw = req.getParameter("pw");
-		
+		String pw = req.getParameter("pass");
+		System.out.println("id:" + id);
+		System.out.println("pw: " + pw);
+
 		UserServiceImpl svc = new UserServiceImpl();
 		
+		System.out.println(svc.removeUser(id, pw));
+
 		if (svc.removeUser(id, pw)) {
 			try {
 				resp.sendRedirect("mypage.do");

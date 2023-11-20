@@ -45,6 +45,7 @@ import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
+import co.yedam.user.web.SnsLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -102,6 +103,8 @@ public class FrontController extends HttpServlet {
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
 		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
+		
+		map.put("/snslogin.do", new SnsLoginControl()); /* 카카오 로그인 처리*/
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지

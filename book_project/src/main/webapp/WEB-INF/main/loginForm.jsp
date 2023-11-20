@@ -25,44 +25,62 @@
 			<td><input type="password" class="form-control" id="pass" name="pass"></td>
 		</tr>
 		<tr>
-			<td colspan="1"><input type="submit" id="login" value="로그인"></td>
-			<td colspan="1"><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
-			<a href="javascript:kakaoLogin()"><img src="resource/image/kakao_login.png" style="width: 200px"></a>
+			<td><input type="submit" id="login" value="로그인"></td>
+			<td><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a id="kakao-login-btn" href="javascript:loginWithKakao()">
+					<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
+				</a>
+				<p id="token-result"></p>
+			</td>
 		</tr>
 	</table>
 </form>
 
-<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script type="text/javascript">
-    Kakao.init('baebadb607ea7b6110c9beeffb0e3719');
-    function kakaoLogin() {
-        Kakao.Auth.login({
-            success: function (response) {
-                Kakao.API.request({
-                    url: '/v2/user/me',
-                    success: function (response) {
-                    	const kakaoId = response.id;
-                    	const kakaopw = "kakao" + response.id;
-                    	scope: 'account_email'
-                    		fetch('idCheck.do?id='+id)
-                			.then(resolve = > resolve.json())
-                			.then(result => {
-                				if (result.retCode == 'OK') {
-                					location.href = "login.do?kakaoid="+kakaoId+"$kakaopw"+kakaopw;
-                				} else {
-                					alert("로그인 실패");
-                					location.href = "login.do";
-                				}
-                			})
-                    }
-                })
-                const token = authObj.access_token;
-            },
-            fail: function (error) {
-                alert(JSON.stringify(error))
-            },
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"
+  integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('baebadb607ea7b6110c9beeffb0e3719'); // 사용하려는 앱의 JavaScript 키 입력
+  console.log("init: ", Kakao.isInitialized());
+  </script>
+
+<script>
+  function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:8080/book_project/bookmainpage.do',
+      scope: 'account_email'
+    });
+  } // end loginWithKakao()
+
+  // 아래는 데모를 위한 UI 코드입니다.
+  displayToken()
+  function displayToken() {
+    var token = getCookie('authorize-access-token');
+
+    if(token) {
+      Kakao.Auth.setAccessToken(token);
+      Kakao.Auth.getStatusInfo()
+        .then(function(res) {
+          if (res.status === 'connected') {
+            document.getElementById('token-result').innerText
+              = 'login success, token: ' + Kakao.Auth.getAccessToken();
+            console.log(token);
+          }
         })
+        .catch(function(err) {
+          Kakao.Auth.setAccessToken(null);
+        });
     }
+  }
+  
+  
+
+  function getCookie(name) {
+    var parts = document.cookie.split(name + '=');
+    if (parts.length === 2) { return parts[1].split(';')[0]; }
+  }
 </script>
 <script>
 /* 로그인 유효성 */
