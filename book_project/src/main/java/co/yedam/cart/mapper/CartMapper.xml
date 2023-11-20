@@ -24,9 +24,11 @@
 		delete from cart_tbl where
 		cart_code = #{cartCode}
 	</delete>
-	<update id="updateCart">
-		
-		update cart_tbl set cart_amount = #{cartAmount}  where book_no = book_no and user_id = user_id
+	<!-- 카트 수량 수정 -->
+	<update id="modifyCart">
+	
+		update cart_tbl set cart_amount=#{cartAmount} where cart_Code = #{cartCode}
+	
 	</update>
 	
 </mapper>
