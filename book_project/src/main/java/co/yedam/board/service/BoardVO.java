@@ -15,9 +15,5 @@ public class BoardVO {
 	private int boardCnt;        // 조회수
 	private String userId;       // 유저아이디
 	private int likeCnt;         //별점
-	
-	
 	private String boardImage; //   이미지도 가져와야함
-	
-
 }

@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.admin.web.AddBookControl;
 import co.yedam.admin.web.AdminBookControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
+import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
 import co.yedam.board.web.BookAddBoardControl;
 import co.yedam.board.web.BookBoardFormControl;
@@ -105,10 +108,12 @@ public class FrontController extends HttpServlet {
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
 		
-		map.put("/adminBook.do", new AdminBookControl()); //상품목록 페이지
-		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인,주문상태변경
+		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
+		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인
+		map.put("/adminOrderUpdate.do", new AdminOrderUpdate()); //주문상태 변경
+		//도서추가
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
-		
+		map.put("/addBook.do", new AddBookControl()); //도서 추가
 		//인스타
 		map.put("/insta.do", new InstaControl());
 

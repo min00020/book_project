@@ -79,6 +79,7 @@
                 		</a>
 					</c:when>                
           		</c:choose>
+          		
         	  <c:if test="${!empty responsibility && responsibility == 'Admin'}">
 	  				<a class="pl-3 inline-block no-underline hover:text-black" href="admin.do">
 	                	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">

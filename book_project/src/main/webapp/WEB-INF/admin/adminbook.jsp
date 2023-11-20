@@ -3,6 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<!-- Page level plugins -->
+	<script src="resources/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="resources/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+     
+<!-- Page level custom scripts -->
+    <script src="resources/admin/js/demo/datatables-demo.js"></script>
+   
+
    <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -289,8 +297,7 @@
         </div>
         <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
