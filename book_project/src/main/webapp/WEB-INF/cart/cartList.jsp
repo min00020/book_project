@@ -124,19 +124,18 @@ img {
 		</thead>
 		<tbody>
 			<c:forEach items="${cartList }" var="list">
-				<tr id="${list.cartCode}">
-					<td id="list-code">${list.cartCode}</td>
+				<tr id="cno" data-value="${list.cartCode }">
 					<td><input type="checkbox" name="check"></td>
 					<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
 							src="resources/image/${list.bookImage}">
 					</a></td>
 					<td>${list.bookTitle }</td>
-					<td><select name="amount" onchange="changeFn()"
-						class="form-control text-center me-3" id="amount"
+					<td><select name="amount"
+						class="form-control text-center me-3" id="amount" onchange="changeFn()"
 						type="text" style="max-width: 3rem">
 							<option class="list-Amountsum" value="${list.cartAmount}">${list.cartAmount}</option>
 							<c:forEach begin="1" end="10" var="i">
-								<option value="${i}">${i}</option>
+								<option id="amount-item" data-value="onchange="changeFn()""value="${i}">${i}</option>
 							</c:forEach>
 
 					</select></td>
@@ -168,7 +167,6 @@ img {
 	<p></p>
 </div>
 <script>
-
 let result ={};
 function changeFn(){
 
@@ -178,22 +176,22 @@ function changeFn(){
 	console.log(result);
 }
 
-//주문완료
 const a = document.querySelectorAll("#orderStatus a"); //주문 상태 변경 버튼 가져오기
 console.log(a);
 
 a[1].addEventListener('click', function (e){
 	//console.log('주문취소버튼');
-	e.preventDefault();
 	document.querySelectorAll('tbody input[type=checkbox]:checked')
 	.forEach(ele => {
-		const cno = document.querySelectorAll('tr ${list.cartCode}');
-		const amo = document.querySelectorAll(".list-Amountsum").innerText;
+		var cno = document.querySelector('#cno');
+		var amo = document.querySelector('#amount-item');
+		console.log(cno.dataset.value);
+		console.log(amo.dataset.value);
 		
 		fetch('modifyCart.do', {
 			method: 'post',
 			headers: {'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'cno=' + cno +'&amo='+ amo
+			body: 'cno=' + cno.dataset.value +'&amo='+ amo.dataset.value
 		})
 		.then(resolve => resolve.json())
 		.then(result =>{
