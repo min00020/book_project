@@ -6,7 +6,7 @@
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 
 	<h3>게시글 수정화면</h3>
-	<form action="modifyBoard.do" method="post" enctype="multipart/form-data">
+	<form action="bookModifyBoard.do" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="bno" value="${vo.boardNo }">
 		<table class="table">
 			<tr>

@@ -10,6 +10,14 @@
 	<select id="selectQnaList" resultType="co.yedam.board.service.BoardVO">
 		SELECT * FROM BOARD WHERE BOARD_SORT = 'QnA게시판'
 	</select>
+	
+	<select id="selectBookReviewList" resultType="co.yedam.board.service.BoardVO">
+		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'
+	</select>
+	
+	<select id="bookNoticeList" resultType="co.yedam.board.service.BoardVO">
+		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'
+	</select>
 
 	<select id="select" resultType="co.yedam.board.service.BoardVO"
 		parameterType="int">
@@ -22,7 +30,7 @@
 
 	<insert id="insert"
 		parameterType="co.yedam.board.service.BoardVO">
-		INSERT INTO BOARD VALUES(seq_board.nextval, #{title}, #{content}, #{writer}, #{image})
+		INSERT INTO BOARD VALUES(seq_board.nextval,#{boardNo},#{boardNo},#{likeCnt},#{boardTitle},#{boardContent},SYSDATE,#{boardDate},#{boardSort},#{boardCnt},#{userId},#{boardImage})
 	</insert>
 
 	<update id="update" parameterType="co.yedam.board.service.BoardVO">

@@ -18,10 +18,12 @@ import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartMonthPriceCont;
 import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
-import co.yedam.board.web.AddBoardControl;
-import co.yedam.board.web.BoardFormControl;
-import co.yedam.board.web.BoardListControl;
-import co.yedam.board.web.GetBoardControl;
+import co.yedam.board.web.BookAddBoardControl;
+import co.yedam.board.web.BookBoardFormControl;
+import co.yedam.board.web.BookBoardListControl;
+import co.yedam.board.web.BookGetBoardControl;
+import co.yedam.board.web.BookNoticeControl;
+import co.yedam.board.web.BookReviewControl;
 import co.yedam.board.web.ModifyBoardControl;
 import co.yedam.board.web.ModifyFormControl;
 import co.yedam.board.web.QnaBoardControl;
@@ -74,24 +76,22 @@ public class FrontController extends HttpServlet {
 		map.put("/bookInventory.do", new BookInventoryControl()); // 목록 불러오기 기능
 		
 		map.put("/qnaBoard.do", new QnaBoardControl()); // qna 게시판
+		map.put("/bookReview.do", new BookReviewControl()); // 책 리뷰 게시판
+		map.put("/bookNotice.do", new BookNoticeControl()); // 공지사항
 		
 		// 목록 화면
-		map.put("/boardList.do", new BoardListControl());
-		map.put("/getBoard.do", new GetBoardControl());
+		map.put("/bookBoardList.do", new BookBoardListControl()); // 댓글 목록
+		map.put("/bookGetBoard.do", new BookGetBoardControl());   // 상세 목록
 		//리뷰 등록화면
-		map.put("/boardForm.do", new BoardFormControl()); // 등록 화면
-		map.put("/addBoard.do", new AddBoardControl());   // 등록 처리
+		map.put("/bookBoardForm.do", new BookBoardFormControl()); // 게시글 등록 화면
+		map.put("/bookAddBoard.do", new BookAddBoardControl());   // 댓글 등록 데이터 처리
 		//리뷰 수정 화면
-		map.put("/modifyForm.do", new ModifyFormControl());  //
-		map.put("/modifyBoard.do", new ModifyBoardControl());
-		
+		map.put("/bookModifyForm.do", new ModifyFormControl());  //  게시글 수정
+		map.put("/bookModifyBoard.do", new ModifyBoardControl());  // 게시글 수정 데이터 처리
 		//댓글목록.
 		map.put("/replyList.do", new ReplyListControl());
 		map.put("/addReply.do", new AddReplyControl());
 		map.put("/delReply.do", new DelReplyControl());
-		
-		
-//		map.put("/addBoard.do", new AddBoardControl());
 		
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */

@@ -19,7 +19,7 @@
 		<c:forEach items="${list }" var="vo">
 			<tr>
 				<td>${vo.boardNo }</td>
-				<td><a href="getBoard.do?bno=${vo.boardNo }">${vo.title }</a></td>
+				<td><a href="bookGetBoard.do?bno=${vo.boardNo }">${vo.title }</a></td>
 				<td>${vo.writer }</td>
 				<td><fmt:formatDate value="${vo.writerDate }" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
 			</tr>
@@ -28,5 +28,5 @@
 		</tbody>
 	</table>
 	<p>
-		<a href="boardForm.do">등록화면</a>
+		<a href="bookBoardForm.do">등록화면</a>
 	</p>
