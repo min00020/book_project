@@ -15,41 +15,39 @@ import co.yedam.cart.service.CartVO;
 import co.yedam.cart.serviceImpl.CartServiceImpl;
 import co.yedam.common.Command;
 
-public class AddCartControl implements Command {
+public class ModyfiCartControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		String bno = req.getParameter("bno");
-		String uid = req.getParameter("uid");
-		
-		String amount = req.getParameter("amount");
 		CartVO vo = new CartVO();
-		vo.setUserId(uid);
-		vo.setBookNo(Integer.parseInt(bno));
-		vo.setCartAmount(Integer.parseInt(amount));
-		
-		Gson gson = new GsonBuilder()
-				.setDateFormat("yyyy-MM-dd")
-				.create();
+
+		String cno = req.getParameter("cno");
+		String amo = req.getParameter("amo");
+//		String id = req.getParameter("id");
+//		String bno = req.getParameter("bno");
+
+		vo.setCartCode(Integer.parseInt(cno));
+		vo.setCartAmount(Integer.parseInt(amo));
+//		vo.setBookNo(Integer.parseInt(bno));
+//		vo.setUserId(id);
+
 		Map<String, Object> map = new HashMap<>();
-		
 		CartService svc = new CartServiceImpl();
-		//장바구니에 기존 상품이 있는지 검사
-		
-		if(svc.addCart(vo)) {
-			map.put("vo", vo);
+		if (svc.modifyCart(vo)) {
 			map.put("retCode", "OK");
+			map.put("vo", vo);
 		} else {
 			map.put("retCode", "NG");
 		}
+		Gson gson = new GsonBuilder().create();
+
+		String json = gson.toJson(map);
 		resp.setContentType("text/json;charset=utf-8");
 		try {
-			resp.getWriter().print(gson.toJson(map));
+			resp.getWriter().print(json);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(map);
 	}
 }

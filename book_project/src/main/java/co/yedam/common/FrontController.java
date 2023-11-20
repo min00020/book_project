@@ -37,6 +37,7 @@ import co.yedam.book.web.BookShopControl;
 import co.yedam.cart.web.AddCartControl;
 import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
+import co.yedam.cart.web.ModyfiCartControl;
 import co.yedam.order.web.OrderListControl;
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
@@ -69,6 +70,7 @@ public class FrontController extends HttpServlet {
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
 		map.put("/deleteCart.do", new DeleteCartControl()); // 장바구니 삭제
+		map.put("/modifyCart.do", new ModyfiCartControl()); // 장바구니 수량수정
 		
 		//강현진
 		map.put("/main.do", new MainPageControl());        //메인 페이지로 가기
