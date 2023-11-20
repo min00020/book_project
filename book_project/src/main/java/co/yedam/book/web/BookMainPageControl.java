@@ -15,7 +15,6 @@ public class BookMainPageControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
 		String path = "book/bookmainpage.tiles";
 		BookService svc = new BookServiceImpl();
 

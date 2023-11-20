@@ -18,7 +18,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public BoardVO getBoard(int boardNo) {
-		
+		mapper.boardCnt(boardNo);
 		return mapper.select(boardNo);
 	}
 	@Override
@@ -32,6 +32,18 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public boolean removeBoard(int boardNo) {
 		return mapper.delete(boardNo) > 0;
+	}
+	@Override
+	public List<BoardVO> selectQnaList() {
+		return mapper.selectQnaList();
+	}
+	@Override
+	public List<BoardVO> selectBookReviewList() {
+		return mapper.selectBookReviewList();
+	}
+	@Override
+	public List<BoardVO> selectBookNoticeList() {
+		return mapper.selectBookNoticeList();
 	}
 	
 	

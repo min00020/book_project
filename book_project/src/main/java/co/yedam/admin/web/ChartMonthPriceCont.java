@@ -19,7 +19,7 @@ public class ChartMonthPriceCont implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
+		
 		AdminService adsvc = new AdminServiceImpl();
 		List<Map<String, Object>> orderMonth = adsvc.monthPrice();
 		System.out.println("admincontroll주문건수:" + orderMonth);

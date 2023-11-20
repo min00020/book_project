@@ -8,9 +8,8 @@ import co.yedam.user.service.UserVO;
 public interface UserMapper {
 	public boolean insert(UserVO vo);
 	public boolean update(UserVO vo);
-	public boolean delete(UserVO vo);
+	public boolean delete(@Param("id")String id, @Param("pw") String pw);
 	
-
 	public UserVO getUser(@Param("id")String id, @Param("pw") String pw);
 	public UserVO idcheck(String id);
 	public UserVO select(String userId);
