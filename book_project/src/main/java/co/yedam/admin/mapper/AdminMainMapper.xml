@@ -48,6 +48,10 @@
 		) A
 		ORDER BY A.MOTH
 	</select>
+	
+	<select id="userGender" resultType="map">
+		SELECT USER_GENDER, COUNT(*) as "SUM" FROM USER_TBL GROUP BY USER_GENDER
+	</select>
 
 
 </mapper>

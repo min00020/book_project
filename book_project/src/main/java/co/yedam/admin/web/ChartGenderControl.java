@@ -14,19 +14,19 @@ import co.yedam.admin.service.AdminService;
 import co.yedam.admin.serviceImpl.AdminServiceImpl;
 import co.yedam.common.Command;
 
-public class ChartMonthPriceCont implements Command {
+public class ChartGenderControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
 		AdminService adsvc = new AdminServiceImpl();
-		List<Map<String, Object>> orderMonth = adsvc.monthPrice();
-		System.out.println("admincontroll주문건수:" + orderMonth);
+		List<Map<String, Object>> userGender = adsvc.userGender();
+		System.out.println("admincontroll주문건수:" + userGender);
 
 		Gson gson = new GsonBuilder().create();
+		System.out.println("chartGenderCont:"+userGender);
 
 		try {
-			resp.getWriter().print(gson.toJson(orderMonth));
+			resp.getWriter().print(gson.toJson(userGender));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

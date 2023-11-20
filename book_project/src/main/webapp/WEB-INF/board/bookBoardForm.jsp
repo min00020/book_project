@@ -45,8 +45,7 @@ padding:10px;
 		
 		<tr>
 			<th>내용</th>
-			<td colspan="2"><textarea cols="35" class="form-control" rows="5" name="boardContent">
-			</textarea></td>
+			<td colspan="2"><textarea cols="35" class="form-control" rows="5" name="boardContent"></textarea></td>
 		</tr>
 		<tr>
 			<th>파일 첨부</th>
