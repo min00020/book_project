@@ -24,6 +24,7 @@ public class ChartGenderControl implements Command {
 
 		Gson gson = new GsonBuilder().create();
 		System.out.println("chartGenderCont:"+userGender);
+		resp.setContentType("text/json;charset=UTF-8");
 
 		try {
 			resp.getWriter().print(gson.toJson(userGender));
