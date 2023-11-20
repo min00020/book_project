@@ -33,7 +33,7 @@ public class AdminServiceImpl implements AdminService{
 		return mapper.orderCnt();
 	}
 	@Override
-	public int userGender() {
+	public List<Map<String, Object>> userGender() {
 		return mapper.userGender();
 	}
 	@Override
