@@ -91,16 +91,18 @@
 let doublecheck = document.querySelector('#idcheck');
 doublecheck.addEventListener('click', function(e) { 
 	e.preventDefault();
-	console.log("${userId }");
-	console.log(id);
-	fetch('idCheck.do?id='${id })
+	let id = document.getElementById("id").value
+	console.log(document.getElementById("id").value);
+	
+	fetch('idCheck.do?id=' +id )
 		.then(resolve => resolve.json())
 		.then(result => {
 			if (result.retCode == 'NG') {
-				alert(id+"는 사용 가능한 아이디입니다.");
-			} else {
 				alert(id+"는 사용할 수 없는 아이디입니다.");
 				document.getElementById('id').value = null;
+			} else {
+				alert(id+"는 사용 가능한 아이디입니다.");
+				
 			}
 		})
 }); 
