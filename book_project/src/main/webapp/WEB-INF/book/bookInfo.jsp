@@ -45,64 +45,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="container px-4 px-lg-5 mt-5">
-			<div class="wrap_review">
-				<h2>리뷰 작성</h2>
-				<form name="reviewform" class="reviewform" method="post"
-					action="/addReview.do">
-					<input type="hidden" name="rate" id="rate" value="0" />
-					<p class="title_star">리뷰를 남겨주세요.</p>
-					<div class="review_rating">
-						<div class="warning_msg">별점을 선택해 주세요.</div>
-						<div class="rating">
-							<input type="checkbox" name="rating" id="rating1" value="1"
-								class="rate_radio" title=""> <label for="rating1"></label>
-							<input type="checkbox" name="rating" id="rating2" value="2"
-								class="rate_radio" title=""> <label for="rating2"></label>
-							<input type="checkbox" name="rating" id="rating3" value="3"
-								class="rate_radio" title=""> <label for="rating3"></label>
-							<input type="checkbox" name="rating" id="rating4" value="4"
-								class="rate_radio" title=""> <label for="rating4"></label>
-							<input type="checkbox" name="rating" id="rating5" value="5"
-								class="rate_radio" title=""> <label for="rating5"></label>
-						</div>
-					</div>
-					<div class="review_contents">
-						<div class="warning_msg">5자 이상으로 작성해 주세요.</div>
-						<textarea rows="10" class="review_textarea"></textarea>
-					</div>
-					<div class="cmd">
-						<input type="button" name="save" class="btn02" id="save"
-							value="등록">
-					</div>
-				</form>
-			</div>
-		</div>
-
-		<div class="container px-4 px-lg-5 mt-5">
-			<h2>리뷰 목록</h2>
-			<table>
-				<thead>
-					<tr class="table_head">
-						<td>리뷰번호</td>
-						<td>작성자</td>
-						<td class="review_content">리뷰</td>
-						<td>작성일자</td>
-						<td>별점</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>test</td>
-						<td class="review_content">너무</td>
-						<td>2023-11-15</td>
-						<td>3</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-</section>
+		
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
@@ -156,7 +99,7 @@
 			<form name="reviewform" class="reviewform">
 				<label>작성자 <input name="userId" value="${userId }" readonly></label>
 				<div class="review">
-					<label>서비스
+					<label>점수
 						<select name="starservice" id="starservice">
 							<option value="5">5</option>
 							<option value="4">4</option>
@@ -184,7 +127,7 @@
 					<td>작성자</td>
 					<td>리뷰 내용</td>
 					<td>작성일자</td>
-					<td></td>
+					<td>점수</td>
 					<td></td>
 				</tr>
 			</thead>
@@ -194,7 +137,7 @@
 					<td class="review_content">리뷰 내용</td>
 					<td>작성일자</td>
 					<td class="like">좋아요수</td>
-					<td><input type="button" id="likereview" value="좋아요"></td>
+					<td><input type="button" id="likereview"></td>
 					<td><button id="delreview">삭제</button></td>
 				</tr>
 			</tbody>
@@ -228,11 +171,105 @@ function addCart() {
 	})
 	});
 }
+</script>
+<script>
+let bno = "${bno.bookNo}";
+let id = "${id}";
+
 function addReview(){
-	
+	document.querySelector('#addreview').addEventListener('click', function (e){
+		fetch('addReview.do', {
+			method: 'post',
+			headers:{'Content-type': 'application/x-www-form-urlencoded'},
+			body: 'boardNo' + bno + '&userid=' + id
+		})
+		.then(resolve => resolve.json())
+		.then(result =>{
+			if(result.retCode == 'OK'){
+				alert('등록완료');
+				clearReview();
+				showReviewList();
+			} else {
+				alert('등록실패');
+				clearReview();
+				showReviewList();
+			}
+		})
+		.catch(err => console.log('error:' + err));
+	})
 	
 }
 
+//리뷰 등록 초기화
+function clearReview(){
+	document.querySelector('.review_textarea').value = '';
+}
 
+function showReviewList(){
+	document.querySelector('#reviewList tr:not(:nth-of-type(1))').forEach(tr => tr.remove());
+	fetch('reviewList.do?bookNo=' + bno)
+		.then(resolve => resolve.json())
+		.then(result =>{
+			result.reviewlist.forEach(review => {
+				let temp = makeRow(review);
+				document.querySelector('#reviewList').append(temp);
+			})
+		})
+		.catch(err => console.log('error:', err));
+}
+showReviewList();
 
+function makeRow(review){
+	let temp = document.querySelector('#template').cloneNode(true);
+	temp.style.display = 'block';
+	temp.querySelector('#template td:nth-of-type(1)').innerHTML = review.bookNo;
+	
+	temp.querySelector('#likereview').addEventListener('click', function (e){
+		if(id == ''){
+			alert('권한이 없음');
+			return;
+		}
+		fetch('likeReview.do', {
+				method: 'post',
+				headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+				body: 'reviewNo=' review.reviewCode
+		})
+		.then(resolve => resolve.json())
+		.then(result => {
+			if(result.retCode == 'OK'){
+				showReviewList();
+			} else {
+				alert('실패');
+			}
+		})
+		.catch(err => console.log(err));
+		
+		temp.querySelector('#delreview').addEventListener('click', function (e){
+			if(id == '' || id != review.userId){
+				alert('권한이 없습니다.');
+				return;
+			}
+			fetch('removeReview.do', {
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					}
+					body: 'reviewNo=' + review.reviewCode
+			})
+			.then(resolve => resolve.json())
+			.then(result => {
+				console.log(result);
+				if(result.retCode == 'OK'){
+					alert('삭제 성공');
+					e.target.parentElement.parentElement.remove();
+					showReviewList();
+				} else {
+					alert('삭제실패');
+				}
+			})
+			.catch(err => console.log('err' + err));
+		})
+		return temp;
+	})
+}
 </script>
