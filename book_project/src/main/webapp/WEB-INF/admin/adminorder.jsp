@@ -258,7 +258,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        	<th><input type="checkbox" name="check" checked> </th>
+                                        	<th><input type="checkbox" name="check"> </th>
                                             <th>주문번호</th>
                                             <td>아이디</td>
                                             <td>전화번호</td>
@@ -270,7 +270,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        	<th><input type="checkbox" name="check" checked> </th>
+                                        	<th><input type="checkbox" name="check"> </th>
                                             <th>주문번호</th>
                                             <td>아이디</td>
                                             <td>전화번호</td>
@@ -388,7 +388,11 @@
     			.then(resolve => resolve.json())
     			.then(result =>{
     				if(result.retCode == 'OK'){
-    					alert('주문상태 변경완료')
+    					//체크박스 해제
+    					const checkboxes = document.querySelectorAll('tbody input[type=checkbox]:checked');
+		    			checkboxes.forEach((checkbox) => {
+		    				   checkbox.checked = false;
+		    				});
     				} else{
     					alert('주문상태 변경실패')
     				}
@@ -406,7 +410,6 @@
     			const status= ele.parentElement.parentElement.children[5];
     			status.innerHTML = '주문취소';
     			const ono = ele.parentElement.parentElement.children[1].innerText; //주문번호
-    			
     			fetch('adminOrderUpdate.do', {
     				method: 'post',
     				headers: {'Content-type': 'application/x-www-form-urlencoded'},
@@ -415,11 +418,16 @@
     			.then(resolve => resolve.json())
     			.then(result =>{
     				if(result.retCode == 'OK'){
-    					alert('주문상태 변경완료')
+    					//완료시 체크박스 해제
+		    			const checkboxes = document.querySelectorAll('tbody input[type=checkbox]:checked');
+		    			checkboxes.forEach((checkbox) => {
+		    				   checkbox.checked = false;
+		    				});
     				} else{
     					alert('주문상태 변경실패')
     				}
     			})//end of fetch
+    			
     		})//end of forEach
     	})//end of eventListener
     		
