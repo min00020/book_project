@@ -21,7 +21,6 @@
 		<h5>아이디</h5>
 		<input type="text" id="id" name="id" placeholder="아이디 입력(6~20자)" />
 		<button type="button" id="idcheck">중복 확인</button>
-		
 	</div>
 	<div>
 		<h5>비밀번호</h5>
