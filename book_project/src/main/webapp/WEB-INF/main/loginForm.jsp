@@ -8,6 +8,8 @@
 	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
 	#login 
@@ -27,6 +29,10 @@
 		<tr>
 			<td><input type="submit" id="login" value="로그인"></td>
 			<td><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
+		</tr>
+		<tr>
+			<a href="finduserForm.do">아이디 찾기</a>
+			<a href="findpassForm.do">비밀번호 찾기</a>
 		</tr>
 		<tr>
 			<td colspan="2">

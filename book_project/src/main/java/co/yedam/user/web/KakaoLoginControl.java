@@ -15,7 +15,7 @@ import co.yedam.user.service.UserService;
 import co.yedam.user.service.kakaoVO;
 import co.yedam.user.serviceImpl.UserServiceImpl;
 
-public class SnsLoginControl implements Command {
+public class KakaoLoginControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {

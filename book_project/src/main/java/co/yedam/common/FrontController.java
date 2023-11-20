@@ -36,16 +36,21 @@ import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
 import co.yedam.user.web.DeleteUserControl;
 import co.yedam.user.web.DeleteUserFormControl;
+import co.yedam.user.web.FindUserControl;
+import co.yedam.user.web.FindUserFormControl;
+import co.yedam.user.web.FindPassControl;
+import co.yedam.user.web.FindPassFormControl;
 import co.yedam.user.web.IdCheckControl;
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
+import co.yedam.user.web.KakaoIdCheckControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
-import co.yedam.user.web.SnsLoginControl;
+import co.yedam.user.web.KakaoLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -104,7 +109,12 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
 		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
 		
-		map.put("/snslogin.do", new SnsLoginControl()); /* 카카오 로그인 처리*/
+		map.put("/kakaologin.do", new KakaoLoginControl()); /* 카카오 로그인 처리*/
+		map.put("/kakaoIdCheck.do", new KakaoIdCheckControl()); /* 카카오 로그인 처리*/
+		map.put("/finduser.do", new FindUserControl()); /* 아이디 찾기 */
+		map.put("/finduserForm.do", new FindUserFormControl()); /* 아이디 찾기 */
+		map.put("/findpass.do", new FindPassControl()); /* 비밀번호 찾기 */
+		map.put("/findpassForm.do", new FindPassFormControl()); /* 비밀번호 찾기 */
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지

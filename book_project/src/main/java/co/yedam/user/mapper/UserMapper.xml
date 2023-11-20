@@ -24,4 +24,10 @@
 	<select id="select" resultType="co.yedam.user.service.UserVO">
 		SELECT * FROM USER_TBL WHERE USER_ID=#{userId} 
 	</select>
+	<select id="findUser" resultType="co.yedam.user.service.UserVO">
+		select user_id from user_tbl where user_name=#{name} and user_phone=#{phone}
+	</select>
+	<select id="findPass" resultType="co.yedam.user.service.UserVO">
+		select * from user_tbl where user_id=#{id} and user_phone=#{phone}
+	</select>
 </mapper>
