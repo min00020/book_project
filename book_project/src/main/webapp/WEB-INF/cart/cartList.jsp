@@ -186,26 +186,15 @@ a[1].addEventListener('click', function (e){
 	//console.log('주문취소버튼');
 	e.preventDefault();
 	document.querySelectorAll('tbody input[type=checkbox]:checked')
-	.forEach(ele => {
-		const cno = document.querySelectorAll('tr ${list.cartCode}');
-		const amo = document.querySelectorAll(".list-Amountsum").innerText;
+		const cno = document.getElementById('list-code').innerText;
+		let result = {};
+		const amount = document.getElementById("amount");
+		result.amount = amount.options[amount.selectedIndex].value;
 		
-		fetch('modifyCart.do', {
-			method: 'post',
-			headers: {'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'cno=' + cno +'&amo='+ amo
-		})
-		.then(resolve => resolve.json())
-		.then(result =>{
-			if(result.retCode == 'OK'){
-				alert('변경완료')
-			} else{
-				alert('변경실패')
-			}
-
-		})//end of fetch
-	})//end of forEach
-})//end of eventListener
+		console.log(cno);
+		console.log(result.amount);
+		
+	})//end of eventListener
 
 
 	let totalAmount = 0; 

@@ -20,10 +20,10 @@ public class ChartGenderControl implements Command {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		AdminService adsvc = new AdminServiceImpl();
 		List<Map<String, Object>> userGender = adsvc.userGender();
-		System.out.println("admincontroll주문건수:" + userGender);
 
-		Gson gson = new GsonBuilder().create();
 		System.out.println("chartGenderCont:"+userGender);
+		
+		Gson gson = new GsonBuilder().create();
 		resp.setContentType("text/json;charset=UTF-8");
 
 		try {

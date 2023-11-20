@@ -29,7 +29,7 @@
             <div class="order-1 md:order-2">
 
                 <a href="main.do">
-                <img class="site-logo" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+                <img class="site-logo" img src="resources/image/예담책방.png"> 
                 </a>
 
             </div>
