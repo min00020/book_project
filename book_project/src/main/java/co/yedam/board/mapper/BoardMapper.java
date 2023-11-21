@@ -22,5 +22,8 @@ public interface BoardMapper {
 	
 	public List<BoardVO> selectBookNoticeList();
 	
+	public List<BoardVO> selectDetailList();
+	
+	public List<BoardVO> bookJoinList(); // 책 리뷰 게시판 조인 book = board
 
 }

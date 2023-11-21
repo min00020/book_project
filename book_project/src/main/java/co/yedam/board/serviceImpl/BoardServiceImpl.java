@@ -45,6 +45,14 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> selectBookNoticeList() {
 		return mapper.selectBookNoticeList();
 	}
+	@Override
+	public List<BoardVO> selectDetailList() {
+		return mapper.selectDetailList();
+	}
+	@Override
+	public List<BoardVO> bookJoinList() {
+		return mapper.bookJoinList();
+	}
 	
 	
 }
