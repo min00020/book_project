@@ -26,16 +26,17 @@ public class BookInfoControl implements Command {
 		
 		req.setAttribute("bno", vo);
 		
-		
 		List<BookVO> list = svc.selectBook();
-		System.out.println(list);
+		
 		req.setAttribute("list", list);
 		
+//		req.setAttribute("joinBoardList", list);
+
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 }

@@ -76,14 +76,13 @@
 		</div>
 	</div>
 	</section>
+	
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
 		<h2 class="fw-bolder mb-4">Another book</h2>
 		<div
 			class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-
 
 			<c:forEach items="${list }" var="vo" end="3">
 
@@ -115,14 +114,27 @@
 			</c:forEach>
 		</div>
 	</div>
-	<div class="container px-4 px-lg-5 mt-5">
-	 <h3>리뷰등록</h3>
-	<form name="reviewform" class="reviewform">
+<div class="container px-4 px-lg-5 mt-5" style="text-align:center;">
+<h3>게시글 등록화면</h3>
+${bno }
+<form action=bookAddBoard.do method="post" class="reviewform" enctype="multipart/form-data">
+	<!--  enctype="multipart/form-data 이부분 지워야할지 말아야할지 ? -->
 	<table border="1" class="talbe">
-		
+		<th>게시판 선택</th>
+		<tr>
+			<td>
+			<select name="boardSort" id="sort">
+					<option value="리뷰게시판">리뷰게시판</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th>책번호</th>
+			<td><input type="text" name="bookNo" class="form-control" value="${bno.bookNo }" readonly></td>
+		</tr>
 		<tr>
 			<th>제목</th>
-			<td><input type="text" name="boardTitle" class="form-control"></td>
+			<td><input type="text" name="bookTitle" class="form-control" value="${bno.bookTitle }" readonly></td>
 		</tr>
 		<tr>
 			<th>작성자</th>
@@ -134,13 +146,44 @@
 			<td colspan="2"><textarea cols="35" class="form-control" rows="5" name="boardContent"></textarea></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" class="btn btn-success"
-				value="저장"> <input type="reset" class="btn btn-success"
-				value="초기화"></td>
+			<td colspan="2"><input type="submit" class="btn btn-secondary"
+				value="리뷰달기"> <input type="reset" class="btn btn-secondary"
+				value="다시쓰기"></td>
 		</tr>
-
 	</table>
 </form>
+</div>
+<div class="container px-4 px-lg-5 mt-5">
+<h3>책 리뷰</h3>
+<table class="table" border="1">
+	<thead>
+		<tr>
+			<th>글번호</th>
+			<th>책번호</th>
+			<th>제목</th>
+			<th>내용</th>
+			<th>작성자</th>
+			<th>작성일자</th>
+			<th>조회수</th>
+		</tr>
+	<tbody>
+		<c:forEach items="${joinBoardList }" var="vo">
+				<tr>
+					<td>${vo.boardNo }</td>
+					<th>${vo.bookNo }</th>
+					<td><a href="bookGetBoard.do?bno=${vo.boardNo }">${vo.boardTitle }</a>
+					<td>${vo.boardContent }</td>
+					<td>${vo.userId }</td>
+					<td><fmt:formatDate value="${vo.boardDate }"
+							 pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
+					<td>${vo.boardCnt }</td>
+					
+				</tr>
+		</c:forEach>
+	</tbody>
+	
+</table>
+
 </div>
 
 </section>
@@ -165,7 +208,7 @@ function addCart() {
 	.then(result =>{
 		if(result.retCode == 'OK'){
 			alert('장바구니 추가되었습니다.');		
-		} else{
+	  	} else{
 			
 		}
 		
@@ -219,8 +262,7 @@ showList();
 
 // 페이지링크 생성.
 function makePaging(dto={}){
-	document.querySelector('.pagination').innerHTML = '';
-	
+	document.querySelector('.pagination').innerHTML = ''; 
 	if(dto.prev){
 		let aTag = document.createElement('a');
 		aTag.setAttribute('href', dto.startPage - 1);

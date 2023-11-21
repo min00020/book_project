@@ -34,7 +34,6 @@ padding:10px;
 			</select>
 			</td>
 		</tr>
-		
 		<tr>
 			<th>제목</th>
 			<td><input type="text" name="boardTitle" class="form-control"></td>

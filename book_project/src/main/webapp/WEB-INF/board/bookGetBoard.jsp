@@ -20,7 +20,7 @@
 	padding: 8px 16px;
 	text-decoration: none;
 }
-
+ 
 .pagination a.active {
 	background-color: #4CAF50;
 	color: white;
@@ -107,8 +107,8 @@ border:1px solid black;
 	<li style="display: none;" id="template"><span>00</span><b>첫번째글입니다.</b><span>user01</span><span>2023-06-24</span>
 		<button id="delReply">삭제</button></li>
 </ul>
-</div>
 <div class="pagination"></div>
+</div>
 
 <script>
 	document.querySelector("input[type=button]").addEventListener('click',

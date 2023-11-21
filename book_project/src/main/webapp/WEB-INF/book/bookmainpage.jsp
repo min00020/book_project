@@ -34,6 +34,8 @@
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                     </div>
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                    </div>
                                     <!-- Product price-->
                                     <span class="">${vo.bookPrice }</span>
                                 </div>

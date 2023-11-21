@@ -22,4 +22,11 @@
 		SELECT * FROM BOOK WHERE BOOK_SORT = #{bookSort}
 	</select>
 	
+	<select id="joinBoardList" resultType="co.yedam.book.service.BookVO">
+	SELECT *
+	FROM BOOK B LEFT JOIN BOARD D ON
+	B.BOOK_NO = D.BOOK_NO
+	WHERE BOARD_NO =#{boardNo}
+	</select>
+	
 </mapper>
