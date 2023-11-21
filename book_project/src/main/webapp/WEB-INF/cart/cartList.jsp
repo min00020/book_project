@@ -124,7 +124,7 @@ img {
 		</thead>
 		<tbody>
 			<c:forEach items="${cartList }" var="list">
-				<tr id="${list.cartCode}">
+				<tr id="cartNo" >
 					<td id="list-code">${list.cartCode}</td>
 					<td><input type="checkbox" name="check"></td>
 					<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
@@ -138,8 +138,10 @@ img {
 							<c:forEach begin="1" end="10" var="i">
 								<option value="${i}">${i}</option>
 							</c:forEach>
-
-					</select></td>
+					</select>
+					<input type="button" id= "btn" value="변경"> <!-- 변경버튼에 id btn으로 -->
+					</td>
+					
 					<td><fmt:formatNumber value="${list.bookPrice}"
 							pattern="###,###,###" />원</td>
 					<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
@@ -151,15 +153,6 @@ img {
 
 		</tbody>
 	</table>
-	<div style="text-align: center;" id="orderStatus">
-		<a href="#" class="btn btn-primary btn-icon-split"> <span
-			class="icon text-white-50"> <i class="fas fa-check"></i>
-		</span> <span class="text">배송완료</span>
-		</a> <a href="#" class="btn btn-danger btn-icon-split"> <span
-			class="icon text-white-50"> <i class="fas fa-trash"></i>
-		</span> <span class="text">변경</span>
-		</a>
-	</div>
 	<div class="sum">
 		<h1 class="totalAmount-sum">결제 수량 개</h1>
 		<h1 class="totalPrice-sum">결제 금액 0원</h1>
@@ -178,34 +171,35 @@ function changeFn(){
 	console.log(result);
 }
 
-//주문완료
-const a = document.querySelectorAll("#orderStatus a"); //주문 상태 변경 버튼 가져오기
-console.log(a);
+//주문 상태 변경 버튼 전부 가져오기
+const a = document.querySelectorAll("#btn"); 
+console.log('test a:',a); //수량 변경 버튼 전부 나옴
+a.forEach(ele=>{
+	console.log('버튼',ele); //하나씩 선택
+});
+
+//주문 한줄씩 가져오기
+const b = document.querySelectorAll("#cartNo"); 
+
+b.forEach(ele=>{
+	console.log('주문한줄',ele);
+	console.log(ele.children[0].innerText); //주문 번호 각각 가져와짐
+});
+
 
 a[1].addEventListener('click', function (e){
 	//console.log('주문취소버튼');
+	
 	e.preventDefault();
-	document.querySelectorAll('tbody input[type=checkbox]:checked')
-	.forEach(ele => {
-		const cno = document.querySelectorAll('tr ${list.cartCode}');
-		const amo = document.querySelectorAll(".list-Amountsum").innerText;
+		const cno = document.getElementById('list-code').innerText;
+		let result = {};
+		const amount = document.getElementById("amount");
+		result.amount = amount.options[amount.selectedIndex].value;
 		
-		fetch('modifyCart.do', {
-			method: 'post',
-			headers: {'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'cno=' + cno +'&amo='+ amo
-		})
-		.then(resolve => resolve.json())
-		.then(result =>{
-			if(result.retCode == 'OK'){
-				alert('변경완료')
-			} else{
-				alert('변경실패')
-			}
-
-		})//end of fetch
-	})//end of forEach
-})//end of eventListener
+		console.log(cno);
+		console.log(result.amount);
+		
+	})//end of eventListener
 
 
 	let totalAmount = 0; 
