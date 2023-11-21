@@ -26,13 +26,13 @@
 }
 </style>
 
-
+<div class="container px-4 px-lg-5 mt-5">
 <input type="text"  name="keyword" id="searchBar">
 
 <a class="btn btn-outline-dark mt-auto" id="searchBtn" >검색</a>
 
 <input type="submit" value=""/>
-
+</div>
 
 
 
@@ -57,7 +57,7 @@
 
 					<!-- Sale badge-->
 					<!-- Product image-->
-					<img class="card-img-top" style="float: right" src="resources/image/${vo.bookImage }"
+					<img class="card-img-top" style="float: right; height:250px;" src="resources/image/${vo.bookImage }"
 						alt="..." />
 					<!-- Product details-->
 					<div class="card-body p-4">

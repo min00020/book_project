@@ -1,7 +1,9 @@
 package co.yedam.board.web;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,29 +12,22 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class BookGetBoardControl implements Command {
+public class ReviewDetailControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// boardNo : 1 => DB  search => jsp.
-		String path = "board/bookGetBoard.tiles";
+		String path = "board/reviewDetail.tiles";
 		
-		String bno = req.getParameter("bno");
 		BoardService svc = new BoardServiceImpl();
-		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
+		List<BoardVO> list = svc.selectDetailList();
 		
-		BoardVO list = new BoardVO();
-		System.out.println(list);
-		req.setAttribute("list", list);
-		req.setAttribute("bno", vo);
+		req.setAttribute("reviewDetail", list);
 		
-		// 요청재지정.
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

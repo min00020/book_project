@@ -2,7 +2,36 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<style>
+#list span {
+	margin: 20px;
+}
 
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+#line{
+	padding:10px;
+	border:1px solid black;
+}
+
+</style>
 
 <section class="py-5">
 	<div class="container px-4 px-lg-5 my-5">
@@ -45,7 +74,8 @@
 				</div>
 			</div>
 		</div>
-		
+	</div>
+	</section>
 <!-- Related items section-->
 <section class="py-5 bg-light">
 	<div class="container px-4 px-lg-5 mt-5">
@@ -60,25 +90,17 @@
 				<!-- 상품목록 -->
 				<div class="col mb-5">
 					<div class="card h-100">
-
 						<!-- Sale badge-->
 						<div class="badge bg-dark text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem"></div>
-
 						<!-- Product image-->
-						<img class="card-img-top" src="resources/image/${vo.bookImage }"
+						<img class="card-img-top" style="float: right; height:250px;" src="resources/image/${vo.bookImage }"
 							alt="..." />
 						<!-- Product details-->
 						<div class="card-body p-4">
 							<div class="text-center">
-								<!-- Product name-->
-
-								<!-- Product reviews-->
-
 								<!-- Product price-->
 								<span class="">${vo.bookPrice }원</span>
-
-
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -93,57 +115,36 @@
 			</c:forEach>
 		</div>
 	</div>
- 	<div class="container px-4 px-lg-5 mt-5">
-		<div class="wrap_review">
-			<h2>리뷰 작성</h2>
-			<form name="reviewform" class="reviewform">
-				<label>작성자 <input name="userId" value="${userId }" readonly></label>
-				<div class="review">
-					<label>점수
-						<select name="starservice" id="starservice">
-							<option value="5">5</option>
-							<option value="4">4</option>
-							<option value="3">3</option>
-							<option value="2">2</option>
-							<option value="1">1</option>
-						</select>
-					</label>
-				</div>
-				<div class="review_contents">
-					<textarea rows="10" name="writecontent" class="review_textarea"></textarea>
-				</div>
-				<div class="cmd">
-					<input type="button" id="addreview" onclick="addReview()" value="리뷰작성">
-				</div>
-			</form>
-		</div>
-	</div>
-
 	<div class="container px-4 px-lg-5 mt-5">
-		<h2>리뷰 목록</h2>
-		<table>
-			<thead>
-				<tr class="table_head">
-					<td>작성자</td>
-					<td>리뷰 내용</td>
-					<td>작성일자</td>
-					<td>점수</td>
-					<td></td>
-				</tr>
-			</thead>
-			<tbody id="reviewList">
-				<tr id="template" style="display: none;">
-					<td>작성자</td>
-					<td class="review_content">리뷰 내용</td>
-					<td>작성일자</td>
-					<td class="like">좋아요수</td>
-					<td><input type="button" id="likereview"></td>
-					<td><button id="delreview">삭제</button></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	 <h3>리뷰등록</h3>
+	<form name="reviewform" class="reviewform">
+	<table border="1" class="talbe">
+		
+		<tr>
+			<th>제목</th>
+			<td><input type="text" name="boardTitle" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td><input type="text" name="userId" class="form-control" value="${id}" readonly></td>
+		</tr>
+		
+		<tr>
+			<th>내용</th>
+			<td colspan="2"><textarea cols="35" class="form-control" rows="5" name="boardContent"></textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" class="btn btn-success"
+				value="저장"> <input type="reset" class="btn btn-success"
+				value="초기화"></td>
+		</tr>
+
+	</table>
+</form>
+</div>
+
 </section>
+
 <script>
 let bno = "${bno.bookNo}";
 let uid = "${id}";
@@ -172,104 +173,157 @@ function addCart() {
 	});
 }
 </script>
-<script>
-let bno = "${bno.bookNo}";
-let id = "${id}";
 
-function addReview(){
-	document.querySelector('#addreview').addEventListener('click', function (e){
-		fetch('addReview.do', {
-			method: 'post',
-			headers:{'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'boardNo' + bno + '&userid=' + id
+
+
+<script>
+document.querySelector("input[type=button]").addEventListener('click',
+		function(e) {
+			document.forms.myfrm.action = 'reviewRemoveForm.do';
+			document.forms.myfrm.submit();
+		});
+
+//댓글 목록.
+let bno = "${bno.bookNo}";
+let writer = "${id}";
+bno = document.querySelector('.bookNo').innerHTML;
+let page = 1;
+
+function showList(pg = 1){
+document.querySelectorAll('#list li:not(:nth-of-type(1))')
+	.forEach(li => li.remove()); //첫번째 li 요소는 template 용도라서 남겨야함 지우지 않음.
+	
+fetch('replyList.do?bno=' + bno + '&page=' + pg)
+.then(resolve => resolve.json())
+.then(result => {
+	console.log(result);
+	if (pg < 0){
+		page = (Math.ceil(result.dto.total/5));
+		if(page <= 0)
+			page = 1;
+		showList(page);
+		return;
+	}
+	result.list.forEach(reply => {
+		let li = makeRow(reply);
+		// ul>li 생성.
+		document.querySelector('#list').append(li);
+		
+	})
+	//page생성 . 데이터 처리하는곳
+	makePaging(result.dto);
+})
+.catch(err => console.log(err));
+}// showList end
+showList();
+
+// 페이지링크 생성.
+function makePaging(dto={}){
+	document.querySelector('.pagination').innerHTML = '';
+	
+	if(dto.prev){
+		let aTag = document.createElement('a');
+		aTag.setAttribute('href', dto.startPage - 1);
+		aTag.innerHTML = "&laquo;";
+		document.querySelector('.pagination').append(aTag);
+	}
+	for(let i = dto.startPage; i <= dto.endPage; i++){
+		let aTag = document.createElement('a');
+		aTag.setAttribute('href', i);
+		aTag.innerHTML = i;
+		// active 녹색.
+		if (i == page){
+			aTag.className = 'active'; //  class속성을 저장할 때 ... className.
+		}
+		document.querySelector('.pagination').append(aTag);
+	}
+	if(dto.next){
+		let aTag = document.createElement('a');
+		aTag.setAttribute('href', dto.endPage + 1);
+		aTag.innerHTML = "&raquo;";
+		document.querySelector('.pagination').append(aTag);
+	}
+	
+	// a에 클릭이벤트 등록.
+	document.querySelectorAll('.pagination a').forEach(elem => {
+		elem.addEventListener('click', function(e){
+			e.preventDefault(); // form, a => 링크기능 차단.
+			page = elem.getAttribute('href');
+			showList(page);
 		})
-		.then(resolve => resolve.json())
-		.then(result =>{
-			if(result.retCode == 'OK'){
-				alert('등록완료');
-				clearReview();
-				showReviewList();
-			} else {
-				alert('등록실패');
-				clearReview();
-				showReviewList();
-			}
-		})
-		.catch(err => console.log('error:' + err));
 	})
 	
 }
 
-//리뷰 등록 초기화
-function clearReview(){
-	document.querySelector('.review_textarea').value = '';
-}
 
-function showReviewList(){
-	document.querySelector('#reviewList tr:not(:nth-of-type(1))').forEach(tr => tr.remove());
-	fetch('reviewList.do?bookNo=' + bno)
-		.then(resolve => resolve.json())
-		.then(result =>{
-			result.reviewlist.forEach(review => {
-				let temp = makeRow(review);
-				document.querySelector('#reviewList').append(temp);
-			})
-		})
-		.catch(err => console.log('error:', err));
-}
-showReviewList();
 
-function makeRow(review){
+
+// 등록버튼.
+document.querySelector('#addReply').addEventListener('click', function(e){
+	let reply = document.querySelector('#content').value;
+	if(!bno || writer == 'null' || !reply){
+		alert('값을 확인해주세요.');
+		return;
+	}
+	
+	// ajax. bno/writer/reply => 전달.
+	fetch('addReply.do', {
+		method: 'post',
+		headers: {'Content-type': 'application/x-www-form-urlencoded'},
+		body: 'bno=' + bno + '&reply=' + reply + '&replyer=' + writer
+	})
+	.then(resolve => resolve.json())
+	.then(result =>{
+		if(result.retCode == 'OK'){
+			//document.querySelector('#list').append(makeRow(result.vo));
+			showList(-1);
+		} else{
+			alert('등록 실패')
+		}
+		
+	})
+})
+
+
+function makeRow(reply){
+	
+	
 	let temp = document.querySelector('#template').cloneNode(true);
 	temp.style.display = 'block';
-	temp.querySelector('#template td:nth-of-type(1)').innerHTML = review.bookNo;
 	
-	temp.querySelector('#likereview').addEventListener('click', function (e){
-		if(id == ''){
-			alert('권한이 없음');
+	console.log(temp);
+	temp.querySelector('span:nth-of-type(1)').innerHTML = reply.replyNo;
+	temp.querySelector('b').innerHTML = reply.reply;
+	temp.querySelector('span:nth-of-type(2)').innerHTML = reply.replyer;
+	temp.querySelector('span:nth-of-type(3)').innerHTML = reply.replyDate;
+//	temp.querySelector('button').addEventListener('click', deleteCallback);
+	
+	//내가 만든 삭제
+	temp.querySelector('#delReply').addEventListener('click', function(e){
+		//삭제 권한
+		if(writer != reply.replyer){
+			alert('권한이 없습니다.')
 			return;
 		}
-		fetch('likeReview.do', {
-				method: 'post',
-				headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-				body: 'reviewNo=' review.reviewCode
-		})
+		//삭제 버튼
+		fetch('delReply.do?rno=' + 
+				reply.replyNo
+		)
 		.then(resolve => resolve.json())
 		.then(result => {
 			if(result.retCode == 'OK'){
-				showReviewList();
+				alert('삭제성공');
+				temp.remove();
+				showList(-1);
 			} else {
-				alert('실패');
+				alert('삭제실패');
 			}
-		})
-		.catch(err => console.log(err));
 		
-		temp.querySelector('#delreview').addEventListener('click', function (e){
-			if(id == '' || id != review.userId){
-				alert('권한이 없습니다.');
-				return;
-			}
-			fetch('removeReview.do', {
-					method: 'post',
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded'
-					}
-					body: 'reviewNo=' + review.reviewCode
-			})
-			.then(resolve => resolve.json())
-			.then(result => {
-				console.log(result);
-				if(result.retCode == 'OK'){
-					alert('삭제 성공');
-					e.target.parentElement.parentElement.remove();
-					showReviewList();
-				} else {
-					alert('삭제실패');
-				}
-			})
-			.catch(err => console.log('err' + err));
 		})
-		return temp;
+	
 	})
+	return temp;
 }
 </script>
+
+

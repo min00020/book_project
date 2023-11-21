@@ -28,6 +28,7 @@ import co.yedam.board.web.BookReviewControl;
 import co.yedam.board.web.ReviewModifyBoardControl;
 import co.yedam.board.web.ReviewModifyFormControl;
 import co.yedam.board.web.QnaBoardControl;
+import co.yedam.board.web.ReviewDetailControl;
 import co.yedam.board.web.ReviewRemoveBoardControl;
 import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
@@ -84,7 +85,7 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaBoard.do", new QnaBoardControl()); // qna 게시판
 		map.put("/bookReview.do", new BookReviewControl()); // 책 리뷰 게시판
 		map.put("/bookNotice.do", new BookNoticeControl()); // 공지사항
-		
+		map.put("/reviewDetail.do", new ReviewDetailControl()); // 상세페이지 리뷰
 		// 목록 화면
 		map.put("/bookBoardList.do", new BookBoardListControl()); // 댓글 목록
 		map.put("/bookGetBoard.do", new BookGetBoardControl());   // 상세 목록
