@@ -8,6 +8,8 @@
 	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
 	#login 
@@ -29,6 +31,10 @@
 			<td><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
 		</tr>
 		<tr>
+			<td><a href="finduserForm.do">아이디 찾기</a></td>
+			<td><a href="findpassForm.do">비밀번호 찾기</a></td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<a id="kakao-login-btn" href="javascript:loginWithKakao()">
 					<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
@@ -39,52 +45,49 @@
 	</table>
 </form>
 
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"
-  integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
 <script>
-  Kakao.init('baebadb607ea7b6110c9beeffb0e3719'); // 사용하려는 앱의 JavaScript 키 입력
-  console.log("init: ", Kakao.isInitialized());
-  </script>
-
-<script>
-  function loginWithKakao() {
-    Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:8080/book_project/bookmainpage.do',
-      scope: 'account_email'
-    });
-  } // end loginWithKakao()
-
-  // 아래는 데모를 위한 UI 코드입니다.
-  displayToken()
-  function displayToken() {
-    var token = getCookie('authorize-access-token');
-
-    if(token) {
-      Kakao.Auth.setAccessToken(token);
-      Kakao.Auth.getStatusInfo()
-        .then(function(res) {
-          if (res.status === 'connected') {
-            document.getElementById('token-result').innerText
-              = 'login success, token: ' + Kakao.Auth.getAccessToken();
-            console.log(token);
-          }
-        })
-        .catch(function(err) {
-          Kakao.Auth.setAccessToken(null);
-        });
-    }
-  }
-  
-  
-
-  function getCookie(name) {
-    var parts = document.cookie.split(name + '=');
-    if (parts.length === 2) { return parts[1].split(';')[0]; }
-  }
+Kakao.init('baebadb607ea7b6110c9beeffb0e3719'); // 사용하려는 앱의 JavaScript 키 입력
+console.log("init: ", Kakao.isInitialized());
 </script>
+<script type='text/javascript'>
+	function loginWithKakao() {
+		Kakao.Auth.login({
+			success: function (authObj) {
+				console.log(authObj);
+				Kakao.API.request({
+					 url: '/v2/user/me',
+			            success: function(resp) {
+			              const kakaoId = resp.id;
+			              const kakaoPw = "kakao" + resp.id;
+			                console.log("kakao id, pw: ", kakaoId, kakaoPw);
+			              fetch('kakaoIdCheck.do?kakaoId='+kakaoId)
+							.then(resolve=>resolve.json())
+							.then(result=>{
+								console.log("idcheck 결과: ", result)
+								if(result.retCode=='NG'){
+										console.log("kakaoidng: ", ${kakaoId});
+										location.href="kakaologin.do?kakaoId="+kakaoId+"&kakaoPw="+kakaoPw;
+								}else{
+									alert("카카오 회원가입 성공");
+									location.href="kakaojoin.do?kakaoId="+kakaoId+"&kakaoPw="+kakaoPw;
+								}
+									
+						})
+		        }
+		          })
+		          var token = authObj.access_token;
+		        },
+		        fail: function(err) {
+		          alert(JSON.stringify(err));
+		        }
+		            
+			});
+		}
+</script>
+
 <script>
 /* 로그인 유효성 */
-function loginCheck(obj) {
+	function loginCheck(obj) {
 	if (!obj.id.value || obj.id.value.trim().length == 0){
 		alert("아이디가 입력되지 않았습니다.");
 		return false;
