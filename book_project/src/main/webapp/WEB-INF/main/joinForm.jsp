@@ -19,7 +19,7 @@
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
-		<input type="text" id="id" name="id" placeholder="아이디 입력(6~20자)" />
+		<input type="text" id="id" name="id" placeholder="아이디 입력(6~10자)" onblur="idcheck()" />
 		<button type="button" id="idcheck">중복 확인</button>
 	</div>
 	<div>
@@ -85,7 +85,7 @@
 	</div>
 	<div id="joingender" >
 		<h5>성별</h5>
-		<label><input name="gender" type="radio" checked value="남">남</label>
+		<label><input id="male" name="gender" type="radio" checked value="남">남</label>
 		<input id="female" name="gender" type="radio" value="여"><label
 			for="female">여</label>
 	</div>
@@ -96,25 +96,41 @@
 </form>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+/* 아이디 길이 */
+	function idcheck() {
+	if(id.length >= 6 && id.length <= 10) {
+     	document.querySelector("#checkIdResult").innerText = "사용 가능";
+     	document.querySelector("#checkIdResult").style.color = "green";
+    } else {
+     	document.querySelector("#checkIdResult").innerText = "6~10글자만 사용 가능합니다";
+     	document.querySelector("#checkIdResult").style.color = "red";
+    }
+
+})
 /* 아이디 중복 확인 */
+let idcheck = false;
 let doublecheck = document.querySelector('#idcheck');
 doublecheck.addEventListener('click', function(e) { 
 	e.preventDefault();
-	if (id != null) {
-		let id = document.getElementById("id").value
-	console.log(document.getElementById("id").value);
+	if (!obj.id.value) {
+		let id = document.getElementById("id").value;
 	
 	fetch('idCheck.do?id=' +id )
 		.then(resolve => resolve.json())
 		.then(result => {
 			if (result.retCode == 'NG') {
 				alert(id+"는 사용할 수 없는 아이디입니다.");
+				idcheck = false;
 				document.getElementById('id').value = null;
 			} else {
 				alert(id+"는 사용 가능한 아이디입니다.");
-				
+				idcheck = true;
 			}
 		})
+		.catch(err => {
+            console.error('err: ', error);
+            isIdChecked = false;
+        });
 	}
 	
 }); 
@@ -212,32 +228,17 @@ doublecheck.addEventListener('click', function(e) {
 				}
 				
 			} 
-	});  
-	/* 비밀번호 유효성 검사 */
-/* 	const userpw = joinForm.userpw;
-	const userpw_re = joinForm.userpw_re;
-	if (userpw.value == "") {
-		alert("비밀번호를 입력하세요.");
-		userpw.focus();
-		return false;
-	}
-	if (userpw.value.length < 6) {
-		alert("비밀번호는 6자 이상으로 작성해주세요.")
-		userpw.focus();
-		return false;
-	} */
+	}); 
 	/* 비밀번호 */
 	let passcheck = document.querySelector('#pw1');
 	let reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
 	function pw() {
 		if (passcheck.value != null) {
-			if (passcheck.value.length < 7) {
-			alert("비밀번호는 8자 이상으로 입력해주세요.")
-			passcheck.focus();
-			}
 			if(!reg.test(passcheck.value)) {
 				alert("비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 포함되어야합니다.");
-				passcheck.focus();
+				document.querySelector('#pw1').innerText = "비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 포함되어야합니다.";
+				document.querySelector('#pw1').innerText.style.color = "red";
+				document.querySelector('#pw1').focus();
 			}
 		}
 		
@@ -250,6 +251,7 @@ doublecheck.addEventListener('click', function(e) {
 			} else {
 				alert("비밀번호가 일치하지 않습니다.")
 				document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
+				document.querySelector('#check').focus();
 			}
 		}
 	}
@@ -260,20 +262,44 @@ doublecheck.addEventListener('click', function(e) {
 		if (!obj.id.value || obj.id.value.trim().length == 0){
 			e.preventDefault();
 			alert("아이디가 입력되지 않았습니다.");
+			document.getElementById('id').focus;
 			return false;
+		}
+		if (!isIdChecked) {
+		        alert('아이디 중복 체크를 먼저 진행해주세요.');
+		        document.getElementById('idcheck').focus;
+		        return false;
 		}
 		if (!obj.pw1.value || obj.pw1.value.trim().length == 0){
 			obj.preventDefault();
 			alert(" 비밀번호가 입력되지 않았습니다.");
+			document.getElementById('pw1').focus;
 			return false;
 		}
-		if (document.getElementById('pw2').value != null) {
+		/* if (document.getElementById('pw2').value != null) {
 			obj.preventDefault();
 			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
 				obj.preventDefault();
 			} else {
 				alert("비밀번호가 일치하지 않습니다.")
+				document.getElementById('pw2').focus;
 			}
+			return false;
+		} */
+		if (!obj.name.value || obj.name.value.trim().length == 0) {
+			alert("이름이 입력되지 않았습니다.");
+			document.getElementById('name').focus;
+			return false;
+		}
+		if (!obj.postcode.value || !obj.addr.value) {
+			alert("주소가 입력되지 않았습니다.");
+			document.getElementById('postcode').focus;
+			return false;
+		}
+		if (!obj.bir1.value || !obj.bir2.value || !obj.bir3.value) {
+			alert("생년월일이 입력되지 않았습니다.");
+			document.getElementById('bir1').focus;
+			return false;
 		}
 	}
 		
