@@ -18,9 +18,11 @@ public class AddBookControl implements Command {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		BookVO vo = new BookVO();
+		resp.setContentType("text/json;charset=UTF-8");
 		
 		if (req.getMethod().equals("get")) {
-
+			
+			String bno = req.getParameter("bno");
 			String title = req.getParameter("title");
 			String writer = req.getParameter("writer");
 			String publisher = req.getParameter("publisher");
@@ -29,6 +31,7 @@ public class AddBookControl implements Command {
 			String cnt = req.getParameter("cnt");
 			String sort = req.getParameter("sort");
 
+			vo.setBookNo(Integer.parseInt(bno));
 			vo.setBookTitle(title);
 			vo.setBookWriter(writer);
 			vo.setBookPublisher(publisher);
@@ -39,8 +42,8 @@ public class AddBookControl implements Command {
 			
 
 		} else if (req.getMethod().equals("POST")) {
-			String saveDir = req.getServletContext().getRealPath("images");
-			int size = 5 * 1024 * 1024;
+			String saveDir = req.getServletContext().getRealPath("resources/image");
+			int size = 5 * 500 * 500;
 			try {
 				MultipartRequest mr = //
 						new MultipartRequest(req, // 요청정보
@@ -50,15 +53,17 @@ public class AddBookControl implements Command {
 								new DefaultFileRenamePolicy()// 리네임 정책
 						);
 				
-				String title = req.getParameter("title");
-				String writer = req.getParameter("writer");
-				String publisher = req.getParameter("publisher");
-				String content = req.getParameter("content");
-				String price = req.getParameter("price");
-				String cnt = req.getParameter("cnt");
-				String sort = req.getParameter("sort");
+				String bno = mr.getParameter("bno");
+				String title = mr.getParameter("title");
+				String writer = mr.getParameter("writer");
+				String publisher = mr.getParameter("publisher");
+				String content = mr.getParameter("content");
+				String price = mr.getParameter("price");
+				String cnt = mr.getParameter("cnt");
+				String sort = mr.getParameter("sort");
 				String img = mr.getFilesystemName("img");
-
+				
+				vo.setBookNo(Integer.parseInt(bno));
 				vo.setBookTitle(title);
 				vo.setBookWriter(writer);
 				vo.setBookPublisher(publisher);

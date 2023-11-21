@@ -231,7 +231,10 @@
                             <div class="table-responsive">
                            	 <form action="addBook.do" method="post" enctype="multipart/form-data">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-			                                    
+			                            <tr>
+                                            <th>도서번호</th>
+                                            	<td><input type="text" class="form-control form-control-user" name="bno"></td>
+                                        </tr>   
                                         <tr>
                                             <th>도서제목</th>
                                             	<td><input type="text" class="form-control form-control-user" name="title"></td>
@@ -239,7 +242,7 @@
 			                            <tr>
                                             <th>분류</th>
                                             <td>
-	                                            <select class="form-control form-control-user" name="type">
+	                                            <select class="form-control form-control-user" name="sort">
 												    <option value="소설">소설</option>
 												    <option value="만화">만화</option>
 												    <option value="사진">사진</option>
@@ -272,6 +275,12 @@
                                             	<td><textarea class="form-control form-control-user" cols="40" rows="5" name="content"></textarea></td>
                                         </tr>
                                 </table>
+                                <div style=" text-align: center;">
+										<input type="submit" class="btn btn-primary" value="저장">
+										<input type="reset" class="btn btn-warning" value="초기화">
+                                </div>
+                                
+                                <hr>
                                  <div style=" text-align: center;">
 			                                     <a href="#" class="btn btn-primary btn-icon-split" value="저장">
 			                                        <span class="icon text-white-50">
