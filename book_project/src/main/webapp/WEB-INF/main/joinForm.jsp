@@ -19,13 +19,19 @@
 	<h4>회원가입</h4>
 	<div id="joinid">
 		<h5>아이디</h5>
-		<input type="text" name="id" placeholder="아이디 입력(6~20자)" />
-		<button id="idcheck" onchange="idcheck()">중복 확인</button>
+		<input type="text" id="id" name="id" placeholder="아이디 입력(6~20자)" />
+		<button type="button" id="idcheck">중복 확인</button>
 	</div>
 	<div>
 		<h5>비밀번호</h5>
-
 		<input type="password" id="pw1" name="pw1" onchange="pw()" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
+		<details>
+		   <summary>※비밀번호 입력 조건</summary>
+		   	<p>- 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자</p>
+			<p>- 입력 가능 특수 문자 ~@#$%A()*_-={}];:,.?/</p>
+			<p>- 공백 입력 불가능</p>
+		</details>
+		
 	</div>
 	<div>
 		<h5>비밀번호 확인</h5>
@@ -87,12 +93,26 @@
 </form>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-	/* 아이디 중복 확인 */
-	/* const doublecheck = document.querySelector('#idcheck');
-	doublecheck.addEventListener('click', function(e) {
-		.fetch 
-	}) */
+/* 아이디 중복 확인 */
+let doublecheck = document.querySelector('#idcheck');
+doublecheck.addEventListener('click', function(e) { 
+	e.preventDefault();
+	let id = document.getElementById("id").value
+	console.log(document.getElementById("id").value);
 	
+	fetch('idCheck.do?id=' +id )
+		.then(resolve => resolve.json())
+		.then(result => {
+			if (result.retCode == 'NG') {
+				alert(id+"는 사용할 수 없는 아이디입니다.");
+				document.getElementById('id').value = null;
+			} else {
+				alert(id+"는 사용 가능한 아이디입니다.");
+				
+			}
+		})
+}); 
+
 	/* 이메일 도메인 */
 	const domainlist = document.querySelector('#domain_list');
 	const domaininput = document.querySelector('#domain_text');
@@ -240,13 +260,13 @@
 		}
 		if (document.getElementById('pw2').value != null) {
 			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
-				document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
 			} else {
 				alert("비밀번호가 일치하지 않습니다.")
-				document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
 			}
 		}
 	}
+		
+	  
 
 </script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean removeUser(UserVO vo) {
-		return mapper.delete(vo);
+	public boolean removeUser(String id, String pw) {
+		return mapper.delete(id, pw);
 	}
 
 	@Override
@@ -41,6 +41,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserVO getUser(String userId) {
 		return mapper.select(userId);
+	}
+
+	@Override
+	public UserVO findUser(String name, String phone) {
+		return mapper.findUser(name, phone);
+	}
+
+	@Override
+	public UserVO findPass(String id, String phone) {
+		return mapper.findPass(id, phone);
 	}
 
 }

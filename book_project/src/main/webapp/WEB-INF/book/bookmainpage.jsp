@@ -21,11 +21,11 @@
                     
                    
                     <div class="col mb-5">
-                        <div class="card h-100">
+                        <div class="card h-100" style="float: right; width:220px;">
                         
                             <!-- Sale badge-->
                             <!-- Product image-->
-                            <img class="card-img-top" src="resources/image/${vo.bookImage }" alt="..." />
+                            <img class="card-img-top" style="float: right; width:220px; height:250px;" src="resources/image/${vo.bookImage }" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

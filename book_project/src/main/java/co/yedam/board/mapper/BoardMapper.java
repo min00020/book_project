@@ -2,20 +2,28 @@ package co.yedam.board.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import co.yedam.board.service.BoardVO;
-import co.yedam.user.service.UserVO;
 
 public interface BoardMapper {
+	
+
 	public List<BoardVO> selectList();
 	public BoardVO select(int boardNo);
 	public int updateCnt(int boardNo);
 	public int insert(BoardVO vo);
 	public int update(BoardVO vo);
 	public int delete(int boardNo);
+	public int boardCnt(int boardNo);
 	
-	//로그인관련
-//	public UserVO getUser(@Param("id")String id,@Param("pass") String pw);
-//	public List<UserVO> memberList();
+	
+	public List<BoardVO> selectQnaList();
+	
+	public List<BoardVO> selectBookReviewList();
+	
+	public List<BoardVO> selectBookNoticeList();
+	
+	public List<BoardVO> selectDetailList();
+	
+	public List<BoardVO> bookJoinList(); // 책 리뷰 게시판 조인 book = board
+
 }
