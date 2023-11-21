@@ -164,7 +164,7 @@ img {
 
 						<td>${list.bookTitle }</td>
 
-						<td><select name="amount" id="amount${status.count }" onchange="changeFn()"
+						<td><select name="amount" id="amount" onchange="changeFn()"
 							style="max-width: 3rem">
 
 								<option class="list-Amountsum" value="${list.cartAmount}">${list.cartAmount}</option>
@@ -228,7 +228,7 @@ function changeFn(){
 
 	let result ={};
 	
-	const amount = document.getElementById('amount');
+	const amount = document.getElementById('amount${status.count}');
 
 	result.amount = amount.options[amount.selectedIndex].innerText;
 
@@ -250,10 +250,10 @@ a[0].addEventListener('click', function (e){
 
 	.forEach(ele => {
 
-
+	console.log(ele);
 		let result ={};
 		
-		const amount = document.getElementById('amount-item');
+		const amount = document.getElementById('amount');
 
 		result.amount = amount.options[amount.selectedIndex].innerText;
 
@@ -271,7 +271,7 @@ a[0].addEventListener('click', function (e){
 
 			headers: {'Content-type': 'application/x-www-form-urlencoded'},
 
-			body: 'cno=' + 41 +'&amo='+ amo
+			body: 'cno=' + cno.dataset.value +'&amo='+ amo
 
 		})
 
