@@ -29,16 +29,24 @@
             <div class="order-1 md:order-2">
 
                 <a href="main.do">
-                <img class="site-logo" src="https://contents.sixshop.com/uploadedFiles/95268/default/image_1558283059991.jpg"> 
+                <img class="site-logo" img src="resources/image/예담책방.png"> 
                 </a>
 
             </div>
             <c:choose>
-            	<c:when test="${empty id }">
+            	<c:when test="${empty id && empty kakaoId }">
             		<div>(Guest)입니다.</div>
             	</c:when>
             	<c:otherwise>
-					<div>(${id })님 환영합니다!</div>
+            		<c:choose>
+            			<c:when test="${!empty id && empty kakaoId }">
+            				<div>(${id })님 환영합니다!</div>
+            			</c:when>
+            			<c:when test="${empty id && !empty kakaoId }">
+            				<div>(${kakaoId })님 환영합니다!</div>
+            			</c:when>
+            		</c:choose>
+	            	
             	</c:otherwise>
             </c:choose>
           
@@ -46,7 +54,7 @@
             <a class="headerProductSearchContent" data-type="english"></a>
                 
                 <c:choose>
-                	<c:when test="${empty id }">
+                	<c:when test="${empty id && empty kakaoId}">
                 		<a class="inline-block no-underline hover:text-black" href="loginForm.do">
 	                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	                        <circle fill="none" cx="12" cy="7" r="3" />
@@ -56,12 +64,25 @@
                 	</c:when>
                 	
                 	<c:otherwise>
-                		<a class="inline-block no-underline hover:text-black" href="mypage.do?id=${id }" >
-	                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	                        <circle fill="none" cx="12" cy="7" r="3" />
-	                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
-	                    </svg>
-                		</a>
+                		<c:choose>
+							<c:when test="${!empty id}">
+								<a class="inline-block no-underline hover:text-black" href="mypage.do?id=${id }" >
+			                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			                        <circle fill="none" cx="12" cy="7" r="3" />
+			                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+			                    </svg>
+		                		</a>
+							</c:when>                		
+							<c:when test="${!empty kakaoId}">
+								<a class="inline-block no-underline hover:text-black" href="mypage.do?id=${kakaoId }" >
+			                    <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+			                        <circle fill="none" cx="12" cy="7" r="3" />
+			                        <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+			                    </svg>
+		                		</a>
+							</c:when>                		
+                		</c:choose>
+                		
                 	</c:otherwise>
                 </c:choose>
 
@@ -73,7 +94,12 @@
                     </svg>
                 </a>
                 <c:choose>
-					<c:when test="${!empty id }">
+					<c:when test="${!empty id}">
+						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
+                		<img src="resources/image/logoutblue.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
+                		</a>
+					</c:when>                
+					<c:when test="${!empty kakaoId}">
 						<a class="inline-block no-underline hover:text-blue" href="logoutForm.do">
                 		<img src="resources/image/logoutblue.png" width="24" height="24" viewBox="0 0 24 24" style="margin-left: 10px;" >
                 		</a>

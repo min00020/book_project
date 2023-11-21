@@ -35,15 +35,15 @@
 
 
 
+<div class="container px-4 px-lg-5 mt-5">
 
-
-<input type="text"  name="keyword" id="searchBar">
+<input type="text"  name="keyword" id="searchBar" style="border:2px solid black;">
 
 <a class="btn btn-outline-dark mt-auto" id="searchBtn">검색</a>
 
 <input type="submit" value="" />
 
- 
+</div>
 
 
 <div style="float: left">
@@ -60,7 +60,7 @@
 		class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 		<!-- 상품목록 -->
 		
-		<c:forEach items="${list}" var="vo" end="5">
+		<c:forEach items="${list}" var="vo">
 
 
 			<div class="col mb-5">
@@ -68,7 +68,7 @@
 
 					<!-- Sale badge-->
 					<!-- Product image-->
-					<img class="card-img-top" style="float: right" src="resources/image/${vo.bookImage }"
+					<img class="card-img-top" style="float: right; height:250px;" src="resources/image/${vo.bookImage }"
 						alt="..." />
 					<!-- Product details-->
 					<div class="card-body p-4">
@@ -97,17 +97,17 @@
 	</div>
 </div>
 </div>
-	<div class="col-2" style="de right">
+	<div class="col-2" >
 	
 	<div class="line" style="list-style-type: none;">
 	
 
-	
+	<div class="container px-4 px-lg-5 mt-5">
 		<a class="product" href="bookInventory.do">전체</a>
 		<a class="product" href="bookInventory.do?cate=소설">소설</a>
 		<a class="product" href="bookInventory.do?cate=만화">만화</a>
 		<a class="product" href="bookInventory.do?cate=사진">사진</a>
-		
+	</div>
 		
 <!-- 		<a class="product" href="bookInventory.do?cate=1">여행</a>
 		<a class="product" href="bookInventory.do?cate=1">요리</a>

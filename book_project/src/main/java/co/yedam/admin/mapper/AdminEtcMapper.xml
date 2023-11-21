@@ -15,7 +15,7 @@
 	<!-- 도서 등록 도서추가 -->
 	<insert id="insertBook" parameterType="co.yedam.book.service.BookVO">
 		INSERT INTO BOOK 
-		VALUES ((SELECT NVL(Max(#{bookNo}),0) +1 FROM BOOK), #{bookTitle}, #{bookWriter}, #{bookPublisher}, #{bookPrice}, #{bookCnt}, #{bookImage}, #{bookSort}, #{bookContent}, #{bookType});
+		VALUES (SEQ_BOOK_NO.nextval, #{bookTitle}, #{bookWriter}, #{bookPublisher}, #{bookPrice}, #{bookCnt}, #{bookImage}, #{bookSort}, #{bookContent})
 	</insert>
 
 </mapper>

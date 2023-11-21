@@ -17,6 +17,10 @@ public interface BoardService {
 		public List<BoardVO> selectBookReviewList();
 		// 공지사항
 		public List<BoardVO> selectBookNoticeList();
+		// 디테일 리뷰 쓰는곳
+		public List<BoardVO> selectDetailList();
+		// 책 리뷰 조인
+		public List<BoardVO> bookJoinList();
 		//로그인
 //		public UserVO loginCheck(String id, String pw);
 //		public List<UserVO> memberList();	

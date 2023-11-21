@@ -14,9 +14,10 @@ padding:10px;
 		display: inline-block;
 		width : 1200px;
 		margin : 5px;
-	}
-</style>
+}
 
+</style>
+<div class="container px-4 px-lg-5 mt-5" style="text-align:center;">
 <h3>게시글 등록화면</h3>
 
 <form action="bookAddBoard.do" method="post"
@@ -27,9 +28,9 @@ padding:10px;
 		<tr>
 			<td>
 			<select name="boardSort" id="sort">
+					<option value="리뷰게시판">리뷰게시판</option>
 					<option value="QnA게시판">QnA게시판</option>
 					<option value="공지사항">공지사항</option>
-					<option value="리뷰게시판">리뷰게시판</option>
 			</select>
 			</td>
 		</tr>
@@ -52,8 +53,8 @@ padding:10px;
 			<td><input type="file" name="image" class="form-control"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" class="btn btn-primary"
-				value="저장"> <input type="reset" class="btn btn-warning"
+			<td colspan="2"><input type="submit" class="btn btn-secondary"
+				value="저장"> <input type="reset" class="btn btn-secondary"
 				value="초기화"></td>
 		</tr>
 
@@ -61,3 +62,4 @@ padding:10px;
 
 	</table>
 </form>
+</div>

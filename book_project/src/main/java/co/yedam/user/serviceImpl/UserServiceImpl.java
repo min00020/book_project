@@ -43,4 +43,14 @@ public class UserServiceImpl implements UserService {
 		return mapper.select(userId);
 	}
 
+	@Override
+	public UserVO findUser(String name, String phone) {
+		return mapper.findUser(name, phone);
+	}
+
+	@Override
+	public UserVO findPass(String id, String phone) {
+		return mapper.findPass(id, phone);
+	}
+
 }

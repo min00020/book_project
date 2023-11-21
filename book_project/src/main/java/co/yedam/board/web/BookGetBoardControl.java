@@ -1,5 +1,7 @@
 package co.yedam.board.web;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,8 +21,11 @@ public class BookGetBoardControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
 		
-		
+		BoardVO list = new BoardVO();
+		System.out.println(list);
+		req.setAttribute("list", list);
 		req.setAttribute("bno", vo);
+		
 		// 요청재지정.
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);

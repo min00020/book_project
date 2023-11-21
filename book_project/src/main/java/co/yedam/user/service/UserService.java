@@ -7,5 +7,7 @@ public interface UserService {
 	
 	public UserVO loginCheck(String id, String pw);
 	public UserVO IdCheck(String id);
-	public UserVO getUser(String userId);	
+	public UserVO getUser(String userId);
+	public UserVO findUser(String name,String phone);
+	public UserVO findPass(String id,String phone);
 }

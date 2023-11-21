@@ -29,9 +29,14 @@
 .pagination a:hover:not(.active) {
 	background-color: #ddd;
 }
+#line{
+padding:10px;
+border:1px solid black;
+}
 </style>
+
 <h3>상세화면</h3>
-<form action="reviewModifyForm.do" name="myfrm">
+<form action="reviewModifyForm.do" name="myfrm" id="line">
 	<input type="hidden" name="bno" value="${bno.boardNo }">
 	<table class="table">
 		<tr>
@@ -47,7 +52,8 @@
 			<td colspan="3">${bno.boardTitle }</td>
 		</tr>
 		<tr>
-			<td colspan="4"><textarea rows="5" cols="40">${bno.boardContent }</textarea></td>
+			<th>내용</th>
+			<td colspan="4"><textarea rows="5" cols="140">${bno.boardContent }</textarea></td>
 		</tr>
 		<tr>
 			<th>이미지</th>
@@ -73,8 +79,8 @@
 		<tr>
 			<td colspan="4" align="center"><c:choose>
 					<c:when test="${!empty id && id == bno.userId }">
-						<input type="submit" class="btn btn-primary" value="수정">
-						<input type="button" class="btn btn-warning" value="삭제">
+						<input type="submit" class="btn btn-secondary" value="수정">
+						<input type="button" class="btn btn-secondary" value="삭제">
 					</c:when>
 					<c:otherwise>
 						<input disabled type="submit" value="수정">
@@ -85,13 +91,13 @@
 	</table>
 </form>
 
-
-
+<br>
+<div class="container px-4 px-lg-5 mt-5">
 <h3>댓글등록</h3>
 <table class="table">
 	<tr>
 		<th>댓글내용</th>
-		<td><input type="text" id="content"></td>
+		<td><input type="text" id="content" style="border:2px solid black;"></td>
 		<td><button id="addReply">댓글등록</button></td>
 	</tr>
 </table>
@@ -101,7 +107,7 @@
 	<li style="display: none;" id="template"><span>00</span><b>첫번째글입니다.</b><span>user01</span><span>2023-06-24</span>
 		<button id="delReply">삭제</button></li>
 </ul>
-
+</div>
 <div class="pagination"></div>
 
 <script>

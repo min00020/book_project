@@ -18,7 +18,9 @@
 	<definition name="adminpage" template="/WEB-INF/admin/layouts/template.jsp">
 		<put-attribute name="title" value="상품 목록 템플릿" />
 		<put-attribute name="sidebar" value="/WEB-INF/admin/layouts/sidebar.jsp" />
+		<put-attribute name="topbar" value="/WEB-INF/admin/layouts/topbar.jsp" />
 		<put-attribute name="body" value="/WEB-INF/admin/layouts/body.jsp" />
+		<put-attribute name="logout" value="/WEB-INF/admin/layouts/logout.jsp" />
 	</definition>
 	
 	<definition name="WILDCARD:admin/*" extends="adminpage">

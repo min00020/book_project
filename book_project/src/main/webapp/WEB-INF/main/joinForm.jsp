@@ -24,8 +24,14 @@
 	</div>
 	<div>
 		<h5>비밀번호</h5>
-
 		<input type="password" id="pw1" name="pw1" onchange="pw()" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
+		<details>
+		   <summary>※비밀번호 입력 조건</summary>
+		   	<p>- 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자</p>
+			<p>- 입력 가능 특수 문자 ~@#$%A()*_-={}];:,.?/</p>
+			<p>- 공백 입력 불가능</p>
+		</details>
+		
 	</div>
 	<div>
 		<h5>비밀번호 확인</h5>

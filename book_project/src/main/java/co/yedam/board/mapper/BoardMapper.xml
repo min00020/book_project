@@ -8,21 +8,33 @@
 	</select>
 	
 	<select id="selectQnaList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = 'QnA게시판'
+		SELECT * FROM BOARD WHERE BOARD_SORT = 'QnA게시판'ORDER BY BOARD_NO
 	</select>
 	
 	<select id="selectBookReviewList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'
+		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'ORDER BY BOARD_NO
 	</select>
 	
 	<select id="selectBookNoticeList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'
+		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'ORDER BY BOARD_NO
+	</select>
+	
+	<select id="selectDetailList" resultType="co.yedam.board.service.BoardVO">
+		SELECT * FROM BOARD WHERE BOARD_SORT = '상세리뷰'ORDER BY BOARD_NO
 	</select>
 
 	<select id="select" resultType="co.yedam.board.service.BoardVO"
 		parameterType="int">
-		select * from board where board_no=#{boardNo}  
+		select * from board where board_no=#{boardNo}
 	</select>
+	
+  	<select id="bookJoinList" resultType="co.yedam.board.service.BoardVO"
+		parameterType="int">
+		SELECT A.*, B.BOARD_NO
+		FROM BOOK A JOIN BOARD B ON A.BOOK_NO = B.BOOK_NO
+		WHERE B.BOARD_NO=#{boardNo}
+	</select>
+	
 	<update id="boardCnt" parameterType="int">
 		UPDATE BOARD SET BOARD_CNT = BOARD_CNT+1
 		where board_no = #{boardNo}
