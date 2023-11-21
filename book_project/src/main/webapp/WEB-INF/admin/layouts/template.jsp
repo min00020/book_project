@@ -6,7 +6,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,15 +49,12 @@
 
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
 					<tiles:insertAttribute name="topbar"></tiles:insertAttribute>
                 <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
           			 <tiles:insertAttribute name="body"></tiles:insertAttribute>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -82,8 +78,6 @@
 	 	 <!-- Scroll to Top Button-->
 	 	 <!-- Logout Modal-->
 	     <tiles:insertAttribute name="logout"></tiles:insertAttribute>
-   
-  
    
 </body>
 

@@ -155,7 +155,7 @@
 						<!-- Card Header - Dropdown -->
 						<div
 							class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">구매 성별</h6>
+							<h6 class="m-0 font-weight-bold text-primary">회원 성별</h6>
 							<div class="dropdown no-arrow">
 								<a class="dropdown-toggle" href="#" role="button"
 									id="dropdownMenuLink" data-toggle="dropdown"
@@ -268,7 +268,7 @@
 		<!-- /.container-fluid -->
 
 
- <!-- Page level plugins -->
+ 	<!-- Page level plugins -->
     <script src="resources/admin/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->

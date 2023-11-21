@@ -95,24 +95,23 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
-
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="adminOrder.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>주문관리</span></a>
             </li>
-
-			<li class="nav-item">
-                <a class="nav-link" href="adminBook.do">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>상품목록</span></a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="insertBook.do">
                     <i class="fas fa-fw fa-table"></i>
                     <span>상품등록</span></a>
             </li>
+			<li class="nav-item">
+                <a class="nav-link" href="adminBook.do">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>상품목록</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
