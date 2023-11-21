@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.admin.web.AddBookControl;
 import co.yedam.admin.web.AdminBookControl;
+import co.yedam.admin.web.AdminChartControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.AdminOrderUpdate;
@@ -120,7 +121,9 @@ public class FrontController extends HttpServlet {
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
-		map.put("/chartGender.do", new ChartGenderControl());
+		map.put("/chartGender.do", new ChartGenderControl()); //성별통계
+		
+		map.put("/adminChart.do", new AdminChartControl()); //차트 페이지
 		
 		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인
 		map.put("/adminOrderUpdate.do", new AdminOrderUpdate()); //주문상태 변경

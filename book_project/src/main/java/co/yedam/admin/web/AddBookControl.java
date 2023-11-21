@@ -22,7 +22,6 @@ public class AddBookControl implements Command {
 		
 		if (req.getMethod().equals("get")) {
 			
-			String bno = req.getParameter("bno");
 			String title = req.getParameter("title");
 			String writer = req.getParameter("writer");
 			String publisher = req.getParameter("publisher");
@@ -31,7 +30,6 @@ public class AddBookControl implements Command {
 			String cnt = req.getParameter("cnt");
 			String sort = req.getParameter("sort");
 
-			vo.setBookNo(Integer.parseInt(bno));
 			vo.setBookTitle(title);
 			vo.setBookWriter(writer);
 			vo.setBookPublisher(publisher);
@@ -53,7 +51,6 @@ public class AddBookControl implements Command {
 								new DefaultFileRenamePolicy()// 리네임 정책
 						);
 				
-				String bno = mr.getParameter("bno");
 				String title = mr.getParameter("title");
 				String writer = mr.getParameter("writer");
 				String publisher = mr.getParameter("publisher");
@@ -63,7 +60,6 @@ public class AddBookControl implements Command {
 				String sort = mr.getParameter("sort");
 				String img = mr.getFilesystemName("img");
 				
-				vo.setBookNo(Integer.parseInt(bno));
 				vo.setBookTitle(title);
 				vo.setBookWriter(writer);
 				vo.setBookPublisher(publisher);
