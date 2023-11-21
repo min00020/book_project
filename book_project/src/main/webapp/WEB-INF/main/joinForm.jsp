@@ -24,6 +24,7 @@
 	</div>
 	<div>
 		<h5>비밀번호</h5>
+		 <input type="text" style="display:none;">
 		<input type="password" id="pw1" name="pw1" onchange="pw()" placeholder="8글자 이상, 영문, 숫자, 특수문자(@$!%*#?&)를 사용하세요." />
 		<details>
 		   <summary>※비밀번호 입력 조건</summary>
@@ -35,8 +36,10 @@
 	</div>
 	<div>
 		<h5>비밀번호 확인</h5>
+		<form id="pass">
+		<input type="text" style="display:none;">
 		<input type="password" id="pw2" name="pw2" onchange="pwcheck()" /><span id="check"></span>
-
+		</form>
 	</div>
 	<!-- <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div> -->
 	
@@ -97,7 +100,8 @@
 let doublecheck = document.querySelector('#idcheck');
 doublecheck.addEventListener('click', function(e) { 
 	e.preventDefault();
-	let id = document.getElementById("id").value
+	if (id != null) {
+		let id = document.getElementById("id").value
 	console.log(document.getElementById("id").value);
 	
 	fetch('idCheck.do?id=' +id )
@@ -111,6 +115,8 @@ doublecheck.addEventListener('click', function(e) {
 				
 			}
 		})
+	}
+	
 }); 
 
 	/* 이메일 도메인 */
@@ -250,16 +256,21 @@ doublecheck.addEventListener('click', function(e) {
 	
 	/* 회원가입 유효성 */
 	function joinCheck(obj) {
+		obj.preventDefault();
 		if (!obj.id.value || obj.id.value.trim().length == 0){
+			e.preventDefault();
 			alert("아이디가 입력되지 않았습니다.");
 			return false;
 		}
 		if (!obj.pw1.value || obj.pw1.value.trim().length == 0){
+			obj.preventDefault();
 			alert(" 비밀번호가 입력되지 않았습니다.");
 			return false;
 		}
 		if (document.getElementById('pw2').value != null) {
+			obj.preventDefault();
 			if (document.getElementById('pw1').value == document.getElementById('pw2').value){
+				obj.preventDefault();
 			} else {
 				alert("비밀번호가 일치하지 않습니다.")
 			}
