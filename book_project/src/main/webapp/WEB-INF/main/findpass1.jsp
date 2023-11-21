@@ -9,7 +9,7 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<form action="findid.do" method="post">
+<form action="findpass.do" method="post">
 <hr>
 	<table class="table" align="center">
 	<c:choose>
@@ -18,7 +18,7 @@
 				<h5 align="center">회원 정보가 존재합니다.</h5>
 			</tr>
 			<tr>
-				<h5 align="center">비밀번호 ${pw }</h5>
+				<h5 align="center">비밀번호 ${pw.userPass }</h5>
 			</tr>
 			<tr>
 			<td><input type="button" onclick="location.href='loginForm.do'" value="로그인"></td>

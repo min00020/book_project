@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
-<mapper namespace="co.yedam.user.mapper.UserMapper">
+<mapper namespace="co.yedam.user.mapper.KakaoMapper">
 	<insert id="addKakaoUser" parameterType="co.yedam.user.service.kakaoVO">
-		INSERT INTO KAKAO(KAKAO_ID, KAKAO_PASS, USER_NAME, KAKAO_EMAIL)
-		VALUES (#{kakaoId}, #{kakaoPass}, #{kakaoEmail})
+		INSERT INTO KAKAO(KAKAO_ID, KAKAO_PW)
+		VALUES (#{kakaoId}, #{kakaoPw})
 	</insert>
 	<select id="IdCheck" parameterType="co.yedam.user.service.kakaoVO">
 		SELECT KAKAO_ID FROM KAKAO WHERE KAKAO_ID=#{kakaoId}
+	</select>
+	<select id="loginCheck" parameterType="co.yedam.user.service.UserVO">
+		SELECT * FROM KAKAO WHERE KAKAO_ID=#{kakaoId}
 	</select>
 </mapper>

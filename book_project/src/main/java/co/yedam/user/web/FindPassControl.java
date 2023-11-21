@@ -24,7 +24,7 @@ public class FindPassControl implements Command {
 		
 		
 		
-		String path = "WEB-INF/main/findpass.jsp";
+		String path = "WEB-INF/main/findpass1.jsp";
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (ServletException | IOException e) {

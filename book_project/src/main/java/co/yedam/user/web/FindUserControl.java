@@ -23,6 +23,7 @@ public class FindUserControl implements Command {
 		req.setAttribute("vo", vo);
 		
 		String path = "WEB-INF/main/finduser1.jsp";
+		
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (ServletException | IOException e) {

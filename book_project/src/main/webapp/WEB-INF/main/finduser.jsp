@@ -8,7 +8,7 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<form action="findid.do" method="post">
+<form action="finduser.do" method="post">
 <hr>
 	<table class="table" align="center">
 		<h4 align="center">아아디 찾기</h4>
@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<th>전화번호</th>
-			<td><input type="text" class="form-control" id="phone" name="phone" placeholder="01011112222"></td>
+			<td><input type="text" class="form-control" id="phone" name="phone" placeholder="010-1111-2222"></td>
 		</tr>
 		<tr>
 			<td><input type="submit" id="findid" value="아이디 찾기"></td>

@@ -14,17 +14,19 @@ public class KakaoIdCheckControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String id = req.getParameter("kakaoid");
-
+		String kakaoId = req.getParameter("kakaoId");
+		
+		System.out.println("kakaoId: " + kakaoId);
+		
 		KakaoService svc = new KakaoServiceImpl();
-		kakaoVO vo;
-		vo = svc.IdCheck(id);
+		kakaoVO kvo;
+		kvo = svc.IdCheck(kakaoId);
 		
-		System.out.println("id: " + id);
 		
-		String result;
 		
-		if (vo == null) {
+		String result= "";
+		
+		if (kvo == null) {
 			result = "{\"retCode\":\"OK\"}";
 		} else {
 			result = "{\"retCode\":\"NG\"}";

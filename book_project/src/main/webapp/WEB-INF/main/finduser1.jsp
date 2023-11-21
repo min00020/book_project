@@ -9,16 +9,16 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<form action="findid.do" method="post">
+<form action="finduser.do" method="post">
 <hr>
 	<table class="table" align="center">
 	<c:choose>
-		<c:when test="${!empty id }">
+		<c:when test="${!empty vo }">
 			<tr>
 				<h5 align="center">아이디가 존재합니다.</h5>
 			</tr>
 			<tr>
-				<h5 align="center">${vo.id }</h5>
+				<h5 align="center">아이디  ${vo.userId }</h5>
 			</tr>
 			<tr>
 			<td><input type="button" onclick="location.href='loginForm.do'" value="로그인"></td>
@@ -29,7 +29,7 @@
 				<h5 align="center">아이디가 존재하지않습니다.</h5>
 			</tr>
 			<tr>
-			<td><input type="button" onclick="location.href='findUserForm.do'" value="이전 페이지"></td>
+			<td><input type="button" onclick="location.href='finduserForm.do'" value="이전 페이지"></td>
 			</tr>
 	
 		</c:otherwise>

@@ -21,4 +21,9 @@ public class KakaoServiceImpl implements KakaoService {
 		return mapper.IdCheck(kakaoId);
 	}
 
+	@Override
+	public kakaoVO loginCheck(String kakaoId, String kakaoPw) {
+		return mapper.loginCheck(kakaoId, kakaoPw);
+	}
+
 }
