@@ -8,7 +8,8 @@
 <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
-#contain {
+  div#contain {
+	width: 800px;
 	margin: auto;
 }
 #top {
@@ -18,13 +19,10 @@
 	h5 {
 		font-size: small;
 		width: 102px;
-	}/* 
-	body {
-		margin: auto;
-		display: flex; 
-	    flex-direction: column; 
-	    align-items: center;
-    } */
+	}
+	hr {
+		margin: 10 10;
+	}
     #row {
     display: flex;}
     input {
@@ -51,6 +49,14 @@
 		margin: auto;
 		display: flex; 
 	    flex-direction: column; 
+	    align-items: left;
+	}
+	form#modify {
+		margin: 0 auto;
+		margin-bottom: 60px;
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
 	    align-items: center;
 	}
 button {
@@ -64,9 +70,16 @@ button {
 	    margin-bottom: 15px;
 	}
 </style>
-<!-- <script>
- if ()
-</script> -->
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const kakaooutSuccessParam = urlParams.get('kakaooutSuccess');
+
+    if (kakaooutSuccessParam === 'false') {
+        alert("카카오 회원 탈퇴에 실패하였습니다.");
+    }
+};
+</script>
 <div class="col-lg-6" id="contain">
 	<!-- Overflow Hidden -->
 	<div class="card mb-4">
@@ -128,13 +141,15 @@ button {
 			<form action="orderuser.do" method="post">
 				<table>
 					<tbody>
+					<tr>QnA 게시판</tr>
+					<hr>
 					<c:choose>
 						<c:when test="${empty qlist }">
 							<p>내가 쓴 글이 없습니다.</p>
 						</c:when>
 						<c:otherwise>
 							<thead>
-								<tr>QnA 게시판</tr>
+								
 								<tr>
 									<th>게시판 번호</th>
 									<th>리뷰 제목</th>
@@ -156,15 +171,21 @@ button {
 						</c:choose>
 					</tbody>
 				</table>
+				</form>
+				</div>
+				<div class="card-body">
+				<form>
 				<table>
 					<tbody>
+					<tr>리뷰 게시판</tr>
+					<hr>
 					<c:choose>
 						<c:when test="${empty rlist }">
 							<p>내가 쓴 글이 없습니다.</p>
 						</c:when>
 						<c:otherwise>
 							<thead>
-								<tr>리뷰 게시판</tr>
+								
 								<tr>
 									<th>게시판 번호</th>
 									<th>리뷰 제목</th>
@@ -187,8 +208,9 @@ button {
 					</tbody>
 				</table>
 			</form>
+			</div>
 		</div>
-	</div>
+	
 	<!-- Overflow Hidden -->
 	<c:choose>
 	<c:when test="${!empty id }">
@@ -197,7 +219,7 @@ button {
 			<h6 class="m-0 font-weight-bold text-primary">회원정보수정</h6>
 		</div>
 		<div class="card-body">
-			<form action="modifyuser.do" method="post" onsubmit="return modifyCheck(this)">
+		<form action="modifyuser.do" id="modify" method="post" onsubmit="return modifyCheck(this)">
 		<h4 id="top" align="center">회원 정보 수정</h4>
 		<div id="row">
 			<h5>아이디</h5>
@@ -242,6 +264,16 @@ button {
 		</div>
 	</div>
 	</c:when>
+	<c:when test="${!empty kakaoId }">
+		<div class="card mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">카카오 회원 탈퇴</h6>
+			</div>
+			<div class="card-body">
+				<button type="button" onclick="location.href='deletekakao.do?kakaoId=${kakaoId}&kakaoPw=${kakaoPw }'">회원 탈퇴</button>
+			</div>
+		</div>
+	</c:when>	
 	</c:choose>
 </div>
 

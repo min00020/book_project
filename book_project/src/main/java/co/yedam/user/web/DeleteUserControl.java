@@ -24,12 +24,13 @@ public class DeleteUserControl implements Command {
 		if (svc.removeUser(id, pw)) {
 			try {
 				resp.sendRedirect("main.do");
+				req.getSession().invalidate();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.sendRedirect("deleteuserForm.do");
+				resp.sendRedirect("deleteuserForm.do?deleteSuccess="+false);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

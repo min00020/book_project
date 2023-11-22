@@ -43,6 +43,7 @@ import co.yedam.order.web.OrderListControl;
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
+import co.yedam.user.web.DeleteKakaoControl;
 import co.yedam.user.web.DeleteUserControl;
 import co.yedam.user.web.DeleteUserFormControl;
 import co.yedam.user.web.FindUserControl;
@@ -125,12 +126,13 @@ public class FrontController extends HttpServlet {
 		map.put("/kakaologin.do", new KakaoLoginControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaoIdCheck.do", new KakaoIdCheckControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaojoin.do", new KakaoJoinControl()); /* 카카오 회원가입 */
+		map.put("/deletekakao.do", new DeleteKakaoControl()); /* 카카오 회원 탈퇴 */
 		
 		map.put("/finduser.do", new FindUserControl()); /* 아이디 찾기 */
 		map.put("/finduserForm.do", new FindUserFormControl()); /* 아이디 찾기 화면 */
 		map.put("/findpass.do", new FindPassControl()); /* 비밀번호 찾기 */
 		map.put("/findpassForm.do", new FindPassFormControl()); /* 비밀번호 찾기 화면 */
-		map.put("/orderuser.do", new OrderUserControl()); /* 사용자별 주문 목록 */
+		map.put("/orderuser.do", new OrderUserControl()); /* 사용자별 주문 목록 <삭제 해야함> */
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지

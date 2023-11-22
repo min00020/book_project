@@ -40,7 +40,7 @@
 		margin-bottom: 60px;
 	}
 </style>
-<form action="finduser.do" method="post">
+<form action="finduser.do" method="post" onsubmit="return findid(this)">
 <hr>
 	<table class="table" align="center">
 		<h4 id="top" align="center">아아디 찾기</h4>
@@ -54,10 +54,23 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-			<button type="submit" id="findid">아이디 찾기</button>
+			<button type="submit">아이디 찾기</button>
 			<button type="button" onclick="location.href='loginForm.do'">로그인 페이지</button>
 			</td>
 		</tr>
 	</table>
 </form>
+<script>
+function findid(obj) {
+	if (!obj.name.value || obj.name.value.trim().length === 0) {
+		alert("이름이 입력되지 않았습니다.");
+		return false;
+	}
+	if (!obj.phone.value || obj.phone.value.trim().length === 0) {
+		alert("전화번호가 입력되지 않았습니다.");
+		return false;
+	}
+	return true;
+}
+</script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

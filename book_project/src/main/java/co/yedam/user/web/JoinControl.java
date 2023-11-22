@@ -56,15 +56,14 @@ public class JoinControl implements Command {
 		
 		if (svc.addUser(vo)) {
 			try { 
-				resp.sendRedirect("loginForm.do"); 
-				resp.getWriter().print("회원가입이 완료되었습니다.");
+				resp.sendRedirect("loginForm.do?joinSuccess="+true); 
 			} catch (IOException e) {
 			 e.printStackTrace(); 
 			 }
 
 		} else {
 			try {
-				resp.sendRedirect("joinForm.do");
+				resp.sendRedirect("joinForm.do?joinSuccess="+false);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

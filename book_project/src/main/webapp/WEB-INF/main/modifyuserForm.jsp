@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
 	href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-
 <link
 	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 	rel="stylesheet">
@@ -37,19 +36,30 @@
 	}
     button {
 		height: 35px;
-		width: 90px;
+		width: 120px;
 	    background-color:#0a0a23;
 	    color: #fff;
 	    border:none;
 	    border-radius:10px;
-	    margin-top: 30px;
+	    margin-top: 10px;
 	    margin-bottom: 15px;
+	    margin-left: 15px;
 	}
 	form {
 		margin: 0 auto;
 		margin-bottom: 60px;
 	}
 </style>
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const modifySuccessParam = urlParams.get('modifySuccess');
+
+    if (modifySuccessParam === 'false') {
+        alert("로그인에 실패하였습니다.");
+    }
+};
+</script>
 <body>
 	<form action="modifyuser.do" method="post" onsubmit="return modifyCheck(this)">
 		<h3 id="top" align="center">회원 정보 수정</h3>
@@ -63,7 +73,7 @@
 		</div>
 		<div>
 			<h5>비밀번호 확인</h5>
-			<input type="password" id="pw2" onchange="pwcheck()" /><span
+			<input type="password" id="pw2" /><span
 				id="check"></span>
 		</div>
 		<div id="name">
@@ -142,31 +152,21 @@ addrnum.addEventListener('click', function goPopup() {
         }
     }).open();
 });
-function pwcheck() {
-	if (document.getElementById('pw2').value != null) {
-		if (document.getElementById('pw1').value == document.getElementById('pw2').value){
-			document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
-		} else {
-			alert("비밀번호가 일치하지 않습니다.")
-			document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
-			document.getElementById('check').focus();
-		}
-	}
-}
+
 function modifyCheck(obj) {
-	if (!obj.pw1.value || obj.pw1.value.trim().length == 0){
-		alert(" 비밀번호가 입력되지 않았습니다.");
-		return false;
-	}
-	if (document.getElementById('pw2').value != null) {
-		if (document.getElementById('pw1').value == document.getElementById('pw2').value){
-			document.getElementById('check').innerHTML.value("비밀번호가 일치합니다.");
-		} else {
-			alert("비밀번호가 일치하지 않습니다.")
-			document.getElementById('check').innerHTML.value("비밀번호가 일치하지 않습니다.");
-			document.getElementById('check').innerHTML.value="";
-		}
-	}
+	if (!obj.pw1.value || obj.pw1.value.trim().length === 0) {
+        alert("비밀번호가 입력되지 않았습니다.");
+        return false;
+    }
+    if (!obj.pw2.value || obj.pw2.value.trim().length === 0) {
+        alert("비밀번호 확인이 입력되지 않았습니다.");
+        return false;
+    }
+    if (obj.pw1.value !== obj.pw2.value) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return false;
+    }
+    return true;
 }
 
 </script>

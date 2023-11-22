@@ -37,6 +37,16 @@ input {
 	    align-items: center;
 	}
 </style>
+<script>
+	window.onload = function() {
+	    const urlParams = new URLSearchParams(window.location.search);
+	    const deleteSuccessParam = urlParams.get('deleteSuccess');
+	
+	    if (deleteSuccessParam === 'false') {
+	        alert("회원 탈퇴에 실패하였습니다.");
+	    }
+	};
+</script>
 <form action="deleteuser.do" method="post" onsubmit="return deleteuser(this)">
 	<table class="table" align="center">
 	<h4>회원 탈퇴</h4>

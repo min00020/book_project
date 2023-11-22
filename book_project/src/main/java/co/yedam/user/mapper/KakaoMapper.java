@@ -8,4 +8,5 @@ public interface KakaoMapper {
 	public boolean addKakaoUser(kakaoVO vo);
 	public kakaoVO IdCheck(@Param("kakaoId")String kakaoId);
 	public kakaoVO loginCheck(@Param("kakaoId")String kakaoId, @Param("kakaoPw") String kakaoPw);
+	public boolean delete(@Param("kakaoId")String kakaoId, @Param("kakaoPw") String kakaoPw);
 }

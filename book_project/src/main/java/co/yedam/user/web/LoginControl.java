@@ -33,7 +33,6 @@ public class LoginControl implements Command {
 			
 			try {
 				resp.sendRedirect("main.do");
-				resp.getWriter().print("로그인에 성공하였습니다.");
 				System.out.println("성공");
 				System.out.println("아이디: " + id + "비밀번호: " +  pw);
 			} catch (IOException e) {
@@ -41,8 +40,7 @@ public class LoginControl implements Command {
 			}
 		} else {
 			try {
-				resp.sendRedirect("loginForm.do");
-				resp.getWriter().print("로그인에 실패하였습니다.");
+				resp.sendRedirect("loginForm.do?loginSuccess="+ false);
 				System.out.println("실패");
 				System.out.println("아이디: " + id + "비밀번호: " +  pw);
 			} catch (IOException e) {
