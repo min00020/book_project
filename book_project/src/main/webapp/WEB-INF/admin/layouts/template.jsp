@@ -32,6 +32,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="resources/admin/js/sb-admin-2.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 </head>
 

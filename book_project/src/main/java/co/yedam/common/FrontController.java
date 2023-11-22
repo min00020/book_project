@@ -18,8 +18,10 @@ import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartGenderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.DeleteBookControl;
 import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
+import co.yedam.admin.web.UpdateBookControl;
 import co.yedam.board.web.BookAddBoardControl;
 import co.yedam.board.web.BookBoardFormControl;
 import co.yedam.board.web.BookBoardListControl;
@@ -146,6 +148,9 @@ public class FrontController extends HttpServlet {
 		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
 		map.put("/addBook.do", new AddBookControl()); //도서 추가
+		map.put("/updateBook.do", new UpdateBookControl() );//도서 수정)
+		map.put("/deleteBook.do", new DeleteBookControl() );//도서 수정
+		
 		//인스타
 		map.put("/insta.do", new InstaControl());
 

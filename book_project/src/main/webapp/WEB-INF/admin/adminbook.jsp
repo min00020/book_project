@@ -72,8 +72,9 @@
                                 </table>
                                 <hr>
                                 	<!-- Nested Row within Card Body 카드형식 -->
+                                	
 					                <div class="row">
-					                    <div class="col-lg-5 d-none d-lg-block bg-register-image" id="infoBookImage">
+					                    <div class="col-lg-5 d-none d-lg-block bg-register-image" id="infoBookImage" name="img">
 					                    	<img src="https://i.pinimg.com/originals/b4/d1/9c/b4d19c84919c3880b89c60200ab587ba.png" height="100%" width="100%">
 					                    </div>
 					                    <div class="col-lg-7">
@@ -82,44 +83,58 @@
 					                                <h1 class="h4 text-gray-900 mb-4" id="infoBookTitle">도서제목</h1>
 					                            </div>
 					                            <hr>
-					                            <form class="user">
+					                            <form class="user" action="updateBook.do" method="post" enctype="multipart/form-data">
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
-					                                         <input type="text" class="form-control form-control-user" id="infoBookNo"
-					                                            placeholder="도서번호">
+					                                         <input type="text" class="form-control form-control-user" id="infoBookNo" name="bno"
+					                                             placeholder="도서번호" readonly>
 					                                    </div>
-					                                    <div class="col-sm-6">
+ 					                            	    <div class="col-sm-6">
 					                                        <input type="text" class="form-control form-control-user" id="infoBookType"
-					                                            placeholder="도서분류">
-					                                    </div>
+					                                           name="sort" placeholder="도서분류">
+					                                    </div> 
+					                                    <!-- <div class="col-sm-6">
+					                                        <select class="form-control form-control-user" id="infoBookType"
+					                                           name="sort">
+					                                            <option option value="" selected disabled hidden>선택</option>
+					                                            <option value="소설">소설</option>
+												    			<option value="만화">만화</option>
+												  				<option value="사진">사진</option>
+					                                        </select>
+					                                    </div> -->
 					                                </div>
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
 					                                       <input type="text" class="form-control form-control-user"
-					                                            id="infoBookWriter" placeholder="지은이">
+					                                            id="infoBookWriter" name="writer" placeholder="지은이">
 					                                    </div>
 					                                    <div class="col-sm-6">
 					                                        <input type="text" class="form-control form-control-user"
-					                                            id="infoBookPublisher" placeholder="출판사">
+					                                            id="infoBookPublisher" name="publisher" placeholder="출판사">
 					                                    </div>
 					                                </div>
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
 					                                      <input type="text" class="form-control form-control-user"
-					                                            id="infoBookPrice" placeholder="가격">
+					                                            id="infoBookPrice" name="price" placeholder="가격">
 					                                    </div>
 					                                    <div class="col-sm-6">
 					                                         <input type="text" class="form-control form-control-user"
-					                                            id="infoBookCnt" placeholder="수량">
+					                                            id="infoBookCnt" name="cnt" placeholder="수량">
 					                                    </div>
 					                                </div>
 					                                
 					                                <div class="form-group">
-					                                    <textarea  class="form-control form-control-user" id="infoBookContent" rows="3">도서 소개</textarea>
+					                                    <textarea  class="form-control form-control-user" id="infoBookContent" name="content" rows="3">도서 소개</textarea>
 					                                </div>
-					                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-					                                    확 인
-					                                </a>
+					                                <div style="text-align: center;">
+															<input type="submit" class="btn btn-primary" value="수정하기">
+															<input type="reset" class="btn btn-warning" value="초기화">
+					                                </div>
+					                                <hr>
+					                                <a href="#" class="btn btn-google btn-user btn-block" onclick= 'deleteBook()'>
+			                                            삭 제
+			                                        </a>
 					                            </form>
 					                            <hr>
 					                            <div class="text-center">
@@ -141,20 +156,13 @@
                 <!-- /.container-fluid -->
 
 <script>
+const table = new DataTable('#dataTable');
 
 const checkboxes = document.getElementsByName("check"); //체크박스 전부 가져오기
-//console.log('체크박스:',checkboxes);
 
 //상세페이지 위치 선언
 const infoBookTitle = document.querySelector("#infoBookTitle");
-/* const infoBookType = document.querySelector("#infoBookType");
-const infoBookWriter = document.querySelector("#infoBookWriter");
-const infoBookPublisher = document.querySelector("#infoBookPublisher");
-const infoBookPrice = document.querySelector("#infoBookPrice");
-const infoBookCnt = document.querySelector("#infoBookCnt");
-const infoBookContent = document.querySelector("#infoBookContent"); */
 const infoBookImage = document.querySelector("#infoBookImage");
-
 
 //checkbox 하나만 선택 + 체크박스 누르면 > 선택한 상품 상세정보 띄우기
 function checkOnlyOne(element){
@@ -164,19 +172,42 @@ function checkOnlyOne(element){
 	})
 	element.checked = true; //하나만 선택 끝
 	
+	
+	element.parentElement.parentElement.className = 'selected';
+	
 	const booklist = element.parentElement.parentElement;
+	console.log('test:',document.getElementById("infoBookType"));
 	//const booklist = document.querySelector("#booklist"); >이러면 값 고정돼서 안됨
-	console.log('booklist:',booklist);
-	console.log('booklist1:',booklist.children[1].innerText); //도서번호
+	console.log('booklist:', booklist);
+	console.log('booklist1:', booklist.children[1].innerText); //도서번호
 		infoBookTitle.innerHTML = booklist.children[3].innerText;
 		document.getElementById("infoBookNo").value = booklist.children[1].innerText;
 		document.getElementById("infoBookType").value = booklist.children[2].innerText;
 		document.getElementById("infoBookWriter").value = booklist.children[4].innerText;
 		document.getElementById("infoBookPublisher").value = booklist.children[5].innerText;
-		document.getElementById("infoBookPrice").value = booklist.children[6].innerText + '원';
-		document.getElementById("infoBookCnt").value = booklist.children[7].innerText + '개';
+		document.getElementById("infoBookPrice").value = booklist.children[6].innerText;
+		document.getElementById("infoBookCnt").value = booklist.children[7].innerText;
 		document.getElementById("infoBookContent").value = booklist.children[9].innerText;
 		infoBookImage.innerHTML = '<img src="resources/image/'+booklist.children[8].innerText+'" height="100%" width="100%">';
 }
+
+function deleteBook(){
+	let bno = document.getElementById("infoBookNo").value;
+	console.log('bno:',bno);
+	fetch('deleteBook.do?bno='+bno)
+	.then(resolve => resolve.json())
+	.then(result => {
+		console.log(result);
+		if(result.retCode == 'OK'){
+			table.row('.selected').remove().draw(false);
+			alert('삭제성공');
+		} else {
+			alert('삭제실패');
+		}
+	})
+	
+}
+
+
 
 </script>

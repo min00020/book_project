@@ -90,11 +90,11 @@
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+         <!--    <li class="nav-item">
                 <a class="nav-link" href="adminChart.do">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> -->
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="adminOrder.do">

@@ -31,4 +31,14 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 		return mapper.orderStatus(vo)==1;
 	}
 
+	@Override
+	public boolean updateBook(BookVO vo) {
+		return mapper.updateBook(vo)==1;
+	}
+
+	@Override
+	public boolean deleteBook(int bookNo) {
+		return mapper.deleteBook(bookNo)==1;
+	}
+
 }
