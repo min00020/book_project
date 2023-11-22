@@ -363,9 +363,9 @@ function fn_check(ths,code){
 	// 주문하기 버튼 클릭시
 	document.getElementById('tttt').addEventListener('click', (e) => {
 		
-		console.log("orderListInfo.do?totalPrice=" + totalPrice + "&amount=" + totalAmount);
+		console.log("orderListInfo.do?totalPrice=" + totalPrice);
 		console.log(window.location.href);
-		window.location.href =  "orderListInfo.do?totalPrice=" + totalPrice + "&amount=" + totalAmount;  
+		window.location.href =  "orderListInfo.do?totalPrice=" + totalPrice;  
 	})
 
 //<fmt:formatNumber value="${list.bookPrice}" pattern="###,###,###" />  -- 금액 단위 

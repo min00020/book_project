@@ -1,1 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.order.mapper.OrderMapper">
+
+	<insert id="addOrder"
+		parameterType="co.yedam.order.service.OrderVO">
+		insert into order_tbl values(seq_odr_code.nextval, #{userId}, #{userName}, #{odrZipcode}, #{odrAddr}, #{odrAddrD},
+		#{odrPhone}, #{odrTotalPrice}, '주문완료', SYSDATE, #{odrRequest} )
+	</insert>
+</mapper>

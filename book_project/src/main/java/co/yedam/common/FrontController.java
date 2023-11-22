@@ -25,9 +25,9 @@ import co.yedam.board.web.BookBoardListControl;
 import co.yedam.board.web.BookGetBoardControl;
 import co.yedam.board.web.BookNoticeControl;
 import co.yedam.board.web.BookReviewControl;
+import co.yedam.board.web.QnaBoardControl;
 import co.yedam.board.web.ReviewModifyBoardControl;
 import co.yedam.board.web.ReviewModifyFormControl;
-import co.yedam.board.web.QnaBoardControl;
 import co.yedam.board.web.ReviewRemoveBoardControl;
 import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
@@ -40,6 +40,8 @@ import co.yedam.cart.web.CartListControl;
 import co.yedam.cart.web.DeleteCartControl;
 import co.yedam.cart.web.ModyfiCartControl;
 import co.yedam.order.web.OrderListControl;
+import co.yedam.order.web.OrderSuressControl;
+import co.yedam.order.web.addOrderControl;
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
@@ -66,6 +68,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// 주문
 		map.put("/orderListInfo.do", new OrderListControl()); // 장바구니 주문정보 불러오기
+		map.put("/orderSuress.do", new OrderSuressControl());
+		map.put("/addOrder.do", new addOrderControl());
 		// 장바구니 
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기

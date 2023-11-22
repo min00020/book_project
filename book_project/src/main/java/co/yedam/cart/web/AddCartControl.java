@@ -22,8 +22,8 @@ public class AddCartControl implements Command {
 		// TODO Auto-generated method stub
 		String bno = req.getParameter("bno");
 		String uid = req.getParameter("uid");
-		
 		String amount = req.getParameter("amount");
+		
 		CartVO vo = new CartVO();
 		vo.setUserId(uid);
 		vo.setBookNo(Integer.parseInt(bno));
@@ -35,7 +35,6 @@ public class AddCartControl implements Command {
 		Map<String, Object> map = new HashMap<>();
 		
 		CartService svc = new CartServiceImpl();
-		//장바구니에 기존 상품이 있는지 검사
 		
 		if(svc.addCart(vo)) {
 			map.put("vo", vo);
