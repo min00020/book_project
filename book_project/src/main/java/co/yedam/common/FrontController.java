@@ -27,13 +27,10 @@ import co.yedam.board.web.BookGetBoardControl;
 import co.yedam.board.web.BookNoticeControl;
 import co.yedam.board.web.BookReviewControl;
 import co.yedam.board.web.QnaBoardControl;
+import co.yedam.board.web.ReviewDetailControl;
 import co.yedam.board.web.ReviewModifyBoardControl;
 import co.yedam.board.web.ReviewModifyFormControl;
-<<<<<<< HEAD
-=======
-import co.yedam.board.web.QnaBoardControl;
-import co.yedam.board.web.ReviewDetailControl;
->>>>>>> branch 'hyeon' of https://github.com/min00020/book_project.git
+//github.com/min00020/book_project.git
 import co.yedam.board.web.ReviewRemoveBoardControl;
 import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
@@ -48,20 +45,22 @@ import co.yedam.cart.web.ModyfiCartControl;
 import co.yedam.order.web.OrderListControl;
 import co.yedam.order.web.OrderSuressControl;
 import co.yedam.order.web.addOrderControl;
+import co.yedam.order.web.addOrderItemControl;
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
 import co.yedam.user.web.DeleteUserControl;
 import co.yedam.user.web.DeleteUserFormControl;
-import co.yedam.user.web.FindUserControl;
-import co.yedam.user.web.FindUserFormControl;
 import co.yedam.user.web.FindPassControl;
 import co.yedam.user.web.FindPassFormControl;
+import co.yedam.user.web.FindUserControl;
+import co.yedam.user.web.FindUserFormControl;
 import co.yedam.user.web.IdCheckControl;
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
 import co.yedam.user.web.KakaoIdCheckControl;
 import co.yedam.user.web.KakaoJoinControl;
+import co.yedam.user.web.KakaoLoginControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
@@ -69,7 +68,6 @@ import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
 import co.yedam.user.web.OrderUserControl;
-import co.yedam.user.web.KakaoLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -81,8 +79,9 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// 주문
 		map.put("/orderListInfo.do", new OrderListControl()); // 장바구니 주문정보 불러오기
-		map.put("/orderSuress.do", new OrderSuressControl());
-		map.put("/addOrder.do", new addOrderControl());
+		map.put("/orderSuress.do", new OrderSuressControl()); // 주문완료시 페이지
+		map.put("/addOrder.do", new addOrderControl()); // 결제정보입력
+		map.put("/addOrderItem.do", new addOrderItemControl()); // 장바구니 한개씩 저장
 		// 장바구니 
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기

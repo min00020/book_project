@@ -6,7 +6,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>별책부록 주문페이지</title>
+	<title>예담 책방 주문페이지</title>
 	<style>
 		* {
 			margin: 0 auto;
@@ -153,9 +153,9 @@
 					</thead>
 
 					<tbody>
-						<c:forEach items="${cartList }" var="list" varStatus="status">
 
 							<tr id="cno">
+						<c:forEach items="${cartList }" var="list" varStatus="status" id="cartList">
 
 
 								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
@@ -167,9 +167,9 @@
 								<td>${list.cartAmount}개</td>
 
 
+						</c:forEach>
 							</tr>
 
-						</c:forEach>
 					</tbody>
 
 				</table>
@@ -207,7 +207,8 @@
 
 	const merchant_uid = make_merchant_uid();
 
-
+	let list = ['${cartList}'];
+	console.log('테스트' + list);
 
 	/* 우편 주소 api */
 	const addrnum = document.querySelector('#addrnum');
@@ -258,43 +259,7 @@
 				}).open();
 			});
 
-
-	function addOrderA() { // 토스페이
-
-		let name = document.querySelector('#firstName').value;
-		let phone = document.querySelector('#tel').value;
-		let zipcode = document.querySelector('#postcode').value;
-		let addr = document.querySelector('#sample6_address').value;
-		let addrd = document.querySelector('#sample6_detailAddress').value;
-		let totalPrice = '${totalPrice}';
-		let request = document.querySelector('#requestDelivery').children.value;
-
-
-		fetch('addOrder.do', {
-				method: 'post',
-
-				headers: {
-					'Content-type': 'application/x-www-form-urlencoded'
-				},
-
-				body: 'name=' + name + '&phone=' + phone + '&zipcode=' + zipcode + '&addr=' + addr + '&addrd=' +
-					addrd +
-					'&totalPrice=' + totalPrice + '&request=' + request
-
-			})
-
-			.then(resolve => resolve.json())
-
-			.then(result => {
-				if (result.retCode == 'OK') {
-					alert('성공')
-				} else {
-					alert('실패')
-				}
-			}) //end of fetch
-	}
-
-	function addOrderB() { // 신용카드
+	function addOrder() { 
 
 		let name = document.querySelector('#firstName').value;
 		let phone = document.querySelector('#tel').value;
@@ -328,28 +293,24 @@
 				}
 			}) //end of fetch
 	}
+	
+	
+	function addOrderItem() { 
 
-	function addOrderC() { // 카카오페이
-
-		let name = document.querySelector('#firstName').value;
-		let phone = document.querySelector('#tel').value;
-		let zipcode = document.querySelector('#postcode').value;
-		let addr = document.querySelector('#sample6_address').value;
-		let addrd = document.querySelector('#sample6_detailAddress').value;
+		let ocode = '${list.cartCode}';
+		let bno = '${list.bookNo}';
+		let amount = '${list.cartAmount}'
 		let totalPrice = '${totalPrice}';
-		let request = document.querySelector('#requestDelivery').children.value;
+	
 
-
-		fetch('addOrder.do', {
+		fetch('addOrderItem.do', {
 				method: 'post',
 
 				headers: {
 					'Content-type': 'application/x-www-form-urlencoded'
 				},
 
-				body: 'name=' + name + '&phone=' + phone + '&zipcode=' + zipcode + '&addr=' + addr + '&addrd=' +
-					addrd +
-					'&totalPrice=' + totalPrice + '&request=' + request
+				body: 'ocode=' + ocode + '&bno=' + bno + '&amount=' + amount + '&totalPrice=' + totalPrice
 
 			})
 
@@ -357,14 +318,14 @@
 
 			.then(result => {
 				if (result.retCode == 'OK') {
-					alert('성공')
+					alert('아이템 등록 성공')
 				} else {
-					alert('실패')
+					alert('아이템 등록 실패')
 				}
 			}) //end of fetch
 	}
 
-
+	
 
 	/*******************************
 	결제 하기
@@ -392,7 +353,8 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrderA();
+				addOrder();
+				addOrderItem();
 				window.location.href = "orderSuress.do";
 			} else { // 결제 실패시
 				alert("결제 실패");
@@ -418,7 +380,8 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrderB();
+				addOrder();
+				addOrderItem();
 				window.location.href = "orderSuress.do";
 			} else { // 결제 실패시
 				alert("결제 실패");
@@ -444,10 +407,13 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrderC();
+				addOrderItem();
+				addOrder();
 				window.location.href = "orderSuress.do";
 			} else { // 결제 실패시
 				alert("결제 실패");
+				addOrderItem();
+				addOrder();
 				alert(rsp.error_msg);
 				console.log(rsp);
 			}

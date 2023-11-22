@@ -5,7 +5,16 @@
 
 	<insert id="addOrder"
 		parameterType="co.yedam.order.service.OrderVO">
-		insert into order_tbl values(seq_odr_code.nextval, #{userId}, #{userName}, #{odrZipcode}, #{odrAddr}, #{odrAddrD},
+		insert into order_tbl values(seq_odr_code.nextval,
+		#{userId}, #{userName}, #{odrZipcode}, #{odrAddr}, #{odrAddrD},
 		#{odrPhone}, #{odrTotalPrice}, '주문완료', SYSDATE, #{odrRequest} )
+	</insert>
+
+	<insert id="addOrderItem"
+		parameterType="co.yedam.order.service.OrderItemVO">
+		INSERT INTO order_detail_tbl (odr_code, user_id,
+		book_no, odr_amount )
+		SELECT cart_code, user_id, book_no, cart_amount
+		FROM cart_tbl
 	</insert>
 </mapper>

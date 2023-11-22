@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSourceMybatis;
 import co.yedam.order.mapper.OrderMapper;
+import co.yedam.order.service.OrderItemVO;
 import co.yedam.order.service.OrderService;
 import co.yedam.order.service.OrderVO;
 
@@ -16,6 +17,12 @@ public class OrderServiceImpl implements OrderService{
 	public boolean addOrder(OrderVO vo) {
 		// TODO Auto-generated method stub
 		return mapper.addOrder(vo) == 1;
+	}
+
+	@Override
+	public boolean addOrderItem(OrderItemVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.addOrderItem(vo) > 0;
 	}
 
 	
