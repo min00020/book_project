@@ -2,6 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.net.HttpURLConnection"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+#list{
+	width: 200px;
+	height: 200px;
+}
+</style>
+
+
 <h3>web-inf/insta/insta.jsp</h3>
 	<div id="list">
 	</div>
@@ -9,7 +17,7 @@
 	
 <script>
 $.ajax({
-	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRPMTJBSW02aXh2X2xNNU10NnIyMFFZAcVBuNnpHbU8wMzJzWGdhdzVDYVBJYkJhaWEtbnMycjFKUlVZAZAGc4ODdfcVRrMUZAXUjBsZAHFzQXRvd3B0QnBNM1Bid1FXRTRLb29XRWtodXhGNlM5UVRGRUlCclkxWWcZD',
+	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRPalJCbTVRQVFJZA000eEJaOC03bTlYaXo3UmwyeW1iLUlIU0R2OG0yWVB4OVR0QlpuQkQyLU42U1REcDNVUl9iS3l1cW5jWHNITlJoTTAwYnJQNWZA2WmJvTzh3UXhZAY01aWk5QMFRLVkFrQUNtMXFGM2IwdGsZD',
 	  method: 'GET',
 	  dataType: 'jsonp',
 	  success: function (response) {
@@ -17,27 +25,27 @@ $.ajax({
 	    console.log(response);
 	    console.log(response.data);
 	    
-
+/* 
 	    
 	    response.data.forEach(data => {
 	    	let img = document.createElement('img');
 	    	img.src = data.media_url;
 	    	document.getElementById('list').append(img);
 	    	
-	    })
+	    }) */
 	    
 	    const table = document.createElement('table');
 	    const tbody = document.createElement('tbody');
 	    table.setAttribute('border','1');
 
 
-	    response.data.forEach(data => {
 	    	const tr = document.createElement('tr');
+	    response.data.forEach(data => {
 	    		const td1 = document.createElement('td');
-	    		td1.innerHTML = data.media_url;
+	    		td1.innerHTML = '<img src="'+ data.media_url +'" height="100px" width="100px">';;
 	    		tr.appendChild(td1);
-	    	tbody.appendChild(tr);
 	    })
+	    	tbody.appendChild(tr);
 
 	    table.appendChild(tbody);
 	    document.getElementById('list').appendChild(table);
