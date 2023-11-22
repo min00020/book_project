@@ -3,7 +3,7 @@
 <%@page import="java.net.HttpURLConnection"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
-#list{
+#insta{
 	width: 200px;
 	height: 200px;
 }
@@ -11,7 +11,7 @@
 
 
 <h3>web-inf/insta/insta.jsp</h3>
-	<div id="list">
+	<div id="insta">
 	</div>
 	
 	
@@ -30,16 +30,17 @@ $.ajax({
 	    response.data.forEach(data => {
 	    	let img = document.createElement('img');
 	    	img.src = data.media_url;
-	    	document.getElementById('list').append(img);
+	    	document.getElementById('insta').append(img);
 	    	
 	    }) */
 	    
 	    const table = document.createElement('table');
 	    const tbody = document.createElement('tbody');
-	    table.setAttribute('border','1');
+	    table.setAttribute('style','border-spacing: 5px;border-collapse:separate');
+	    //table.setAttribute('border','1');
 
 
-	    	const tr = document.createElement('tr');
+	    const tr = document.createElement('tr');
 	    response.data.forEach(data => {
 	    		const td1 = document.createElement('td');
 	    		td1.innerHTML = '<img src="'+ data.media_url +'" height="100px" width="100px">';;
@@ -48,7 +49,7 @@ $.ajax({
 	    	tbody.appendChild(tr);
 
 	    table.appendChild(tbody);
-	    document.getElementById('list').appendChild(table);
+	    document.getElementById('insta').appendChild(table);
 
 	    
 	    

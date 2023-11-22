@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@page import="java.net.HttpURLConnection"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <style>
 .main-view{
       margin:  auto;
@@ -96,6 +99,13 @@
     0% { transform:translateX(-100%); }
     100% { transform:translateX(0%); }
 }
+
+#insta{
+	width: 1000px; 
+	margin: 0 auto;
+	text-align : center; 
+}
+
 </style>
     <!-- 메인 이미지 -->	
     <div class = "container">
@@ -248,3 +258,60 @@
 		<!-- 상품목록 -->
 	</div>
 </div>
+</div>
+
+<hr>
+	<div id="insta">
+		<a href="https://www.instagram.com/book_yedam/" style = "text-decoration:none; color:black;"><h3>Follow us!</h3></a>
+		
+		<p>예담서점 인스타그램을 팔로우하고 다양한 소식을 더 빠르게 받아보세요.</p>
+	</div>
+	
+	
+<script>
+$.ajax({
+	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRPalJCbTVRQVFJZA000eEJaOC03bTlYaXo3UmwyeW1iLUlIU0R2OG0yWVB4OVR0QlpuQkQyLU42U1REcDNVUl9iS3l1cW5jWHNITlJoTTAwYnJQNWZA2WmJvTzh3UXhZAY01aWk5QMFRLVkFrQUNtMXFGM2IwdGsZD',
+	  method: 'GET',
+	  dataType: 'jsonp',
+	  success: function (response) {
+	    // API 요청이 성공했을 때 실행될 코드
+	    console.log(response);
+	    console.log(response.data);
+	    
+/* 
+	    
+	    response.data.forEach(data => {
+	    	let img = document.createElement('img');
+	    	img.src = data.media_url;
+	    	document.getElementById('insta').append(img);
+	    	
+	    }) */
+	    
+	    const table = document.createElement('table');
+	    const tbody = document.createElement('tbody');
+	    table.setAttribute('style','border-spacing: 10px;border-collapse:separate;margin-left:auto;margin-right:auto;');
+	    //table.setAttribute('border','1');
+
+
+	    const tr = document.createElement('tr');
+	    response.data.forEach(data => {
+	    		const td1 = document.createElement('td');
+	    		td1.innerHTML = '<img src="'+ data.media_url +'" height="100px" width="100px">';;
+	    		tr.appendChild(td1);
+	    })
+	    	tbody.appendChild(tr);
+
+	    table.appendChild(tbody);
+	    document.getElementById('insta').appendChild(table);
+
+	    
+	    
+	  },
+	  error: function (xhr, status, error) {
+	    // API 요청이 실패했을 때 실행될 코드
+	    console.log(xhr.responseText);
+	  }
+	});
+	
+	
+</script>
