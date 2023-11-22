@@ -73,7 +73,9 @@
                                 <hr>
                                 	<!-- Nested Row within Card Body 카드형식 -->
 					                <div class="row">
-					                    <div class="col-lg-5 d-none d-lg-block bg-register-image" id="infoBookImage">도서사진</div>
+					                    <div class="col-lg-5 d-none d-lg-block bg-register-image" id="infoBookImage">
+					                    	<img src="https://i.pinimg.com/originals/b4/d1/9c/b4d19c84919c3880b89c60200ab587ba.png" height="100%" width="100%">
+					                    </div>
 					                    <div class="col-lg-7">
 					                        <div class="p-5">
 					                            <div class="text-center">
@@ -83,31 +85,37 @@
 					                            <form class="user">
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
-					                                        <p class="form-control form-control-user" id="infoBookNo">도서번호</p>
+					                                         <input type="text" class="form-control form-control-user" id="infoBookNo"
+					                                            placeholder="도서번호">
 					                                    </div>
 					                                    <div class="col-sm-6">
-					                                        <p class="form-control form-control-user" id="infoBookType">도서분류</p>
+					                                        <input type="text" class="form-control form-control-user" id="infoBookType"
+					                                            placeholder="도서분류">
 					                                    </div>
 					                                </div>
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
-					                                        <p class="form-control form-control-user" id="infoBookWriter">지은이</p>
+					                                       <input type="text" class="form-control form-control-user"
+					                                            id="infoBookWriter" placeholder="지은이">
 					                                    </div>
 					                                    <div class="col-sm-6">
-					                                        <p class="form-control form-control-user" id="infoBookPublisher">출판사</p>
+					                                        <input type="text" class="form-control form-control-user"
+					                                            id="infoBookPublisher" placeholder="출판사">
 					                                    </div>
 					                                </div>
 					                                <div class="form-group row">
 					                                    <div class="col-sm-6 mb-3 mb-sm-0">
-					                                        <p class="form-control form-control-user" id="infoBookPrice">가 격</p>
+					                                      <input type="text" class="form-control form-control-user"
+					                                            id="infoBookPrice" placeholder="가격">
 					                                    </div>
 					                                    <div class="col-sm-6">
-					                                        <p class="form-control form-control-user" id="infoBookCnt">수 량</p>
+					                                         <input type="text" class="form-control form-control-user"
+					                                            id="infoBookCnt" placeholder="수량">
 					                                    </div>
 					                                </div>
 					                                
 					                                <div class="form-group">
-					                                    <p class="form-control form-control-user" id="infoBookContent" >도서 소개</p>
+					                                    <textarea  class="form-control form-control-user" id="infoBookContent" rows="3">도서 소개</textarea>
 					                                </div>
 					                                <a href="login.html" class="btn btn-primary btn-user btn-block">
 					                                    확 인
@@ -115,7 +123,7 @@
 					                            </form>
 					                            <hr>
 					                            <div class="text-center">
-					                                <a class="small" href="forgot-password.html">도서등록을 원하실 경우 클릭하세요.</a>
+					                                <a class="small" href="insertBook.do">도서등록을 원하실 경우 클릭하세요.</a>
 					                            </div>
 					                        </div>
 					                    </div>
@@ -139,13 +147,12 @@ const checkboxes = document.getElementsByName("check"); //체크박스 전부 �
 
 //상세페이지 위치 선언
 const infoBookTitle = document.querySelector("#infoBookTitle");
-const infoBookNo = document.querySelector("#infoBookNo");
-const infoBookType = document.querySelector("#infoBookType");
+/* const infoBookType = document.querySelector("#infoBookType");
 const infoBookWriter = document.querySelector("#infoBookWriter");
 const infoBookPublisher = document.querySelector("#infoBookPublisher");
 const infoBookPrice = document.querySelector("#infoBookPrice");
 const infoBookCnt = document.querySelector("#infoBookCnt");
-const infoBookContent = document.querySelector("#infoBookContent");
+const infoBookContent = document.querySelector("#infoBookContent"); */
 const infoBookImage = document.querySelector("#infoBookImage");
 
 
@@ -162,15 +169,14 @@ function checkOnlyOne(element){
 	console.log('booklist:',booklist);
 	console.log('booklist1:',booklist.children[1].innerText); //도서번호
 		infoBookTitle.innerHTML = booklist.children[3].innerText;
-		infoBookNo.innerHTML = booklist.children[1].innerText;
-		infoBookType.innerHTML = booklist.children[2].innerText;
-		infoBookWriter.innerHTML = booklist.children[4].innerText;
-		infoBookPublisher.innerHTML = booklist.children[5].innerText;
-		infoBookPrice.innerHTML = booklist.children[6].innerText + '원';
-		infoBookCnt.innerHTML = booklist.children[7].innerText + "개";
-		infoBookContent.innerHTML = booklist.children[9].innerText;
-		//infoBookImage.innerHTML = '<img src="resources/image/'+booklist.children[8].innerText+" width="50%">;
-	
+		document.getElementById("infoBookNo").value = booklist.children[1].innerText;
+		document.getElementById("infoBookType").value = booklist.children[2].innerText;
+		document.getElementById("infoBookWriter").value = booklist.children[4].innerText;
+		document.getElementById("infoBookPublisher").value = booklist.children[5].innerText;
+		document.getElementById("infoBookPrice").value = booklist.children[6].innerText + '원';
+		document.getElementById("infoBookCnt").value = booklist.children[7].innerText + '개';
+		document.getElementById("infoBookContent").value = booklist.children[9].innerText;
+		infoBookImage.innerHTML = '<img src="resources/image/'+booklist.children[8].innerText+'" height="100%" width="100%">';
 }
 
 </script>

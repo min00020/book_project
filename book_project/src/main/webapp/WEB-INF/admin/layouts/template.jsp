@@ -21,7 +21,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="resources/admin/css/sb-admin-2.css" rel="stylesheet">
     
       <!-- Bootstrap core JavaScript-->
     <script src="resources/admin/vendor/jquery/jquery.min.js"></script>
