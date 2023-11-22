@@ -154,10 +154,10 @@
 
 					<tbody>
 
-							<tr id="cno">
-						<c:forEach items="${cartList }" var="list" varStatus="status" id="cartList">
-
-
+							<c:forEach items="${cartList }" var="list" varStatus="status">
+						<tr id="cno">
+							
+							
 								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
 											src="resources/image/${list.bookImage}" id="bookimage">
 
@@ -167,9 +167,9 @@
 								<td>${list.cartAmount}개</td>
 
 
-						</c:forEach>
 							</tr>
 
+							</c:forEach>
 					</tbody>
 
 				</table>
@@ -210,6 +210,7 @@
 	let list = ['${cartList}'];
 	console.log('테스트' + list);
 
+	//console.log('테스트' + '${list.cartCode}')
 	/* 우편 주소 api */
 	const addrnum = document.querySelector('#addrnum');
 	addrnum
@@ -297,9 +298,9 @@
 	
 	function addOrderItem() { 
 
-		let ocode = '${list.cartCode}';
-		let bno = '${list.bookNo}';
-		let amount = '${list.cartAmount}'
+		//let ocode = '${list.cartCode}';
+		//let bno = '${list.bookNo}';
+		//let amount = '${list.cartAmount}'
 		let totalPrice = '${totalPrice}';
 	
 
