@@ -33,11 +33,13 @@
 padding:10px;
 border:1px solid black;
 }
-</style>
 
-<h3>상세화면</h3>
-<form action="reviewModifyForm.do" name="myfrm" id="line">
+</style>
+<div class="container px-4 px-lg-5 mt-5">
+<form action="reviewModifyForm.do" name="myfrm" id="line" style="width:1400px;">
 	<input type="hidden" name="bno" value="${bno.boardNo }">
+	<h3>상세화면</h3>
+	${bno.boardSort }
 	<table class="table">
 		<tr>
 			<th>글번호</th>
@@ -90,7 +92,7 @@ border:1px solid black;
 		</tr>
 	</table>
 </form>
-
+</div>
 <br>
 <div class="container px-4 px-lg-5 mt-5">
 <h3>댓글등록</h3>
@@ -122,7 +124,7 @@ border:1px solid black;
 	let writer = "${id}";
 	bno = document.querySelector('.boardNo').innerHTML;
 	let page = 1;
-	
+ 
 	function showList(pg = 1){
 	document.querySelectorAll('#list li:not(:nth-of-type(1))')
 		.forEach(li => li.remove()); //첫번째 li 요소는 template 용도라서 남겨야함 지우지 않음.
