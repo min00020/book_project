@@ -64,6 +64,9 @@ button {
 	    margin-bottom: 15px;
 	}
 </style>
+<!-- <script>
+ if ()
+</script> -->
 <div class="col-lg-6" id="contain">
 	<!-- Overflow Hidden -->
 	<div class="card mb-4">

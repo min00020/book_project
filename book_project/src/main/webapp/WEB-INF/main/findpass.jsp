@@ -46,7 +46,7 @@
 		<h4 id="top" align="center">비밀번호 찾기</h4>
 		<tr>
 			<th>아이디</th>
-			<td><input type="text" class="form-control" id="id" name="id" placeholder="이름을 입력하세요."></td>
+			<td><input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요."></td>
 		</tr>
 		<tr>
 			<th>전화번호</th>

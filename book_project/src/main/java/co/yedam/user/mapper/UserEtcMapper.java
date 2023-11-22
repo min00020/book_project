@@ -11,6 +11,6 @@ public interface UserEtcMapper {
 	// 사용자별 주문 목록
 	public List<OrderVO> selectorder(@Param("id") String id);
 	// 사용자별 게시판 목록
-	public List<BoardVO> selectqna();
-	public List<BoardVO> selectreview();
+	public List<BoardVO> selectqna(@Param("id") String id);
+	public List<BoardVO> selectreview(@Param("id") String id);
 }

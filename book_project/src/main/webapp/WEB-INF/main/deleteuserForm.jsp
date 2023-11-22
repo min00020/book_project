@@ -8,7 +8,35 @@
 <link href="resources/css/style.css" rel="stylesheet" />
 <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-
+<style>
+input {
+		height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		display:flex; 
+		justify-content: flex-start; 
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	button {
+		height: 35px;
+		width: 120px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
+	form {
+		margin-bottom: 60px;
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+	}
+</style>
 <form action="deleteuser.do" method="post" onsubmit="return deleteuser(this)">
 	<table class="table" align="center">
 	<h4>회원 탈퇴</h4>
@@ -21,11 +49,9 @@
 			<h5>
 				비밀번호 <input type="password" id="pass" name="pass" />
 			</h5>
-			<h5>"${pass }"</h5>
-			<h5>"${id }"</h5>
 		</div>
 		<div>
-			<input type="submit" value="탈퇴하기">
+			<button type="submit">탈퇴하기</button>
 		</div>
 	</table>
 </form>
@@ -39,6 +65,7 @@
 			alert("비밀번호가 일치하지 않습니다.");
 			return false;
 		}
+		return true;
 	}
 </script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

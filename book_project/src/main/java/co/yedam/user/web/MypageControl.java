@@ -39,11 +39,11 @@ public class MypageControl implements Command {
 		req.setAttribute("list", list);
 		
 		// 회원별 게시글 목록 조회// 회원별 qna 게시글 목록
-		List<BoardVO> qlist = usvc.selectqna();
+		List<BoardVO> qlist = usvc.selectqna(userid);
 		req.setAttribute("qlist", qlist);
 		
-		// 회원별 리뷰 게시글 목록
-		List<BoardVO> rlist = usvc.selectreview();
+		// 회원별 리뷰 게시글 목록;
+		List<BoardVO> rlist = usvc.selectreview(userid);
 		req.setAttribute("rlist", rlist);
 		
 		
