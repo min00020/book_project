@@ -17,7 +17,7 @@ public class ReviewRemoveBoardControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		if( svc.removeBoard(Integer.parseInt(bno))) {
 			try {
-				resp.sendRedirect("qnaBoard.do"); //removeform.jsp
+				resp.sendRedirect("bookReview.do"); //removeform.jsp
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

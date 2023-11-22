@@ -36,14 +36,12 @@ public class BookAddBoardControl implements Command {
 								new DefaultFileRenamePolicy()// 리네임 정책
 						);
 				
-				
 				String boardTitle = mr.getParameter("boardTitle");
 				String boardContent = mr.getParameter("boardContent");
 				String boardSort = mr.getParameter("boardSort");
 				String userId = mr.getParameter("userId");
 				String boardImage = mr.getFilesystemName("image");
 				
-
 				vo.setBoardTitle(boardTitle);
 				vo.setBoardContent(boardContent);
 				vo.setBoardSort(boardSort);

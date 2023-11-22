@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 
+<div class="container px-4 px-lg-5 mt-5">
 <h3>공지사항</h3>
 
 <table class="table" border="1">
@@ -33,5 +34,6 @@
 </table>
 
 <p>
-	<a href="bookBoardForm.do">공지 등록</a>
+	<a href="bookBoardForm.do">게시판 등록</a>
 </p>
+</div>

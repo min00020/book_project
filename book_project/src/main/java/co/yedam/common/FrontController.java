@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.admin.web.AddBookControl;
 import co.yedam.admin.web.AdminBookControl;
+import co.yedam.admin.web.AdminChartControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.AdminOrderUpdate;
@@ -28,6 +29,11 @@ import co.yedam.board.web.BookReviewControl;
 import co.yedam.board.web.QnaBoardControl;
 import co.yedam.board.web.ReviewModifyBoardControl;
 import co.yedam.board.web.ReviewModifyFormControl;
+<<<<<<< HEAD
+=======
+import co.yedam.board.web.QnaBoardControl;
+import co.yedam.board.web.ReviewDetailControl;
+>>>>>>> branch 'hyeon' of https://github.com/min00020/book_project.git
 import co.yedam.board.web.ReviewRemoveBoardControl;
 import co.yedam.board.web.ReviewRemoveFormControl;
 import co.yedam.book.web.BookInfoControl;
@@ -47,16 +53,23 @@ import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
 import co.yedam.user.web.DeleteUserControl;
 import co.yedam.user.web.DeleteUserFormControl;
+import co.yedam.user.web.FindUserControl;
+import co.yedam.user.web.FindUserFormControl;
+import co.yedam.user.web.FindPassControl;
+import co.yedam.user.web.FindPassFormControl;
 import co.yedam.user.web.IdCheckControl;
 import co.yedam.user.web.JoinControl;
 import co.yedam.user.web.JoinFormControl;
+import co.yedam.user.web.KakaoIdCheckControl;
+import co.yedam.user.web.KakaoJoinControl;
 import co.yedam.user.web.LoginControl;
 import co.yedam.user.web.LoginFormControl;
 import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
-import co.yedam.user.web.SnsLoginControl;
+import co.yedam.user.web.OrderUserControl;
+import co.yedam.user.web.KakaoLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -87,7 +100,7 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaBoard.do", new QnaBoardControl()); // qna 게시판
 		map.put("/bookReview.do", new BookReviewControl()); // 책 리뷰 게시판
 		map.put("/bookNotice.do", new BookNoticeControl()); // 공지사항
-		
+		map.put("/reviewDetail.do", new ReviewDetailControl()); // 상세페이지 리뷰
 		// 목록 화면
 		map.put("/bookBoardList.do", new BookBoardListControl()); // 댓글 목록
 		map.put("/bookGetBoard.do", new BookGetBoardControl());   // 상세 목록
@@ -113,22 +126,32 @@ public class FrontController extends HttpServlet {
 		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
 
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
-		map.put("/modifyuserForm.do", new ModifyUserFormControl()); /* 회원 정보 수정 화면 마이페이지 생성하면 필요한지 모르겠음*/
+		map.put("/modifyuserForm.do", new ModifyUserFormControl()); /* 회원 정보 수정 화면 */
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
 		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
 		
-		map.put("/snslogin.do", new SnsLoginControl()); /* 카카오 로그인 처리*/
+		map.put("/kakaologin.do", new KakaoLoginControl()); /* 카카오 로그인 처리*/
+		map.put("/kakaoIdCheck.do", new KakaoIdCheckControl()); /* 카카오 로그인 처리*/
+		map.put("/kakaojoin.do", new KakaoJoinControl()); /* 카카오 회원가입 */
+		
+		map.put("/finduser.do", new FindUserControl()); /* 아이디 찾기 */
+		map.put("/finduserForm.do", new FindUserFormControl()); /* 아이디 찾기 화면 */
+		map.put("/findpass.do", new FindPassControl()); /* 비밀번호 찾기 */
+		map.put("/findpassForm.do", new FindPassFormControl()); /* 비밀번호 찾기 화면 */
+		map.put("/orderuser.do", new OrderUserControl()); /* 사용자별 주문 목록 */
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
-		map.put("/chartGender.do", new ChartGenderControl());
+		map.put("/chartGender.do", new ChartGenderControl()); //성별통계
 		
-		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
+		map.put("/adminChart.do", new AdminChartControl()); //차트 페이지
+		
 		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인
 		map.put("/adminOrderUpdate.do", new AdminOrderUpdate()); //주문상태 변경
 		//도서추가
+		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
 		map.put("/addBook.do", new AddBookControl()); //도서 추가
 		//인스타
