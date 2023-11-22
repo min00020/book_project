@@ -8,7 +8,7 @@
 <table class="table" border="1">
 	<thead>
 		<tr>
-			<th>번호</th> <!-- boardNo -->
+			<th>글번호</th> <!-- boardNo -->
 			<th>제목</th>  <!-- boardTitle -->  
 			<th>내용</th>  <!-- boardContent -->
 			<th>작성자</th>  <!-- userId -->

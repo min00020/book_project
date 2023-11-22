@@ -80,7 +80,7 @@ border:1px solid black;
 			<td colspan="4" align="center"><c:choose>
 					<c:when test="${!empty id && id == bno.userId }">
 						<input type="submit" class="btn btn-secondary" value="수정">
-						<input type="button" class="btn btn-secondary" value="삭제">
+						<input type="button" class="btn btn-secondary" value="삭제하시겠습니까?">
 					</c:when>
 					<c:otherwise>
 						<input disabled type="submit" value="수정">

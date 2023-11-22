@@ -17,7 +17,6 @@
 			<th>작성자</th>
 			<th>작성일자</th>
 			<th>조회수</th>
-			<th>별점</th>
 		</tr>
 	<tbody>
 		<c:forEach items="${bookReviewList }" var="vo">
@@ -36,8 +35,6 @@
 	</tbody>
 	
 </table>
-<p>
-	<a href="bookBoardForm.do">게시판 등록</a>
-</p>
+
 </div>
 
