@@ -16,6 +16,7 @@ public interface BoardMapper {
 	public int boardCnt(int boardNo);
 	
 	
+	
 	public List<BoardVO> selectQnaList();
 	
 	public List<BoardVO> selectBookReviewList();

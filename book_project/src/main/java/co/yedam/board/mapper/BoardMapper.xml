@@ -8,19 +8,19 @@
 	</select>
 	
 	<select id="selectQnaList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = 'QnA게시판'ORDER BY BOARD_NO
+		SELECT * FROM BOARD WHERE BOARD_SORT = 'QnA게시판'ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectBookReviewList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'ORDER BY BOARD_NO
+		SELECT * FROM BOARD WHERE BOARD_SORT = '리뷰게시판'ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectBookNoticeList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'ORDER BY BOARD_NO
+		SELECT * FROM BOARD WHERE BOARD_SORT = '공지사항'ORDER BY BOARD_NO DESC
 	</select>
 	
 	<select id="selectDetailList" resultType="co.yedam.board.service.BoardVO">
-		SELECT * FROM BOARD WHERE BOARD_SORT = '상세리뷰'ORDER BY BOARD_NO
+		SELECT * FROM BOARD WHERE BOARD_SORT = '상세리뷰'ORDER BY BOARD_NO DESC
 	</select>
 
 	<select id="select" resultType="co.yedam.board.service.BoardVO"
@@ -39,18 +39,17 @@
 		UPDATE BOARD SET BOARD_CNT = BOARD_CNT+1
 		where board_no = #{boardNo}
 	</update>
-
+	
 	<insert id="insert"
 		parameterType="co.yedam.board.service.BoardVO">
-		INSERT INTO BOARD VALUES
-		(seq_board.nextval,#{bookNo},#{reviewStar},#{boardTitle},
-					#{boardContent},SYSDATE,#{boardSort},#{boardCnt},#{userId},#{boardImage})
+		INSERT INTO BOARD
+		VALUES(seq_board.nextval,#{bookNo},#{reviewStar},#{boardTitle},#{boardContent},SYSDATE,#{boardSort},#{boardCnt},#{userId},#{boardImage})
 	</insert>
 
 	<update id="update" parameterType="co.yedam.board.service.BoardVO">
 		UPDATE BOARD SET
 		BOARD_TITLE=#{boardTitle},
-		BOARD_CONTENT=#{boardContent},
+		BOARD_CONTENT=NVL(#{boardContent}, BOARD_CONTENT),
 		BOARD_IMAGE=NVL(#{boardImage}, BOARD_IMAGE) WHERE BOARD_NO=#{boardNo}
 	</update>
 

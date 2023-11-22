@@ -11,7 +11,7 @@ public interface AdminEtcMapper {
 	public int orderStatus(OrderVO vo); //주문상태변경
 	
 	public int insertBook(BookVO bo); //도서등록
+	public int updateBook(BookVO bo); //도서등록
+	public int deleteBook(int bookNo); //도서삭제
 	
-	
-
 }

@@ -14,16 +14,16 @@
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="userId" class="form-control" value="${vo.userId }"></td>
+				<td><input type="text" name="userId" class="form-control" value="${vo.userId }" readonly></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="2"><textarea class="form-control" name="boardContent"${vo.boardContent }></textarea>
+				<td colspan="2"><textarea class="form-control" name="boardContent">${vo.boardContent }</textarea>
 				</td>
 			</tr>
 			<tr>
-				<th>파일명</th>
-				<td><input type="file" name="image" class="form-control"></td>
+				<th>수정할이미지</th>
+				<td><input type="file" name="image" src="image/${vo.boardImage }" class="form-control"></td>
 			</tr>
 			<tr>
 			<td colspan="2" align="center">

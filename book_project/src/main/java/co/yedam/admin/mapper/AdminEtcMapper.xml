@@ -15,7 +15,19 @@
 	<!-- 도서 등록 도서추가 -->
 	<insert id="insertBook" parameterType="co.yedam.book.service.BookVO">
 		INSERT INTO BOOK 
-		VALUES ((SELECT NVL(Max(#{bookNo}),0) +1 FROM BOOK), #{bookTitle}, #{bookWriter}, #{bookPublisher}, #{bookPrice}, #{bookCnt}, #{bookImage}, #{bookSort}, #{bookContent}, #{bookType});
+		VALUES (SEQ_BOOK_NO.nextval, #{bookTitle}, #{bookWriter}, #{bookPublisher}, #{bookPrice}, 
+				#{bookCnt}, #{bookImage}, #{bookSort}, #{bookContent})
 	</insert>
+	<!-- 도서 수정 -->
+	<insert id="updateBook" parameterType="co.yedam.book.service.BookVO">
+		UPDATE BOOK SET BOOK_WRITER=#{bookWriter}, BOOK_PUBLISHER=#{bookPublisher}, 
+		BOOK_PRICE=#{bookPrice}, BOOK_CNT=#{bookCnt},BOOK_SORT=#{bookSort}, BOOK_CONTENT=#{bookContent}
+		WHERE BOOK_NO = #{bookNo}
+	</insert>
+	
+	<!-- 도서 삭제 -->
+	<delete id="deleteBook" parameterType="int">
+		DELETE FROM BOOK WHERE BOOK_NO = #{bookNo}
+	</delete>
 
 </mapper>

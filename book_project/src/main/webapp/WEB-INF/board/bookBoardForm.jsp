@@ -28,13 +28,12 @@ padding:10px;
 		<tr>
 			<td>
 			<select name="boardSort" id="sort">
-					<option value="리뷰게시판">리뷰게시판</option>
 					<option value="QnA게시판">QnA게시판</option>
 					<option value="공지사항">공지사항</option>
+					<option value="리뷰게시판">리뷰게시판</option>
 			</select>
 			</td>
 		</tr>
-		
 		<tr>
 			<th>제목</th>
 			<td><input type="text" name="boardTitle" class="form-control"></td>

@@ -20,7 +20,7 @@
 	padding: 8px 16px;
 	text-decoration: none;
 }
-
+ 
 .pagination a.active {
 	background-color: #4CAF50;
 	color: white;
@@ -33,11 +33,13 @@
 padding:10px;
 border:1px solid black;
 }
-</style>
 
-<h3>상세화면</h3>
-<form action="reviewModifyForm.do" name="myfrm" id="line">
+</style>
+<div class="container px-4 px-lg-5 mt-5">
+<form action="reviewModifyForm.do" name="myfrm" id="line" style="width:1400px;">
 	<input type="hidden" name="bno" value="${bno.boardNo }">
+	<h3>상세화면</h3>
+	${bno.boardSort }
 	<table class="table">
 		<tr>
 			<th>글번호</th>
@@ -53,7 +55,7 @@ border:1px solid black;
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td colspan="4"><textarea rows="5" cols="140">${bno.boardContent }</textarea></td>
+			<td colspan="4"><textarea rows="5" cols="140" readonly>${bno.boardContent }</textarea></td>
 		</tr>
 		<tr>
 			<th>이미지</th>
@@ -80,7 +82,7 @@ border:1px solid black;
 			<td colspan="4" align="center"><c:choose>
 					<c:when test="${!empty id && id == bno.userId }">
 						<input type="submit" class="btn btn-secondary" value="수정">
-						<input type="button" class="btn btn-secondary" value="삭제">
+						<input type="button" class="btn btn-secondary" value="삭제하시겠습니까?">
 					</c:when>
 					<c:otherwise>
 						<input disabled type="submit" value="수정">
@@ -90,7 +92,7 @@ border:1px solid black;
 		</tr>
 	</table>
 </form>
-
+</div>
 <br>
 <div class="container px-4 px-lg-5 mt-5">
 <h3>댓글등록</h3>
@@ -107,8 +109,8 @@ border:1px solid black;
 	<li style="display: none;" id="template"><span>00</span><b>첫번째글입니다.</b><span>user01</span><span>2023-06-24</span>
 		<button id="delReply">삭제</button></li>
 </ul>
-</div>
 <div class="pagination"></div>
+</div>
 
 <script>
 	document.querySelector("input[type=button]").addEventListener('click',
@@ -122,7 +124,7 @@ border:1px solid black;
 	let writer = "${id}";
 	bno = document.querySelector('.boardNo').innerHTML;
 	let page = 1;
-	
+ 
 	function showList(pg = 1){
 	document.querySelectorAll('#list li:not(:nth-of-type(1))')
 		.forEach(li => li.remove()); //첫번째 li 요소는 template 용도라서 남겨야함 지우지 않음.

@@ -12,30 +12,60 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
-	#login 
+	input {
+		height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		display:flex; 
+		justify-content: flex-start; 
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	button {
+		height: 35px;
+		width: 90px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
+	#top {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	form {
+		margin-bottom: 60px;
+	}
 </style>
 <form action="login.do" method="post" onsubmit="return loginCheck(this)" >
 <hr>
 	<table class="table" align="center">
-		<h4 align="center">로그인</h4>
+		<h3 align="center" id="top">로그인</h3>
 		<tr>
-			<th>아이디</th>
+			<th style="font-size: large;">아이디</th>
 			<td><input type="text" class="form-control" id="id" name="id"></td>
 		</tr>
 		<tr>
-			<th>비밀번호</th>
+			<th style="font-size: large;">비밀번호</th>
 			<td><input type="password" class="form-control" id="pass" name="pass"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" id="login" value="로그인"></td>
-			<td><input type="button" onclick="location.href='joinForm.do'" value="회원가입"></td>
+			<td align="center" colspan="2">
+			<button type="submit" id="login" >로그인</button>
+			<button type="button" onclick="location.href='joinForm.do'">회원가입</button>
+			</td>
 		</tr>
 		<tr>
-			<td><a href="finduserForm.do">아이디 찾기</a></td>
-			<td><a href="findpassForm.do">비밀번호 찾기</a></td>
+			<td align="center" colspan="2">
+				<a style="font-size: small" href="finduserForm.do">아이디 찾기</a>
+				<a style="font-size: small" href="findpassForm.do">비밀번호 찾기</a>
+			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td colspan="2" align="center">
 				<a id="kakao-login-btn" href="javascript:loginWithKakao()">
 					<img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
 				</a>

@@ -12,13 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.admin.web.AddBookControl;
 import co.yedam.admin.web.AdminBookControl;
+import co.yedam.admin.web.AdminChartControl;
 import co.yedam.admin.web.AdminControl;
 import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartGenderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.DeleteBookControl;
 import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
+import co.yedam.admin.web.UpdateBookControl;
 import co.yedam.board.web.BookAddBoardControl;
 import co.yedam.board.web.BookBoardFormControl;
 import co.yedam.board.web.BookBoardListControl;
@@ -73,8 +76,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// 주문
-		map.put("/orderListInfo.do", new OrderListControl());
-
+		map.put("/orderListInfo.do", new OrderListControl()); // 장바구니 주문정보 불러오기
 		// 장바구니 
 		map.put("/cartListInfo.do", new CartListControl()); // 장바구니 목록
 		map.put("/addCart.do", new AddCartControl()); // 장바구니 담기
@@ -136,14 +138,19 @@ public class FrontController extends HttpServlet {
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
 		map.put("/chartMonthPrice.do", new ChartMonthPriceCont()); //월별 판매금액 차트
-		map.put("/chartGender.do", new ChartGenderControl());
+		map.put("/chartGender.do", new ChartGenderControl()); //성별통계
 		
-		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
+		map.put("/adminChart.do", new AdminChartControl()); //차트 페이지
+		
 		map.put("/adminOrder.do", new AdminOrderControl()); //주문목록확인
 		map.put("/adminOrderUpdate.do", new AdminOrderUpdate()); //주문상태 변경
 		//도서추가
+		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
 		map.put("/addBook.do", new AddBookControl()); //도서 추가
+		map.put("/updateBook.do", new UpdateBookControl() );//도서 수정)
+		map.put("/deleteBook.do", new DeleteBookControl() );//도서 수정
+		
 		//인스타
 		map.put("/insta.do", new InstaControl());
 

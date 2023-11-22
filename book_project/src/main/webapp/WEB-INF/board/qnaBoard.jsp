@@ -8,7 +8,7 @@
 <table class="table" border="1">
 	<thead>
 		<tr>
-			<th>번호</th> <!-- boardNo -->
+			<th>글번호</th> <!-- boardNo -->
 			<th>제목</th>  <!-- boardTitle -->  
 			<th>내용</th>  <!-- boardContent -->
 			<th>작성자</th>  <!-- userId -->
@@ -25,7 +25,7 @@
 				<td>${vo.boardContent }</td>
 				<td>${vo.userId }</td>
 				<td><fmt:formatDate value="${vo.boardDate }"
-						pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
+						pattern="yyyy-MM-dd"></fmt:formatDate></td>
 				<td>${vo.boardCnt }</td>		
 			</tr>
 		</c:forEach>
