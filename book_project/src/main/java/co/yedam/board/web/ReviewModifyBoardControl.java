@@ -23,7 +23,7 @@ public class ReviewModifyBoardControl implements Command {
 
 
 		} else if (req.getMethod().equals("POST")) {
-			String saveDir = req.getServletContext().getRealPath("images");
+			String saveDir = req.getServletContext().getRealPath("image");
 			int size = 5 * 1024 * 1024;
 			// multiparRequest mr;
 			try {
