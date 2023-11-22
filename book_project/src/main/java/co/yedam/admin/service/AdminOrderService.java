@@ -10,5 +10,7 @@ public interface AdminOrderService {
 	public boolean orderStatus(OrderVO vo); //주문상태변경-주문완료
 	
 	public boolean addBook(BookVO vo); //도서 추가
+	public boolean updateBook(BookVO vo); //도서 정보 수정
+	public boolean deleteBook(int bookNo); //도서 삭제
 	
 }
