@@ -112,7 +112,7 @@
 			</c:forEach>
 		</div>
 	</div>
-<<<<<<< HEAD
+
 	<div class="container px-4 px-lg-5 mt-5">
 		<div class="wrap_review">
 			<h2>리뷰 작성</h2>
@@ -139,8 +139,6 @@
 		</div>
 	</div>
 
-=======
->>>>>>> branch 'hyeon' of https://github.com/min00020/book_project.git
 	<div class="container px-4 px-lg-5 mt-5">
 	 <h3>리뷰등록</h3>
 	<form name="reviewform" class="reviewform">

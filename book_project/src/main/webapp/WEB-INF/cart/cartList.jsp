@@ -5,20 +5,16 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 
 <link rel="stylesheet"
 	href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-
-
-
 <link
 	href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 	rel="stylesheet">
 
 <link href="resources/css/style.css" rel="stylesheet" />
 
-<jsp:include page="../layouts/header.jsp"></jsp:include>
 <!-- 포트원 결제 -->
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <!-- jQuery -->
@@ -28,6 +24,7 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <!-- 포트원 결제 -->
+<jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
 form {
 	border-collapse: collapse;
@@ -171,6 +168,7 @@ button.button {
 	border-radius: 5px;
 	transition: all 0.2s;
 }
+
 a.button {
 	display: block;
 	position: relative;
@@ -203,96 +201,98 @@ a.button {
 	class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
 
-		<c:choose>
-			<c:when test="${empty cartList || empty id }">
+	<c:choose>
+		<c:when test="${empty cartList || empty id }">
+			<h1 class="title">${id}님의장바구니</h1>
+			<table>
+
+				<thead>
+
+					<tr>
+						<th colspan="7" style="text-align: center;">상품정보</th>
+
+					</tr>
+
+				</thead>
+
+				<tbody>
+					<tr style="text-align: center;">
+						<td colspan="8"><h3>장바구니가 비었습니다.</h3></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</c:when>
+		<c:otherwise>
+			<table>
 				<h1 class="title">${id}님의장바구니</h1>
-				<table>
 
-					<thead>
 
-						<tr>
-							<th colspan="7" style="text-align: center;">상품정보</th>
+				<thead>
+
+					<tr>
+						<th colspan="7" style="text-align: center;">상품정보</th>
+
+					</tr>
+
+				</thead>
+
+				<tbody>
+					<c:forEach items="${cartList }" var="list" varStatus="status">
+
+						<tr id="cno">
+
+
+							<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
+									src="resources/image/${list.bookImage}" id="bookimage">
+
+							</a></td>
+							<td>${list.bookTitle }</td>
+
+							<td><select name="amount" id="${status.count }"
+								onchange="fn_check(this,${list.cartCode });"
+								style="max-width: 3rem">
+
+									<option class="list-Amountsum" value="${list.cartAmount}">${list.cartAmount}</option>
+
+									<c:forEach begin="1" end="10" var="i">
+
+										<option id="amount-item" data-value="${list.cartAmount }"
+											value="${i}">${i}</option>
+
+									</c:forEach>
+							</select>개</td>
+
+							<td><fmt:formatNumber value="${list.bookPrice}"
+									pattern="###,###,###" />원</td>
+
+							<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
+
+							<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
+
+							<td><button class="delete"
+									onclick="location.href='deleteCart.do?cno=${list.cartCode}'">삭제하기</button></td>
 
 						</tr>
 
-					</thead>
+					</c:forEach>
+				</tbody>
 
-					<tbody>
-						<tr style="text-align: center;">
-							<td colspan="8"><h3>장바구니가 비었습니다.</h3></td>
-						</tr>
-					</tbody>
-				</table>
-
-			</c:when>
-			<c:otherwise>
-				<table>
-					<h1 class="title">${id}님의장바구니</h1>
-
-
-					<thead>
-
-						<tr>
-							<th colspan="7" style="text-align: center;">상품정보</th>
-
-						</tr>
-
-					</thead>
-
-					<tbody>
-						<c:forEach items="${cartList }" var="list" varStatus="status">
-
-							<tr id="cno">
-
-
-								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
-										src="resources/image/${list.bookImage}" id="bookimage">
-
-								</a></td>
-								<td>${list.bookTitle }</td>
-
-								<td><select name="amount" id="${status.count }"
-									onchange="fn_check(this,${list.cartCode });"
-									style="max-width: 3rem">
-
-										<option class="list-Amountsum" value="${list.cartAmount}">${list.cartAmount}</option>
-
-										<c:forEach begin="1" end="10" var="i">
-
-											<option id="amount-item" data-value="${list.cartAmount }"
-												value="${i}">${i}</option>
-
-										</c:forEach>
-								</select>개</td>
-
-								<td><fmt:formatNumber value="${list.bookPrice}"
-										pattern="###,###,###" />원</td>
-
-								<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
-
-								<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
-
-								<td><button class="delete"
-										onclick="location.href='deleteCart.do?cno=${list.cartCode}'">삭제하기</button></td>
-
-							</tr>
-
-						</c:forEach>
-					</tbody>
-
-				</table>
-				<div>
-					<div class="sum">
-						<h1 class="totalAmount-sum">수량 개</h1>
-						<h1 class="totalPrice-sum">금액 0원</h1>
-						<a href="main.do" title="Button fade lightblue"
-							class="button btnFade btnLightBlue">쇼핑계속하기</a>
-						<button class="button btnFade btnBlueGreen" id="tttt">주문하기</button>
-					</div>
-
+			</table>
+			<div>
+				<div class="sum">
+					<h1 class="totalAmount-sum">수량 개</h1>
+					<h1 class="totalPrice-sum">금액 0원</h1>
+					<a href="main.do" title="Button fade lightblue"
+						class="button btnFade btnLightBlue">쇼핑계속하기</a>
+					<button class="button btnFade btnBlueGreen" id="tttt">주문하기</button>
+					<button class="button btnFade btnBlueGreen"
+						onclick="deleteAllCart()">장바구니 비우기</button>
 				</div>
-			</c:otherwise>
-		</c:choose>
+
+			</div>
+		</c:otherwise>
+	</c:choose>
 </div>
 
 <script>
@@ -325,6 +325,28 @@ function fn_check(ths,code){
 		})//end of fetch
 }
 
+function deleteAllCart(){ 
+
+	
+		fetch('deleteAllCart.do', {
+
+			method: 'post',
+
+			headers: {'Content-type': 'application/x-www-form-urlencoded'},
+
+		})
+
+		.then(resolve => resolve.json())
+
+		.then(result =>{
+
+			if(result.retCode == 'OK'){
+				location.href = location.href;
+			} else{
+				console.log('삭제 실패')
+			}
+		})//end of fetch
+}
 
 
 
@@ -364,8 +386,8 @@ function fn_check(ths,code){
 	document.getElementById('tttt').addEventListener('click', (e) => {
 		
 		console.log("orderListInfo.do?totalPrice=" + totalPrice);
-		console.log(window.location.href);
 		window.location.href =  "orderListInfo.do?totalPrice=" + totalPrice;  
+		console.log(window.location.href);
 	})
 
 //<fmt:formatNumber value="${list.bookPrice}" pattern="###,###,###" />  -- 금액 단위 

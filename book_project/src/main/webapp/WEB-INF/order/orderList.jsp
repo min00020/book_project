@@ -5,93 +5,93 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>예담 책방 주문페이지</title>
-	<style>
-		* {
-			margin: 0 auto;
-			text-align: center;
-		}
+<meta charset="UTF-8">
+<title>예담 책방 주문페이지</title>
+<style>
+* {
+	margin: 0 auto;
+	text-align: center;
+}
 
-		body {
-			width: 500px;
-		}
+body {
+	width: 500px;
+}
 
-		table {
-			width: 100%;
-			text-align: center;
-			border: 1px solid #fff;
-			border-spacing: 1px;
-			font-family: 'Cairo', sans-serif;
-			margin: auto;
-		}
+table {
+	width: 100%;
+	text-align: center;
+	border: 1px solid #fff;
+	border-spacing: 1px;
+	font-family: 'Cairo', sans-serif;
+	margin: auto;
+}
 
-		caption {
-			font-weight: bold;
-		}
+caption {
+	font-weight: bold;
+}
 
-		table td {
-			padding: 10px;
-			background-color: #eee;
-		}
+table td {
+	padding: 10px;
+	background-color: #eee;
+}
 
-		table th {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-		}
+table th {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+}
 
-		#bookimage {
-			width: 100px;
-			height: 100px;
-		}
+#bookimage {
+	width: 100px;
+	height: 100px;
+}
 
-		.view,
-		.delete {
-			border: none;
-			padding: 5px 10px;
-			color: #fff;
-			font-weight: bold;
-		}
+.view, .delete {
+	border: none;
+	padding: 5px 10px;
+	color: #fff;
+	font-weight: bold;
+}
 
-		.delete {
-			background-color: #E91E63;
-		}
+.delete {
+	background-color: #E91E63;
+}
 
-		.tablefoot {
-			padding: 0;
-			border-bottom: 3px solid #009688;
-		}
+.tablefoot {
+	padding: 0;
+	border-bottom: 3px solid #009688;
+}
 
-		input[type=text],
-		[type=email] {
-			width: 100%;
-			padding: 12px 20px;
-			margin: 8px 0;
-			box-sizing: border-box;
-		}
+input[type=text], [type=email] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
 
-		#paymentBtn button {
-			display: block;
-			position: relative;
-			float: left;
-			width: 120px;
-			padding: 0;
-			margin: 10px 20px 10px 0;
-			font-weight: 600;
-			text-align: center;
-			line-height: 50px;
-			color: #FFF;
-			border-radius: 5px;
-			transition: all 0.2s;
-			background: #5DC8CD;
-		}
-	</style>
+#paymentBtn button {
+	display: block;
+	position: relative;
+	float: left;
+	width: 120px;
+	padding: 0;
+	margin: 10px 20px 10px 0;
+	font-weight: 600;
+	text-align: center;
+	line-height: 50px;
+	color: #FFF;
+	border-radius: 5px;
+	transition: all 0.2s;
+	background: #5DC8CD;
+}
+</style>
 
-	<!-- jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<!-- iamport.payment.js -->
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 </head>
 
 <body>
@@ -105,39 +105,34 @@
 				<div class="col-12"></div>
 
 				<div class="col-12">
-					<label for="firstName" class="form-label">이름</label> <input type="text" class="form-control"
-						id="firstName" placeholder="" value="${userInfo.userName }" required>
+					<label for="firstName" class="form-label">이름</label> <input
+						type="text" class="form-control" id="firstName" placeholder=""
+						value="${userInfo.userName }" required>
 				</div>
 
 				<div class="col-12">
-					<label for="firstName" class="form-label">전화번호</label> <input type="text" class="form-control"
-						id="tel" placeholder="" value="${userInfo.userPhone }" required>
+					<label for="firstName" class="form-label">전화번호</label> <input
+						type="text" class="form-control" id="tel" placeholder=""
+						value="${userInfo.userPhone }" required>
 				</div>
 
 				<div class="col-12">
-					<label for="email" class="form-label">이메일</label> <input type="email" class="form-control"
-						id="email" placeholder="you@example.com" value="${userInfo.userEmail }">
+					<label for="email" class="form-label">이메일</label> <input
+						type="email" class="form-control" id="email"
+						placeholder="you@example.com" value="${userInfo.userEmail }">
 				</div>
 
 				<div class="col-12">
 					<input type="button" id="addrnum" value="주소 찾기">
 					<p></p>
 					<input type="text" id="postcode" name="postcode" placeholder="우편번호"
-						value="${userInfo.userAddrnum }"> <input type="text" id="sample6_address" name="addr"
-						placeholder="주소" value="${userInfo.userAddr }"><br> <input type="text"
+						value="${userInfo.userAddrnum }"> <input type="text"
+						id="sample6_address" name="addr" placeholder="주소"
+						value="${userInfo.userAddr }"><br> <input type="text"
 						id="sample6_detailAddress" name="addr" placeholder="상세주소">
-					<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+					<input type="text" id="requestD" placeholder="요청사항">
 				</div>
 
-				<div class="col-12">
-					<select name="fruit" class="form-control" id="requestDelivery">
-						<option value="" disabled selected>배송 요청 사항을 선택하세요</option>
-						<option value="배송 전 연락바랍니다.">배송 전 연락바랍니다.</option>
-						<option value="부재시 휴대전화로 연락주세요.">부재시 휴대전화로 연락주세요.</option>
-						<option value="부재시 경비실에 맡겨주세요.">부재시 경비실에 맡겨주세요.</option>
-						<option value="부재시 문앞에 놓아주세요.">부재시 문앞에 놓아주세요.</option>
-					</select>
-				</div>
 				<br>
 				<table>
 
@@ -154,22 +149,23 @@
 
 					<tbody>
 
-							<c:forEach items="${cartList }" var="list" varStatus="status">
-						<tr id="cno">
-							
-							
-								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
-											src="resources/image/${list.bookImage}" id="bookimage">
+						<c:forEach items="${cartList }" var="list" varStatus="status">
 
-									</a></td>
+							<tr class="cno">
+								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
+										src="resources/image/${list.bookImage}" id="bookimage">
+
+								</a></td>
+								<td>${list.cartCode }</td>
+								<td>${list.bookNo }</td>
 								<td>${list.bookTitle }</td>
 
-								<td>${list.cartAmount}개</td>
+								<td>${list.cartAmount}</td>
 
 
 							</tr>
 
-							</c:forEach>
+						</c:forEach>
 					</tbody>
 
 				</table>
@@ -177,8 +173,9 @@
 				<br>
 				<div id="paymentBtn">
 					<h4 class="mb-3">결제수단</h4>
-					<input type="button" value="토스" onclick="tossPay()"> <input type="button" value="신용카드"
-						onclick="cardPay()"> <input type="button" value="카카오페이" onclick="kakaoPay()">
+					<input type="button" value="토스" onclick="tossPay()"> <input
+						type="button" value="신용카드" onclick="cardPay()"> <input
+						type="button" value="카카오페이" onclick="kakaoPay()">
 				</div>
 			</form>
 			<a href="javascript:history.back();">돌아가기</a>
@@ -188,10 +185,12 @@
 
 
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 <script>
 	const make_merchant_uid = () => {
 		const current_time = new Date();
@@ -207,10 +206,12 @@
 
 	const merchant_uid = make_merchant_uid();
 
-	let list = ['${cartList}'];
-	console.log('테스트' + list);
+	let cartList = '${cartList}';
+	console.log('테스트', cartList);
+	
+	let totalPrice = '${totalPrice}';
 
-	//console.log('테스트' + '${list.cartCode}')
+	    
 	/* 우편 주소 api */
 	const addrnum = document.querySelector('#addrnum');
 	addrnum
@@ -254,7 +255,7 @@
 						document
 							.getElementById("sample6_address").value = addr;
 						document.getElementById(
-								"sample6_detailAddress")
+								"requestD")
 							.focus();
 					}
 				}).open();
@@ -268,7 +269,7 @@
 		let addr = document.querySelector('#sample6_address').value;
 		let addrd = document.querySelector('#sample6_detailAddress').value;
 		let totalPrice = '${totalPrice}';
-		let request = document.querySelector('#requestDelivery').children.value;
+		let request = document.querySelector('#requestD').InnerText;
 
 
 		fetch('addOrder.do', {
@@ -288,43 +289,14 @@
 
 			.then(result => {
 				if (result.retCode == 'OK') {
-					alert('성공')
+					alert('addOrder 성공')
 				} else {
-					alert('실패')
+					alert('addOrder 실패')
 				}
 			}) //end of fetch
 	}
 	
 	
-	function addOrderItem() { 
-
-		//let ocode = '${list.cartCode}';
-		//let bno = '${list.bookNo}';
-		//let amount = '${list.cartAmount}'
-		let totalPrice = '${totalPrice}';
-	
-
-		fetch('addOrderItem.do', {
-				method: 'post',
-
-				headers: {
-					'Content-type': 'application/x-www-form-urlencoded'
-				},
-
-				body: 'ocode=' + ocode + '&bno=' + bno + '&amount=' + amount + '&totalPrice=' + totalPrice
-
-			})
-
-			.then(resolve => resolve.json())
-
-			.then(result => {
-				if (result.retCode == 'OK') {
-					alert('아이템 등록 성공')
-				} else {
-					alert('아이템 등록 실패')
-				}
-			}) //end of fetch
-	}
 
 	
 
@@ -354,11 +326,10 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrder();
-				addOrderItem();
-				window.location.href = "orderSuress.do";
+				addOrder();  // 결제정보등록
+				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
+				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
 			} else { // 결제 실패시
-				alert("결제 실패");
 				alert(rsp.error_msg);
 				console.log(rsp);
 			}
@@ -381,11 +352,10 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrder();
-				addOrderItem();
-				window.location.href = "orderSuress.do";
+				addOrder();  // 결제정보등록
+				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
+				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
 			} else { // 결제 실패시
-				alert("결제 실패");
 				alert(rsp.error_msg);
 				console.log(rsp);
 			}
@@ -408,18 +378,102 @@
 		}, function (rsp) { // callback
 			if (rsp.success) { // 결제성공시 로직
 				alert("결제 성공");
-				addOrderItem();
-				addOrder();
-				window.location.href = "orderSuress.do";
+				addOrder();  // 결제정보등록
+				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
+				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
+				deleteAllCart(); // 장바구니 초기화
 			} else { // 결제 실패시
-				alert("결제 실패");
-				addOrderItem();
-				addOrder();
 				alert(rsp.error_msg);
 				console.log(rsp);
 			}
 		});
 	}
+
+	//장바구니 상품  주문상품에 담기
+	function addOrderItem() { 
+
+		let elements = document.querySelectorAll('.cno'); // 클래스명이 "cno"인 모든 요소를 선택
+		for (let i = 0; i < elements.length; i++) {
+		    let ocode = elements[i].children[1].innerText; // 각 요소의 두 번째 자식 요소 선택
+		    let bno = elements[i].children[2].innerText;
+		    let amount = elements[i].children[4].innerText;
+		    
+		let totalPrice = '${totalPrice}';
+
+		fetch('addOrderItem.do', {
+				method: 'post',
+
+				headers: {
+					'Content-type': 'application/x-www-form-urlencoded'
+				},
+
+				body: 'ocode=' + ocode + '&bno=' + bno + '&amount=' + amount + '&totalPrice=' + totalPrice
+
+			})
+
+			.then(resolve => resolve.json())
+
+			.then(result => {
+				if (result.retCode == 'OK') {
+					console.log('아이템 등록 성공')
+				} else {
+					console.log('아이템 등록 실패')
+				}
+			}) //end of fetch
+	}
+}
+	
+	function orderListInfo(){ 
+
+		let totalPrice = '${totalPrice}';
+		
+		fetch('orderSuress.do', {
+
+			method: 'post',
+
+			headers: {'Content-type': 'application/x-www-form-urlencoded'},
+			
+			body: 'totalPrice=' + totalPrice
+		})
+
+		.then(resolve => resolve.json())
+
+		.then(result =>{
+
+			if(result.retCode == 'OK'){
+				console.log('이동');
+			} else{
+				
+			}
+		})//end of fetch
+	}
+	
+
+	
+	
+	// 장바구니 초기화
+	function deleteAllCart(){ 
+
+		
+		fetch('deleteAllCart.do', {
+
+			method: 'post',
+
+			headers: {'Content-type': 'application/x-www-form-urlencoded'},
+
+		})
+
+		.then(resolve => resolve.json())
+
+		.then(result =>{
+
+			if(result.retCode == 'OK'){
+				window.location.href = window.location.href;
+			} else{
+				alert('삭제 실패')
+			}
+		})//end of fetch
+}
 </script>
 
 </html>

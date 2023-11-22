@@ -8,6 +8,7 @@ public interface CartService {
 	
 	public boolean addCart(CartVO vo);
 	public boolean deleteCart(int cartCode);
+	public boolean deleteAllCart(String id);
 	public boolean modifyCart(CartVO vo);
 
 
