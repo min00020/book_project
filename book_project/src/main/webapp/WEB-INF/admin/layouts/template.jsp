@@ -21,7 +21,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="resources/admin/css/sb-admin-2.css" rel="stylesheet">
     
       <!-- Bootstrap core JavaScript-->
     <script src="resources/admin/vendor/jquery/jquery.min.js"></script>
@@ -32,6 +32,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="resources/admin/js/sb-admin-2.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 </head>
 

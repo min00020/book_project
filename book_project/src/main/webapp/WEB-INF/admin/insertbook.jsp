@@ -59,13 +59,13 @@
                                             	<td><textarea class="form-control form-control-user" cols="40" rows="5" name="content"></textarea></td>
                                         </tr>
                                 </table>
-                                <div style=" text-align: center;">
+                                <div style="text-align: center;">
 										<input type="submit" class="btn btn-primary" value="저장">
 										<input type="reset" class="btn btn-warning" value="초기화">
                                 </div>
                                 
                                 <hr>
-                                 <div style=" text-align: center;">
+                              <!--    <div style="text-align: center;">
 			                                     <a href="#" class="btn btn-primary btn-icon-split" value="저장">
 			                                        <span class="icon text-white-50">
 			                                            <i class="fas fa-check"></i>
@@ -78,7 +78,7 @@
 			                                        </span>
 			                                        <span class="text" id="reset">초기화</span>
 			                                    </a>
-		                                </div>
+		                           </div> -->
                              </form>
                             </div>
                         </div>

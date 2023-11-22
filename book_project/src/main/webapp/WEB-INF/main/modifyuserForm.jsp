@@ -10,15 +10,49 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+<style>
+	#top {
+		margin-top: 30px;
+			margin-bottom: 30px;
+	}
+	h5 {
+		width: 102px;
+	}
+	body {
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+    }
+    input {
+    	height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		margin-bottom: 6px;
+		justify-content: flex-start;
+	}
+	div{
+		display: flex;
+	}
+    button {
+		height: 35px;
+		width: 90px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 30px;
+	    margin-bottom: 15px;
+	}
+	form {
+		margin: 0 auto;
+		margin-bottom: 60px;
+	}
+</style>
 <body>
 	<form action="modifyuser.do" method="post" onsubmit="return modifyCheck(this)">
-		<h3>회원 정보 수정</h3>
+		<h3 id="top" align="center">회원 정보 수정</h3>
 		<div id="id">
 			<h5>아이디</h5>
 			<input type="text" readonly name="id" value="${vo.userId }" />
@@ -39,16 +73,7 @@
 		<div id="joinemail">
 			<h5>이메일</h5>
 			<input type="text" placeholder="이메일 입력" name="email"
-				value="${vo.userEmail }" /> <input class="box" disabled
-				id="domain_text" /> <select id="domain_list" name="emaildomain">
-				<option disabled value="type" selected>선택하세요.</option>
-				<option value="@naver.com">naver.com</option>
-				<option value="@daum.net">daum.net</option>
-				<option value="@hanmail.net">hanmail.net</option>
-				<option value="@google.com">google.com</option>
-				<option value="@nate.com">nate.com</option>
-				<option value="@type">직접 입력</option>
-			</select>
+				value="${vo.userEmail }" /> 
 		</div>
 		<div>
 			<h5>전화번호</h5>
@@ -58,9 +83,12 @@
 			<h5>주소지 입력</h5>
 			<input type="text" id="postcode" name="postcode" value="${vo.userAddrnum }"> 
 			<input type="button" id="addrnum" value="우편번호 찾기"><br> 
-			<input type="text" id="sample6_address" name="addr" value="${vo.userAddr }"><br>
-			<input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
-		<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+			<!-- <input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
+			<input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+		</div>
+		<div>
+			<h5>주소</h5> 
+			<input type="text" id="sample6_address" name="addr" value="${vo.userAddr }">
 		</div>
 		<div class="info" id="info_bir">
 			<h5>생년월일</h5>
@@ -70,9 +98,8 @@
 			<h5>성별</h5>
 			<input type="text" readonly value="${vo.userGender }">
 		</div>
-		<hr>
-		<div id="modify">
-			<input type="submit" value="수정">
+		<div id="modify" align="center">
+			<button type="submit">수정</button>
 			<button type="reset">초기화</button>
 		</div>
 	</form>
@@ -94,7 +121,7 @@ addrnum.addEventListener('click', function goPopup() {
             } else { 
                 addr = data.jibunAddress;
             }
-            if(data.userSelectedType === 'R'){
+            /* if(data.userSelectedType === 'R'){
                 if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
                     extraAddr += data.bname;
                 }
@@ -108,10 +135,10 @@ addrnum.addEventListener('click', function goPopup() {
             
             } else {
                 document.getElementById("sample6_extraAddress").value = '';
-            }
+            } */
             document.getElementById('postcode').value = data.zonecode;
             document.getElementById("sample6_address").value = addr;
-            document.getElementById("sample6_detailAddress").focus();
+            /* document.getElementById("sample6_detailAddress").focus(); */
         }
     }).open();
 });
