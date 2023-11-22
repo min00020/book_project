@@ -5,7 +5,6 @@
 <style>
 
 </style>
-
 <div class="container px-4 px-lg-5 mt-5">
 <h3>책 리뷰</h3>
 <table class="table" border="1">
@@ -30,14 +29,12 @@
 					<td><fmt:formatDate value="${vo.boardDate }"
 							 pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate></td>
 					<td>${vo.boardCnt }</td>
-					
+                    
 				</tr>
 		</c:forEach>
 	</tbody>
 	
 </table>
 
-<p>
-	<a href="bookBoardForm.do">게시판 등록</a>
-</p>
 </div>
+

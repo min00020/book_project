@@ -39,12 +39,11 @@
 		UPDATE BOARD SET BOARD_CNT = BOARD_CNT+1
 		where board_no = #{boardNo}
 	</update>
-
+	
 	<insert id="insert"
 		parameterType="co.yedam.board.service.BoardVO">
-		INSERT INTO BOARD VALUES
-		(seq_board.nextval,#{bookNo},#{reviewStar},#{boardTitle},
-					#{boardContent},SYSDATE,#{boardSort},#{boardCnt},#{userId},#{boardImage})
+		INSERT INTO BOARD
+		VALUES(seq_board.nextval,#{bookNo},#{reviewStar},#{boardTitle},#{boardContent},SYSDATE,#{boardSort},#{boardCnt},#{userId},#{boardImage})
 	</insert>
 
 	<update id="update" parameterType="co.yedam.board.service.BoardVO">
