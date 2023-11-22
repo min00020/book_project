@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td colspan="2"><textarea class="form-control" name="boardContent"${vo.boardContent }></textarea>
+				<td colspan="2"><textarea class="form-control" name="boardContent">${vo.boardContent }</textarea>
 				</td>
 			</tr>
 			<tr>

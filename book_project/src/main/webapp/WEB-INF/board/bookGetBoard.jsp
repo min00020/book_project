@@ -53,7 +53,7 @@ border:1px solid black;
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td colspan="4"><textarea rows="5" cols="140">${bno.boardContent }</textarea></td>
+			<td colspan="4"><textarea rows="5" cols="140" readonly>${bno.boardContent }</textarea></td>
 		</tr>
 		<tr>
 			<th>이미지</th>

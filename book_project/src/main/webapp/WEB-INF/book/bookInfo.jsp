@@ -134,7 +134,7 @@
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td><input type="text" name="bookTitle" class="form-control"></td>
+			<td><input type="text" name="bookTitle" class="form-control" value="${bno.bookTitle }"></td>
 		</tr>
 		<tr>
 			<th>작성자</th>
