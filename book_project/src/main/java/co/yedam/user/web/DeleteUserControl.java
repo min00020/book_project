@@ -20,8 +20,6 @@ public class DeleteUserControl implements Command {
 		System.out.println("pw: " + pw);
 
 		UserServiceImpl svc = new UserServiceImpl();
-		
-		System.out.println(svc.removeUser(id, pw));
 
 		if (svc.removeUser(id, pw)) {
 			try {
