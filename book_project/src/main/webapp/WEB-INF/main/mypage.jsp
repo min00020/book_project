@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
@@ -10,6 +11,16 @@
 #contain {
 	margin: auto;
 }
+button {
+		height: 35px;
+		width: 120px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
 </style>
 <div class="col-lg-6" id="contain">
 	<!-- Overflow Hidden -->
@@ -52,7 +63,7 @@
 								<td>${vo.odrTotalPrice }</td>
 								<td>${vo.odrStatus }</td>
 								<td>${vo.paymentStatus }</td>
-								<td>${vo.odrDate }</td>
+								<td><fmt:formatDate value="${vo.odrDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
 							</tr>
 						</c:forEach>
 						</c:otherwise>
@@ -71,30 +82,59 @@
 		<div class="card-body">
 			<form action="orderuser.do" method="post">
 				<table>
-					
 					<tbody>
 					<c:choose>
-						<c:when test="${empty list }">
+						<c:when test="${empty qlist }">
 							<p>내가 쓴 글이 없습니다.</p>
 						</c:when>
 						<c:otherwise>
 							<thead>
+								<tr>QnA 게시판</tr>
 								<tr>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
+									<th>게시판 번호</th>
+									<th>리뷰 제목</th>
+									<th>리뷰 내용</th>
+									<th>등록 날짜</th>
+									<th>글쓴이</th>
 								</tr>
 							</thead>
-						<c:forEach items="${list}" var="vo">
+						<c:forEach items="${qlist}" var="vo">
 							<tr>
-								<td>${vo}</td>
+								<td>${vo.boardNo}</td>
+								<td>${vo.boardTitle}</td>
+								<td>${vo.boardContent}</td>
+								<td><fmt:formatDate value="${vo.boardDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+								<td>${vo.userId}</td>
+							</tr>
+						</c:forEach>
+						</c:otherwise>
+						</c:choose>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
+					<c:choose>
+						<c:when test="${empty rlist }">
+							<p>내가 쓴 글이 없습니다.</p>
+						</c:when>
+						<c:otherwise>
+							<thead>
+								<tr>리뷰 게시판</tr>
+								<tr>
+									<th>게시판 번호</th>
+									<th>리뷰 제목</th>
+									<th>리뷰 내용</th>
+									<th>등록 날짜</th>
+									<th>글쓴이</th>
+								</tr>
+							</thead>
+						<c:forEach items="${rlist}" var="vo">
+							<tr>
+								<td>${vo.boardNo}</td>
+								<td>${vo.boardTitle}</td>
+								<td>${vo.boardContent}</td>
+								<td><fmt:formatDate value="${vo.boardDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+								<td>${vo.userId}</td>
 							</tr>
 						</c:forEach>
 						</c:otherwise>
@@ -165,10 +205,8 @@
 				</div>
 			</form>
 			<div class="card-body text-center">
-				<input type="button"
-					onclick="location.href='modifyuserForm.do?id=${id }'"
-					value="회원 정보 수정"> <input type="button"
-					onclick="location.href='deleteuserForm.do?id=${id }'" value="회원 탈퇴">
+				<button type="button" onclick="location.href='modifyuserForm.do?id=${id }'">회원 정보 수정</button> 
+				<button type="button" onclick="location.href='deleteuserForm.do?id=${id }'">회원 탈퇴</button>
 			</div>
 		</div>
 	</div>
