@@ -80,14 +80,14 @@
 			<input type="text" name="pnum" value="${vo.userPhone }">
 		</div>
 		<div>
-			<h5>주소지 입력</h5>
+			<h5>우편 번호</h5>
 			<input type="text" id="postcode" name="postcode" value="${vo.userAddrnum }"> 
 			<input type="button" id="addrnum" value="우편번호 찾기"><br> 
 			<!-- <input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
 			<input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
 		</div>
 		<div>
-			<h5>주소</h5> 
+			<h5>상세 주소</h5> 
 			<input type="text" id="sample6_address" name="addr" value="${vo.userAddr }">
 		</div>
 		<div class="info" id="info_bir">

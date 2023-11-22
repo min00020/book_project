@@ -11,6 +11,48 @@
 #contain {
 	margin: auto;
 }
+#top {
+		margin-top: 30px;
+			margin-bottom: 30px;
+	}
+	h5 {
+		font-size: small;
+		width: 102px;
+	}/* 
+	body {
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+    } */
+    #row {
+    display: flex;}
+    input {
+    	height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		margin-bottom: 6px;
+		justify-content: flex-start;
+	}
+    button {
+		height: 35px;
+		width: 90px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 30px;
+	    margin-bottom: 15px;
+	}
+	form {
+		margin: 0 auto;
+		margin-bottom: 60px;
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+	}
 button {
 		height: 35px;
 		width: 120px;
@@ -152,58 +194,44 @@ button {
 			<h6 class="m-0 font-weight-bold text-primary">회원정보수정</h6>
 		</div>
 		<div class="card-body">
-			<form action="modifyuser.do" method="post" onsubmit="return joinCheck(this)">
-				<div id="id">
-					<h5>
-						아이디 <input readonly type="text" name="id" value="${vo.userId }" />
-					</h5>
-				</div>
-				<div>
-					<h5>
-						비밀번호 <input readonly type="password" id="pw1" name="pw1"
-							value="${vo.userPass }" />
-					</h5>
-
-				</div>
-				<div id="name">
-					<h5>
-						이름 <input readonly type="text" id="name" name="name"
-							value="${vo.userName }" />
-					</h5>
-
-				</div>
-				<div id="joinemail">
-					<h5>
-						이메일 <input readonly type="text" placeholder="이메일 입력" name="email"
-							value="${vo.userEmail }" />
-					</h5>
-
-				</div>
-				<div>
-					<h5>
-						전화번호 <input readonly type="text" name="pnum"
-							value="${vo.userPhone }">
-					</h5>
-
-				</div>
-				<div>
-					<h5>주소</h5>
-					<input type="text" readonly id="postcode" name="postcode"
-						value="${vo.userAddrnum }"> <br> <input readonly
-						type="text" id="sample6_address" name="addr"
-						value="${vo.userAddr }"><br>
-					<div class="info" id="info_bir">
-						<h5>
-							생년월일 <input value="${vo.userBir }">
-						</h5>
-					</div>
-					<div id="gender">
-						<h5>
-							성별 <input value="${vo.userGender }">
-						</h5>
-					</div>
-				</div>
-			</form>
+			<form action="modifyuser.do" method="post" onsubmit="return modifyCheck(this)">
+		<h4 id="top" align="center">회원 정보 수정</h4>
+		<div id="row">
+			<h5>아이디</h5>
+			<input type="text" readonly name="id" value="${vo.userId }" />
+		</div>
+		<div id="row">
+			<h5>이름</h5>
+			<input type="text" readonly id="name" name="name" value="${vo.userName }" />
+		</div>
+		<div id="row">
+			<h5>이메일</h5>
+			<input type="text" placeholder="이메일 입력" name="email"
+				value="${vo.userEmail }" /> 
+		</div>
+		<div id="row">
+			<h5>전화번호</h5>
+			<input type="text" name="pnum" value="${vo.userPhone }">
+		</div>
+		<div id="row">
+			<h5>우편 번호</h5>
+			<input readonly type="text" id="postcode" name="postcode" value="${vo.userAddrnum }">
+			<!-- <input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
+			<input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+		</div>
+		<div id="row">
+			<h5>상세 주소</h5> 
+			<input readonly type="text" id="sample6_address" name="addr" value="${vo.userAddr }">
+		</div>
+		<div id="row" id="info_bir">
+			<h5>생년월일</h5>
+			<input readonly value="${vo.userBir }">
+		</div>
+		<div id="row">
+			<h5>성별</h5>
+			<input type="text" readonly value="${vo.userGender }">
+		</div>
+	</form>
 			<div class="card-body text-center">
 				<button type="button" onclick="location.href='modifyuserForm.do?id=${id }'">회원 정보 수정</button> 
 				<button type="button" onclick="location.href='deleteuserForm.do?id=${id }'">회원 탈퇴</button>
