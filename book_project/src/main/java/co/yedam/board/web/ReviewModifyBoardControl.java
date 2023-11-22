@@ -39,10 +39,15 @@ public class ReviewModifyBoardControl implements Command {
 				String boardTitle = mr.getParameter("boardTitle");
 				String boardContent = mr.getParameter("boardContent");
 				String boardImage = mr.getFilesystemName("boardImage");
+				
+				
+				vo.setBoardContent(boardContent);
+				
+			
+				
 
 				vo.setBoardNo(Integer.parseInt(bno));
 				vo.setBoardTitle(boardTitle);
-				vo.setBoardContent(boardContent);
 				vo.setBoardImage(boardImage);
 
 			} catch (IOException e) {

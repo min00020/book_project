@@ -56,12 +56,15 @@ public class BookAddBoardControl implements Command {
 				else {
 					vo.setBoardTitle(bookTitle);
 				}
-				if(vo != null) {
+				
+				if(boardContent != null) {
 					vo.setBoardContent(boardContent);
-					vo.setBoardSort(boardSort);
-					vo.setUserId(userId);
-					vo.setBoardImage(boardImage);					
 				}
+				
+				vo.setBoardSort(boardSort);
+				vo.setUserId(userId);
+				vo.setBoardImage(boardImage);					
+				
 				vo.setReviewStar(0); // 별점
 				vo.setBoardCnt(0);  //조회수
 				
