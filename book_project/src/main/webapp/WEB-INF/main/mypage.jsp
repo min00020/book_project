@@ -110,7 +110,6 @@ window.onload = function() {
 									<th>전화번호</th>
 									<th>주문 금액</th>
 									<th>주문 상태</th>
-									<th>결제 방식</th>
 									<th>주문 날짜</th>
 								</tr>
 							</thead>

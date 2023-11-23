@@ -32,7 +32,6 @@ public class OrderListControl implements Command {
 		String totalAmount = req.getParameter("amount");
 		
 		req.setAttribute("cartList", list);
-		System.out.println(list);
 		req.setAttribute("userInfo", vo);
 		req.setAttribute("totalPrice", totalPrice);
 		req.setAttribute("amount", totalAmount);
