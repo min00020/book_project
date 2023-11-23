@@ -13,7 +13,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
+<link rel="icon" href="resources/image/예담책방.png"> 
+<meta charset="UTF-8">
+<title>예담책방</title>
+
 <meta name="description"
 	content="Free open source Tailwind CSS Store template">
 <meta name="keywords"

@@ -222,7 +222,7 @@ window.onload = function() {
 		</div>
 		<div class="card-body">
 		<form action="modifyuser.do" id="modify" method="post" onsubmit="return modifyCheck(this)">
-		<h4 id="top" align="center">회원 정보 수정</h4>
+		<h4 id="top" align="center">회원 정보</h4>
 		<div id="row">
 			<h5>아이디</h5>
 			<input type="text" readonly name="id" value="${vo.userId }" />
@@ -233,12 +233,12 @@ window.onload = function() {
 		</div>
 		<div id="row">
 			<h5>이메일</h5>
-			<input type="text" placeholder="이메일 입력" name="email"
+			<input type="text" placeholder="이메일 입력" name="email" readonly
 				value="${vo.userEmail }" /> 
 		</div>
 		<div id="row">
 			<h5>전화번호</h5>
-			<input type="text" name="pnum" value="${vo.userPhone }">
+			<input type="text" name="pnum" readonly value="${vo.userPhone }">
 		</div>
 		<div id="row">
 			<h5>우편 번호</h5>

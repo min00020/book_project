@@ -14,8 +14,9 @@ form {
 	margin: 1rem auto;
 	background-color: white;
 }
+
 table {
-	width: 300px;
+	width: 500px;
 	text-align: center;
 	border: 1px solid #fff;
 	border-spacing: 1px;
@@ -42,89 +43,84 @@ table th {
 	width: 200px;
 	height: 200px;
 }
-
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 <div class="px-4 py-1 my-5 text-center">
-	<h4 class="fw-bold text-body-emphasis mb-3">구매가 정상적으로 완료되었습니다!</h4>
+	<h1 class="fw-bold text-body-emphasis mb-3">구매가 정상적으로 완료되었습니다!</h4>
+	<br>
 	<div class="d-flex justify-content-center">
 		<hr class="w-50">
 	</div>
 	<div class="col-lg-6 mx-auto">
 		<div class="d-grid gap-6 d-sm-flex justify-content-between py-5">
 			<div>
-				<h5>${id} 님의 주문목록</h5>
+				<h1>${id}님의 주문목록</h5>
 				<form>
-				<table>
+					<table>
 
-					<thead>
+						<thead>
 
-						<tr>
-							<th colspan="7" style="text-align: center;" class="title"></th>
+							<tr>
+								<th>이미지</th>
+								<th>도서 이름</th>
+								<th>수량</th>
+								<th>가격</th>
+							</tr>
 
-						</tr>
+						</thead>
 
-					</thead>
+						<tbody>
+							<c:forEach items="${orderList }" var="list" varStatus="status">
 
-					<tbody>
-						<c:forEach items="${orderList }" var="list" varStatus="status">
-
-						<tr id="cno">
-
-
-							<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
-									src="resources/image/${list.bookImage}" id="bookimage">
-
-							</a></td>
-							<td>${list.bookTitle }</td>
+								<tr id="cno">
 
 
-							<td><fmt:formatNumber value="${list.bookPrice}"
-									pattern="###,###,###" />원</td>
+									<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
+											src="resources/image/${list.bookImage}" id="bookimage">
 
-							<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
+									</a></td>
+									<td>${list.bookTitle }</td>
+									<td>${list.cartAmount }</td>
 
-						</tr>
 
-					</c:forEach>
+									<td><fmt:formatNumber value="${list.bookPrice}"
+											pattern="###,###,###원" /></td>
 
-					</tbody>
 
-				</table>
+								</tr>
+
+							</c:forEach>
+
+						</tbody>
+
+					</table>
 				</form>
 			</div>
 			<div>
 				<h5></h5>
 			</div>
 		</div>
-		<div class="d-grid gap-6 d-sm-flex justify-content-between py-5">
-			<div>
-				<h5>주문번호</h5>
-				<a></a>
-			</div>
-			<div>
-				<h5></h5>
+		<div class="d-flex justify-content-center">
+			<hr class="w-50">
+		</div>
+
+		<div class="col-lg-6 mx-auto">
+			<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+				<input type="button" value="마이페이지로 가기" onclick="mypage()"> <input
+					type="button" value="메인으로 가기" onclick="main()">
 			</div>
 		</div>
-		<div class="d-grid gap-6 d-sm-flex justify-content-between py-5">
-			<div>
-				<h5>결제금액</h5>
-				<a>${totalPrice }</a>
-			</div>
-		</div>
-	</div>
-	<div class="d-flex justify-content-center">
-		<hr class="w-50">
 	</div>
 
-	<div class="col-lg-6 mx-auto">
-		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-				<input type="button" value="마이페이지로 가기" onclick="mypage()">
-				<input type="button" value="메인으로 가기" onclick="main()">
-		</div>
-	</div>
-</div>
-
-<script>
+	<script>
 
 //장바구니 초기화
 function main(){ 
@@ -146,7 +142,6 @@ function main(){
 			location.href =  "main.do";
 		} else{
 			location.href =  "main.do";
-			console.log('삭제 실패')
 		}
 	})//end of fetch
 }

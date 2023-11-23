@@ -264,11 +264,10 @@ a.button {
 							</select>개</td>
 
 							<td><fmt:formatNumber value="${list.bookPrice}"
-									pattern="###,###,###" />원</td>
+									pattern="###,###,###원" /></td>
 
-							<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
-
-							<!-- 삭제 버튼을 누르면 delete.do로 장바구니 개별 id (삭제하길원하는 장바구니 id)를 보내서 삭제한다. -->
+							<td><fmt:formatNumber value="${list.cartAmount * list.bookPrice}"
+									pattern="###,###,###원"/><a class="list-Pricesum" style="display:none;">${list.cartAmount * list.bookPrice}</a></td>
 
 							<td><button class="delete"
 									onclick="location.href='deleteCart.do?cno=${list.cartCode}'">삭제하기</button></td>
