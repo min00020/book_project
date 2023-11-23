@@ -5,9 +5,9 @@
 		select * from order_tbl where user_id=#{id}
 	</select>
 	<select id="selectqna" resultType="co.yedam.board.service.BoardVO">
-		select * from board where board_sort='QnA게시판'
+		select * from board where board_sort='QnA게시판' and user_id=#{id}
 	</select>
 	<select id="selectreview" resultType="co.yedam.board.service.BoardVO">
-		select * from board where board_sort='리뷰게시판'
+		select * from board where board_sort='리뷰게시판' and user_id=#{id}
 	</select>
 </mapper>

@@ -40,13 +40,13 @@
 		margin-bottom: 60px;
 	}
 </style>
-<form action="findpass.do" method="post">
+<form action="findpass.do" method="post" onsubmit="return findpw(this)">
 <hr>
 	<table class="table" align="center">
 		<h4 id="top" align="center">비밀번호 찾기</h4>
 		<tr>
 			<th>아이디</th>
-			<td><input type="text" class="form-control" id="id" name="id" placeholder="이름을 입력하세요."></td>
+			<td><input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요."></td>
 		</tr>
 		<tr>
 			<th>전화번호</th>
@@ -54,10 +54,23 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-			<button type="submit" id="findpw">비밀번호 찾기</button>
+			<button type="submit">비밀번호 찾기</button>
 			<button type="button" onclick="location.href='loginForm.do'">로그인 페이지</button>
 			</td>
 		</tr>
 	</table>
 </form>
+<script>
+function findpw(obj) {
+	if (!obj.id.value || obj.id.value.trim().length === 0) {
+		alert("아이디가 입력되지 않았습니다.");
+		return false;
+	}
+	if (!obj.phone.value || obj.phone.value.trim().length === 0) {
+		alert("전화번호가 입력되지 않았습니다.");
+		return false;
+	}
+	return true;
+}
+</script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

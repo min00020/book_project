@@ -40,6 +40,20 @@
 		margin-bottom: 60px;
 	}
 </style>
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const loginSuccessParam = urlParams.get('loginSuccess');
+    const joinSuccessParam = urlParams.get('joinSuccess');
+
+    if (loginSuccessParam === 'false') {
+        alert("로그인에 실패하였습니다.");
+    }
+    if (joinSuccessParam === 'true') {
+        alert("회원가입에 성공하였습니다.");
+    }
+};
+</script>
 <form action="login.do" method="post" onsubmit="return loginCheck(this)" >
 <hr>
 	<table class="table" align="center">

@@ -20,18 +20,17 @@ public class DeleteUserControl implements Command {
 		System.out.println("pw: " + pw);
 
 		UserServiceImpl svc = new UserServiceImpl();
-		
-		System.out.println(svc.removeUser(id, pw));
 
 		if (svc.removeUser(id, pw)) {
 			try {
-				resp.sendRedirect("mypage.do");
+				resp.sendRedirect("main.do");
+				req.getSession().invalidate();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.sendRedirect("deleteuserForm.do");
+				resp.sendRedirect("deleteuserForm.do?deleteSuccess="+false);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
