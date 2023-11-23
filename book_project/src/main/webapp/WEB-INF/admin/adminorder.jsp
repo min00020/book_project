@@ -45,7 +45,6 @@
                                             <td>전화번호</td>
                                             <td>주문금액</td>
                                             <td>주문상태</td>
-                                            <td>결제수단</td>
                                             <td>주문일자</td>
                                         </tr>
                                     </thead>
@@ -57,7 +56,6 @@
                                             <td>전화번호</td>
                                             <td>주문금액</td>
                                             <td>주문상태</td>
-                                            <td>결제수단</td>
                                             <td>주문일자</td>
                                         </tr>
                                     </tfoot>
@@ -71,7 +69,6 @@
                                             <td>${vo.odrPhone }</td>
                                             <td>${vo.odrTotalPrice }</td>
                                             <td>${vo.odrStatus }</td>
-                                            <td>${vo.paymentStatus }</td>
                                             <td>${vo.odrDate }</td>
                                         </tr>
                                     </c:forEach>
