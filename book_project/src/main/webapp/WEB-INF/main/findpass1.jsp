@@ -9,6 +9,21 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
+<style>
+h5 {
+	margin: 20px;
+}
+	button {
+		height: 35px;
+		width: 120px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
+</style>
 <form action="findpass.do" method="post">
 <hr>
 	<table class="table" align="center">
@@ -21,18 +36,17 @@
 				<h5 align="center">비밀번호 ${pw.userPass }</h5>
 			</tr>
 			<tr>
-			<td><input type="button" onclick="location.href='loginForm.do'" value="로그인"></td>
+			<td><button type="button" onclick="location.href='loginForm.do'">로그인</button></td>
 			</tr>
 		</c:when>
-		<c:otherwise>
+		<c:when test="${empty vo }">
 			<tr>
-				<h5 align="center">회원 정보가 없습니다.</h5>
+				<h5 align="center">일치하는 회원 정보가 없습니다.</h5>
 			</tr>
 			<tr>
-			<td><input type="button" onclick="location.href='findPassForm.do'" value="이전 페이지"></td>
+			<td><button type="button" onclick="location.href='findpassForm.do'">이전 페이지</button></td>
 			</tr>
-	
-		</c:otherwise>
+		</c:when>
 	</c:choose>
 	</table>
 </form>

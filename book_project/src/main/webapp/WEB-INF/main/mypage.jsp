@@ -1,16 +1,89 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <link href="resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
 <jsp:include page="../layouts/header.jsp"></jsp:include>
 <style>
-#contain {
+  div#contain {
+	width: 800px;
 	margin: auto;
 }
+#top {
+		margin-top: 30px;
+			margin-bottom: 30px;
+	}
+	h5 {
+		font-size: small;
+		width: 102px;
+	}
+	hr {
+		margin: 10 10;
+	}
+    #row {
+    display: flex;}
+    input {
+    	height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		margin-bottom: 6px;
+		justify-content: flex-start;
+	}
+    button {
+		height: 35px;
+		width: 90px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 30px;
+	    margin-bottom: 15px;
+	}
+	form {
+		margin: 0 auto;
+		margin-bottom: 60px;
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: left;
+	}
+	form#modify {
+		margin: 0 auto;
+		margin-bottom: 60px;
+		margin: auto;
+		display: flex; 
+	    flex-direction: column; 
+	    align-items: center;
+	}
+button {
+		height: 35px;
+		width: 120px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
 </style>
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const kakaooutSuccessParam = urlParams.get('kakaooutSuccess');
+    const modifySuccessParam = urlParams.get('modifySuccess');
+
+    if (kakaooutSuccessParam === 'false') {
+        alert("카카오 회원 탈퇴에 실패하였습니다.");
+    }
+    if (modifySuccessParam === 'true') {
+        alert("회원 정보 수정에 성공하였습니다.");
+    }
+};
+</script>
 <div class="col-lg-6" id="contain">
 	<!-- Overflow Hidden -->
 	<div class="card mb-4">
@@ -50,7 +123,8 @@
 								<td>${vo.odrPhone }</td>
 								<td>${vo.odrTotalPrice }</td>
 								<td>${vo.odrStatus }</td>
-								<td>${vo.odrDate }</td>
+								<td>${vo.paymentStatus }</td>
+								<td><fmt:formatDate value="${vo.odrDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
 							</tr>
 						</c:forEach>
 						</c:otherwise>
@@ -69,30 +143,67 @@
 		<div class="card-body">
 			<form action="orderuser.do" method="post">
 				<table>
-					
 					<tbody>
+					<tr>QnA 게시판</tr>
+					<hr>
 					<c:choose>
-						<c:when test="${empty list }">
+						<c:when test="${empty qlist }">
 							<p>내가 쓴 글이 없습니다.</p>
 						</c:when>
 						<c:otherwise>
 							<thead>
+								
 								<tr>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
-									<th></th>
+									<th>게시판 번호</th>
+									<th>리뷰 제목</th>
+									<th>리뷰 내용</th>
+									<th>등록 날짜</th>
+									<th>글쓴이</th>
 								</tr>
 							</thead>
-						<c:forEach items="${list}" var="vo">
+						<c:forEach items="${qlist}" var="vo">
 							<tr>
-								<td>${vo}</td>
+								<td>${vo.boardNo}</td>
+								<td>${vo.boardTitle}</td>
+								<td>${vo.boardContent}</td>
+								<td><fmt:formatDate value="${vo.boardDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+								<td>${vo.userId}</td>
+							</tr>
+						</c:forEach>
+						</c:otherwise>
+						</c:choose>
+					</tbody>
+				</table>
+				</form>
+				</div>
+				<div class="card-body">
+				<form>
+				<table>
+					<tbody>
+					<tr>리뷰 게시판</tr>
+					<hr>
+					<c:choose>
+						<c:when test="${empty rlist }">
+							<p>내가 쓴 글이 없습니다.</p>
+						</c:when>
+						<c:otherwise>
+							<thead>
+								
+								<tr>
+									<th>게시판 번호</th>
+									<th>리뷰 제목</th>
+									<th>리뷰 내용</th>
+									<th>등록 날짜</th>
+									<th>글쓴이</th>
+								</tr>
+							</thead>
+						<c:forEach items="${rlist}" var="vo">
+							<tr>
+								<td>${vo.boardNo}</td>
+								<td>${vo.boardTitle}</td>
+								<td>${vo.boardContent}</td>
+								<td><fmt:formatDate value="${vo.boardDate}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+								<td>${vo.userId}</td>
 							</tr>
 						</c:forEach>
 						</c:otherwise>
@@ -100,8 +211,9 @@
 					</tbody>
 				</table>
 			</form>
+			</div>
 		</div>
-	</div>
+	
 	<!-- Overflow Hidden -->
 	<c:choose>
 	<c:when test="${!empty id }">
@@ -110,67 +222,61 @@
 			<h6 class="m-0 font-weight-bold text-primary">회원정보수정</h6>
 		</div>
 		<div class="card-body">
-			<form action="modifyuser.do" method="post" onsubmit="return joinCheck(this)">
-				<div id="id">
-					<h5>
-						아이디 <input readonly type="text" name="id" value="${vo.userId }" />
-					</h5>
-				</div>
-				<div>
-					<h5>
-						비밀번호 <input readonly type="password" id="pw1" name="pw1"
-							value="${vo.userPass }" />
-					</h5>
-
-				</div>
-				<div id="name">
-					<h5>
-						이름 <input readonly type="text" id="name" name="name"
-							value="${vo.userName }" />
-					</h5>
-
-				</div>
-				<div id="joinemail">
-					<h5>
-						이메일 <input readonly type="text" placeholder="이메일 입력" name="email"
-							value="${vo.userEmail }" />
-					</h5>
-
-				</div>
-				<div>
-					<h5>
-						전화번호 <input readonly type="text" name="pnum"
-							value="${vo.userPhone }">
-					</h5>
-
-				</div>
-				<div>
-					<h5>주소</h5>
-					<input type="text" readonly id="postcode" name="postcode"
-						value="${vo.userAddrnum }"> <br> <input readonly
-						type="text" id="sample6_address" name="addr"
-						value="${vo.userAddr }"><br>
-					<div class="info" id="info_bir">
-						<h5>
-							생년월일 <input value="${vo.userBir }">
-						</h5>
-					</div>
-					<div id="gender">
-						<h5>
-							성별 <input value="${vo.userGender }">
-						</h5>
-					</div>
-				</div>
-			</form>
+		<form action="modifyuser.do" id="modify" method="post" onsubmit="return modifyCheck(this)">
+		<h4 id="top" align="center">회원 정보 수정</h4>
+		<div id="row">
+			<h5>아이디</h5>
+			<input type="text" readonly name="id" value="${vo.userId }" />
+		</div>
+		<div id="row">
+			<h5>이름</h5>
+			<input type="text" readonly id="name" name="name" value="${vo.userName }" />
+		</div>
+		<div id="row">
+			<h5>이메일</h5>
+			<input type="text" placeholder="이메일 입력" name="email"
+				value="${vo.userEmail }" /> 
+		</div>
+		<div id="row">
+			<h5>전화번호</h5>
+			<input type="text" name="pnum" value="${vo.userPhone }">
+		</div>
+		<div id="row">
+			<h5>우편 번호</h5>
+			<input readonly type="text" id="postcode" name="postcode" value="${vo.userAddrnum }">
+			<!-- <input type="text" id="sample6_detailAddress" name="addr" placeholder="상세주소"> 
+			<input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+		</div>
+		<div id="row">
+			<h5>상세 주소</h5> 
+			<input readonly type="text" id="sample6_address" name="addr" value="${vo.userAddr }">
+		</div>
+		<div id="row" id="info_bir">
+			<h5>생년월일</h5>
+			<input readonly value="${vo.userBir }">
+		</div>
+		<div id="row">
+			<h5>성별</h5>
+			<input type="text" readonly value="${vo.userGender }">
+		</div>
+	</form>
 			<div class="card-body text-center">
-				<input type="button"
-					onclick="location.href='modifyuserForm.do?id=${id }'"
-					value="회원 정보 수정"> <input type="button"
-					onclick="location.href='deleteuserForm.do?id=${id }'" value="회원 탈퇴">
+				<button type="button" onclick="location.href='modifyuserForm.do?id=${id }'">회원 정보 수정</button> 
+				<button type="button" onclick="location.href='deleteuserForm.do?id=${id }'">회원 탈퇴</button>
 			</div>
 		</div>
 	</div>
 	</c:when>
+	<c:when test="${!empty kakaoId }">
+		<div class="card mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">카카오 회원 탈퇴</h6>
+			</div>
+			<div class="card-body">
+				<button type="button" onclick="location.href='deletekakao.do?kakaoId=${kakaoId}&kakaoPw=${kakaoPw }'">회원 탈퇴</button>
+			</div>
+		</div>
+	</c:when>	
 	</c:choose>
 </div>
 

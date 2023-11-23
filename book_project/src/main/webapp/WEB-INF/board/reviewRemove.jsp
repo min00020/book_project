@@ -21,7 +21,7 @@
 			
 			<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="삭제">
+				<input type="submit" class="btn btn-secondary" value="삭제">
 				
 			</td>
 			</tr>

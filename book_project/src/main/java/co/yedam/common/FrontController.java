@@ -18,8 +18,10 @@ import co.yedam.admin.web.AdminOrderControl;
 import co.yedam.admin.web.AdminOrderUpdate;
 import co.yedam.admin.web.ChartGenderControl;
 import co.yedam.admin.web.ChartMonthPriceCont;
+import co.yedam.admin.web.DeleteBookControl;
 import co.yedam.admin.web.InsertBookControl;
 import co.yedam.admin.web.InstaControl;
+import co.yedam.admin.web.UpdateBookControl;
 import co.yedam.board.web.BookAddBoardControl;
 import co.yedam.board.web.BookBoardFormControl;
 import co.yedam.board.web.BookBoardListControl;
@@ -50,6 +52,7 @@ import co.yedam.order.web.addOrderItemControl;
 import co.yedam.reply.web.AddReplyControl;
 import co.yedam.reply.web.DelReplyControl;
 import co.yedam.reply.web.ReplyListControl;
+import co.yedam.user.web.DeleteKakaoControl;
 import co.yedam.user.web.DeleteUserControl;
 import co.yedam.user.web.DeleteUserFormControl;
 import co.yedam.user.web.FindPassControl;
@@ -68,7 +71,7 @@ import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
-import co.yedam.user.web.OrderUserControl;
+import co.yedam.user.web.KakaoLoginControl;
 
 public class FrontController extends HttpServlet {
 
@@ -119,28 +122,32 @@ public class FrontController extends HttpServlet {
 		map.put("/addReply.do", new AddReplyControl());
 		map.put("/delReply.do", new DelReplyControl());
 		
+		// 로그인 & 회원가입
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
 		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
-
+		
+		// 마이 페이지
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
 		map.put("/modifyuserForm.do", new ModifyUserFormControl()); /* 회원 정보 수정 화면 */
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
 		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
 		
+		// 카카오 api
 		map.put("/kakaologin.do", new KakaoLoginControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaoIdCheck.do", new KakaoIdCheckControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaojoin.do", new KakaoJoinControl()); /* 카카오 회원가입 */
+		map.put("/deletekakao.do", new DeleteKakaoControl()); /* 카카오 회원 탈퇴 */
 		
+		// 로그인 부가기능
 		map.put("/finduser.do", new FindUserControl()); /* 아이디 찾기 */
 		map.put("/finduserForm.do", new FindUserFormControl()); /* 아이디 찾기 화면 */
 		map.put("/findpass.do", new FindPassControl()); /* 비밀번호 찾기 */
 		map.put("/findpassForm.do", new FindPassFormControl()); /* 비밀번호 찾기 화면 */
-		map.put("/orderuser.do", new OrderUserControl()); /* 사용자별 주문 목록 */
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
@@ -155,6 +162,9 @@ public class FrontController extends HttpServlet {
 		map.put("/adminBook.do", new AdminBookControl()); //도서 상품목록 페이지
 		map.put("/insertBook.do", new InsertBookControl());//상품 등록 페이지
 		map.put("/addBook.do", new AddBookControl()); //도서 추가
+		map.put("/updateBook.do", new UpdateBookControl() );//도서 수정)
+		map.put("/deleteBook.do", new DeleteBookControl() );//도서 수정
+		
 		//인스타
 		map.put("/insta.do", new InstaControl());
 

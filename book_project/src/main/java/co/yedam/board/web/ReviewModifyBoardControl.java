@@ -23,7 +23,7 @@ public class ReviewModifyBoardControl implements Command {
 
 
 		} else if (req.getMethod().equals("POST")) {
-			String saveDir = req.getServletContext().getRealPath("images");
+			String saveDir = req.getServletContext().getRealPath("image");
 			int size = 5 * 1024 * 1024;
 			// multiparRequest mr;
 			try {
@@ -39,10 +39,15 @@ public class ReviewModifyBoardControl implements Command {
 				String boardTitle = mr.getParameter("boardTitle");
 				String boardContent = mr.getParameter("boardContent");
 				String boardImage = mr.getFilesystemName("boardImage");
+				
+				
+				vo.setBoardContent(boardContent);
+				
+			
+				
 
 				vo.setBoardNo(Integer.parseInt(bno));
 				vo.setBoardTitle(boardTitle);
-				vo.setBoardContent(boardContent);
 				vo.setBoardImage(boardImage);
 
 			} catch (IOException e) {

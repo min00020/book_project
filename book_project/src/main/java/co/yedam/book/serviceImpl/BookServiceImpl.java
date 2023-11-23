@@ -43,4 +43,9 @@ public class BookServiceImpl implements BookService {
 		return mapper.invenbook(sort);
 	}
 
+	@Override
+	public List<BookVO> joinBoardList() {
+		return mapper.joinBoardList();
+	}
+
 }

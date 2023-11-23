@@ -13,6 +13,8 @@ public interface BookMapper {
 	
 	
 	public List<BookVO> invenbook(String type); // 책 분류
+	
+	public List<BookVO> joinBoardList(); //테이블 조인 book = board
 //	public String getkeyword();
 //	public void setKeyword(String keyword);
 }

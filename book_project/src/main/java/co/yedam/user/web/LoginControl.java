@@ -40,7 +40,7 @@ public class LoginControl implements Command {
 			}
 		} else {
 			try {
-				resp.sendRedirect("loginForm.do");
+				resp.sendRedirect("loginForm.do?loginSuccess="+ false);
 				System.out.println("실패");
 				System.out.println("아이디: " + id + "비밀번호: " +  pw);
 			} catch (IOException e) {

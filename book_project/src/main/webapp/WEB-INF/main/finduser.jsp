@@ -8,10 +8,42 @@
 	rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet" />
 <jsp:include page="../layouts/header.jsp"></jsp:include>
-<form action="finduser.do" method="post">
+<style>
+	#top {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	th {
+		font-size: large;
+	}
+	input {
+		height: 30px;
+		border: 0;
+		border-radius: 6px;
+		background-color: rgb(233, 233, 233);
+		display:flex; 
+		justify-content: flex-start; 
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	button {
+		height: 35px;
+		width: 120px;
+	    background-color:#0a0a23;
+	    color: #fff;
+	    border:none;
+	    border-radius:10px;
+	    margin-top: 10px;
+	    margin-bottom: 15px;
+	}
+	form {
+		margin-bottom: 60px;
+	}
+</style>
+<form action="finduser.do" method="post" onsubmit="return findid(this)">
 <hr>
 	<table class="table" align="center">
-		<h4 align="center">아아디 찾기</h4>
+		<h4 id="top" align="center">아아디 찾기</h4>
 		<tr>
 			<th>이름</th>
 			<td><input type="text" class="form-control" id="name" name="name" placeholder="이름을 입력하세요."></td>
@@ -21,8 +53,24 @@
 			<td><input type="text" class="form-control" id="phone" name="phone" placeholder="010-1111-2222"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" id="findid" value="아이디 찾기"></td>
+			<td align="center" colspan="2">
+			<button type="submit">아이디 찾기</button>
+			<button type="button" onclick="location.href='loginForm.do'">로그인 페이지</button>
+			</td>
 		</tr>
 	</table>
 </form>
+<script>
+function findid(obj) {
+	if (!obj.name.value || obj.name.value.trim().length === 0) {
+		alert("이름이 입력되지 않았습니다.");
+		return false;
+	}
+	if (!obj.phone.value || obj.phone.value.trim().length === 0) {
+		alert("전화번호가 입력되지 않았습니다.");
+		return false;
+	}
+	return true;
+}
+</script>
 <jsp:include page="../layouts/footer.jsp"></jsp:include>

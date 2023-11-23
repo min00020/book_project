@@ -8,7 +8,7 @@ import lombok.Data;
 public class BoardVO {
 	private int boardNo;         // 리뷰 번호
 	private int bookNo;          // 북 넘버 상품이 넘어옴
-	private int reviewStar;      //별점
+	private int reviewStar;      // 별점
 	private String boardTitle;   // 리뷰 제목
 	private String boardContent; // 리뷰 내용
 	private Date boardDate;      // 등록 날짜

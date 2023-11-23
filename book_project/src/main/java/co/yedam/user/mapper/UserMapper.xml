@@ -11,6 +11,7 @@
 		user_phone=#{userPhone},
 		USER_ADDRNUM=#{userAddrnum},
 		user_addr=#{userAddr}
+		where user_id=#{userId}
 	</update>
 	<delete id="delete">
 		delete from user_tbl where user_id=#{id} and user_pass=#{pw}

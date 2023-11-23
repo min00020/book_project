@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import co.yedam.board.service.BoardVO;
 import co.yedam.common.DataSourceMybatis;
 import co.yedam.order.service.OrderVO;
 import co.yedam.user.mapper.UserEtcMapper;
@@ -14,14 +15,16 @@ public class UserOrderServiceImpl implements UserOrderService {
 	UserEtcMapper mapper = sqlSession.getMapper(UserEtcMapper.class);
 	
 	@Override
-	public OrderVO orderuser(String id) {
-		return mapper.orderuser(id);
-	}
-
-	@Override
 	public List<OrderVO> selectorder(String id) {
 		return mapper.selectorder(id);
 	}
-	
+	@Override
+	public List<BoardVO> selectqna(String id) {
+		return mapper.selectqna(id);
+	}
 
+	@Override
+	public List<BoardVO> selectreview(String id) {
+		return mapper.selectreview(id);
+	}
 }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper SYSTEM "path/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.user.mapper.UserEtcMapper">
-	<select id="orderuser" resultType="co.yedam.order.service.OrderVO">
-		select * from order_tbl where user_id=#{id}
-	</select>
 	<select id="selectorder" resultType="co.yedam.order.service.OrderVO">
 		select * from order_tbl where user_id=#{id}
+	</select>
+	<select id="selectqna" resultType="co.yedam.board.service.BoardVO">
+		select * from board where board_sort='QnA게시판' and user_id=#{id}
+	</select>
+	<select id="selectreview" resultType="co.yedam.board.service.BoardVO">
+		select * from board where board_sort='리뷰게시판' and user_id=#{id}
 	</select>
 </mapper>

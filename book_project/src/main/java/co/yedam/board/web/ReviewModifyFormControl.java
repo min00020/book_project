@@ -17,6 +17,8 @@ public class ReviewModifyFormControl implements Command {
 		BoardService svc = new BoardServiceImpl();
 		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
 		req.setAttribute("vo", vo); //요청정보 vo 를 담는곳
+		
+		
 //		System.out.println(vo);
 		
 		try {

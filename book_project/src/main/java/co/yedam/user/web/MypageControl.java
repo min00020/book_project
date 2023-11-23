@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import co.yedam.board.service.BoardVO;
 import co.yedam.common.Command;
 import co.yedam.order.service.OrderVO;
 import co.yedam.user.service.UserOrderService;
@@ -37,6 +38,15 @@ public class MypageControl implements Command {
 		
 		req.setAttribute("list", list);
 		
+		// 회원별 게시글 목록 조회// 회원별 qna 게시글 목록
+		List<BoardVO> qlist = usvc.selectqna(userid);
+		req.setAttribute("qlist", qlist);
+		
+		// 회원별 리뷰 게시글 목록;
+		List<BoardVO> rlist = usvc.selectreview(userid);
+		req.setAttribute("rlist", rlist);
+		
+		
 		String path = "WEB-INF/main/mypage.jsp";
 		
 		try {
@@ -44,6 +54,9 @@ public class MypageControl implements Command {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 
 }

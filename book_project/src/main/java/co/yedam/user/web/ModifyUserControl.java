@@ -29,18 +29,15 @@ public class ModifyUserControl implements Command {
 		vo.setUserAddrnum(addrnum);
 		vo.setUserAddr(addr);
 		
-		UserService svc = new UserServiceImpl();
-		
-//		HttpSession session = req.getSession();
-	
+		UserService svc = new UserServiceImpl();	
 		
 		 if (svc.editUser(vo)) { 
-			 try { resp.sendRedirect("mypage.do"); 
+			 try { resp.sendRedirect("mypage.do?id="+id+"&modifySuccess="+true); 
 			 } catch (IOException e) {
 				 e.printStackTrace(); 
 			 }
 		 } else { 
-			 try { resp.sendRedirect("modifyForm.do"); 
+			 try { resp.sendRedirect("modifyuserForm.do?id="+id+"&modifySuccess="+false); 
 			 } catch (IOException e) {
 				 e.printStackTrace(); } 
 			 }
