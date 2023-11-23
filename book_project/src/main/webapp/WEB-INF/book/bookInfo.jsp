@@ -55,12 +55,12 @@
 				<p class="lead">${bno.bookContent }</p>
 
 				<div class="d-flex">
-					<select name="amount" class="form-control text-center me-3"
-						id="inputQuantity" type="text" style="max-width: 3rem">
-						<c:forEach begin="1" end="10" var="i">
-							<option value="${i}">${i}</option>
-						</c:forEach>
-					</select>&nbsp;개
+					<select name="amount" class="form-control text-center me-3" id="inputQuantity"
+						type="text" style="max-width: 3rem">
+                                    <c:forEach begin="1" end="10" var="i">
+                                        <option value="${i}">${i}</option>
+                                    </c:forEach>
+                                </select>&nbsp;
 					<button class="btn btn-outline-dark flex-shrink-0" type="submit">
 						<i class="bi-cart-fill me-1"></i><a id="addCart"
 							onclick="addCart()"> 장바구니 담기</a>
@@ -100,7 +100,7 @@
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
 								<a class="btn btn-outline-dark mt-auto"
-									href="bookInfo.do?bno=${vo.bookNo }">Cart</a>
+									href="bookInfo.do?bno=${vo.bookNo }">상세정보</a>
 							</div>
 						</div>
 					</div>
@@ -108,39 +108,6 @@
 			</c:forEach>
 		</div>
 	</div>
-
-
-	<div class="container px-4 px-lg-5 mt-5">
-		<div class="wrap_review">
-			<h2>리뷰 작성</h2>
-			<form name="reviewform" class="reviewform">
-				<label>작성자 <input name="userId" value="${userId }" readonly></label>
-				<div class="review">
-					<label>서비스 <select name="starservice" id="starservice">
-							<option value="5">5</option>
-							<option value="4">4</option>
-							<option value="3">3</option>
-							<option value="2">2</option>
-							<option value="1">1</option>
-					</select>
-					</label>
-				</div>
-				<div class="review_contents">
-					<textarea rows="10" name="writecontent" class="review_textarea"></textarea>
-				</div>
-				<div class="cmd">
-					<input type="button" id="addreview" onclick="addReview()"
-						value="리뷰작성">
-				</div>
-			</form>
-		</div>
-	</div>
-
-	<div class="container px-4 px-lg-5 mt-5">
-	 <h3>리뷰등록</h3>
-	<form name="reviewform" class="reviewform">
-	<table border="1" class="talbe">
-
 <div class="container px-4 px-lg-5 mt-5" style="text-align:center;">
 <h3>게시글 등록화면</h3>
 
@@ -200,7 +167,6 @@ function addCart() {
 
 	amount = document.querySelector('#inputQuantity').value;
 	
-	
 	document.querySelector('#addCart').addEventListener('click', function(e){
 	fetch('addCart.do', {
 		method: 'post',
@@ -212,6 +178,7 @@ function addCart() {
 		if(result.retCode == 'OK'){
 			alert('장바구니 추가되었습니다.');		
 	  	} else{
+			
 		}
 		
 	})
@@ -298,6 +265,8 @@ function makePaging(dto={}){
 	})
 	
 }
+
+
 
 
 // 등록버튼.

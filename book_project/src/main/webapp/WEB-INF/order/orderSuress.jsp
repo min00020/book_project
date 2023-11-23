@@ -118,8 +118,8 @@ table th {
 
 	<div class="col-lg-6 mx-auto">
 		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-				<input type="button" value="마이페이지로 가기" onclick="main()">
-				<input type="button" value="메인으로 가기" onclick="mypage()">
+				<input type="button" value="마이페이지로 가기" onclick="mypage()">
+				<input type="button" value="메인으로 가기" onclick="main()">
 		</div>
 	</div>
 </div>
@@ -169,8 +169,7 @@ function mypage(){
 		if(result.retCode == 'OK'){
 			location.href =  "mypage.do";
 		} else{
-			location.href =  "main.do";
-			console.log('삭제 실패')
+			location.href =  "mypage.do";
 		}
 	})//end of fetch
 }

@@ -187,7 +187,7 @@
 					<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 						<div class="text-center">
 							<a class="btn btn-outline-dark mt-auto"
-								href="bookInfo.do?bno=${vo.bookNo }">Cart</a>
+								href="bookInfo.do?bno=${vo.bookNo }">상세정보</a>
 						</div>
 					</div>
 				</div>
@@ -207,7 +207,7 @@
 	
 <script>
 $.ajax({
-	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRQU1FfQnhaYnN4dnhfc1JPZAmF3VHk2YlNDWDdpNnQ3RXZAXaTF1b1ZAoMm12T2YtcDJwbi10TGFXUVZAwSWEwLXQ4U19qZAjBuRmxMWkxsLUVGRklZAZAGZASaWJiUWNjZAXJ6NFprdEhYQ0docnE5MTdZARmFtWlZAicFUZD',
+	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRPNUlET0hUWkFkbmZAxVzdNczlBTVp4N29HaHZAMb2dIVVpPVnNZAMnExc0I1WURnUGhaV00yUURISmlmejV5ZAUU4VjBhdGdRdE04ODRHZAURkWEZAVR3IzOUpPbUNMRkg1blJKR21JX3BWMkNfb2FaRk13SVlpS2cZD',
 	  method: 'GET',
 	  dataType: 'jsonp',
 	  success: function (response) {

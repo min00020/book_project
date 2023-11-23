@@ -123,14 +123,14 @@ input[type=text], [type=email] {
 				</div>
 
 				<div class="col-12">
-					<input type="button" id="addrnum" value="주소 찾기">
+					<input type="button" id="addrnum" value="주소 찾기" style = "display:none;">
 					<p></p>
 					<input type="text" id="postcode" name="postcode" placeholder="우편번호"
 						value="${userInfo.userAddrnum }"> <input type="text"
 						id="sample6_address" name="addr" placeholder="주소"
 						value="${userInfo.userAddr }"><br> <input type="text"
 						id="sample6_detailAddress" name="addr" placeholder="상세주소">
-					<input type="text" id="requestD" placeholder="요청사항">
+					<input type="text" id="requestD" placeholder="요청사항" style = "display:none;">
 				</div>
 
 				<br>

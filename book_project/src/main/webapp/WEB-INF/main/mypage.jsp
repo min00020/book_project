@@ -110,6 +110,7 @@ window.onload = function() {
 									<th>전화번호</th>
 									<th>주문 금액</th>
 									<th>주문 날짜</th>
+									<th>주문 상태</th>
 								</tr>
 							</thead>
 						<c:forEach items="${list}" var="vo">
@@ -122,6 +123,7 @@ window.onload = function() {
 								<td>${vo.odrPhone }</td>
 								<td>${vo.odrTotalPrice }</td>
 								<td><fmt:formatDate value="${vo.odrDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+								<td>${vo.odrStatus}</td>
 							</tr>
 						</c:forEach>
 						</c:otherwise>
@@ -152,8 +154,8 @@ window.onload = function() {
 								
 								<tr>
 									<th>게시판 번호</th>
-									<th>리뷰 제목</th>
-									<th>리뷰 내용</th>
+									<th>QnA 제목</th>
+									<th>QnA 내용</th>
 									<th>등록 날짜</th>
 									<th>글쓴이</th>
 								</tr>
