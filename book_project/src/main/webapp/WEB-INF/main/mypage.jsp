@@ -106,7 +106,6 @@ window.onload = function() {
 									<th>주문자 아이디</th>
 									<th>우편번호</th>
 									<th>배송지</th>
-									<th>배송지</th>
 									<th>전화번호</th>
 									<th>주문 금액</th>
 									<th>주문 날짜</th>
@@ -119,7 +118,6 @@ window.onload = function() {
 								<td>${id }</td>
 								<td>${vo.odrZipcode }</td>
 								<td>${vo.odrAddr }</td>
-								<td>${vo.odrAddrD }</td>
 								<td>${vo.odrPhone }</td>
 								<td>${vo.odrTotalPrice }</td>
 								<td><fmt:formatDate value="${vo.odrDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
