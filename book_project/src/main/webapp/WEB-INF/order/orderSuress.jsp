@@ -68,22 +68,25 @@ table th {
 					<tbody>
 						<c:forEach items="${orderList }" var="list" varStatus="status">
 
-							<tr id="cno">
+						<tr id="cno">
 
 
-								<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
-										src="resources/image/${list.bookImage}" id="bookimage">
+							<td><a href="bookInfo.do?bno=${list.bookNo }"> <img
+									src="resources/image/${list.bookImage}" id="bookimage">
 
-								</a></td>
-								<td>${list.bookTitle }</td>
-								<td>${list.bookPrice }</td>
-								<td>${list.odrAmount}개</td>
+							</a></td>
+							<td>${list.bookTitle }</td>
 
 
+							<td><fmt:formatNumber value="${list.bookPrice}"
+									pattern="###,###,###" />원</td>
 
-							</tr>
+							<td><a class="list-Pricesum">${list.cartAmount * list.bookPrice}</a>원</td>
 
-						</c:forEach>
+						</tr>
+
+					</c:forEach>
+
 					</tbody>
 
 				</table>
@@ -105,7 +108,7 @@ table th {
 		<div class="d-grid gap-6 d-sm-flex justify-content-between py-5">
 			<div>
 				<h5>결제금액</h5>
-				<span>${totalPrice }</span>
+				<a>${totalPrice }</a>
 			</div>
 		</div>
 	</div>
@@ -115,17 +118,60 @@ table th {
 
 	<div class="col-lg-6 mx-auto">
 		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-			<button type="button"
-				class="btn btn-outline-secondary  btn-lg px-4 gap-3"
-				style="background-color: pink;">
-				<a href="mypage.do" style="color: white;">마이페이지로 가기</a>
-			</button>
-			<button type="button" class="btn btn-outline-secondary btn-lg px-4">
-				<a href="main.do" style="color: black;">메인으로 가기</a>
-			</button>
+				<input type="button" value="마이페이지로 가기" onclick="main()">
+				<input type="button" value="메인으로 가기" onclick="mypage()">
 		</div>
 	</div>
 </div>
 
 <script>
+
+//장바구니 초기화
+function main(){ 
+
+	
+	fetch('deleteAllCart.do', {
+
+		method: 'post',
+
+		headers: {'Content-type': 'application/x-www-form-urlencoded'},
+
+	})
+
+	.then(resolve => resolve.json())
+
+	.then(result =>{
+
+		if(result.retCode == 'OK'){
+			location.href =  "main.do";
+		} else{
+			location.href =  "main.do";
+			console.log('삭제 실패')
+		}
+	})//end of fetch
+}
+
+function mypage(){ 
+
+	
+	fetch('deleteAllCart.do', {
+
+		method: 'post',
+
+		headers: {'Content-type': 'application/x-www-form-urlencoded'},
+
+	})
+
+	.then(resolve => resolve.json())
+
+	.then(result =>{
+
+		if(result.retCode == 'OK'){
+			location.href =  "mypage.do";
+		} else{
+			location.href =  "main.do";
+			console.log('삭제 실패')
+		}
+	})//end of fetch
+}
 </script>

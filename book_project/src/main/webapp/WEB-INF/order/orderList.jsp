@@ -289,9 +289,9 @@ input[type=text], [type=email] {
 
 			.then(result => {
 				if (result.retCode == 'OK') {
-					alert('addOrder 성공')
+					console.log('addOrder 성공')
 				} else {
-					alert('addOrder 실패')
+					console.log('addOrder 실패')
 				}
 			}) //end of fetch
 	}
@@ -330,7 +330,8 @@ input[type=text], [type=email] {
 				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
 				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
 			} else { // 결제 실패시
-				alert(rsp.error_msg);
+				window.location.href =  "main.do"; 
+				alert('결제 실패 (메인페이지로 이동합니다)');
 				console.log(rsp);
 			}
 		});
@@ -356,8 +357,9 @@ input[type=text], [type=email] {
 				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
 				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
 			} else { // 결제 실패시
+				window.location.href =  "main.do";
+				alert('결제 실패 (메인페이지로 이동합니다)');
 				alert(rsp.error_msg);
-				console.log(rsp);
 			}
 		});
 	} //requestPay
@@ -381,9 +383,10 @@ input[type=text], [type=email] {
 				addOrder();  // 결제정보등록
 				addOrderItem(); // 장바구니 상품 => 주문 상품 등록
 				window.location.href =  "orderSuress.do?totalPrice=" + totalPrice; 
-				deleteAllCart(); // 장바구니 초기화
+				//deleteAllCart(); // 장바구니 초기화
 			} else { // 결제 실패시
-				alert(rsp.error_msg);
+				window.location.href =  "main.do";
+				alert('결제 실패 (메인페이지로 이동합니다)');
 				console.log(rsp);
 			}
 		});

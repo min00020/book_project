@@ -5,10 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.cart.service.CartJoinVO;
+import co.yedam.cart.service.CartService;
+import co.yedam.cart.serviceImpl.CartServiceImpl;
 import co.yedam.common.Command;
-import co.yedam.order.service.OrderJoinVO;
-import co.yedam.order.service.OrderService;
-import co.yedam.order.serviceImpl.OrderServiceImpl;
 
 public class OrderSuressControl implements Command{
 
@@ -16,16 +16,17 @@ public class OrderSuressControl implements Command{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		String path = "/WEB-INF/order/orderSuress.jsp";
-		OrderService svc = new OrderServiceImpl();
+		CartService svc = new CartServiceImpl();
 		
 		
 		String id = (String) req.getSession().getAttribute("id");
 		System.out.println(id);
-		List<OrderJoinVO> list = svc.orderList(id);
-		
+		List<CartJoinVO> list = svc.cartList(id);
 		
 		req.setAttribute("orderList", list);
-		
+		System.out.println(list);
+
+
 		try {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} catch (Exception e) {
@@ -34,3 +35,5 @@ public class OrderSuressControl implements Command{
 	}
 
 }
+
+
