@@ -57,7 +57,7 @@ input {
 		</div>
 		<div>
 			<h5>
-				비밀번호 <input type="password" id="pass" name="pass" />
+				비밀번호 <input type="password" id="pass" name="pass" palceholder="비밀번호를 입력해주세요."/>
 			</h5>
 		</div>
 		<div>

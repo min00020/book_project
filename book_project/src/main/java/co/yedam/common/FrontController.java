@@ -61,7 +61,6 @@ import co.yedam.user.web.LogoutControl;
 import co.yedam.user.web.ModifyUserControl;
 import co.yedam.user.web.ModifyUserFormControl;
 import co.yedam.user.web.MypageControl;
-import co.yedam.user.web.OrderUserControl;
 import co.yedam.user.web.KakaoLoginControl;
 
 public class FrontController extends HttpServlet {
@@ -110,29 +109,32 @@ public class FrontController extends HttpServlet {
 		map.put("/addReply.do", new AddReplyControl());
 		map.put("/delReply.do", new DelReplyControl());
 		
+		// 로그인 & 회원가입
 		map.put("/loginForm.do", new LoginFormControl()); /* 로그인 화면 */
 		map.put("/login.do", new LoginControl()); /* 로그인 처리 */
 		map.put("/logoutForm.do", new LogoutControl()); /* 로그아웃 */
 		map.put("/joinForm.do", new JoinFormControl()); /* 회원가입 화면 */ 
 		map.put("/join.do", new JoinControl()); /* 회원가입 처리 */
 		map.put("/idCheck.do", new IdCheckControl()); /* 아이디 중복 확인 */
-
+		
+		// 마이 페이지
 		map.put("/modifyuser.do", new ModifyUserControl()); /* 회원 정보 수정 처리 */
 		map.put("/modifyuserForm.do", new ModifyUserFormControl()); /* 회원 정보 수정 화면 */
 		map.put("/mypage.do", new MypageControl()); /* 마이 페이지 */
 		map.put("/deleteuser.do", new DeleteUserControl()); /* 회원 탈퇴 */
 		map.put("/deleteuserForm.do", new DeleteUserFormControl()); /* 회원 탈퇴 */
 		
+		// 카카오 api
 		map.put("/kakaologin.do", new KakaoLoginControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaoIdCheck.do", new KakaoIdCheckControl()); /* 카카오 로그인 처리*/
 		map.put("/kakaojoin.do", new KakaoJoinControl()); /* 카카오 회원가입 */
 		map.put("/deletekakao.do", new DeleteKakaoControl()); /* 카카오 회원 탈퇴 */
 		
+		// 로그인 부가기능
 		map.put("/finduser.do", new FindUserControl()); /* 아이디 찾기 */
 		map.put("/finduserForm.do", new FindUserFormControl()); /* 아이디 찾기 화면 */
 		map.put("/findpass.do", new FindPassControl()); /* 비밀번호 찾기 */
 		map.put("/findpassForm.do", new FindPassFormControl()); /* 비밀번호 찾기 화면 */
-		map.put("/orderuser.do", new OrderUserControl()); /* 사용자별 주문 목록 <삭제 해야함> */
 		
 		//관리자
 		map.put("/admin.do", new AdminControl()); //관리자 메인페이지
