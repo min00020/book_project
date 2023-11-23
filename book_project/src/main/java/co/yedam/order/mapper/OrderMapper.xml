@@ -24,7 +24,7 @@
 		parameterType="co.yedam.order.service.OrderVO">
 		insert into order_tbl values(seq_odr_code.nextval,
 		#{userId}, #{userName}, #{odrZipcode}, #{odrAddr}, #{odrAddrD},
-		#{odrPhone}, #{odrTotalPrice}, '주문완료', SYSDATE, #{odrRequest} )
+		#{odrPhone}, #{odrTotalPrice}, '주문완료', SYSDATE, '문앞에 두고 문자 부탁드립니다' )
 	</insert>
 
 	<insert id="addOrderItem"
