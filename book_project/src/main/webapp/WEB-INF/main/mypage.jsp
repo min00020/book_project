@@ -123,7 +123,6 @@ window.onload = function() {
 								<td>${vo.odrPhone }</td>
 								<td>${vo.odrTotalPrice }</td>
 								<td>${vo.odrStatus }</td>
-								<td>${vo.paymentStatus }</td>
 								<td><fmt:formatDate value="${vo.odrDate }" pattern="yyyy-MM-dd"></fmt:formatDate></td>
 							</tr>
 						</c:forEach>
