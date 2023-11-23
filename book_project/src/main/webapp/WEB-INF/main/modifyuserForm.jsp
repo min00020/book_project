@@ -56,7 +56,7 @@ window.onload = function() {
     const modifySuccessParam = urlParams.get('modifySuccess');
 
     if (modifySuccessParam === 'false') {
-        alert("로그인에 실패하였습니다.");
+        alert("회원 정보 수정에 실패하였습니다.");
     }
 };
 </script>

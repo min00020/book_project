@@ -32,12 +32,12 @@ public class ModifyUserControl implements Command {
 		UserService svc = new UserServiceImpl();	
 		
 		 if (svc.editUser(vo)) { 
-			 try { resp.sendRedirect("mypage.do?id="+id); 
+			 try { resp.sendRedirect("mypage.do?id="+id+"&modifySuccess="+true); 
 			 } catch (IOException e) {
 				 e.printStackTrace(); 
 			 }
 		 } else { 
-			 try { resp.sendRedirect("modifyForm.do?id="+id+"&modifySuccess="+false); 
+			 try { resp.sendRedirect("modifyuserForm.do?id="+id+"&modifySuccess="+false); 
 			 } catch (IOException e) {
 				 e.printStackTrace(); } 
 			 }

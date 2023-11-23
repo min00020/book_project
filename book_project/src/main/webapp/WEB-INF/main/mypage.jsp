@@ -74,9 +74,13 @@ button {
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     const kakaooutSuccessParam = urlParams.get('kakaooutSuccess');
+    const modifySuccessParam = urlParams.get('modifySuccess');
 
     if (kakaooutSuccessParam === 'false') {
         alert("카카오 회원 탈퇴에 실패하였습니다.");
+    }
+    if (modifySuccessParam === 'true') {
+        alert("회원 정보 수정에 성공하였습니다.");
     }
 };
 </script>
