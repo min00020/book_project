@@ -36,10 +36,14 @@ h5 {
 				<h5 align="center">아이디  ${vo.userId }</h5>
 			</tr>
 			<tr>
-			<td><button type="button" onclick="location.href='loginForm.do'">로그인</button></td>
+			<td>
+			<button type="button" onclick="location.href='findpassForm.do'">비밀번호 찾기</button>
+			<button type="button" onclick="location.href='loginForm.do'">로그인</button>
+			
+			</td>
 			</tr>
 		</c:when>
-		<c:otherwise>
+		<c:when test="${empty vo }">
 			<tr>
 				<h5 align="center">일치하는 회원 정보가 없습니다.</h5>
 			</tr>
@@ -47,7 +51,7 @@ h5 {
 			<td><button type="button" onclick="location.href='finduserForm.do'">이전 페이지</button></td>
 			</tr>
 	
-		</c:otherwise>
+		</c:when>
 	</c:choose>
 	</table>
 </form>

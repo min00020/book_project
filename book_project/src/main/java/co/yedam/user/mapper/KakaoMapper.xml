@@ -11,4 +11,7 @@
 	<select id="loginCheck" parameterType="co.yedam.user.service.UserVO">
 		SELECT * FROM KAKAO WHERE KAKAO_ID=#{kakaoId}
 	</select>
+	<delete id="delete">
+		delete from KAKAO where KAKAO_ID=#{kakaoId} and KAKAO_Pw=#{kakaoPw}
+	</delete>
 </mapper>

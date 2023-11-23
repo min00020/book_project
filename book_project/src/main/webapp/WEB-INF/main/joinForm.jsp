@@ -57,6 +57,16 @@ input {
 		margin-bottom: 60px;
 	}
 </style>
+<script>
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const joinSuccessParam = urlParams.get('joinSuccess');
+
+    if (joinSuccessParam === 'false') {
+        alert("로그인에 실패하였습니다.");
+    }
+};
+</script>
 <div class="joinform">
 	<form action="join.do" name="joinform" method="post" onsubmit="return joinCheck(this)">
 		<table class="table" align="center">
@@ -64,7 +74,7 @@ input {
 		<div class="row">
 			<h5>아이디</h5>
 			<div id="joinid" class="join">
-				<input type="text" id="id" name="id" placeholder="아이디 입력(4자~20자)" />
+				<input type="text" id="id" name="id" onchange="checkidlength()" placeholder="아이디 입력(4자~20자)" />
 				<input type="button" id="idcheck" value="중복 확인" />
 			</div>
 		</div>
@@ -113,7 +123,7 @@ input {
 		<div class="row">
 			<h5>전화번호</h5>
 		<div class="join">
-			<input type="text" name="pnum">
+			<input type="text" name="pnum" placeholder="010-1111-1111" >
 		</div>
 		</div>
 		<div class="row">
@@ -164,14 +174,14 @@ input {
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 /* 아이디 길이 확인 */
-/* function checkidlength() {
+function checkidlength() {
 	let id = document.getElementById("id").value;
 	if (id.length < 4 || id.length > 20) {
 		alert("아이디 길이는 4자~20자로 입력하여야 합니다.");
 		document.getElementById('id').value = null;
 		document.getElementById('id').focus();
 	}
-} */
+} 
 /* 아이디 중복 확인 */
 let isIdChecked = null;
 let doublecheck = document.querySelector('#idcheck');
@@ -340,7 +350,8 @@ doublecheck.addEventListener('click', function(e) {
 		    if(isBirthValid) { 
 		    	birtherrmsg.textContent = "";
 		    } else { 
-		    	birtherrmsg.textContent = "생년월일을 다시 확인해주세요";		 
+		    	birtherrmsg.textContent = "생년월일을 다시 확인해주세요";
+		    	birtherrmsg.style.color = "red";
 		    }
 		  }
 
@@ -352,6 +363,7 @@ doublecheck.addEventListener('click', function(e) {
 			if(!reg.test(passcheck.value)) {
 				alert("비밀번호는 8자 이상, 숫자, 대문자, 소문자, 특수문자를 모두 포함되어야합니다.");
 				document.getElementById('pw1').value = null;
+				document.getElementById('pw1').focus;
 			}
 		}
 		
@@ -361,6 +373,8 @@ doublecheck.addEventListener('click', function(e) {
 		if (document.getElementById('pw2').value != null) {
 			if (document.getElementById('pw1').value != document.getElementById('pw2').value){
 				alert("비밀번호가 일치하지 않습니다.");
+				document.getElementById('pw2').value = null;
+				document.getElementById('pw2').focus;
 			}
 		}
 	}
@@ -378,10 +392,7 @@ doublecheck.addEventListener('click', function(e) {
 	 
 	
 	/* 회원가입 유효성 */
-	console.log("this out : ", this);
 	function joinCheck(obj) {
-	console.log("this in : ", this);
-	console.log("this: ", obj);
 	console.log("isIdChecked", isIdChecked);
 		/* obj.preventDefault(); */
 		if (!obj.id.value || obj.id.value.trim().length == 0){
@@ -397,8 +408,11 @@ doublecheck.addEventListener('click', function(e) {
 			document.getElementById('idcheck').focus;
 			return false;
 		} 
+		if (isBirthValid == false) {
+			alert("생년월일을 올바르게 입력해주세요.");
+			return false;
+		}
 		return true;
-		/* form.submit(); */
 	}
 		
 	  

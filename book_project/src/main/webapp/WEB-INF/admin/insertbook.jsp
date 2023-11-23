@@ -8,6 +8,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">상품 등록</h1>
+                     <p class="mb-4">판매할 상품의 정보를 등록할 수 있습니다.</p>
                     <!-- DataTales Example -->
                     
                     <div class="container">

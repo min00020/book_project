@@ -8,12 +8,9 @@ import co.yedam.cart.service.CartVO;
 public interface CartMapper {
 
 	public List<CartJoinVO> cartList(String id); // 장바구니 목록
-	
 	public int addCart(CartVO vo); // 장바구니 추가
-
 	public int deleteCart(int cartCode); // 장바구니 삭제
-
+	public int deleteAllCart(String id); // 장바구니 전체삭제
 	public boolean modifyCart(CartVO vo); // 장바구니 수정
-
 
 }

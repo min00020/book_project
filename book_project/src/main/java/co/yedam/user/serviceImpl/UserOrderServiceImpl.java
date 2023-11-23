@@ -19,13 +19,12 @@ public class UserOrderServiceImpl implements UserOrderService {
 		return mapper.selectorder(id);
 	}
 	@Override
-	public List<BoardVO> selectqna() {
-		return mapper.selectqna();
+	public List<BoardVO> selectqna(String id) {
+		return mapper.selectqna(id);
 	}
 
 	@Override
-	public List<BoardVO> selectreview() {
-		// TODO Auto-generated method stub
-		return mapper.selectreview();
+	public List<BoardVO> selectreview(String id) {
+		return mapper.selectreview(id);
 	}
 }

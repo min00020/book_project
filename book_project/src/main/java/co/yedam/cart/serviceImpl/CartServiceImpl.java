@@ -40,5 +40,11 @@ public class CartServiceImpl implements CartService {
 		return mapper.modifyCart(vo);
 	}
 
+	@Override
+	public boolean deleteAllCart(String id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteAllCart(id) > 0;
+	}
+
 	
 }

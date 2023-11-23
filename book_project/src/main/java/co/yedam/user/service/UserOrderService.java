@@ -7,6 +7,6 @@ import co.yedam.order.service.OrderVO;
 
 public interface UserOrderService {
 	public List<OrderVO> selectorder(String id);
-	public List<BoardVO> selectqna();
-	public List<BoardVO> selectreview();
+	public List<BoardVO> selectqna(String id);
+	public List<BoardVO> selectreview(String id);
 }

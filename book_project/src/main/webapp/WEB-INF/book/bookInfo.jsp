@@ -60,13 +60,7 @@
                                     <c:forEach begin="1" end="10" var="i">
                                         <option value="${i}">${i}</option>
                                     </c:forEach>
-                                </select>&nbsp;개
-					<button class="btn btn-outline-dark flex-shrink-0" type="button">
-
-						<i class="bi-cart-fill me-1"></i><i
-							class="bi-cart-fill me-1"></i><a href="orderListInfo.do">
-							구매하기</a>
-					</button>
+                                </select>&nbsp;
 					<button class="btn btn-outline-dark flex-shrink-0" type="submit">
 						<i class="bi-cart-fill me-1"></i><a id="addCart"
 							onclick="addCart()"> 장바구니 담기</a>
@@ -106,7 +100,7 @@
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
 								<a class="btn btn-outline-dark mt-auto"
-									href="bookInfo.do?bno=${vo.bookNo }">Cart</a>
+									href="bookInfo.do?bno=${vo.bookNo }">상세정보</a>
 							</div>
 						</div>
 					</div>

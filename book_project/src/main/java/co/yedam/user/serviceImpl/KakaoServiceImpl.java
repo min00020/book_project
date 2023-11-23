@@ -26,4 +26,9 @@ public class KakaoServiceImpl implements KakaoService {
 		return mapper.loginCheck(kakaoId, kakaoPw);
 	}
 
+	@Override
+	public boolean delete(String kakaoId, String kakaoPw) {
+		return mapper.delete(kakaoId, kakaoPw);
+	}
+
 }
