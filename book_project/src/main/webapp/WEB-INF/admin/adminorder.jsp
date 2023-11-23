@@ -28,7 +28,7 @@
 
                      <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">주문관리</h1>
-                    <p class="mb-4">주문내역 조회</p>
+                    <p class="mb-4">주문내역을 조회하고 주문 상태를 변경할 수 있습니다.</p>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

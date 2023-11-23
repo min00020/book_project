@@ -15,7 +15,7 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">상품 목록</h1>
-                    <p class="mb-4">상품 수량과 정보를 확인하고 수정할 수 있습니다.</p>
+                    <p class="mb-4">상품 수량과 정보를 확인하고 수정, 삭제할 수 있습니다.</p>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -127,14 +127,14 @@
 					                                <div class="form-group">
 					                                    <textarea  class="form-control form-control-user" id="infoBookContent" name="content" rows="3">도서 소개</textarea>
 					                                </div>
+					                                <a href="#" class="btn btn-google btn-user btn-block" onclick= 'deleteBook()'>
+			                                            상 품 삭 제
+			                                        </a>
+					                                <hr>
 					                                <div style="text-align: center;">
-															<input type="submit" class="btn btn-primary" value="수정하기">
+															<input type="submit" class="btn btn-primary" value="상품 수정">
 															<input type="reset" class="btn btn-warning" value="초기화">
 					                                </div>
-					                                <hr>
-					                                <a href="#" class="btn btn-google btn-user btn-block" onclick= 'deleteBook()'>
-			                                            삭 제
-			                                        </a>
 					                            </form>
 					                            <hr>
 					                            <div class="text-center">
@@ -166,7 +166,7 @@ const infoBookImage = document.querySelector("#infoBookImage");
 
 //checkbox 하나만 선택 + 체크박스 누르면 > 선택한 상품 상세정보 띄우기
 function checkOnlyOne(element){
-	
+	console.log(element);
 	checkboxes.forEach((cb)=>{
 		cb.checked = false;
 	})
