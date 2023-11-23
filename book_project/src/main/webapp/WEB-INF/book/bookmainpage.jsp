@@ -207,7 +207,7 @@
 	
 <script>
 $.ajax({
-	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRNZAkhNQXV6YzB6MUI4WHlLcGxYeEJPejRFQy0wbWMwN1JIenVORi1sS2E0S2VoNlVJY3lsdDlMN09WVmhLV1M5R2FKa0RqQXFMSVJWSWhpc2RLYjUzemxzdVZAWdm1VMnlkMVdscExPRlVZAVVp0V2N6VHc5ZAjAZD',
+	  url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url&access_token=IGQWRNU1BrZAlhkck1zZAnFVY0tiMzhBdUs3bFlScDFDYUdNRmtUWVVxeXp2OHRZAemtmSkVnZAk9PRThzRlh6aVF1M21tLXg0LWNob1VhZAVk0T3FEWjQ2U09Xcjc1aTNnVWkyY1RSVEhiVmk0YmpELUVTVThHb3FOTUEZD',
 	  method: 'GET',
 	  dataType: 'jsonp',
 	  success: function (response) {

@@ -84,14 +84,25 @@ input[type=text], [type=email] {
    transition: all 0.2s;
    background: #5DC8CD;
 }
+
 input[type=button], input[type=submit], input[type=reset] {
-  background-color: #04AA6D;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
+   background-color: #04AA6D;
+   border: none;
+   color: white;
+   padding: 16px 32px;
+   text-decoration: none;
+   margin: 4px 2px;
+   cursor: pointer;
+}
+
+#goBack {
+   background-color: #2E64FE;
+   border: none;
+   color: white;
+   padding: 16px 32px;
+   text-decoration: none;
+   margin: 4px 2px;
+   cursor: pointer;
 }
 </style>
 
@@ -114,34 +125,39 @@ input[type=button], input[type=submit], input[type=reset] {
       <div class="col-md-7 col-lg-8">
          <form class="needs-validation" novalidate>
             <div class="col-12"></div>
-
+            <h1>배송지 </h1>
+            <br>
             <div class="col-12">
-               <label for="firstName" class="form-label">이름</label> <input
+               <label for="firstName" class="form-label">이름을 입력해주세요</label> <input
                   type="text" class="form-control" id="firstName" placeholder=""
                   value="${userInfo.userName }" required>
             </div>
 
             <div class="col-12">
-               <label for="firstName" class="form-label">전화번호</label> <input
+               <label for="firstName" class="form-label">전화번호를 입력해주세요</label> <input
                   type="text" class="form-control" id="tel" placeholder=""
                   value="${userInfo.userPhone }" required>
             </div>
 
             <div class="col-12">
-               <label for="email" class="form-label">이메일</label> <input
+               <label for="email" class="form-label">이메일을 입력해주세요</label> <input
                   type="email" class="form-control" id="email"
                   placeholder="you@example.com" value="${userInfo.userEmail }">
             </div>
 
             <div class="col-12">
-               <input type="button" id="addrnum" value="주소 찾기" style = "display:none;">
+               <input type="button" id="addrnum" value="주소 찾기"
+                  style="display: none;">
                <p></p>
-               <input type="text" id="postcode" name="postcode" placeholder="우편번호"
-                  value="${userInfo.userAddrnum }"> <input type="text"
+               <label for="firstName" class="form-label">우편번호를 입력해주세요</label> <input
+                  type="text" id="postcode" name="postcode" placeholder="우편번호"
+                  value="${userInfo.userAddrnum }"> <label for="firstName"
+                  class="form-label">주소를 입력해주세요</label> <input type="text"
                   id="sample6_address" name="addr" placeholder="주소"
                   value="${userInfo.userAddr }"><br> <input type="text"
                   id="sample6_detailAddress" name="addr" placeholder="상세주소">
-               <input type="text" id="requestD" placeholder="요청사항" style = "display:none;">
+               <input type="text" id="requestD" placeholder="요청사항"
+                  style="display: none;">
             </div>
 
             <br>
@@ -167,8 +183,8 @@ input[type=button], input[type=submit], input[type=reset] {
                               src="resources/image/${list.bookImage}" id="bookimage">
 
                         </a></td>
-                        <td style="display:none;">${list.cartCode }</td>
-                        <td style="display:none;">${list.bookNo }</td>
+                        <td style="display: none;">${list.cartCode }</td>
+                        <td style="display: none;">${list.bookNo }</td>
                         <td>${list.bookTitle }</td>
 
                         <td>${list.cartAmount}<span>개</span></td>
@@ -190,7 +206,9 @@ input[type=button], input[type=submit], input[type=reset] {
                   type="button" value="카카오페이" onclick="kakaoPay()">
             </div>
          </form>
-         <a href="javascript:history.back();">돌아가기</a>
+         <br>
+         <input id="goBack"
+                  type="button" value="이전으로" onclick="javascript:history.back();">
 
       </div>
    </div>
